@@ -1,0 +1,2396 @@
+{
+  "active": true,
+  "connections": {
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Extrarer Fecha y Hora",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener Mensajes del día1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Link Grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer Código de invitación": {
+      "main": [
+        [
+          {
+            "node": "Buscar grupos2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filtrar por Plantilla": {
+      "main": [
+        [
+          {
+            "node": "Construir Mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje12",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje13",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje14",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje15",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje16",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Construir Mensaje17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar grupos2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "VARIABLES",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Extraer Código de invitación",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Enviar Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar documento1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar imagem1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar texto2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar texto2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje4": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje5": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje6": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje7": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje8": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje9": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje10": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje11": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje12": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje13": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje14": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje15": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje16": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje17": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrarer Fecha y Hora": {
+      "main": [
+        [
+          {
+            "node": "Obtener Mensajes del día1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar imagem1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VARIABLES": {
+      "main": [
+        [
+          {
+            "node": "filtrar por Plantilla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Mensaje": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Video": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar documento1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Link Grupo": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-06T19:27:39.738Z",
+  "id": "Gd2KBvvXmk491kBW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Bot Grupos",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        448,
+        4496
+      ],
+      "id": "0304d2fd-6b09-478d-bb57-13b8b93b6d6a",
+      "name": "Date & Time1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I",
+          "mode": "list",
+          "cachedResultName": "Admin Enrique",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Mensajes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Fecha",
+              "lookupValue": "={{ $json.Fecha }}"
+            },
+            {
+              "lookupColumn": "Hora",
+              "lookupValue": "={{ $json.Hora }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        896,
+        4496
+      ],
+      "id": "169a6d86-bcb4-4bc1-88ad-4d5d29b53fae",
+      "name": "Obtener Mensajes del día1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1120,
+        4496
+      ],
+      "id": "aa06f427-e978-460f-8d2a-18cb106b027e",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Extrae el invite code de una URL de invitación de WhatsApp.\n * @param {string} url - La URL de invitación (p. ej. https://chat.whatsapp.com/ABCDE12345?mode=ac_t)\n * @returns {string|null} - El código de invitación, o null si no coincide.\n */\nfunction extractInviteCode(url) {\n  const regex = /https?:\\/\\/chat\\.whatsapp\\.com\\/([^?]+)/;\n  const match = url.match(regex);\n  return match ? match[1] : null;\n}\n\n// Ejemplo de uso\nconst url = $('Link Grupo').first().json.link_grupo;\nconst inviteCode = extractInviteCode(url);\nreturn {id: inviteCode}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2672,
+        2464
+      ],
+      "id": "014e0271-6b86-46c7-a48e-6e98093ebac1",
+      "name": "Extraer Código de invitación"
+    },
+    {
+      "parameters": {
+        "resource": "groups-api",
+        "operation": "fetch-groups",
+        "instanceName": "FelizBot",
+        "inviteCode": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2896,
+        2464
+      ],
+      "id": "efb9ada5-ed09-4533-9582-6e603ebdbe20",
+      "name": "Buscar grupos2",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Fijo con PDF al abrir el grupo - gpo nvo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "d79ddb30-f4f9-46ea-ba0c-42726961cc5d"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Fijo con PDF al abrir el grupo - gpo nvo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ec68da9d-79ed-4de9-a55d-d4563a218020",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Aviso nueva MC - gpos anteriores",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Aviso nueva MC - gpos anteriores"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "59bd402a-9dfa-4f9a-8c06-591a269b3de1",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 1 - gpo nvo- reflexión 1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 1 - gpo nvo- reflexión 1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c15d872a-10f4-4f14-a1c6-a5549000ccd4",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Invitación a LIVE - todos los gpos",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Invitación a LIVE - todos los gpos"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a91b2bf5-6b4f-434c-9295-bd8465cfc3bf",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Estamos en vivo! - todos los gpos",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Estamos en vivo! - todos los gpos"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a005eebb-4571-4524-ac4d-1288cd4acb30",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 2 - gpo nvo - 4 señales alerta y encuesta",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 2 - gpo nvo - 4 señales alerta y encuesta"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b7a0d22a-b57c-4a33-93e1-3d7fc41ed59e",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Aviso cierre grupo - gpos anteriores",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Aviso cierre grupo - gpos anteriores"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "87d17746-7830-43be-b4f6-c1c7decc0661",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 3 - gpo nvo - tarea preguntas a hijo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 3 - gpo nvo - tarea preguntas a hijo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7e808e56-b7a6-4959-b857-579964dfa009",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 4 - gpo nvo - reflexión 2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 4 - gpo nvo - reflexión 2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "955f9300-02a7-4036-bc33-a20cfffe6bc4",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "24b1870d-3d43-4230-a434-b566ce8d4fb4",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9a7147d4-0aab-4cbe-a4ba-5857a013bc7d",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 7 - gpo nvo - Empezó MC y zoom",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 7 - gpo nvo - Empezó MC y zoom"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f2a99e6a-33d0-4a73-b969-613cca151a29",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 8 - gpo nvo - Último aviso MC y zoom",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 8 - gpo nvo - Último aviso MC y zoom"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e55a1289-086b-4f88-934d-0259aae7e336",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 9 - gpo nvo - Recordatorio compra 1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 9 - gpo nvo - Recordatorio compra 1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9b2cd640-0956-40ea-a42c-360a7ae2eb9f",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 10 - gpo nvo - Recordatorio compra 2 y video",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 10 - gpo nvo - Recordatorio compra 2 y video"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7814b183-e676-4945-8205-3cad23f467a6",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 11 - gpo nvo - Quedan 12 horas",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 11 - gpo nvo - Quedan 12 horas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "34bed618-b062-4a19-80ad-dafa0131bcf9",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 11 - gpo nvo - Quedan 2 horas",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 11 - gpo nvo - Quedan 2 horas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "094c61ff-6c2e-472a-97dc-3530529baff6",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Encuesta",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Encuesta"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2000,
+        2192
+      ],
+      "id": "59aa237a-f62f-41bd-b573-dddc8b2e8b8a",
+      "name": "filtrar por Plantilla"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "={{ $json.introEleccionCarrera }}\n\nViene una nueva Masterclass gratuita el {{ $json.FechaMasterClass }} donde te explicaremos el método con el que podemos auydar a tu hijo a elegir con base a sus habilidades e intereses, y con un profundo conocimiento del mundo laboral.\n\n✅ Si quieres asistir, únete al nuevo grupo de Whatsapp.\n\nEnviaremos la liga para conectarse solo a ese nuevo grupo.\n\nPara unirte da clic aquí: {{ $json.LigaNuevoGrupo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1024
+      ],
+      "id": "2f6aba3a-9849-4ca2-a660-db35f28ba10e",
+      "name": "Construir Mensaje1"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "messageText": "={{ $json.Mensaje[0] }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        4256
+      ],
+      "id": "a862ac52-5170-4fa6-b32a-f453f5ec8551",
+      "name": "Enviar texto2",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1552,
+        2448
+      ],
+      "id": "3112c5b4-19f2-4efc-8559-2385e161e872",
+      "name": "Wait1",
+      "webhookId": "db902bd6-5745-4119-9012-91bc09397b96"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a8a6c87c-4ea1-427e-9128-ae4eb2ce7647",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "Video",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Video"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "PDF",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bc5c213e-7625-455c-864b-e9f5644925f8"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "90fd2d81-7485-4619-82af-363ea116951b",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "Imagen",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Imagen"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "91541d60-7c88-4a74-986e-854a1118d7bd",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "99b46b18-f8d6-40cc-86da-62f298ed0082",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "Encuesta",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Encuesta"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4fd9ee7a-937b-44a0-bada-80a93aac2eab",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+                    "rightValue": "Texto",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Texto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        4144,
+        2400
+      ],
+      "id": "3c5b4b34-60d9-46a5-b596-e9388bf26264",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d222e41-10ef-4b6f-91a7-2c52f8e10a4d",
+              "name": "id_grupo",
+              "value": "={{ $json.data.id }}",
+              "type": "string"
+            },
+            {
+              "id": "d08bea17-4cc9-45bd-b3ad-9592ee883d70",
+              "name": "Mensaje",
+              "value": "={{ $('Aggregate').item.json.Mensaje[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "f427144e-be05-4e6e-8e7c-c605506c54a9",
+              "name": "=TypeMedia",
+              "value": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+              "type": "string"
+            },
+            {
+              "id": "a2a443d7-dda1-4585-8300-1bd7e47fa752",
+              "name": "UrlArchivos",
+              "value": "={{ $('Obtener Mensajes del día1').item.json.MediaURL }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3696,
+        3888
+      ],
+      "id": "f22c7c58-64d2-4783-8468-cd7fe36bfd00",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Mensaje"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2448,
+        2464
+      ],
+      "id": "c631c55b-9b0d-4329-a9b7-1e471c4c404b",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¿Estás de acuerdo que al elegir carrera no se decide solo qué estudiar?\n\nEs el primer paso para todo lo que vivirá como adulto, desde dónde va a poder desarrollar mejor sus talentos hasta qué le dará el estilo de vida que quiere tener.\n\n*En esta decisión hay mucho en juego.*\n\n👉 Esta semana previa a la Masterclass quiero que sea como una conversación íntima contigo: compartirte lo que no te dicen allá afuera, y cómo convertirte en el facilitador que tu hijo necesita.\n\n*Mañana* te tengo una sorpresa. \n¡Revisa el mensaje que enviaré!\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1216
+      ],
+      "id": "41826ef9-094b-4d98-b758-09e2f1dffe95",
+      "name": "Construir Mensaje2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=✨ *¡Ayuda! Mi hijo ya tiene que elegir carrera.*🎓\n\n🎯 Hoy en la noche daré un live para hablar de algunos temas importantes que no veremos en la Masterclass por tiempo, pero es importante que conozcas.\n\nVamos a ver puntos como:\n• ¿Cuándo es el mejor momento para elegir carrera?\n• ¿Qué mitos debes cuidar?\n• ¿Cómo afectará la Inteligencia Artificial al futuro profesional?\n• ¿Es bueno un año sabático?\n…Y como será una sesión abierta, también responderé todas tus preguntas.\n\n⏰ *Hora:* 7:00pm CDMX | 8:00pm Colombia\n       Durará solo 20 minutos.\n📍 *Dónde:* En mi cuenta de Instagram 👉 @felizconmicarrera\n\n*Agéndalo ¡y ponte una alarma!*: está hecho para ti.\n\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1408
+      ],
+      "id": "bedfb825-581d-4c44-b41a-68a56dc22976",
+      "name": "Construir Mensaje3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🚨 *¡Ya estamos en vivo!* y solo durará 20 minutos.\n\n📲*¡Entra ahora a mi cuenta* y únete a la conversación en tiempo real!\n  👉Instagram:  @felizconmicarrera\n\nPara los que preguntaron cómo entrar: \n1️⃣ Busca nuestra cuenta y síguela.  \n2️⃣ Da clic al circulo con la foto de Enrique (delineada en rojo). ",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1600
+      ],
+      "id": "90610e92-9be0-4ddf-87ca-452a9eaf94bc",
+      "name": "Construir Mensaje4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¿Sabías que más del 40% de los jóvenes se equivocan al elegir carrera?*\n\nY, en su momento, todos ellos creyeron que habían elegido bien. \n\nEstas son las 4 señales de alerta que pueden llevar a una mala elección:\n🚩 No conocen su perfil a fondo, incluyendo habilidades e intereses *no evidentes*.\n🚩 No han tenido ayuda real para descubrir *TODAS* las carreras ideales para su perfil (no 3 o 4).\n🚩 Están eligiendo por razones equivocadas: por dinero, por presión… o simplemente porque “les gusta” sin más.\n🚩 No consideran la realidad del campo laboral.\n\n\n🎯 En la Masterclass te mostraré cómo podemos ayudar a tu hijo a evitar estos errores, y cómo podemos facilitar que elija con confianza y sin arrepentimientos.\n\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1792
+      ],
+      "id": "98fb3719-024e-48ce-8aaa-bb6d0a22a92a",
+      "name": "Construir Mensaje5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que cuando te unas al grupo de WhatsApp te asegures que el grupo *no se quede archivado*. \n\nPara unirte da clic aquí: \n{{ $json.LigaNuevoGrupo }}",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        1984
+      ],
+      "id": "d3e33986-5764-4ae6-a3f2-990e73c5e0ac",
+      "name": "Construir Mensaje6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🟢 *Tarea del día:*\n\nLas dos decisiones más importantes en la vida de una persona son: a qué se va a dedicar y con quién va a compartir su vida.\n\nLa primera decisión *ya está aquí*, porque el camino profesional de tu hijo no empieza cuando se gradúe o con su primer trabajo.\nEmpieza justo con la carrera que elija, *ahora*.\n\nNo es algo que deba decidir a la ligera o solo con lo que se ve en la escuela o en internet.\n\nEs una decisión que impactará de una forma tan amplia en su vida, que es importante hacer todo lo posible para que haga la elección correcta.\n\n*Hazle estas preguntas a tu hijo* hoy, te ayudará a sensibilizarte de cómo está:\n1️⃣ ¿Qué palabras te vienen a la mente cuando piensas en que ya tienes que elegir carrera?\n2️⃣ ¿Qué tan seguro te sientes de tener toda la información para elegir bien y por qué te sientes así?\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        2176
+      ],
+      "id": "ccc2e462-2610-4d9f-a039-dbe7ed9c88f8",
+      "name": "Construir Mensaje7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=💬 _“Quisiera que encuentre una carrera que le guste mucho, donde se pueda desarrollar, pero también que tenga buen campo laboral.”_\nCeci, mamá de Jorge.\n\n⚠️ *Las cosas ya no son como antes.*\n\nHoy existen más de 150 carreras, y el mundo laboral está cambiando más rápido de lo que podemos imaginar.\n\nEn este contexto, no basta con un test o con la intuición de “esto me gusta”.\nEs clave que tu hijo conozca a profundidad su perfil único y *todas las opciones* afines que existen para que elija con bases firmes y seguras. \n\n\n\n📊 En la Masterclass te voy a mostrar cómo podemos ayudar a que tu hijo descubra opciones afines a su perfil *que ni siquiera conocía* y cómo eso puede marcar la diferencia para que arranque con confianza su vida adulta.\n\n¡Que tengan un gran día!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        2368
+      ],
+      "id": "2da7cc80-b123-4f7d-ae5e-280c9a69b454",
+      "name": "Construir Mensaje8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        2560
+      ],
+      "id": "c53c5ea6-61f5-4ce6-89e9-f2788d89da79",
+      "name": "Construir Mensaje9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*La Masterclass empieza en una hora.*\n\n⏰ Nos vemos a las 7:00pm CDMX | 8:00pm Colombia\n\n✅ ¡Sigue en este grupo! \nPorque al terminar la sesión enviaremos aquí la liga con la grabación e información importante de cierre.\n\n📲  Aquí te dejo el link para entrar: \n\n{{ $json.LinkZoom }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        2752
+      ],
+      "id": "16de5a39-efa6-4c5c-94ab-215007cc1103",
+      "name": "Construir Mensaje10"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¿Te estás perdiendo la Masterclass?\n\n*En 5 minutos empieza la parte más importante*, ¡aún estás a tiempo de conectarte!\n\nZoom:\n{{ $json.LinkZoom }}\n\n📲 *¡Conéctate ahora!*\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        2944
+      ],
+      "id": "3b04c7af-3aeb-4ceb-90f5-706c8e8726b6",
+      "name": "Construir Mensaje11"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        3136
+      ],
+      "id": "74bceb17-2f79-447d-be54-982e2323037e",
+      "name": "Construir Mensaje12"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=Amanecimos con muchos mensajes de papás con su confirmación de compra.\n🙏🏼 Todos en el equipo nos sentimos *honrados* por la confianza que han puesto en nosotros.\n\nComo les dije ayer en el cierre, ya lo verán… ¡VAMOS A TRABAJAR INCREÍBLE CON Y POR SUS HIJOS!\nSi apenas es hoy es cuando lo vas a platicar con tu hijo, dale el apoyo que merece para:\n✅ Elegir una carrera alineada a sus habilidades, intereses y expectativas.\n✅ Tomar esta decisión tan importante de la *mejor forma posible*.\n✅ Reducir el riesgo de equivocarse y perder tiempo, dinero y motivación.\n\n*Recuerda:*\nEl precio especial para ambos programas estará disponible hasta el *{{ $json.FechaMaxima }}*.\n\nhttps://www.felizconmicarrera.com/method-precio-especial/\n📲 Para cualquier duda solo envía un WhatsApp al número de este grupo:\n( +52 1 55 1172 1680).\n\n¡Abrazo grande!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        3328
+      ],
+      "id": "0b4e46ab-cfb6-4e5f-8bf1-9c7baa6c1d9f",
+      "name": "Construir Mensaje13"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=⭐ Siempre le has dado lo mejor, sobre todo en lo que realmente importa. Y esta no puede ser la excepción.\n\n🙌🏼 Aún tienes un día más para regalarle esta experiencia que lo va a marcar de por vida.\n\nHoy quiero compartirte la *opinión* de algunos de los padres que ya vieron a su hijo terminar seguro y emocionado por la carrera que eligió gracias a nuestro *Método*.\nAlgunas de las muchas historias que nos llenan de orgullo. \n*¡La de tu hijo es la siguiente!*\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        3520
+      ],
+      "id": "01cb7634-8b58-4361-9638-25ed5cbb00fa",
+      "name": "Construir Mensaje14"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=Tú elegiste carrera hace décadas.\n¿Cómo respondes cuando te preguntan cómo la elegiste?\n🙏🏼 ¿Respondes con algo que te llene de orgullo o de mucho agradecimiento con tus papás?\n⚠️ ¿O fue una decisión sin mucha profundización, casi al azar?\n\nY… *¿cómo te gustaría que respondiera tu hijo cuando, en el futuro, le hagan esa pregunta?*\n\n⭐ Regálale la oportunidad de responder con orgullo y agradecimiento profundo.\n⏳*Quedan 12 horas* para hacerlo a precio especial. Después de ese horario, el precio de ambos programas regresará al importe regular _(sujeto a disponibilidad)_.\n\n*¡Estás a un clic de distancia!*\nhttps://www.felizconmicarrera.com/method-precio-especial/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        3712
+      ],
+      "id": "bc748f3b-af9b-4e98-9fc2-89574b90f6c5",
+      "name": "Construir Mensaje15"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=No es solo elegir carrera. \n¡Es dar el primer paso que lo guiará hacia un futuro u otro!\n*Por eso es su primera gran decisión de vida.*\n\nEsta es una inversión que cambia vidas. \n*Es regalarle el mejor acompañamiento posible para este gran paso, y una forma muy clara de hacerle ver que crees en él.*\n\n⏰ Quedan solo *2 horas* para regalarle a tu hijo la oportunidad *a precio especial*.\n\n👉 Hazlo aquí: https://www.felizconmicarrera.com/method-precio-especial/\n\n ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        3904
+      ],
+      "id": "78ca6e5c-2fe3-493b-ac31-803692e1e2f5",
+      "name": "Construir Mensaje16"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Imagen"
+            },
+            {
+              "fieldToAggregate": "url_descargable"
+            },
+            {
+              "fieldToAggregate": "Mensaje"
+            },
+            {
+              "fieldToAggregate": "id_grupo"
+            },
+            {
+              "fieldToAggregate": "TypeMedia"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3920,
+        2464
+      ],
+      "id": "39170b6c-995f-4c91-99f7-1d6dc926a325",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "media": "={{ $json.url_descargable[0] }}",
+        "caption": "={{ $json.Mensaje[0] }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        2976
+      ],
+      "id": "c7e238fb-3347-4f8d-aa7f-36e2987c0f39",
+      "name": "Enviar imagem1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-document",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "media": "={{ $json.url_descargable[0] }}",
+        "caption": "={{ $json.Mensaje[0] }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        2784
+      ],
+      "id": "5ff17f1f-22e4-4c73-a4ea-a91d720d26f3",
+      "name": "Enviar documento1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-video",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "media": "={{ $json.url_descargable[0] }}",
+        "caption": "={{ $json.Mensaje[0] }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        2080
+      ],
+      "id": "f0dd6586-188e-4ac3-be4e-14d426d68cd2",
+      "name": "Enviar Video",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api.aeo-ai.com/message/sendPoll/FelizBot",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "3E96F60627E4-4E00-815A-CC1D4C4551A5"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"number\": \"{{ $json.data.key.remoteJid }}\",\n  \"name\": \"Selecciona todas las que apliquen.\",\n  \"selectableCount\": 10,\n  \"values\": [\n    \"Que elija una carrera y se quiera cambiar ya estudiándola\",\n    \"No lo veo motivado ni emocionado con el tema de elección de carrera.\",\n    \"Quiero que elija algo que le guste, pero que también tenga buen campo laboral.\",\n    \"¿Cómo conocer sus habilidades y saber en qué podría ser exitoso?\",\n    \"El apoyo de Orientación de la escuela no está siendo suficiente.\",\n    \"Cambia mucho de opinión de qué le gustaría estudiar\",\n    \"Que termine en un campo de trabajo que no le guste mucho, y no sea feliz en el futuro.\",\n    \"Temo que elija por razones incorrectas (amigos, moda, prisa...).\",\n    \"El impacto futuro que vaya a tener la Inteligencia Artificial en la carrera que elija.\",\n    \"Está entre algunas carreras, pero si le pregunto, no las conoce a la profundidad necesaria.\"\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4816,
+        4704
+      ],
+      "id": "89886129-0928-4e44-b74d-d2d57483e28e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "messageText": "={{ $json.Mensaje[0] }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        4368,
+        4448
+      ],
+      "id": "546fce5c-6841-4796-bcd2-afd0c9f6ba14",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=He recibido muchos mensajes de papás que comparten sus preocupaciones sobre esta etapa tan importante en la vida de sus hijos.\n\nHoy quiero conocerte un poco más.\nAquí abajo te dejo las preocupaciones que más escucho de los padres.\n\n¿Cuáles de estas te preocupan a ti? \n¡Nos vemos mañana!\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        4096
+      ],
+      "id": "b3faf946-cf2e-475a-b86b-ad62db5e0c45",
+      "name": "Construir Mensaje17"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "520f7c5a-d968-4285-b400-bb01c7e50ab2",
+              "name": "Fecha",
+              "value": "={{ $json.currentDate.toDateTime().format('dd/M/yyyy') }}",
+              "type": "string"
+            },
+            {
+              "id": "65f8873a-db3b-47ac-981f-93796256e9ed",
+              "name": "Hora",
+              "value": "={{ $json.currentDate.toDateTime().format('H:mm') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        4496
+      ],
+      "id": "fa538541-22a2-485a-83ab-bf9dcdd08642",
+      "name": "Extrarer Fecha y Hora"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        4496
+      ],
+      "id": "4eec5e0d-5c1a-4e63-a420-9a1f9ecfc1dc",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I",
+          "mode": "list",
+          "cachedResultName": "Admin Enrique",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1610359296,
+          "mode": "list",
+          "cachedResultName": "Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit#gid=1610359296"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1776,
+        2448
+      ],
+      "id": "abd030f6-2031-45ea-9005-7f3317c9490c",
+      "name": "VARIABLES",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eec18f9b-7dc3-4936-b192-ecdfae364060",
+              "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+              "rightValue": "Texto",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "ddbe94c5-63c7-456b-a40f-688349bde63b",
+              "leftValue": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+              "rightValue": "Encuesta",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3120,
+        2464
+      ],
+      "id": "9c4aa481-09df-4f9d-a4f9-bd35c0297bc9",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Obtener Mensajes del día1').item.json.MediaURL }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=vas a rescibir una url debes converir esa url a una url descargable como esta : https://drive.google.com/uc?id=[idimagen]&export=download  solo devuelve la url descargable  y nada mas  en un formato JSON   { \"url\" : \"la url descargable\" }"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        3344,
+        2352
+      ],
+      "id": "7137cf39-819e-4827-a280-2ab2c651b683",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{ \"url\" : \"la url descargable\" }"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3488,
+        2576
+      ],
+      "id": "9b307e5c-2361-413b-b487-214fe37f30f0",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3360,
+        2576
+      ],
+      "id": "09f0fb77-9e98-48fb-b846-20ff34caeb3e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d222e41-10ef-4b6f-91a7-2c52f8e10a4d",
+              "name": "id_grupo",
+              "value": "={{ $('Buscar grupos2').item.json.data.id }}",
+              "type": "string"
+            },
+            {
+              "id": "d08bea17-4cc9-45bd-b3ad-9592ee883d70",
+              "name": "Mensaje",
+              "value": "={{ $('Aggregate').item.json.Mensaje[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "f427144e-be05-4e6e-8e7c-c605506c54a9",
+              "name": "=TypeMedia",
+              "value": "={{ $('Obtener Mensajes del día1').item.json.TypeMedia }}",
+              "type": "string"
+            },
+            {
+              "id": "a2a443d7-dda1-4585-8300-1bd7e47fa752",
+              "name": "url_descargable",
+              "value": "={{ $json.output.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3696,
+        2352
+      ],
+      "id": "67e3ee69-0ca9-4e8d-a849-19b7f1d197ff",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¡Bienvenidos!\n\nSoy Enrique Molina, fundador de Feliz con mi Carrera.\n\nDurante los siguientes días compartiré en este grupo información y reflexiones que te ayudarán a *prepararte para la Masterclass* donde hablaremos de *una de las decisiones más importantes en la vida de tu hijo.*\n\n✅ Te anexo a este primer mensaje una mini guía para que empieces a entender *cómo acompañar a tu hijo siendo el apoyo que necesita* en este momento clave, sin presionarlo.\n\nLéela con calma. Es el primer paso para hacer equipo con tu hijo y se sienta confiado para tomar una decisión más segura.\n\n¡Nos vemos muy pronto!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        832
+      ],
+      "id": "39855a51-0fe2-4f9b-b9ec-8b152cf9d8d9",
+      "name": "Construir Mensaje"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4592,
+        4448
+      ],
+      "id": "b0c7292a-e282-426c-85b7-b48083d478ef",
+      "name": "Wait",
+      "webhookId": "30ad45d9-c259-46ce-8e80-1e6b915ae6b7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6668155-dd59-4039-8ac4-af408f8d3e1c",
+              "name": "link_grupo",
+              "value": "={{ $json.GrupoWhatsApp }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1328,
+        3808
+      ],
+      "id": "09dc1cdc-6120-48db-993a-cc668def4ded",
+      "name": "Link Grupo"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:34:40.507Z",
+      "updatedAt": "2025-08-08T00:34:40.507Z",
+      "id": "xQQ7Z5UfAnk57rXd",
+      "name": "Enrique"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-27T00:30:42.000Z",
+  "versionId": "c003f265-8c82-4416-a6e1-dbf1952e74d4"
+}
