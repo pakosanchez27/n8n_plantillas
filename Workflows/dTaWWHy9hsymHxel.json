@@ -1,0 +1,993 @@
+{
+  "active": true,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vacantes": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        []
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar Datos": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intervencion": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Redis-get sms",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "unir mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis-push sms": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis-get sms": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "unir mensaje": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Redis-push sms",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-14T20:56:19.904Z",
+  "id": "dTaWWHy9hsymHxel",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "BOT APE",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.mensaje[0] }}\n",
+        "options": {
+          "systemMessage": "=Eres un asistente virtual de atención a candidatos para una empresa.  \nTu objetivo es entrevistar al candidato en un estilo casual, amistoso y motivador como se habla en CDMX, vía WhatsApp.  \n\nAl iniciar la conversación:\n- Da un saludo breve y cálido (ej. “¡Hola! ¿Qué tal? 👋”).\n- Menciona que eres el asistente virtual de reclutamiento de la empresa.\n- Haz un llamado a la acción motivador para invitarle a compartir sus datos y así encontrarle vacantes adecuadas (ej. “Si quieres, te hago unas preguntitas rápidas para recomendarte las vacantes que mejor te quedan 😉”).\n\nDespués de que el candidato acepte, haz las siguientes preguntas **una por una, en mensajes separados**, esperando respuesta antes de continuar:  \n\n1. ¿Cuál es tu nombre completo?  \n2. ¿Cuál es tu correo electrónico?  \n3. ¿Cuál es tu número de teléfono?  \n4. ¿En qué ciudad te gustaría trabajar?  \n5. ¿En qué área profesional o tipo de vacante te interesa trabajar?  \n   (Opciones: Recursos Humanos, Mercadotecnia, Administración, Legal, Auditoría, Procesos, Mantenimiento, Estacionamiento, Finanzas/Contabilidad, Ventas, TI, Otro)  \n6. ¿Cuál es tu pretensión económica?  \n\nUna vez que tengas todas las respuestas, usa la herramienta **vacantes** (tabla de vacantes disponibles) para filtrar y mostrar al candidato las vacantes que coincidan **tanto en ciudad como en área de interés**.  \n\nLa tabla de vacantes tiene los campos:  \n- Vacante: nombre de la vacante  \n- Área de Interés: el área profesional (misma lista anterior)  \n- Ciudad: ciudad donde está la vacante  \n- Requisitos: requisitos de la vacante  \n- Oferta: lo que ofrece la vacante  \n\nAl mostrar las vacantes:  \n- Presenta solo las que coincidan con **ciudad** y **área de interés** del candidato.  \n- Muestra cada vacante con este formato breve:  \n\n[Vacante]  \nÁrea: [Área de Interés]  \nCiudad: [Ciudad]  \nRequisitos: [Requisitos]  \nOferta: [Oferta]  \n\n- Si no hay coincidencias, responde con algo motivador, invitando a dejar su información para futuras oportunidades.  \n\n**Después de mostrar las vacantes encontradas**, haz la siguiente pregunta en un mensaje aparte:  \n> “¿Quieres que te contacte con un humano para ver detalles específicos de la vacante? 👀”  \n\n### INTERVENCIÓN HUMANA\n- Si el candidato responde **sí**:  \n  1. Usa la herramienta **Intervencion** para cambiar el estado a “requiere atención humana”.  \n  2. Envía un mensaje al candidato:  \n     > “¡Perfecto! 🙌 Un asesor humano se pondrá en contacto contigo pronto por este mismo medio.”  \n\n- Si responde **no**, continúa motivando con un cierre cordial.  \n\n## REGLAS\n- No respondas nada que no esté relacionado con tu rol de atención a candidatos.  \n- No inventes vacantes ni alteres la información de la herramienta.  \n- el numero de telefono es {{$json.sessionId[0].replace(/\\D/g, '').substring(3) }} asi que solo confirmalo no lo pidas  \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        3040,
+        -32
+      ],
+      "id": "282d4a5f-139d-418a-9c48-3085040b22d5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2912,
+        192
+      ],
+      "id": "f7da3f5b-6d30-430c-b0a5-fe6468fb97c7",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId[0] }}",
+        "contextWindowLength": 15
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        3040,
+        192
+      ],
+      "id": "d3f3cb31-b683-491a-91b6-01ee02ae77cb",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "getRows",
+        "workbook": {
+          "__rl": true,
+          "value": "BCC916F6BED2EEB3!sfac2b2c017564afab57076665a2a9af5",
+          "mode": "list",
+          "cachedResultName": "Vacantes n8n",
+          "cachedResultUrl": "https://onedrive.live.com/personal/bcc916f6bed2eeb3/_layouts/15/doc.aspx?resid=fac2b2c0-1756-4afa-b570-76665a2a9af5&cid=bcc916f6bed2eeb3"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "{F274FABB-DF5C-4F9E-B98F-F8DC866DADF5}",
+          "mode": "list",
+          "cachedResultName": "Hoja1",
+          "cachedResultUrl": "https://onedrive.live.com/personal/bcc916f6bed2eeb3/_layouts/15/doc.aspx?resid=fac2b2c0-1756-4afa-b570-76665a2a9af5&cid=bcc916f6bed2eeb3&activeCell=Hoja1!A1"
+        },
+        "table": {
+          "__rl": true,
+          "value": "{D05B24A0-ADE6-4578-B6A6-DEF9095607A2}",
+          "mode": "list",
+          "cachedResultName": "Tabla1",
+          "cachedResultUrl": "https://onedrive.live.com/personal/bcc916f6bed2eeb3/_layouts/15/doc.aspx?resid=fac2b2c0-1756-4afa-b570-76665a2a9af5&cid=bcc916f6bed2eeb3&activeCell=Hoja1!A1:E12"
+        },
+        "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcelTool",
+      "typeVersion": 2.1,
+      "position": [
+        3168,
+        192
+      ],
+      "id": "ae3f9c31-e96d-483a-9be1-ea228590e5b7",
+      "name": "Vacantes",
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "5bjv6E2HIZEZP08O",
+          "name": "Microsoft360 Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -128
+      ],
+      "id": "68e943c7-d7d5-4d77-be20-1d7d4e2ce088",
+      "name": "Telegram Trigger",
+      "webhookId": "2e409ab0-d50b-4724-ac3f-d2d3209028c1",
+      "credentials": {
+        "telegramApi": {
+          "id": "cXYHARELDHOA5aHa",
+          "name": "Bolsa de empleo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Estado }}",
+                    "rightValue": "IA",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "8988dbce-511b-446d-98ac-4efc4a1daceb"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "IA"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "51cd7fd9-e760-4a56-a33d-4b117e19c80a",
+                    "leftValue": "={{ $json.Estado }}",
+                    "rightValue": "HUMANO",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "HUMANO"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Nuevo"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2016,
+        -48
+      ],
+      "id": "61914f45-45a0-4f00-aab7-7fd7f9359e81",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco",
+          "mode": "list",
+          "cachedResultName": "Prueba Intervencion",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Numero",
+              "lookupValue": "={{ $json.sessionId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1792,
+        -32
+      ],
+      "id": "4972542c-16d1-4531-8cba-c7cc08b389f0",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco",
+          "mode": "list",
+          "cachedResultName": "Prueba Intervencion",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Numero": "={{ $('Webhook').item.json.body.data.key.senderLid }}",
+            "Estado": "IA"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Numero",
+              "displayName": "Numero",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2240,
+        64
+      ],
+      "id": "b018c12c-6464-438c-b3f2-0f8a06fc3c99",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6180557-fcd0-4926-953c-df1f88aee5ff",
+              "name": "sessionId",
+              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "e0647727-7f2f-4106-b9a9-8b68793277ea",
+              "name": "mensaje",
+              "value": "={{ $('unir mensaje').item.json.mensaje }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2464,
+        64
+      ],
+      "id": "ae3613a8-1c29-43d8-beaa-1b4a7a76f096",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "32ab660f-cc23-4f49-ba0e-feb8ad64d58a",
+              "name": "sessionId",
+              "value": "={{ $json.chat_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f0195fbd-c616-4503-b8f0-526ae475f49c",
+              "name": "mensaje",
+              "value": "={{ $json.mensaje }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1568,
+        -32
+      ],
+      "id": "94c558b4-3567-41aa-a849-fbe5987a2564",
+      "name": "Normalizar Datos"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6313c515-86d1-4bbd-a3a7-2043eba1e9f3",
+              "name": "sessionId",
+              "value": "={{ $('Normalizar Datos').item.json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "cea76980-9bcf-465f-8fe2-bb03acfa7099",
+              "name": "mensaje",
+              "value": "={{ $('Normalizar Datos').item.json.mensaje }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2464,
+        -128
+      ],
+      "id": "39bbb52e-c1f8-4978-ad2b-5645fb253a0e",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "sessionId"
+            },
+            {
+              "fieldToAggregate": "mensaje"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2688,
+        -32
+      ],
+      "id": "d7ab85cd-db12-4a4c-b4a6-1ccb67ce6106",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco",
+          "mode": "list",
+          "cachedResultName": "Prueba Intervencion",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1x4XeAegaiCPaZEvQ9FKusp6eVNuql_nUz_pRUkUUhco/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Numero": "={{ $('Normalizar Datos').item.json.sessionId }}",
+            "Estado": "HUMANO"
+          },
+          "matchingColumns": [
+            "Numero"
+          ],
+          "schema": [
+            {
+              "id": "Numero",
+              "displayName": "Numero",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        3296,
+        192
+      ],
+      "id": "483cc71a-37db-4113-9d7e-5522522936bc",
+      "name": "Intervencion",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 6
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        448,
+        64
+      ],
+      "id": "94534226-3a02-4666-91c2-88c6c3febafa",
+      "name": "Wait2",
+      "webhookId": "e62f59ac-537e-4b14-aff1-69c52119609c"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "71036f0d-04e2-4fe4-a2f8-baa597e53caf",
+              "leftValue": "={{ $json.mensaje.last() }}",
+              "rightValue": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        896,
+        64
+      ],
+      "id": "c41a0f56-2772-4da0-ba5a-4b6998934f37",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $json.body.data.key.remoteJid }}",
+        "messageData": "={{ $json.body.data.message.conversation }}",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        224,
+        64
+      ],
+      "id": "769d46a4-19ea-4fda-a870-8b20e910cc03",
+      "name": "Redis-push sms",
+      "credentials": {
+        "redis": {
+          "id": "FShCQI9ld7vkdBDW",
+          "name": "APE Buffer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "mensaje",
+        "key": "={{ $json.body.data.key.remoteJid }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        672,
+        64
+      ],
+      "id": "fe3b5cbe-6de2-4cee-9128-58b162c2950b",
+      "name": "Redis-get sms",
+      "credentials": {
+        "redis": {
+          "id": "FShCQI9ld7vkdBDW",
+          "name": "APE Buffer"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        160
+      ],
+      "id": "20eede9b-e561-47b5-8d5e-59d134ed5d42",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d346b0ae-305a-4e81-b4a6-a77dfe026f09",
+              "name": "mensaje",
+              "value": "={{ $('Redis-get sms').item.json.mensaje.join(\" \")}}",
+              "type": "string"
+            },
+            {
+              "id": "31e3c60d-fd86-40a5-96de-38fb5177048f",
+              "name": "chat_id",
+              "value": "={{ $('Webhook').item.json.body.data.key.senderLid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        -32
+      ],
+      "id": "208feb08-0beb-4efb-ae2b-99926c808732",
+      "name": "unir mensaje"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $json.chat_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        -32
+      ],
+      "id": "b4d69e5d-a71a-42a5-9a0d-8664512fcaf0",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "FShCQI9ld7vkdBDW",
+          "name": "APE Buffer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "46d25800-e126-4742-bf2c-8df97acd42f6",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        80
+      ],
+      "id": "91702570-4ff6-4b86-b3a7-4ece5b9ed259",
+      "name": "Webhook",
+      "webhookId": "46d25800-e126-4742-bf2c-8df97acd42f6"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Bot_Pruebas_IA",
+        "remoteJid": "={{ $('Aggregate').item.json.sessionId[0] }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        3392,
+        -32
+      ],
+      "id": "108aec69-61ce-4565-9f8a-1cc0fc9d0c6f",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "Yxv2trQ4ePWkxDQ4",
+          "name": "Bot Prueba IA"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.srv914565.hstgr.cloud",
+            "user-agent": "axios/1.10.0",
+            "content-length": "958",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "via": "1.1 Caddy",
+            "x-forwarded-for": "172.20.0.2",
+            "x-forwarded-host": "n8n.srv914565.hstgr.cloud",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event": "messages.upsert",
+            "instance": "Bot_Pruebas_IA",
+            "data": {
+              "key": {
+                "remoteJid": "5215534073167@s.whatsapp.net",
+                "fromMe": false,
+                "id": "DA29245B284BFF67AFE829437824F29A",
+                "senderLid": "49662723657745@lid"
+              },
+              "pushName": "Pako Sánchez",
+              "status": "DELIVERY_ACK",
+              "message": {
+                "conversation": "Hola",
+                "messageContextInfo": {
+                  "deviceListMetadata": {
+                    "senderKeyHash": "2Eicg0v4uF42PA==",
+                    "senderTimestamp": "1755636118",
+                    "recipientKeyHash": "OpopIH77W1XS1A==",
+                    "recipientTimestamp": "1756419849"
+                  },
+                  "deviceListMetadataVersion": 2,
+                  "messageSecret": "1L06gthVOvpxhhUsSorQKsMzn073KpC5djobtyxLdrU="
+                }
+              },
+              "messageType": "conversation",
+              "messageTimestamp": 1756420444,
+              "instanceId": "8d6b3d5a-9e64-4284-aa74-aa6e7f53f417",
+              "source": "android"
+            },
+            "destination": "https://n8n.srv914565.hstgr.cloud/webhook-test/46d25800-e126-4742-bf2c-8df97acd42f6",
+            "date_time": "2025-08-28T19:34:04.408Z",
+            "sender": "5215537506199@s.whatsapp.net",
+            "server_url": "http://localhost:8080",
+            "apikey": "42B02F1D8F1D-463C-B4D0-9049863B7CC6"
+          },
+          "webhookUrl": "https://n8n.srv914565.hstgr.cloud/webhook-test/46d25800-e126-4742-bf2c-8df97acd42f6",
+          "executionMode": "test"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-08-20T05:48:06.963Z",
+      "updatedAt": "2025-08-20T05:48:06.963Z",
+      "id": "SpJlUWwX3aTLRken",
+      "name": "APE"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-08-28T23:47:52.000Z",
+  "versionId": "ce78bc06-877c-4f90-9c29-1ec8c078b3db"
+}
