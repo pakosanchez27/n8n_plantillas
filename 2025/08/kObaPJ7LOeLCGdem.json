@@ -1,0 +1,2366 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Redis-push sms",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Audio a Binary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "imagen a Binary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe a recording": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Redis-get sms",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis-push sms": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis-get sms": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "unir mensaje": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate2": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "unir mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze image": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "PDF a Binary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respuesta2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert PDF into PNG": {
+      "main": [
+        [
+          {
+            "node": "Analyze image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze image1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audio a Binary": {
+      "main": [
+        [
+          {
+            "node": "Transcribe a recording",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "imagen a Binary": {
+      "main": [
+        [
+          {
+            "node": "Analyze image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF a Binary": {
+      "main": [
+        [
+          {
+            "node": "Convert PDF into PNG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST VENTA": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear Registro": {
+      "ai_tool": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar Registro": {
+      "ai_tool": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registros": {
+      "ai_tool": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Estructurar": {
+      "main": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Estructurar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "POST VENTA",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Asignador",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Orientadoras": {
+      "ai_tool": [
+        [
+          {
+            "node": "Asignador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Normalizar datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Asignador",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Escucha un nuevo registro": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar datos": {
+      "main": [
+        [
+          {
+            "node": "Asignador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Asignador": {
+      "main": [
+        [
+          {
+            "node": "Actualizar Orientadora",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar Orientadora": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-08T01:56:08.522Z",
+  "id": "kObaPJ7LOeLCGdem",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Registro Postventa",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "86c6b47d-f33f-42ea-9451-e28a4c41e0f4",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -4384,
+        352
+      ],
+      "id": "37a248a0-2a82-4bf2-a2a9-263e49a8e90b",
+      "name": "Webhook",
+      "webhookId": "86c6b47d-f33f-42ea-9451-e28a4c41e0f4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1978e3f5-5513-4fe1-8ebf-fb11fdb87499",
+              "name": "chat_id",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "ddb3c5ac-fe8d-4bbf-a675-d3e3ca0eff1e",
+              "name": "type",
+              "value": "={{ $json.body.data.messageType }}",
+              "type": "string"
+            },
+            {
+              "id": "0f4b2b6c-cf75-424f-bd2e-564ebb481222",
+              "name": "url_audio",
+              "value": "={{ $json.body.data.message.audioMessage.url }}",
+              "type": "string"
+            },
+            {
+              "id": "c24b1bbd-337d-4a55-889f-384c8fc933b5",
+              "name": "mensaje",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "b5a93c50-1d23-4a01-baea-f9b480b0c4d1",
+              "name": "archivo",
+              "value": "={{ $json.body.data.message.base64 }}",
+              "type": "string"
+            },
+            {
+              "id": "d7916280-cd67-45cc-a7a0-993667d9d362",
+              "name": "mimetype",
+              "value": "={{ $json.body.data.message.documentMessage.mimetype }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3936,
+        448
+      ],
+      "id": "5fc3ff05-7b97-49cb-880d-92c3c6eb99c8",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0dccc56b-b8d0-44a1-bc23-18923ad49aee"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8d8be5ed-fe2f-4b9b-b9fe-d1a850fe8910",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "audioMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6cd3580d-1851-4d08-93df-692bc9473ea1",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "imageMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Imagen"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "be4d351e-a36a-44b6-b0c1-f2b87c2419ef",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "=documentMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -3712,
+        400
+      ],
+      "id": "a327616f-00ac-4d6b-bbe8-3e08799c4cd7",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -2544,
+        464
+      ],
+      "id": "de6194f6-57da-42f9-964b-b06241ea66ad",
+      "name": "Transcribe a recording",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 6
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -3264,
+        160
+      ],
+      "id": "7efa7855-9fa1-47ad-996b-d6191c570e92",
+      "name": "Wait2",
+      "webhookId": "e62f59ac-537e-4b14-aff1-69c52119609c"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Edit Fields2').item.json.chat_id }}",
+        "messageData": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3488,
+        160
+      ],
+      "id": "ccd37f24-b1f1-4637-814d-4166370d2e78",
+      "name": "Redis-push sms",
+      "credentials": {
+        "redis": {
+          "id": "LLPuIMb6fxHQTCeg",
+          "name": "Enrique Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "mensaje",
+        "key": "={{ $('Edit Fields2').item.json.chat_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -3040,
+        160
+      ],
+      "id": "c0ae9e6a-dc06-43fa-aac9-80ad0660d6b6",
+      "name": "Redis-get sms",
+      "credentials": {
+        "redis": {
+          "id": "LLPuIMb6fxHQTCeg",
+          "name": "Enrique Redis"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -2592,
+        160
+      ],
+      "id": "d594e779-0ab7-409f-afa9-b4f33766e746",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d346b0ae-305a-4e81-b4a6-a77dfe026f09",
+              "name": "mensaje",
+              "value": "={{ $('Redis-get sms').item.json.mensaje.join(\" \")}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2592,
+        -32
+      ],
+      "id": "8d35f53e-5c9d-4904-b19e-5c596dbe729a",
+      "name": "unir mensaje"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Switch2').item.json.chat_id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -2368,
+        -32
+      ],
+      "id": "86773d49-0519-43f7-8474-a75e7619b745",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "LLPuIMb6fxHQTCeg",
+          "name": "Enrique Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Espera un mensaje \nEspera un mensaje y lo clasifica si es vos o audio ",
+        "height": 392,
+        "width": 740,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -4480,
+        224
+      ],
+      "typeVersion": 1,
+      "id": "52920612-35f3-4e7f-a0b1-484684be7b3c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Convierte audio a texto\n",
+        "height": 224,
+        "width": 620,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2784,
+        400
+      ],
+      "typeVersion": 1,
+      "id": "25df5faa-2eb1-480f-8178-47298cd91216",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Espera que el usuario termine de mandar mensajes",
+        "height": 400,
+        "width": 1368,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3520,
+        -64
+      ],
+      "typeVersion": 1,
+      "id": "439feed3-a097-4b33-964f-88809a13ba5d",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "123370bb-5c42-4c70-b077-90c7c20e2df6",
+              "name": "mensaje",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2320,
+        464
+      ],
+      "id": "3e6d5d8b-4c0e-4db2-9055-db4517244735",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b43519a4-a46b-469e-8240-2db22b991bf5",
+              "leftValue": "={{ $json.body.messages[0].from_me }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "46ba1039-6e3d-46f2-bcc9-4d26986b5256",
+              "leftValue": "={{ $json.body.statuses[0].status }}",
+              "rightValue": "read",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4160,
+        352
+      ],
+      "id": "70019d4b-3452-4779-8337-75c244d8292e",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -3936,
+        256
+      ],
+      "id": "b3cc74c4-1088-45ed-a1ca-d078e8cf2daf",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://gate.whapi.cloud/messages/text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "authorization",
+              "value": "Bearer i9BUjhKHUPTUCwsrYH4BvAOsnUddO7Ec"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"typing_time\": 0,\n  \"to\": \"{{ $('Edit Fields2').item.json.chat_id }}\",\n  \"body\": \"Ups 😅 El archivo que enviaste no es válido. Solo aceptamos imágenes o archivos PDF.\"\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3120,
+        1104
+      ],
+      "id": "5be0574d-b6bc-45b2-b90b-6acb4a9254df",
+      "name": "Respuesta2",
+      "executeOnce": false,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "mensaje"
+            },
+            {
+              "fieldToAggregate": "whatsapp"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1616,
+        352
+      ],
+      "id": "4483acb4-3444-40a0-b269-62d9d049f4df",
+      "name": "Aggregate2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "71036f0d-04e2-4fe4-a2f8-baa597e53caf",
+              "leftValue": "={{ $json.mensaje.last() }}",
+              "rightValue": "={{ $('Edit Fields2').item.json.mensaje }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2816,
+        160
+      ],
+      "id": "a3eb57f3-5d8f-4645-a1aa-6c3ab6d18e57",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "=[ROL]\nActúa como analizador de comprobantes de pago con visión multimodal (OCR).\n\n[TAREA]\nRecibirás UNA imagen. Tu misión es:\n1) Determinar si la imagen corresponde a un comprobante de pago O TRANSFERENCIA válido.\n2) Clasificar el método de pago.\n3) Extraer la fecha de operación.\n4) Entregar un mensaje plano (no JSON) en minúsculas, con campos fijos y una línea por campo. Si no es comprobante, incluye una descripción detallada para un chatbot.\n\n[ENTRADA]\n- Una imagen (foto/captura/PDF renderizado) de posible comprobante.\n\n[FORMATO DE SALIDA]\nmetodo: <transferencia|banco|hotmart|no_comprobante>\nfecha_operacion: <yyyy-mm-dd|null>\ncomprobante_valido: <true|false>\ndescripcion: <null|texto detallado si no es comprobante (≥ 40 palabras)>\n\n[REGLAS DE VALIDEZ]\n- Solo “true” si el método es hotmart, transferencia o banco con evidencia clara en texto o elementos visuales.\n- Si no hay evidencia clara, metodo: \"no_comprobante\" y comprobante_valido: false.\n\n[DETECCIÓN DE MÉTODO]\n1) hotmart → palabras clave: hotmart, pay.hotmart.com, compra aprobada, resumen del pedido.\n2) transferencia → spei, clabe, transferencia interbancaria, beneficiario/emisor, cuenta origen/destino, folio/rastreo.\n3) banco → ficha de depósito, ventanilla, sucursal, depósito en efectivo, pago referenciado.\n4) si nada aplica → no_comprobante.\n\n[FECHA DE OPERACIÓN]\n- dd/mm/aa → yyyy-mm-dd (20aa).\n- Priorizar fecha junto a monto/folio/pedido.\n- Rango válido: 2015–2035.\n- Si no hay certeza → null.\n\n[DESCRIPCIÓN SI NO_COMPROBANTE]\n- Detallar tipo probable de documento, idioma, disposición, elementos presentes y por qué no confirma pago.\n\n[PROCESO]\n1) OCR + análisis visual.\n2) Detectar método según precedencia.\n3) Extraer fecha y normalizar.\n4) Generar mensaje plano con 4 campos, en orden, en minúsculas.\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -2544,
+        656
+      ],
+      "id": "19f9ee7e-ee03-4a90-8f7e-6854e6952d30",
+      "name": "Analyze image",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f15646ef-ccb3-4f15-86d6-391a7cbdc5cc",
+              "name": "mensaje",
+              "value": "={{ $json.content }} \norigen: Imagen",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2320,
+        656
+      ],
+      "id": "8b57107f-e28a-4c45-9e1f-7a455a1218c7",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "content": "## Convierte Imagen a texto\n",
+        "height": 224,
+        "width": 620,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2784,
+        592
+      ],
+      "typeVersion": 1,
+      "id": "d624a82c-27fc-4889-a327-b4aaef733729",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8560c00e-9c81-4018-84bd-9cbb68168a32",
+              "leftValue": "={{ $json.mimetype }}",
+              "rightValue": "=application/pdf",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3360,
+        944
+      ],
+      "id": "de4742da-b48c-45de-8c38-16ddd7cf3de2",
+      "name": "If3"
+    },
+    {
+      "parameters": {},
+      "type": "@custom-js/n8n-nodes-pdf-toolkit.PdfToPng",
+      "typeVersion": 1,
+      "position": [
+        -2768,
+        848
+      ],
+      "id": "bb295013-2c51-4bc1-b6f1-bc3aaba48e9e",
+      "name": "Convert PDF into PNG",
+      "credentials": {
+        "customJsApi": {
+          "id": "lCllIeZx5fba9opf",
+          "name": "CustomJS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "=[ROL]\nActúa como analizador de comprobantes de pago con visión multimodal (OCR).\n\n[TAREA]\nRecibirás UNA imagen. Tu misión es:\n1) Determinar si la imagen corresponde a un comprobante de pago O TRANSFERENCIA válido.\n2) Clasificar el método de pago.\n3) Extraer la fecha de operación.\n4) Entregar un mensaje plano (no JSON) en minúsculas, con campos fijos y una línea por campo. Si no es comprobante, incluye una descripción detallada para un chatbot.\n\n[ENTRADA]\n- Una imagen (foto/captura/PDF renderizado) de posible comprobante.\n\n[FORMATO DE SALIDA]\nmetodo: <transferencia|banco|hotmart|no_comprobante>\nfecha_operacion: <yyyy-mm-dd|null>\ncomprobante_valido: <true|false>\ndescripcion: <null|texto detallado si no es comprobante (≥ 40 palabras)>\n\n[REGLAS DE VALIDEZ]\n- Solo “true” si el método es hotmart, transferencia o banco con evidencia clara en texto o elementos visuales.\n- Si no hay evidencia clara, metodo: \"no_comprobante\" y comprobante_valido: false.\n\n[DETECCIÓN DE MÉTODO]\n1) hotmart → palabras clave: hotmart, pay.hotmart.com, compra aprobada, resumen del pedido.\n2) transferencia → spei, clabe, transferencia interbancaria, beneficiario/emisor, cuenta origen/destino, folio/rastreo.\n3) banco → ficha de depósito, ventanilla, sucursal, depósito en efectivo, pago referenciado.\n4) si nada aplica → no_comprobante.\n\n[FECHA DE OPERACIÓN]\n- dd/mm/aa → yyyy-mm-dd (20aa).\n- Priorizar fecha junto a monto/folio/pedido.\n- Rango válido: 2015–2035.\n- Si no hay certeza → null.\n\n[DESCRIPCIÓN SI NO_COMPROBANTE]\n- Detallar tipo probable de documento, idioma, disposición, elementos presentes y por qué no confirma pago.\n\n[PROCESO]\n1) OCR + análisis visual.\n2) Detectar método según precedencia.\n3) Extraer fecha y normalizar.\n4) Generar mensaje plano con 4 campos, en orden, en minúsculas.\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -2544,
+        848
+      ],
+      "id": "21fa5ca3-a995-480d-b701-8dc9a1e0e1f7",
+      "name": "Analyze image1",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f15646ef-ccb3-4f15-86d6-391a7cbdc5cc",
+              "name": "mensaje",
+              "value": "={{ $json.content }} \norigen: PDF",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2320,
+        848
+      ],
+      "id": "70a3d77d-ecd4-4084-9aa5-812e473192fc",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "archivo",
+        "options": {
+          "mimeType": "={{ $('Webhook').item.json.body.data.message.audioMessage.mimetype }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -2768,
+        464
+      ],
+      "id": "fcb313df-8251-45dc-9f4c-07a6a682863e",
+      "name": "Audio a Binary"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "archivo",
+        "options": {
+          "mimeType": "={{ $('Webhook').item.json.body.data.message.imageMessage.mimetype }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -2768,
+        656
+      ],
+      "id": "f88cdc9c-055f-4344-8f3d-ca1d0245ec7b",
+      "name": "imagen a Binary"
+    },
+    {
+      "parameters": {
+        "content": "## Convierte pdf a imagen -> texto\n",
+        "height": 224,
+        "width": 620,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2784,
+        784
+      ],
+      "typeVersion": 1,
+      "id": "c66f4fa1-c4c5-49d6-8162-5bd66a7eb9f9",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "archivo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3120,
+        912
+      ],
+      "id": "38590c19-3f29-4380-85d4-84d7cd5afcea",
+      "name": "PDF a Binary"
+    },
+    {
+      "parameters": {
+        "content": "## Archivo no valido\n",
+        "height": 368,
+        "width": 620,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3488,
+        880
+      ],
+      "typeVersion": 1,
+      "id": "c7a7741a-f6bc-4c5d-b8de-a262482cd4b4",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.mensaje }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Eres un agente conversacional de la empresa \"Feliz con mi carrera\", un programa que acompaña a jóvenes y familias a elegir la carrera universitaria más adecuada y satisfactoria. Atiendes en WhatsApp, con un tono casual, amigable y estilo mexicano (usa emojis donde aplique).\n\nTu función es:\n1. Responder preguntas frecuentes usando únicamente la información institucional proporcionada. Jamás inventes ni asumas.\n2. Registrar a los alumnos que hayan adquirido un programa, siguiendo este flujo exacto y **preguntando siempre de una en una**. No avances a la siguiente pregunta si no has recibido ni registrado respuesta válida de la anterior.\n\n👀 Siempre revisa el historial del chat antes de responder o seguir.\n\n---\n\n🧾**FLUJO DE REGISTRO DE COMPRA**\n\nAntes de usar \"Crear Registro\", busca en la hoja si ya existe una fila con el mismo ID: `{{ $('Edit Fields2').item.json.chat_id }}`.\n- Si ya existe, no hagas nada y continúa con las preguntas usando \"Actualizar Registro\".\n- Si no existe, usa \"Crear Registro\" para iniciar el registro del alumno.\n\nPrimero valida el comprobante de pago. Sólo si `comprobante_valido = true`, continúa el proceso:\n\nPídele al usuario que envíe su comprobante en formato imagen o PDF.\n\n1. Usa la herramienta **\"Crear Registro\"** para registrar:\n   - `ID`: `{{ $('Edit Fields2').item.json.chat_id }}`\n   - `Forma de pago`: `metodo`\n   - `Fecha compra`: `fecha`\n   - Luego pregunta: *¿Cuál es el nombre del programa que adquiriste?*\n     - Guarda en campo `PRODUCTO`.\n\n2. Usa **\"Actualizar Registro\"** con ID para guardar la info.\n\n---\n\n📝**PREGUNTAS OBLIGATORIAS (una por una, en este orden):**\n\nPor cada pregunta:\n\n1. Espera la respuesta.\n2. Valida si aplica (email, teléfono, etc.).\n3. Usa la herramienta **\"Registros\"** para obtener los datos actuales del alumno por su `ID`.\n4. Combina el nuevo dato con los datos existentes (sin borrar nada).\n5. Usa la herramienta **\"Actualizar Registro\"** para guardar **toda la fila completa con el nuevo campo actualizado**.\n6. Sólo después de guardar correctamente, haz la siguiente pregunta.\n\nPreguntas:\n\n- ¿Cuál es el nombre del alumno? → CAMPO: `Nombre Estudiante`\n- ¿Cuál es el email del alumno? → CAMPO: `email alumno` *(validar formato)*\n- ¿Cuál es el número del alumno? → CAMPO: `Celular Alumno` *(validar teléfono)*\n- ¿Cuál es el nombre del padre o tutor? → CAMPO: `Nombre Completo Tutor`\n- ¿Cuál es el celular del padre o tutor? → CAMPO: `Cel tutor` *(validar teléfono)*\n- ¿Cuál es el nombre del colegio del alumno? → CAMPO: `Colegio`\n- ¿Cuál es su idioma? → CAMPO: `Idioma`\n- ¿En qué ciudad viven? → CAMPO: `Ciudad`\n- ¿Necesita empezar en una fecha distinta a la semana del {{ $json.FechaMaster }}? ¿Cuándo? → CAMPO: `Fecha Inicio`\n\n---\n\n🧩**PREGUNTAS EXTRA (una por una, al final):**\n\n10. ¿Qué año está cursando? → CAMPO: `Año Cursando` *(solo para resumen, no se guarda en sheet)*\n11. ¿Tiene alguna restricción de días u horarios para tomar sus sesiones? → CAMPO: `Restricciones Horario` *(interno)*\n12. Si no recibiste \"Fecha Inicio\", vuelve a preguntarla. → CAMPO: `Fecha Inicio`\n13. ¿Tiene alguna necesidad educativa especial o tema de salud emocional? Ej.: TDAH, ansiedad, etc. → CAMPO: `Necesidad Especial` *(interno)*\n\n---\n\n📌**RESUMEN FINAL (obligatorio):**\n\nRedacta un párrafo claro y descriptivo combinando:\n\n- Año cursado\n- Necesidades educativas/emocionales\n- Restricciones de horarios\n- Otros detalles relevantes del alumno\n\nEjemplo:\n> \"3 año de preparatoria. Está diagnosticada con TDA y ansiedad. Tiene terapia conductual y psiquiátrica. Lunes y miércoles no puede de 6 a 8 pm.\"\n\nGuarda el texto en el campo `Notas` usando **\"Actualizar Registro\"**, asegurándote de combinarlo con los datos actuales de la fila (usando la herramienta \"Registros\").\n\n---\n\n⚠️**RESTRICCIONES IMPORTANTES**:\n\n- Nunca muestres ni reveles datos de otros registros.\n- Nunca avances si no tienes respuesta válida.\n- Nunca inventes datos ni rellenes campos sin recibirlos.\n- Recuerda que la fecha actual es: `{{ $now }}`\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -928,
+        352
+      ],
+      "id": "2322435b-4368-4366-b5fc-057cb1bbe71b",
+      "name": "POST VENTA",
+      "retryOnFail": true,
+      "maxTries": 5
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1136,
+        624
+      ],
+      "id": "326ac696-af82-416a-ac8d-803c7793ab06",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $('Edit Fields2').item.json.chat_id }}",
+        "messageText": "={{ $json.output.mensaje }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        336
+      ],
+      "id": "66181d0f-5e20-4ab4-b181-008b23e7aa8f",
+      "name": "Enviar texto3",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"mensaje\": \"Mensaje del al usuario\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        560
+      ],
+      "id": "7e84bc32-c81e-4a13-9319-32750f16290b",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -192,
+        720
+      ],
+      "id": "0b023acc-ebcc-49f6-85fb-f93ea1c16733",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+          "mode": "list",
+          "cachedResultName": "Vendidos Prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1566833164,
+          "mode": "list",
+          "cachedResultName": "29 de Julio",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit#gid=1566833164"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $('Edit Fields2').item.json.chat_id }}",
+            "Forma de Pago": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Forma_de_Pago', ``, 'string') }}",
+            "PRODUCTO": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('PRODUCTO', ``, 'string') }}",
+            "Fecha Compra": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha_Compra', ``, 'string') }}",
+            "Nombre Estudiante": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_Estudiante', ``, 'string') }}",
+            "email alumno": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('email_alumno', ``, 'string') }}",
+            "Celular Alumno": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Celular_Alumno', ``, 'string') }}",
+            "Idioma": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Idioma', ``, 'string') }}",
+            "Colegio": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Colegio', ``, 'string') }}",
+            "Ciudad": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Ciudad', ``, 'string') }}",
+            "Fecha Inicio": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha_Inicio', ``, 'string') }}",
+            "Notas": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Notas', ``, 'string') }}",
+            "Cel tutor": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Cel_tutor', ``, 'string') }}",
+            "Nombre Completo Tutor": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_Completo_Tutor', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Forma de Pago",
+              "displayName": "Forma de Pago",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PRODUCTO",
+              "displayName": "PRODUCTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Compra",
+              "displayName": "Fecha Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nombre Estudiante",
+              "displayName": "Nombre Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email alumno",
+              "displayName": "email alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Celular Alumno",
+              "displayName": "Celular Alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nombre Completo Tutor",
+              "displayName": "Nombre Completo Tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cel tutor",
+              "displayName": "Cel tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Idioma",
+              "displayName": "Idioma",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Colegio",
+              "displayName": "Colegio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ciudad",
+              "displayName": "Ciudad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Inicio",
+              "displayName": "Fecha Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Notas",
+              "displayName": "Notas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Orientadora",
+              "displayName": "Orientadora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -720,
+        656
+      ],
+      "id": "da019db1-4c9b-4d60-ae4c-68eab6a809f9",
+      "name": "Crear Registro",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+          "mode": "list",
+          "cachedResultName": "Vendidos Prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1566833164,
+          "mode": "list",
+          "cachedResultName": "29 de Julio",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit#gid=1566833164"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $('Edit Fields2').item.json.chat_id }}",
+            "Forma de Pago": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Forma_de_Pago', ``, 'string') }}",
+            "PRODUCTO": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('PRODUCTO', ``, 'string') }}",
+            "Fecha Compra": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha_Compra', ``, 'string') }}",
+            "Nombre Estudiante": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_Estudiante', ``, 'string') }}",
+            "email alumno": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('email_alumno', ``, 'string') }}",
+            "Celular Alumno": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Celular_Alumno', ``, 'string') }}",
+            "Idioma": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Idioma', ``, 'string') }}",
+            "Colegio": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Colegio', ``, 'string') }}",
+            "Ciudad": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Ciudad', ``, 'string') }}",
+            "Fecha Inicio": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha_Inicio', ``, 'string') }}",
+            "Notas": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Notas', ``, 'string') }}",
+            "row_number": 0,
+            "Cel tutor": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Cel_tutor', ``, 'string') }}",
+            "Nombre Completo Tutor": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_Completo_Tutor', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Forma de Pago",
+              "displayName": "Forma de Pago",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PRODUCTO",
+              "displayName": "PRODUCTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Compra",
+              "displayName": "Fecha Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nombre Estudiante",
+              "displayName": "Nombre Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email alumno",
+              "displayName": "email alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Celular Alumno",
+              "displayName": "Celular Alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nombre Completo Tutor",
+              "displayName": "Nombre Completo Tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cel tutor",
+              "displayName": "Cel tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Idioma",
+              "displayName": "Idioma",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Colegio",
+              "displayName": "Colegio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ciudad",
+              "displayName": "Ciudad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Inicio",
+              "displayName": "Fecha Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Notas",
+              "displayName": "Notas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "OV",
+              "displayName": "OV",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Columna 1",
+              "displayName": "Columna 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Columna 2",
+              "displayName": "Columna 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -928,
+        752
+      ],
+      "id": "d5cbbde7-ff42-48f2-9956-40084726c914",
+      "name": "Actualizar Registro",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+          "mode": "list",
+          "cachedResultName": "Vendidos Prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1566833164,
+          "mode": "list",
+          "cachedResultName": "29 de Julio",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit#gid=1566833164"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -816,
+        736
+      ],
+      "id": "acb5ac4b-7fdd-4a7b-9bd7-4971ec5513b6",
+      "name": "Registros",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d4a268b3-a057-459f-89cd-f8893b1b0f7d",
+              "name": "mensaje",
+              "value": "={{ $('Aggregate2').item.json.mensaje[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "460e2f62-e56c-4263-a5d7-00e0ff3be590",
+              "name": "id_usuario",
+              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "91fc5a29-230e-475c-a11a-4bf7a9b01b30",
+              "name": "FechaMaster",
+              "value": "={{ $json.FechaMasterClass }}",
+              "type": "string"
+            },
+            {
+              "id": "85333985-56eb-4efa-902d-f549d738707f",
+              "name": "sessionId",
+              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1200,
+        352
+      ],
+      "id": "b3043035-dba1-477b-8b13-7118ef2d039b",
+      "name": "Estructurar"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I",
+          "mode": "list",
+          "cachedResultName": "Admin Enrique",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1610359296,
+          "mode": "list",
+          "cachedResultName": "Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfaM1ttI3di1u6vCDY11gMf2HAbeq9tHXwG1RFJeH1I/edit#gid=1610359296"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1408,
+        352
+      ],
+      "id": "57f9e34d-ed38-453b-9789-22ad6eb370e7",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -1040,
+        704
+      ],
+      "id": "30061f96-a826-4cf1-a562-13cab2cb4ad4",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "74h0q7M5LKQy0D94",
+          "name": "Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -3856,
+        1872
+      ],
+      "id": "879b2373-d343-4539-8f76-2a428753499f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1sS1g_kyp-zlObmFfQ2gx65Ds7eRsGL4QNQJp5wwY94Q",
+          "mode": "list",
+          "cachedResultName": "Tabla de orientadoras",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sS1g_kyp-zlObmFfQ2gx65Ds7eRsGL4QNQJp5wwY94Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 761238751,
+          "mode": "list",
+          "cachedResultName": "Características",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sS1g_kyp-zlObmFfQ2gx65Ds7eRsGL4QNQJp5wwY94Q/edit#gid=761238751"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -3728,
+        1920
+      ],
+      "id": "920c1153-4d58-4165-a172-e6b3b9d67ac4",
+      "name": "Orientadoras",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": "=1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -4224,
+        1632
+      ],
+      "id": "99f33c3d-f7c8-49f9-9b26-4d3c4752d12e",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"orientadora\": \"nombre\",\n  \"razon\": \"explicación breve\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -3600,
+        1872
+      ],
+      "id": "315804c4-ccf9-4974-87d3-add8f9f3b1c7",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+          "mode": "list",
+          "cachedResultName": "Vendidos Prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1566833164,
+          "mode": "list",
+          "cachedResultName": "29 de Julio",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit#gid=1566833164"
+        },
+        "event": "rowUpdate",
+        "options": {
+          "columnsToWatch": [
+            "Notas"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4432,
+        1632
+      ],
+      "id": "df5c1402-2309-4903-bc6b-02c35fdeb094",
+      "name": "Escucha un nuevo registro",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "1ITrO0tTQ2CGCA1P",
+          "name": "ApiEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "afc095a8-6e51-4f2b-9929-af9d8f991f8c",
+              "name": "Resumen",
+              "value": "={{ $json.Notas }}",
+              "type": "string"
+            },
+            {
+              "id": "42cf031b-2a29-4e2d-9ea0-2bb72031d0a6",
+              "name": "Fecha Inicio",
+              "value": "={{ $json['Fecha Inicio'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bf18232-5435-43ad-a48f-4b1e54fe9bb7",
+              "name": "Idioma",
+              "value": "={{ $json.Idioma }}",
+              "type": "string"
+            },
+            {
+              "id": "91f1cb6e-16d1-4ed6-9de9-8599db4dabbd",
+              "name": "ID",
+              "value": "={{ $json.ID }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4000,
+        1664
+      ],
+      "id": "25225409-df10-4d89-b9cd-646eee71984e",
+      "name": "Normalizar datos"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Resumen }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Recibirás un resumen de un alumno. El idioma es: {{ $json.Idioma }}.\nCon base en ese resumen, revisa la tabla de orientadoras y elige a la más adecuada para atenderlo.\nDevuelve únicamente un JSON con este formato:\n\n{\n  \"orientadora\": \"nombre\",\n  \"razon\": \"explicación breve\"\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -3808,
+        1648
+      ],
+      "id": "e8589037-66b2-4729-9e57-0af37700b5a4",
+      "name": "Asignador"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+          "mode": "list",
+          "cachedResultName": "Vendidos Prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1566833164,
+          "mode": "list",
+          "cachedResultName": "29 de Julio",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4/edit#gid=1566833164"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $('Normalizar datos').item.json.ID }}",
+            "Orientadora": "={{ $json.output.orientadora }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Forma de Pago",
+              "displayName": "Forma de Pago",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "PRODUCTO",
+              "displayName": "PRODUCTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Compra",
+              "displayName": "Fecha Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre Estudiante",
+              "displayName": "Nombre Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email alumno",
+              "displayName": "email alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Celular Alumno",
+              "displayName": "Celular Alumno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre Completo Tutor",
+              "displayName": "Nombre Completo Tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Cel tutor",
+              "displayName": "Cel tutor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Idioma",
+              "displayName": "Idioma",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Colegio",
+              "displayName": "Colegio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ciudad",
+              "displayName": "Ciudad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Inicio",
+              "displayName": "Fecha Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Notas",
+              "displayName": "Notas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Orientadora",
+              "displayName": "Orientadora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -3456,
+        1648
+      ],
+      "id": "dba251ae-7ae2-4246-a029-29bf4d41f896",
+      "name": "Actualizar Orientadora",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_plantillas",
+  "repo_owner": "pakosanchez27",
+  "repo_path": "https://github.com/pakosanchez27/n8n_plantillas",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Google Sheets Trigger": {
+      "documentId": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+      "sheetId": 1566833164,
+      "lastRevision": 234,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4&revision=234&exportFormat=xlsx"
+    },
+    "node:Escucha un nuevo registro": {
+      "documentId": "1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4",
+      "sheetId": 1566833164,
+      "lastRevision": 238,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1zuy3rT5LHo3BMA4ycLjT7jWn62VS7rcxW7sROztthQ4&revision=238&exportFormat=xlsx"
+    }
+  },
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-08-20T22:59:39.000Z",
+  "versionId": "4f9ceef9-6f99-4b4e-8c7d-40ff0e1a74e5"
+}
