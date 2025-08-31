@@ -400,114 +400,19 @@
         ]
       ]
     },
-    "Code": {
-      "main": [
-        [
-          {
-            "node": "ETIQUETA1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code1": {
-      "main": [
-        [
-          {
-            "node": "ETIQUETA",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Message a model3": {
-      "main": [
-        [
-          {
-            "node": "Code2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code2": {
-      "main": [
-        [
-          {
-            "node": "ETIQUETA2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "ETIQUETA": {
       "main": [
-        [
-          {
-            "node": "Crear Borrador",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "ETIQUETA1": {
       "main": [
-        [
-          {
-            "node": "Crear Borrador1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "ETIQUETA2": {
       "main": [
-        [
-          {
-            "node": "Crear Borrador2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Crear Borrador": {
-      "main": [
-        [
-          {
-            "node": "Enviar Alerta",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Crear Borrador1": {
-      "main": [
-        [
-          {
-            "node": "Enviar Alerta1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Crear Borrador2": {
-      "main": [
-        [
-          {
-            "node": "Enviar Alerta2",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Clasificador de Emails": {
@@ -536,21 +441,21 @@
       "main": [
         [
           {
-            "node": "Message a model5",
+            "node": "ETIQUETA",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Message a model4",
+            "node": "ETIQUETA1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Message a model3",
+            "node": "ETIQUETA2",
             "type": "main",
             "index": 0
           }
@@ -572,28 +477,6 @@
         [
           {
             "node": "ETIQUETA5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Message a model4": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Message a model5": {
-      "main": [
-        [
-          {
-            "node": "Code1",
             "type": "main",
             "index": 0
           }
@@ -1942,78 +1825,6 @@
     },
     {
       "parameters": {
-        "jsCode": "const string = $input.first().json.content.parts[0].text;\nconst json = JSON.parse(string)\n\nreturn json"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4880,
-        48
-      ],
-      "id": "188f2d19-eb22-4ef5-a7b9-fe45c04f32ea",
-      "name": "Code"
-    },
-    {
-      "parameters": {
-        "jsCode": "const string = $input.first().json.content.parts[0].text;\nconst json = JSON.parse(string)\n\nreturn json"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4880,
-        -144
-      ],
-      "id": "095719ad-2fa3-4965-bb2f-290a46cfe566",
-      "name": "Code1"
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "models/gemini-2.5-flash",
-          "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=Eres un asistente especializado en responder correos laborales.\n\nRecibirás el asunto y el cuerpo de un correo relacionado con trabajo o comunicaciones internas.\n\nTu tarea es redactar una respuesta breve, clara y respetuosa.\n\nAsegúrate de:\n\nResponder de forma puntual a lo que se pide.\n\nMantener un tono colaborativo y profesional.\n\nSonar humano, como un colega atento.\n\nEvitar exceso de formalidad, manteniendo la comunicación sencilla.\n\nEl output debe estar únicamente en JSON con este formato:\n\n{\n  \"subject\": \"texto en plain text del asunto de la respuesta\",\n  \"body\": \"texto en plain text del cuerpo de la respuesta\"\n}\n\n\nCORREO RECIBIDO : \nDE: {{ $('Edit Fields1').item.json.From }}\nASUNTO: {{ $('Edit Fields1').item.json.Subject }}\nBODY:{{ $('Edit Fields1').item.json.snippet }}\n\n"
-            }
-          ]
-        },
-        "jsonOutput": true,
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.googleGemini",
-      "typeVersion": 1,
-      "position": [
-        4528,
-        240
-      ],
-      "id": "05ae396a-6e5f-4266-a217-446c303c5af8",
-      "name": "Message a model3",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "pdB77gCjQoMxFDV3",
-          "name": "Pako Gemini"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "const string = $input.first().json.content.parts[0].text;\nconst json = JSON.parse(string)\n\nreturn json"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4880,
-        240
-      ],
-      "id": "989271d6-d5bb-41f6-8329-aa4b434cb222",
-      "name": "Code2"
-    },
-    {
-      "parameters": {
         "operation": "addLabels",
         "messageId": "={{ $('Edit Fields1').item.json.id }}",
         "labelIds": [
@@ -2023,7 +1834,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        5104,
+        4528,
         -144
       ],
       "id": "4caf661b-cfe3-4a1d-9686-87a214406f81",
@@ -2047,7 +1858,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        5104,
+        4528,
         48
       ],
       "id": "d52d9821-2b95-4059-9b5a-6d8df4e0637f",
@@ -2071,7 +1882,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        5104,
+        4528,
         240
       ],
       "id": "702c2819-dd30-4ea9-aec9-e8bb8a2a04bd",
@@ -2095,7 +1906,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4592,
+        4528,
         432
       ],
       "id": "5d0680de-ae0c-420c-a662-3bbf77fd82a9",
@@ -2119,7 +1930,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4592,
+        4528,
         624
       ],
       "id": "c1fe2daa-2071-4ed6-804b-63951ca13f13",
@@ -2143,7 +1954,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4592,
+        4528,
         816
       ],
       "id": "13f292cb-0251-41fb-a655-931103cd59d8",
@@ -2153,144 +1964,6 @@
         "gmailOAuth2": {
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "draft",
-        "subject": "={{ $('Code1').item.json.subject }}",
-        "message": "={{ $('Code1').item.json.body }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        5328,
-        -144
-      ],
-      "id": "39ac43c8-86ac-442b-80dc-166b58db4f1d",
-      "name": "Crear Borrador",
-      "webhookId": "7a52e0d7-3cc5-4d39-9d3c-9a3ac1bcef31",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "ysXYnPoghR9xwiuT",
-          "name": "Gmail Pako"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "draft",
-        "subject": "={{ $('Code').item.json.subject }}",
-        "message": "={{ $('Code').item.json.body }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        5328,
-        48
-      ],
-      "id": "a1da40a2-260a-4de6-9c96-dacae7a3845e",
-      "name": "Crear Borrador1",
-      "webhookId": "7a52e0d7-3cc5-4d39-9d3c-9a3ac1bcef31",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "ysXYnPoghR9xwiuT",
-          "name": "Gmail Pako"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "draft",
-        "subject": "={{ $('Code2').item.json.subject }}",
-        "message": "={{ $('Code2').item.json.body }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        5328,
-        240
-      ],
-      "id": "2dad824a-3afe-44d7-9249-1c353251684d",
-      "name": "Crear Borrador2",
-      "webhookId": "7a52e0d7-3cc5-4d39-9d3c-9a3ac1bcef31",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "ysXYnPoghR9xwiuT",
-          "name": "Gmail Pako"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "Bot_Pruebas_IA",
-        "remoteJid": "5215534073167",
-        "messageText": "=Recibiste un correo acerca de:  *{{ $('Clasificador de Emails').item.json.content.parts[0].text }}*\nTe lo envio: \n*{{ $('Edit Fields1').item.json.From }}*\nContenido: \n{{ $('Edit Fields1').item.json.snippet }}\n\nSe genero el siguiente borrador: \n{{ $('Code1').item.json.body }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        5552,
-        -144
-      ],
-      "id": "8269ad9d-4b0c-4668-8bcf-fa549407eee9",
-      "name": "Enviar Alerta",
-      "credentials": {
-        "evolutionApi": {
-          "id": "Yxv2trQ4ePWkxDQ4",
-          "name": "Bot Prueba IA"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "Bot_Pruebas_IA",
-        "remoteJid": "5215534073167",
-        "messageText": "=Recibiste un correo acerca de:  *{{ $('Clasificador de Emails').item.json.content.parts[0].text }}*\nTe lo envio: \n*{{ $('Edit Fields1').item.json.From }}*\nContenido: \n{{ $('Edit Fields1').item.json.snippet }}\n\nSe genero el siguiente borrador: \n{{ $('Code').item.json.body }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        5552,
-        48
-      ],
-      "id": "5ef0db23-ac68-44e3-af4b-dcaa3028a87b",
-      "name": "Enviar Alerta1",
-      "credentials": {
-        "evolutionApi": {
-          "id": "Yxv2trQ4ePWkxDQ4",
-          "name": "Bot Prueba IA"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "Bot_Pruebas_IA",
-        "remoteJid": "5215534073167",
-        "messageText": "=Recibiste un correo acerca de:  *{{ $('Clasificador de Emails').item.json.content.parts[0].text }}*\nTe lo envio: \n*{{ $('Edit Fields1').item.json.From }}*\nContenido: \n{{ $('Edit Fields1').item.json.snippet }}\n\nSe genero el siguiente borrador: \n{{ $('Code2').item.json.body }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        5552,
-        240
-      ],
-      "id": "387496b9-3497-4e74-a273-53c779874e34",
-      "name": "Enviar Alerta2",
-      "credentials": {
-        "evolutionApi": {
-          "id": "Yxv2trQ4ePWkxDQ4",
-          "name": "Bot Prueba IA"
         }
       }
     },
@@ -2325,22 +1998,6 @@
           "name": "Pako Gemini"
         }
       }
-    },
-    {
-      "parameters": {
-        "content": "# Asistente Clasificador de correos \n### Descripcion\nEl asistente recibe los correos, los clasifica y agrega una etiqueta, Si son *importantes* entonces envia una alerta\n\n### Herramientas y costos \n* n8n: $5 / 20 USD /mes\n* OpenIA o Gemini : $ 5 USD /mes\n* Gmail API: Free\n* Evolution API: Free ",
-        "height": 1216,
-        "width": 2416,
-        "color": 5
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        3424,
-        -240
-      ],
-      "typeVersion": 1,
-      "id": "2acd01dc-2ddd-4104-a01e-933ab911d951",
-      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -2550,72 +2207,6 @@
       ],
       "id": "c2969874-cb30-427e-87c0-ed6e1ae40e5d",
       "name": "Switch1"
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "models/gemini-2.5-flash",
-          "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=Eres un asistente especializado en responder correos de negocios.\n\nRecibirás el asunto y el cuerpo de un correo relacionado con oportunidades comerciales, propuestas o networking.\n\nTu tarea es redactar una respuesta profesional pero cercana, mostrando interés en colaborar.\n\nAsegúrate de:\n\nAgradecer el contacto de manera natural.\n\nMostrar disposición y apertura a continuar la conversación.\n\nMantener un tono positivo, cordial y entusiasta.\n\nEvitar sonar demasiado genérico. Haz que la respuesta parezca escrita para esa persona.\n\nEl output debe estar únicamente en JSON con este formato:\n\n{\n  \"subject\": \"texto en plain text del asunto de la respuesta\",\n  \"body\": \"texto en plain text del cuerpo de la respuesta\"\n}\n\n\nCORREO RECIBIDO : \nDE: {{ $('Edit Fields1').item.json.From }}\nASUNTO: {{ $('Edit Fields1').item.json.Subject }}\nBODY:{{ $('Edit Fields1').item.json.snippet }}\n\n"
-            }
-          ]
-        },
-        "jsonOutput": true,
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.googleGemini",
-      "typeVersion": 1,
-      "position": [
-        4528,
-        48
-      ],
-      "id": "64d1bed4-f610-486c-a002-338e8e65728e",
-      "name": "Message a model4",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "pdB77gCjQoMxFDV3",
-          "name": "Pako Gemini"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "models/gemini-2.5-flash",
-          "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=Eres un asistente especializado en responder correos de temas financieros.\n\nRecibirás el asunto y el cuerpo de correo relacionado con finanzas (ej. bancos, reportes, estados de cuenta, inversiones).\n\nTu tarea es redactar una respuesta clara, profesional y breve, con tono humano.\n\nAsegúrate de:\n\nResponder de forma educada y concreta a lo solicitado.\n\nMantener un tono serio y confiable, como un asesor financiero.\n\nUsar frases naturales como: “Gracias por compartir esta información”, “Con gusto te apoyo con…”.\n\nNo sonar robótico ni demasiado genérico.\n\nEl output debe estar únicamente en JSON con este formato:\n\n{\n  \"subject\": \"texto en plain text del asunto de la respuesta\",\n  \"body\": \"texto en plain text del cuerpo de la respuesta\"\n}\n\n\nCORREO RECIBIDO : \nDE: {{ $('Edit Fields1').item.json.From }}\nASUNTO: {{ $('Edit Fields1').item.json.Subject }}\nBODY:{{ $('Edit Fields1').item.json.snippet }}\n\n"
-            }
-          ]
-        },
-        "jsonOutput": true,
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.googleGemini",
-      "typeVersion": 1,
-      "position": [
-        4528,
-        -144
-      ],
-      "id": "d1d4c13d-4f80-4ee2-b41a-f7a2ea5fbd56",
-      "name": "Message a model5",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "pdB77gCjQoMxFDV3",
-          "name": "Pako Gemini"
-        }
-      }
     }
   ],
   "pinData": {},
@@ -2624,17 +2215,17 @@
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2025-08-30T18:45:15Z"
+      "lastTimeChecked": "2025-08-31T04:03:22Z"
     },
     "node:Schedule Trigger": {
       "recurrenceRules": []
     },
     "node:Gmail": {
       "Gmail": {
-        "lastTimeChecked": 1756579513,
+        "lastTimeChecked": 1756613039,
         "possibleDuplicates": [
-          "198fc4c4471974c3",
-          "198fc3553f713a8f"
+          "198fe4bd76b91f1c",
+          "198fe2f07aa93445"
         ]
       }
     }
@@ -2648,6 +2239,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-08-30T08:24:33.000Z",
-  "versionId": "37647bd6-6136-4a84-a993-7ee578d70483"
+  "updatedAt": "2025-08-30T18:56:08.000Z",
+  "versionId": "ba7d7e24-c1cf-4f79-a428-38cebd750ead"
 }
