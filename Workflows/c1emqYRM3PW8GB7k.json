@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -23,12 +23,18 @@
         ],
         [
           {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "Edit Fields1",
             "type": "main",
             "index": 0
           }
         ],
-        [],
         [],
         [],
         [
@@ -172,98 +178,12 @@
         ]
       ]
     },
-    "OpenAI Chat Model5": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "SUBAGENTE_AGENDAR",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "SUBAGENTE_AGENDAR": {
-      "ai_tool": [
-        [
-          {
-            "node": "AGENDADOR",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code": {
+    "AGENDADOR": {
       "main": [
         [
           {
             "node": "Send a text message1",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AGENDADOR": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "get_availability": {
-      "ai_tool": [
-        [
-          {
-            "node": "SUBAGENTE_AGENDAR",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "create_booking": {
-      "ai_tool": [
-        [
-          {
-            "node": "SUBAGENTE_AGENDAR",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Zep": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "AGENDADOR",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "SERVICIOS",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "SUBAGENTE_AGENDAR",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "AI Agent1",
-            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -302,6 +222,141 @@
           {
             "node": "AI Agent1",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "AGENDADOR",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "SERVICIOS",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "AI Agent2",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ver Disponibilidad": {
+      "ai_tool": [
+        [
+          {
+            "node": "AGENDADOR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reservar Cita": {
+      "ai_tool": [
+        [
+          {
+            "node": "AGENDADOR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "ai_tool": [
+        [
+          {
+            "node": "AGENDADOR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registrar Cita": {
+      "ai_tool": [
+        [
+          {
+            "node": "AGENDADOR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        []
+      ]
+    },
+    "Search records": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
             "index": 0
           }
         ]
@@ -383,31 +438,6 @@
                 },
                 "conditions": [
                   {
-                    "id": "7c02197b-6483-47e5-898c-d6e347025385",
-                    "leftValue": "={{ $json.output.intent }}",
-                    "rightValue": "servicios",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "servicios"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
                     "id": "219ce387-b06f-4c22-b960-3adac61686b4",
                     "leftValue": "={{ $json.output.intent }}",
                     "rightValue": "reagendar",
@@ -422,6 +452,31 @@
               },
               "renameOutput": true,
               "outputKey": "reagendar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7c02197b-6483-47e5-898c-d6e347025385",
+                    "leftValue": "={{ $json.output.intent }}",
+                    "rightValue": "servicios",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "servicios"
             },
             {
               "conditions": {
@@ -482,7 +537,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        896,
+        1104,
         400
       ],
       "id": "fec025e2-359e-42da-a3bc-f1852ff792ea",
@@ -517,8 +572,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1216,
-        608
+        2512,
+        960
       ],
       "id": "cb552de7-d930-4756-a7ed-be3e0618d619",
       "name": "Edit Fields1"
@@ -558,8 +613,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        2144,
-        608
+        3632,
+        1376
       ],
       "id": "6fa5d663-d66a-4f80-a630-e8b59a2f02a6",
       "name": "Send a text message",
@@ -577,14 +632,14 @@
         "text": "=MSG=\"{{ $json.msg_text }}\"\nENT_SERVICIO=\"{{ $json.entities }}\"\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=Eres un agente para WhatsApp de \"Clínica Dental Sonrisa\" (subflujo SERVICIOS).\n- Tono: alegre, casual CDMX, enérgico, 2–4 emojis.\n- Usa SIEMPRE saltos de línea en reply_text: inserta \"\\n\" entre bloques/frases.\n- Si NO detectas servicio: menú 1–5, cada opción en su propia línea con su emoji, y CTA final.\n- Si SÍ detectas: 4–5 líneas: \n  1) Título con nombre + emojis \n  2) Qué es + beneficio \n  3) Duración \n  4) Precio desde (MXN)\n  5) CTA: ¿Agendamos? \"Agendar <clave>\" o \"Ver horarios\".\n- Máx 600 caracteres. Sin diagnósticos.\n\nCATÁLOGO/SINÓNIMOS/EMOJIS: (igual a la versión anterior)\nFORMATO SALIDA JSON estricto: { \"service_key\": \"<clave|null>\", \"reply_text\": \"<texto>\", \"confidence\": <0..1> }\n\nCATÁLOGO:\n- limpieza: nombre=\"Limpieza dental\", desc=\"Remueve placa y sarro.\", precioDesde=600, duracion=\"30-45 min\"\n- ortodoncia: nombre=\"Ortodoncia\", desc=\"Alinea dientes con brackets o alineadores.\", precioDesde=12000, duracion=\"Plan 12-24 meses\"\n- blanqueamiento: nombre=\"Blanqueamiento\", desc=\"Aclara varios tonos.\", precioDesde=2500, duracion=\"60-90 min\"\n- implantes: nombre=\"Implantes\", desc=\"Reemplaza piezas ausentes.\", precioDesde=18000, duracion=\"2-3 citas\"\n- urgencias: nombre=\"Urgencias\", desc=\"Dolor agudo, fracturas, infecciones.\", precioDesde=800, duracion=\"Según evaluación\"\n\nSINÓNIMOS:\n- limpieza: profilaxis, detartraje\n- ortodoncia: brackets, alineadores, invisibles, frenos\n- blanqueamiento: blanquear, whitening, blanco\n- implantes: implante, tornillo, pilar\n- urgencias: emergencia, dolor, infeccion, infección\n\nEMOJIS POR SERVICIO:\n- limpieza: 🦷✨💎\n- ortodoncia: 😁📏🦷\n- blanqueamiento: ✨💎😄\n- implantes: 🦷🔩⚙️\n- urgencias: 🚑⚠️🆘\n(usa 2–4 emojis; si no hay servicio detectado, usa 🦷✨📅)\n\nESTILO:\n- Español CDMX, casual, enérgico, proactivo; frases cortas; “tú”.\n- No copies definiciones tal cual; redacta un mini-mensaje natural con beneficios.\n- Sin consejos médicos ni diagnósticos. Máx 600 caracteres.\n\nCOMPORTAMIENTO:\n- Si NO detectas servicio: muestra menú 1–5 con cada opción + su emoji y CTA para elegir número.\n- Si SÍ detectas: crea 2–4 frases fluidas que integren: qué es, beneficio, duración y “precio desde”.\n  Cierra con CTA: ¿Agendamos? di: \"Agendar <clave>\" o \"Ver horarios\".\n\nFORMATO DE SALIDA (JSON estricto, sin Markdown):\n{ \"service_key\": \"<clave|null>\", \"reply_text\": \"<texto>\", \"confidence\": <0..1> }\n"
+          "systemMessage": "=Eres un agente para WhatsApp de \"Clínica Dental Sonrisa\" (subflujo SERVICIOS).\n- Tono: alegre, casual CDMX, enérgico, 2–4 emojis.\n- Usa SIEMPRE saltos de línea en reply_text: inserta \"\\n\" entre bloques/frases.\n- Si NO detectas servicio: menú 1–5, cada opción en su propia línea con su emoji, y CTA final.\n- Si SÍ detectas: 4–5 líneas: \n  1) Título con nombre + emojis \n  2) Qué es + beneficio \n  3) Duración \n  4) Precio desde (MXN)\n  5) CTA: ¿Agendamos? \"Agendar <clave>\" o \"Ver horarios\".\n- Máx 600 caracteres. Sin diagnósticos.\n\nCATÁLOGO/SINÓNIMOS/EMOJIS: (igual a la versión anterior)\nFORMATO SALIDA JSON estricto: { \"service_key\": \"<clave|null>\", \"reply_text\": \"<texto>\", \"confidence\": <0..1> }\n\nCATÁLOGO:\n- limpieza: nombre=\"Limpieza dental\", desc=\"Remueve placa y sarro.\", precioDesde=600, duracion=\"30-45 min\"\n- ortodoncia: nombre=\"Ortodoncia\", desc=\"Alinea dientes con brackets o alineadores.\", precioDesde=12000, duracion=\"Plan 12-24 meses\"\n- blanqueamiento: nombre=\"Blanqueamiento\", desc=\"Aclara varios tonos.\", precioDesde=2500, duracion=\"60-90 min\"\n- implantes: nombre=\"Implantes\", desc=\"Reemplaza piezas ausentes.\", precioDesde=18000, duracion=\"2-3 citas\"\n- urgencias: nombre=\"Urgencias\", desc=\"Dolor agudo, fracturas, infecciones.\", precioDesde=800, duracion=\"Según evaluación\"\n\nSINÓNIMOS:\n- limpieza: profilaxis, detartraje\n- ortodoncia: brackets, alineadores, invisibles, frenos\n- blanqueamiento: blanquear, whitening, blanco\n- implantes: implante, tornillo, pilar\n- urgencias: emergencia, dolor, infeccion, infección\n\nEMOJIS POR SERVICIO:\n- limpieza: 🦷✨💎\n- ortodoncia: 😁📏🦷\n- blanqueamiento: ✨💎😄\n- implantes: 🦷🔩⚙️\n- urgencias: 🚑⚠️🆘\n(usa 2–4 emojis; si no hay servicio detectado, usa 🦷✨📅)\n\nESTILO:\n- Español CDMX, casual, enérgico, proactivo; frases cortas; “tú”.\n- No copies definiciones tal cual; redacta un mini-mensaje natural con beneficios.\n- Sin consejos médicos ni diagnósticos. Máx 600 caracteres.\n\nCOMPORTAMIENTO:\n- Si NO detectas servicio: muestra menú 1–5 con cada opción + su emoji y CTA para elegir número.\n- Si SÍ detectas: crea 2–4 frases fluidas que integren: qué es, beneficio, duración y “precio desde”.\n  Cierra con CTA: ¿Agendamos? di: \"Agendar <clave>\" o \"Ver horarios\".\n\nREGLAS : \n- Para elegir las opciones deben escribir el nombre no el numero de la opcion\n- No enumeres las opciones \n\nFORMATO DE SALIDA (JSON estricto, sin Markdown):\n{ \"service_key\": \"<clave|null>\", \"reply_text\": \"<texto>\", \"confidence\": <0..1> }\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        1568,
-        400
+        2944,
+        880
       ],
       "id": "e1dde405-e3d1-4a31-aecc-68995244e4b4",
       "name": "SERVICIOS"
@@ -601,8 +656,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1536,
-        624
+        2880,
+        1152
       ],
       "id": "51e75792-2eae-4e38-8b9b-b0cd2e61b0ee",
       "name": "OpenAI Chat Model",
@@ -621,8 +676,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1664,
-        624
+        3152,
+        1392
       ],
       "id": "8b5a3434-087f-4d73-8f96-6bbf50c0a745",
       "name": "Structured Output Parser"
@@ -630,20 +685,21 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=MENSAJE: \"{{ $json.mensaje }}\"\nMETADATOS: { \"from\": \"{{ $json.sessionId }}\", \"idioma\": \"es\", \"canal\": \"whatsapp\" }\n\n",
+        "text": "=MENSAJE: \"{{ $json.mensaje }}\"\n\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=Eres un clasificador de intención para WhatsApp de una clínica dental. Etiquetas permitidas: [\"agendar\",\"servicios\",\"reagendar\",\"facturacion\",\"humano\",\"fallback\"]. Devuelve SOLO JSON válido. Extrae entidades cuando existan: servicio (texto), fecha (ISO-8601), hora (HH:mm), nombre (texto). Si hay ambigüedad, usa \"fallback\". Si hay varias intenciones, elige la más accionable para continuar el flujo.\n\nREGLAS DE CLASIFICACION (resumen):\n- \"agendar\": quiere nueva cita, disponibilidad u horario.\n- \"servicios\": pide info de tratamientos, precios o duración.\n- \"reagendar\": mover/cancelar/confirmar una cita existente.\n- \"facturacion\": factura, RFC, CFDI, comprobante.\n- \"humano\": pide hablar con una persona o presenta queja directa.\n- Si no hay suficiente contexto => \"fallback\".\n\nEjemplos (no respondas a estos):\n- \"Quiero una limpieza mañana a las 4\" -> agendar\n- \"¿Cuánto cuesta la ortodoncia?\" -> servicios\n- \"Necesito mover mi cita del lunes\" -> reagendar\n- \"¿Me pueden facturar? Mi RFC es...\" -> facturacion\n- \"Quiero hablar con alguien\" -> humano\n- \"Hola\" -> fallback\n\n\nReglas estrictas \n- Siempre revisa la conversacion para verificar si el cliente no esta en un proceso activo, nunca deduscas solo con una frace \nRESPONDE SOLO CON JSON:\n{\n  \"intent\": \"<agendar|servicios|reagendar|facturacion|humano|fallback>\",\n  \"confidence\": 0.0,\n  \"entities\": {\n    \"servicio\": null,\n    \"fecha\": null,\n    \"hora\": null,\n    \"nombre\": null\n  },\n  \"reason\": \"breve justificacion\"\n}\n"
+          "systemMessage": "=Eres un clasificador de intención para WhatsApp de una clínica dental. Etiquetas permitidas: [\"agendar\",\"servicios\",\"reagendar\",\"facturacion\",\"humano\",\"fallback\"]. Devuelve SOLO JSON válido. Extrae entidades cuando existan: servicio (texto), fecha (ISO-8601), hora (HH:mm), nombre (texto). Si hay ambigüedad, usa \"fallback\". Si hay varias intenciones, elige la más accionable para continuar el flujo.\n\nREGLAS DE CLASIFICACION (resumen):\n- \"agendar\": quiere nueva cita, disponibilidad u horario.\n- \"servicios\": pide info de tratamientos, precios o duración.\n- \"reagendar\": mover/cancelar/confirmar una cita existente.\n- \"facturacion\": factura, RFC, CFDI, comprobante.\n- \"humano\": pide hablar con una persona o presenta queja directa.\n- Si no hay suficiente contexto => \"fallback\".\n\nEjemplos (no respondas a estos):\n- \"Quiero una limpieza mañana a las 4\" -> agendar\n- \"¿Cuánto cuesta la ortodoncia?\" -> servicios\n- \"Necesito mover mi cita del lunes\" -> reagendar\n- \"¿Me pueden facturar? Mi RFC es...\" -> facturacion\n- \"Quiero hablar con alguien\" -> humano\n- \"Hola\" -> fallback\n\n\nReglas estrictas \n- Siempre revisa la conversacion para verificar si el cliente no esta en un proceso activo, nunca deduscas solo con una frace \nRESPONDE SOLO CON JSON:\n{\n  \"intent\": \"<agendar|servicios|reagendar|facturacion|humano|fallback>\",\n  \"reason\": \"breve justificacion\"\n}\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        432,
+        640,
         464
       ],
       "id": "907fdcc3-071c-48e3-ab2b-344440df1ca0",
-      "name": "AI Agent"
+      "name": "AI Agent",
+      "retryOnFail": true
     },
     {
       "parameters": {
@@ -657,7 +713,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        400,
+        608,
         688
       ],
       "id": "a5322b22-3f4c-493e-8acc-c0cab5c528f9",
@@ -671,13 +727,13 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"intent\": \"<agendar|servicios|reagendar|facturacion|humano|fallback>\",\n  \"confidence\": 0.0,\n  \"entities\": {\n    \"servicio\": null,\n    \"fecha\": null,\n    \"hora\": null,\n    \"nombre\": null\n  },\n  \"reason\": \"breve justificacion\"\n}\n",
+        "jsonSchemaExample": "\n{\n  \"intent\": \"<agendar|servicios|reagendar|facturacion|humano|fallback>\",\n  \"reason\": \"breve justificacion\"\n}\n",
         "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        528,
+        736,
         688
       ],
       "id": "bef446db-ad3d-4c2d-9ce9-2df1e45cb040",
@@ -695,7 +751,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        608,
+        816,
         896
       ],
       "id": "84c59713-ac54-4d82-bd0d-39a72029a43a",
@@ -719,8 +775,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1744,
-        832
+        3184,
+        1248
       ],
       "id": "f778db9e-5253-4da8-b71a-41f8be37d3c1",
       "name": "OpenAI Chat Model3",
@@ -754,7 +810,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
+        1328,
         -144
       ],
       "id": "afd4f271-e67c-469c-9b83-b8e83f43ceb8",
@@ -773,8 +829,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1376,
-        -128
+        1520,
+        -272
       ],
       "id": "650f8bd5-0d7f-47ab-90da-4d31d5ba247c",
       "name": "OpenAI Chat Model4",
@@ -787,61 +843,8 @@
     },
     {
       "parameters": {
-        "model": {
-          "__rl": true,
-          "mode": "list",
-          "value": "gpt-4.1-mini"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        1600,
-        80
-      ],
-      "id": "d284c9d5-2ea8-4c63-8de7-a8d24ab2d2ea",
-      "name": "OpenAI Chat Model5",
-      "credentials": {
-        "openAiApi": {
-          "id": "a6T9FSulj0yWIirx",
-          "name": "Converging"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "text": "=MSG=\"{{ $json.msg_text }}\"\nTZ=\"America/Mexico_City\"\nTODAY=\"{{ $now.setZone('America/Mexico_City').toFormat('yyyy-LL-dd') }}\"\nNOW_ISO=\"{{ $now.setZone('America/Mexico_City').toISO() }}\"\n",
-        "options": {
-          "systemMessage": "=Eres el SUBAGENTE_AGENDAR de \"Clínica Dental Sonrisa\".\nTono alegre CDMX (2–4 emojis), usa \"\\n\". Frases cortas.\nTu función principal: AGENDAR con el payload recibido. No pidas datos personales (eso lo hace el Agendador).\nSi recibes BOOKING_REQUEST completo → agenda.\nSi el usuario pide \"ver horarios\", \"cambiar horario\" u \"otra hora\":\n  - No pidas fecha ni servicio.\n  - Si tienes LAST_OPTIONS (labels y slots previos), re-muéstralos tal cual.\n  - Si no tienes opciones previas, llama get_availability(date_from=TODAY, days=7, timezone=TZ) y reúne ≥5 próximos slots futuros (filtra horas pasadas de hoy).\n  - Muestra SIEMPRE la lista numerada en formato exacto: \"n) <Día> hh:mm am/pm\" (día en español, mayúscula inicial; 12h; am/pm minúsculas).\n  - Responde con state=\"proposing\" y data.options=[ISO...]. CTA: \"Responde 1, 2, 3, 4 o 5\".\nSi eligen un número válido:\n  - Actualiza booking_request.start = options[n-1] y procede a crear la cita.\nErrores de backend: devuelve mensaje breve para reintentar o elegir otro horario.\nSalida JSON estricta:\n{ \"reply_text\":\"...\", \"state\":\"<proposing|done>\", \"data\":{ \"options\":string[]|null, \"booking_id\":string|null }, \"booking_request\": object|null }\nLímite 600 chars.\n\nTOOLS:\n1) get_availability(date_from:string, days:int, timezone:string) -> { \"slots\":[{ \"start\": ISO8601, \"end\": ISO8601 }] }\n2) create_booking(payload: object) -> { \"booking_id\": string, \"start\": ISO8601, \"end\": ISO8601, \"address\": string|null }\n"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agentTool",
-      "typeVersion": 2.2,
-      "position": [
-        1616,
-        -128
-      ],
-      "id": "db04d1e0-520d-4033-9135-045823b09814",
-      "name": "SUBAGENTE_AGENDAR"
-    },
-    {
-      "parameters": {
-        "jsCode": "const string = $input.first().json.output\nconst json = JSON.parse($input.first().json.output)\n\nreturn json"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2064,
-        -144
-      ],
-      "id": "39820226-9699-4b99-beea-ceac83545317",
-      "name": "Code"
-    },
-    {
-      "parameters": {
         "chatId": "={{ $('Edit Fields2').item.json.From }}",
-        "text": "={{ $json.reply_text }}",
+        "text": "={{ $json.output }}",
         "replyMarkup": "inlineKeyboard",
         "additionalFields": {
           "appendAttribution": false
@@ -850,8 +853,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        2288,
-        -144
+        2080,
+        -432
       ],
       "id": "ff58b6ed-0e46-4c42-abb6-f254de731c95",
       "name": "Send a text message1",
@@ -866,108 +869,46 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=MSG=\"{{ $json.msg_text }}\"\nTZ=\"America/Mexico_City\"\n\nNOW_ISO=\"{{ $now.setZone('America/Mexico_City').toISO() }}\"\nHISTORY= Usa la memoria temporal zep\n",
+        "text": "=MSG=\"{{ $json.msg_text }}\"\nTZ=\"America/Mexico_City\"\n\n",
         "options": {
-          "systemMessage": "=Eres el AGENDADOR de \"Clínica Dental Sonrisa\".\nObjetivo: mostrar ≥5 horarios desde TODAY (TZ), obtener 1 dato por mensaje: slot → nombre (≥2 palabras) → email (regex simple) → teléfono MX (10 dígitos). Leer la conversacion para evitar pedir un dato que ya tenemos, confírmalos brevemente y avanza.\nNo pidas fecha ni servicio. Filtra horas pasadas de hoy (>= NOW_ISO). Formato de horarios obligatorio: \"n) <Día> hh:mm am/pm\".\nTono alegre CDMX, 2–4 emojis, usa \"\\n\".\nEstados: proposing | awaiting_name | awaiting_email | awaiting_phone | ready.\n\nReglas \n- Siempre consulta la disponibilidad  el SUBAGENTE_AGENDAR antes de dar cual quiero horario \n\nSalida JSON estricta:\n{ \"reply_text\":\"...\", \"state\":\"<estado>\", \"data\":{ \"options\":string[]|null, \"slot\":string|null, \"name\":string|null, \"email\":string|null, \"phone\":string|null }, \"booking_request\": null|object, \"handoff\": boolean }\nAl quedar todo listo (state=ready), construye booking_request EXACTO:\n{\n  \"attendee\": { \"language\":\"es\",\"name\":\"{name}\",\"timeZone\":\"America/Mexico_City\",\"email\":\"{email}\",\"phoneNumber\":\"{phone}\" },\n  \"start\":\"{slot_ISO}\",\n  \"eventTypeId\":3201745\n}\ny pon handoff=true. Máx 600 chars en reply_text.\n"
+          "systemMessage": "=## Rol:\nEres el **AGENDADOR** de la *Clínica Dental Sonrisa*.\n\n### CATÁLOGO DE SERVICIOS:\n- **limpieza**: \"Limpieza dental\", remueve placa y sarro. Desde $600. Dura 30–45 min.\n- **ortodoncia**: Alineación con brackets o alineadores. Desde $12,000. Plan 12–24 meses.\n- **blanqueamiento**: Aclara varios tonos. Desde $2,500. Dura 60–90 min.\n- **implantes**: Reemplazo de piezas ausentes. Desde $18,000. 2–3 citas.\n- **urgencias**: Dolor, fracturas o infecciones. Desde $800. Duración según evaluación.\n\n### SINÓNIMOS:\n- limpieza: profilaxis, detartraje\n- ortodoncia: brackets, alineadores, invisibles, frenos\n- blanqueamiento: blanquear, whitening, blanco\n- implantes: implante, tornillo, pilar\n- urgencias: emergencia, dolor, infeccion, infección\n\n### EMOJIS POR SERVICIO:\n- limpieza: 🦷✨💎\n- ortodoncia: 😁📏🦷\n- blanqueamiento: ✨💎😄\n- implantes: 🦷🔩⚙️\n- urgencias: 🚑⚠️🆘\n📅\n\n### ESTILO:\n- Español CDMX, casual y proactivo.\n- Frases cortas, dirigidas en “tú”.\n- No copies descripciones. Haz mini mensajes naturales con beneficios.\n- No des consejos médicos. Máximo 600 caracteres.\n\n### COMPORTAMIENTO:\n- Si **no detectas servicio**: muestra menú de opciones (sin enumerar), cada una con nombre + emojis + CTA: “¿Cuál necesitas?”\n- Si **detectas servicio**: responde con 2–4 frases que integren: qué es, beneficio, duración y “precio desde”. Cierra con CTA:  \n  **¿Agendamos? di: \"Agendar <clave>\" o \"Ver horarios\"**\n\n---\n\n## Objetivo:\nTienes 3 funciones principales:\n\n1. Mostrar horarios disponibles usando **Ver Disponibilidad**  \n2. Agendar citas con **Crear Cita**  \n3. Registrar la cita en Airtable con **Registrar Cita** (sólo después de crearla)\n\n---\n\n## Tools:\n\n### Ver Disponibilidad:\nUsa la fecha:  \n`{{ $now.setZone('America/Mexico_City').toISO() }}`  \nBusca 5 horarios disponibles.\n\n### Recervar Cita:\nÚsala solo cuando el paciente confirme que quiere agendar.\npasando los siguientes datos a la tool: \n- Nombre -> El nombre del paciente -> string.\n- telefono -> El telefono del paciente -> number.\n- correo -> El email del paciente -> number. \n- start -> la fecha y hora de la consulta ->  ISO 8601 format in UTC timezone.\n\nSiempre consulta la disponibilidad antes de agendar.\n\n### Registrar Cita:\nSolo después de Agendar la cita. Registra:\n  \"Nombre\": \"string\",\n  \"Email\": \"string\",\n  \"Telefono\": \"string\",\n  \"Servicio\": \"string\",\n  \"Fecha\": \"YYYY-MM-DD\",\n  \"Hora\": \"HH:mm\",\n  \"Status\": \"string\"\n\n\n## Flujos \n### Flujo Ver Disponibilidad\n\nConsulta las disponibilidad apartir de la fecha actual : {{ $now.toUTC() }}, y devuelve 5 opciones. \n\nsi el usaurio pregunta para otro dia consulta la diponibilidad con y muestrale horarios en el dia que pida \n\n### Flujo Recervar Cita:\n\n- Consulta la disponibilidad\n- Preguntale al usuario lo siguiente \n * Nombre:\n * email: \n * telefono: \n * servicio (esto solo si en la conversacion no te lo ha mencionado)\n * la fecha y hora de la reserva  \n- usa la herramienta Recervar Cita para crear la cita \n- Registra la cita en Airtable con la herramienta Registrar Cita\n\n## Reglas:\n- No digas qué vas a hacer ni expliques los pasos.\n- No enumeres opciones, solo viñetas.\n- Pide datos uno por uno.\n- No menciones enlaces ni envío de confirmaciones.\n- Citas son **presenciales**.\n- Para elegir servicio, deben escribir el **nombre**, no el número.\n- Usa los emojis del servicio (2–4). Si no hay servicio claro, usa 🦷✨📅.\n- Si te pide horarios no disponibles indique que atendemos de Lunes a Viernes de 9 a 17 pm\n- Simpre consulta la disponibilidad para todo\n\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        1344,
-        -352
+        1552,
+        -432
       ],
       "id": "5ba99aba-f392-4eaa-846b-c00116bf6e0e",
       "name": "AGENDADOR"
     },
     {
       "parameters": {
-        "toolDescription": "search availability",
-        "url": "=https://api.cal.com/v2/slots?start={{ $now.setZone('America/Mexico_City').toISO() }}&end={{ $now.setZone('America/Mexico_City').plus({ days: 5 }).toISO() }}\n&timeZone=America%2FMexico_City&eventTypeId=3201745",
-        "sendHeaders": true,
-        "headerParameters": {
+        "url": "https://api.cal.com/v2/slots",
+        "sendQuery": true,
+        "queryParameters": {
           "parameters": [
             {
-              "name": "Authorization",
-              "value": "Bearer cal_live_b1d89ae4b002f27c7adc2752686c0b6e"
+              "name": "start",
+              "value": "={{ $now.format('yyyy-MM-dd') }}"
             },
             {
-              "name": "cal-api-version",
-              "value": "2024-09-04"
+              "name": "eventTypeId",
+              "value": "3225701"
+            },
+            {
+              "name": "end",
+              "value": "="
             }
           ]
         },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequestTool",
-      "typeVersion": 4.2,
-      "position": [
-        1728,
-        80
-      ],
-      "id": "47fc5b89-8f20-40fa-927f-f4cc5fd54b13",
-      "name": "get_availability"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.cal.com/v2/bookings",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer cal_live_b1d89ae4b002f27c7adc2752686c0b6e"
-            },
-            {
-              "name": "cal-api-version",
-              "value": "2024-08-13"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"attendee\": {\n    \"language\": \"es\",\n    \"name\": \"{{ $fromAI('nombre', 'Franisco Sanchez') }}\",\n    \"timeZone\": \"America/Mexico_City\",\n    \"email\": \"{{ $fromAI('correo', 'correo@correo.com') }}\",\n    \"phoneNumber\": \"{{$fromAI('numero_contacto', '5534073167')}}\"\n  },\n  \"start\": \"{{ $fromAI('fecha_elegida', '2025-09-01T06:13:47.414-09:00') }}\",\n  \"eventTypeId\": 3201745\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequestTool",
-      "typeVersion": 4.2,
-      "position": [
-        1856,
-        80
-      ],
-      "id": "5cca7e4c-7adf-4e7b-a6e4-7b09d400e349",
-      "name": "create_booking"
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryZep",
-      "typeVersion": 1.3,
-      "position": [
-        1216,
-        256
-      ],
-      "id": "dd482a40-b826-4455-8ae3-27948549a14e",
-      "name": "Zep",
-      "credentials": {
-        "zepApi": {
-          "id": "wD00VTpTdXyzhDn6",
-          "name": "Zep Api account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "https://api.cal.com/v2/slots?start=2025-08-30T09:00:00Z&end=2025-09-08T09:00:00Z&timeZone=America%2FMexico_City&eventTypeId=3201745",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer cal_live_b1d89ae4b002f27c7adc2752686c0b6e"
+              "value": "Bearer cal_live_2d6d303bc913d95ef38629c210292d14"
             },
             {
               "name": "cal-api-version",
@@ -1009,8 +950,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
-        976
+        1456,
+        1248
       ],
       "id": "daf33f75-7b73-45ca-95cb-2c5cf77f98f3",
       "name": "Edit Fields3"
@@ -1026,8 +967,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        2064,
-        976
+        2720,
+        1728
       ],
       "id": "c8d862e4-c308-46a7-8209-2022c7acdda0",
       "name": "Send a text message2",
@@ -1044,14 +985,14 @@
         "promptType": "define",
         "text": "={{ $json.mensaje }}",
         "options": {
-          "systemMessage": "Recibiras un mensaje debes personalizar la respuesta dando los servicios que da este chat bot, los cuales son \n\n¡Hola! Soy el asistente de Clínica Dental Sonrisa 🦷. Para ayudarte rápido, elige una opción:\n\n1.Agendar cita\n\n2.Info de servicios y precios\n\n3.Reagendar/Cancelar\n\n4.Facturación\n\n5. Hablar con una persona\nResponde con el número o escribe la opción."
+          "systemMessage": "=Recibiras un mensaje debes personalizar la respuesta dando los servicios que da este chat bot, los cuales son \n\n¡Hola! Soy el asistente de Clínica Dental Sonrisa 🦷. Para ayudarte rápido, elige una opción:\n\n1. Agendar cita  \n2. Info de servicios y precios  \n3. Reagendar/Cancelar  \n4. Facturación  \n5. Hablar con una persona\n\nResponde con el número o escribe la opción.\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        1536,
-        976
+        1856,
+        1248
       ],
       "id": "0a713f6f-3973-4d09-b73f-ed6919a70b8f",
       "name": "AI Agent1"
@@ -1068,8 +1009,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1600,
-        1200
+        1696,
+        1440
       ],
       "id": "68562222-5af4-4adc-8ef2-63b9e124b05d",
       "name": "OpenAI Chat Model6",
@@ -1079,12 +1020,493 @@
           "name": "Converging"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cf89ea52-ff9f-4dfc-8aff-b2d838a4c0d8",
+              "name": "from",
+              "value": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+              "type": "number"
+            },
+            {
+              "id": "b9ec1cb2-008a-4ace-997a-aa0130317b7e",
+              "name": "msg_text",
+              "value": "={{ $('Telegram Trigger').item.json.message.text }}",
+              "type": "string"
+            },
+            {
+              "id": "b718af48-99bd-46e5-ba03-2a67c6394b25",
+              "name": "entities.servicio",
+              "value": "={{ $json.message.content.entities }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1584,
+        208
+      ],
+      "id": "c20f6712-007b-4091-8cc9-8ab4981113dd",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "tableName": "chat_clinica",
+        "contextWindowLength": 60
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        592,
+        1248
+      ],
+      "id": "0da2fba8-7654-4b32-878d-53051e3a141b",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "74h0q7M5LKQy0D94",
+          "name": "Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2512,
+        560
+      ],
+      "id": "19513530-d5e9-4a2f-afae-d468a18aa3bd",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n > Function node (previo al LLM)\nconst map = { \"1\":\"agendar\",\"2\":\"servicios\",\"3\":\"reagendar\",\"4\":\"facturacion\",\"5\":\"humano\" };\nconst text = String($json.text || \"\").trim().toLowerCase();\nconst pre = map[text] ? { hit:true, intent:map[text] } : { hit:false };\nreturn [{ json: { ...$json, pre } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        384,
+        464
+      ],
+      "id": "26a35353-be15-4690-b357-26658a995c42",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Utiliza esta tool para consultar la disponibilidad ",
+        "url": "=https://api.cal.com/v2/slots/available?eventTypeId=3225701&startTime={{ $now.startOf('day').toISO() }}&endTime={{ $now.plus({ days: 5 }).endOf('day').toISO() }}&timeZone=America/Mexico_City\n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer cal_live_2d6d303bc913d95ef38629c210292d14"
+            },
+            {
+              "name": "cal-api-version",
+              "value": "2024-08-13"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        1616,
+        -160
+      ],
+      "id": "b05614d8-31f4-455d-946a-154c933278ed",
+      "name": "Ver Disponibilidad"
+    },
+    {
+      "parameters": {
+        "url": "https://api.cal.com/v2/slots/available?eventTypeId=3225701&startTime=2025-09-01T00:00:00.000-06:00&endTime=2025-09-08T23:59:59.000-06:00",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer cal_live_2d6d303bc913d95ef38629c210292d14"
+            },
+            {
+              "name": "cal-api-version",
+              "value": "2024-08-13"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2336,
+        -192
+      ],
+      "id": "b50a37b3-3b38-4897-a091-06cd40cad068",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Utilizala para hacer una reservación",
+        "method": "POST",
+        "url": "https://api.cal.com/v2/bookings",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer cal_live_2d6d303bc913d95ef38629c210292d14"
+            },
+            {
+              "name": "cal-api-version",
+              "value": "2024-08-13"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"attendee\": {\n    \"language\": \"es\",\n    \"name\": \"{{ $fromAI('Nombre_Paciente', 'Francisco Sanchez', 'string') }}\",\n    \"timeZone\": \"America/Mexico_City\",\n    \"email\": \"{{ $fromAI('Email_Paciente', 'correo@correo.com', 'string') }}\",\n    \"phoneNumber\": \"{{ $fromAI('telefono_paciente', '5512345678', 'number') }}\"\n  },\n  \"start\": \"{{ $fromAI('Fecha_reserva', '2025-09-02T09:00:00.000-06:00') }}\",\n  \"eventTypeId\": 3225701\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        1744,
+        -160
+      ],
+      "id": "a082cacd-1cc8-4a9c-a203-b58c47ef05eb",
+      "name": "Reservar Cita"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTimeTool",
+      "typeVersion": 2,
+      "position": [
+        1856,
+        -192
+      ],
+      "id": "4672e24a-9f30-4939-8f09-67d3ead8835b",
+      "name": "Date & Time"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Create a record in Airtable",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app1htCru5pWidN68",
+          "mode": "list",
+          "cachedResultName": "Clinica Dental",
+          "cachedResultUrl": "https://airtable.com/app1htCru5pWidN68"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbluD10rCsBOlNRTZ",
+          "mode": "list",
+          "cachedResultName": "AGENDADOS",
+          "cachedResultUrl": "https://airtable.com/app1htCru5pWidN68/tbluD10rCsBOlNRTZ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ JSON.stringify($('Telegram Trigger').item.json.message.chat.id )}}",
+            "Nombre": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre', ``, 'string') }}",
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', ``, 'string') }}",
+            "Telefono": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Telefono', ``, 'string') }}",
+            "Servicio": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Servicio', ``, 'string') }}",
+            "Fecha": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha', ``, 'string') }}",
+            "Hora": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Hora', ``, 'string') }}",
+            "Status": "En espera"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nombre",
+              "displayName": "Nombre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Telefono",
+              "displayName": "Telefono",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Servicio",
+              "displayName": "Servicio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Cancelado",
+                  "value": "Cancelado"
+                },
+                {
+                  "name": "En espera",
+                  "value": "En espera"
+                },
+                {
+                  "name": "Completado",
+                  "value": "Completado"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        1968,
+        -256
+      ],
+      "id": "b24a4daf-fd17-4963-b77f-57374d921135",
+      "name": "Registrar Cita",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "mAA59Je4dy4GWPok",
+          "name": "Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1712,
+        400
+      ],
+      "id": "da340df2-3970-4a2d-acd5-5fccb3b54e3b",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.cal.com/v2/bookings",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "take",
+              "value": "100"
+            },
+            {
+              "name": "eventTypeId",
+              "value": "3225701"
+            },
+            {
+              "name": "status",
+              "value": "upcoming"
+            },
+            {
+              "name": "attendeeEmail",
+              "value": "={{ $json.Email }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer cal_live_2d6d303bc913d95ef38629c210292d14"
+            },
+            {
+              "name": "cal-api-version",
+              "value": "2024-08-13"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2256,
+        208
+      ],
+      "id": "07c5b786-73ca-4e9d-ae21-9d0b34f0f305",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app1htCru5pWidN68",
+          "mode": "list",
+          "cachedResultName": "Clinica Dental",
+          "cachedResultUrl": "https://airtable.com/app1htCru5pWidN68"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbluD10rCsBOlNRTZ",
+          "mode": "list",
+          "cachedResultName": "AGENDADOS",
+          "cachedResultUrl": "https://airtable.com/app1htCru5pWidN68/tbluD10rCsBOlNRTZ"
+        },
+        "filterByFormula": "={ID}={{ $json.from }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1824,
+        208
+      ],
+      "id": "7ee6b566-4760-4bff-a618-7e9193ba9ec2",
+      "name": "Search records",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "mAA59Je4dy4GWPok",
+          "name": "Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ab360219-9d42-4d24-a7de-e9a79d1576a9",
+              "name": "Email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2032,
+        208
+      ],
+      "id": "bc42ccc2-53bc-41a8-aaac-25b2534702ff",
+      "name": "Edit Fields5"
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-30T09:43:28.017Z",
+      "updatedAt": "2025-08-30T09:43:28.017Z",
+      "role": "workflow:owner",
+      "workflowId": "c1emqYRM3PW8GB7k",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": null,
   "tags": [
     {
@@ -1095,6 +1517,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-08-30T13:49:55.000Z",
-  "versionId": "12d35918-b61c-4b49-82fa-5d0bfe6f4a27"
+  "updatedAt": "2025-09-03T17:32:55.000Z",
+  "versionId": "24fceacf-34fd-4b94-a2fe-9337527ade11"
 }
