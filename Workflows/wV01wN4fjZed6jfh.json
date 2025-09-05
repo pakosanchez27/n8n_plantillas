@@ -1,0 +1,35 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-09-05T01:03:54.990Z",
+  "id": "wV01wN4fjZed6jfh",
+  "isArchived": false,
+  "meta": null,
+  "name": "Asignacion de tareas",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-05T01:03:54.997Z",
+      "updatedAt": "2025-09-05T01:03:54.997Z",
+      "role": "workflow:owner",
+      "workflowId": "wV01wN4fjZed6jfh",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-30T07:16:47.434Z",
+      "updatedAt": "2025-07-30T07:16:47.434Z",
+      "id": "mSpHjLUfWIhOQqzc",
+      "name": "Experimentos"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-05T01:03:59.000Z",
+  "versionId": "8e10844d-3099-4f5a-b40f-6aef51d97bf3"
+}
