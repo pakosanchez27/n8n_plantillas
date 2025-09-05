@@ -1,0 +1,77 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get a list",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-05T01:48:52.994Z",
+  "id": "Nsytm1bUWMf7dzOi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "17763f0f-d28d-4094-a3f6-21fed50905a5",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "list",
+        "operation": "get",
+        "team": "90131996835",
+        "space": "90138423612",
+        "folderless": true
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "139f9314-a32c-491a-a23b-a1b4b7cc2921",
+      "name": "Get a list",
+      "credentials": {
+        "clickUpApi": {
+          "id": "jFjWBcaXod7HCfSP",
+          "name": "ClickUp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-05T01:48:53.000Z",
+      "updatedAt": "2025-09-05T01:48:53.000Z",
+      "role": "workflow:owner",
+      "workflowId": "Nsytm1bUWMf7dzOi",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-05T01:48:52.994Z",
+  "versionId": "453ee3c5-72cb-4fee-a551-839772146c11"
+}
