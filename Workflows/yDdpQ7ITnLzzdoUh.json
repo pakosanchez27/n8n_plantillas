@@ -1,0 +1,352 @@
+{
+  "active": true,
+  "connections": {
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-02T21:23:57.031Z",
+  "id": "yDdpQ7ITnLzzdoUh",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Recordatorios personal",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vZFnElPnjcUWFAxXCzOqdwYzQseDwUnSf4O1_WI-r7g",
+          "mode": "list",
+          "cachedResultName": "Recordatorios Personal",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vZFnElPnjcUWFAxXCzOqdwYzQseDwUnSf4O1_WI-r7g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vZFnElPnjcUWFAxXCzOqdwYzQseDwUnSf4O1_WI-r7g/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Fecha",
+              "lookupValue": "={{ $json.Fecha_actual }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        448,
+        56
+      ],
+      "id": "50d3e7af-82fa-4c1c-b40c-bb5b35c683a6",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3c06d7f8-7d75-41fa-96fb-99dab3abcb23",
+              "name": "to",
+              "value": "=521{{ $json.Numero }}",
+              "type": "string"
+            },
+            {
+              "id": "e88afc34-9d98-4fc5-9f54-127c2999e33b",
+              "name": "Recordatorio",
+              "value": "={{ $json.Recordatorio }}",
+              "type": "string"
+            },
+            {
+              "id": "8e5ca12a-fb52-4421-bf16-c38c8042cdac",
+              "name": "Nombre ",
+              "value": "={{ $json['Nombre '] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        -16
+      ],
+      "id": "3b2ed158-e343-44c6-a4b0-b1471a6cf45d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Nombre destinatario:  {{ $json['Nombre '] }}\nRecordarle que: {{ $json.Recordatorio }}"
+            },
+            {
+              "content": "=Eres un asistente de Francisco Sánchez, tu objetivo es enviar recordatorios indicando que eres el asistente Bot de Francisco Sánchez para distintas cosas como juntas, recordatorios generales, entrega de proyectos etc. \n\nrecibiras el nombre  de la persona y lo que tienes que recordarle, debes crear un mensaje personalizado, con un tono casual, amigable, energico, con emojis ",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1344,
+        -16
+      ],
+      "id": "dc653de3-33d3-4198-a3d9-bdbb6ee90b0b",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "pR30gkzotkExDJsd",
+          "name": "Pako OpenIA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api.aeo-ai.com/message/sendText/bot_pako",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "55E9377CFB89-47CF-B168-3ACBC0E16764"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Edit Fields').item.json.to }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.message.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1696,
+        56
+      ],
+      "id": "73c46ca8-8c99-446e-8e05-4c4eb4cba81e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        672,
+        56
+      ],
+      "id": "1685e8d6-f1b2-44af-a0db-0be54a6173df",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        896,
+        -16
+      ],
+      "id": "533f2cb9-18f2-4781-af97-3f0e9bfc7916",
+      "name": "Wait",
+      "webhookId": "9fd5210d-d41a-4f23-8ed8-199d8cf8cc62"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        56
+      ],
+      "id": "bcc6020c-9b41-4140-98ae-2f015bdd2759",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "547ea319-afe9-4fc4-a6a0-46f5afeb8bb2",
+              "name": "Fecha_actual",
+              "value": "={{ $now.format('dd/MM/yyyy') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        56
+      ],
+      "id": "86283f3b-3542-42ca-961e-89620f716e75",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-02T21:23:57.035Z",
+      "updatedAt": "2025-09-02T21:23:57.035Z",
+      "role": "workflow:owner",
+      "workflowId": "yDdpQ7ITnLzzdoUh",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-07-30T07:16:47.434Z",
+      "updatedAt": "2025-07-30T07:16:47.434Z",
+      "id": "mSpHjLUfWIhOQqzc",
+      "name": "Experimentos"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-02T23:33:16.000Z",
+  "versionId": "17534fa9-df6a-4843-9f85-a94916ca9a1d"
+}
