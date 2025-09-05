@@ -2798,6 +2798,15 @@
     "timezone": "America/Mexico_City",
     "callerPolicy": "workflowsFromSameOwner"
   },
+  "shared": [
+    {
+      "createdAt": "2025-07-28T20:26:49.611Z",
+      "updatedAt": "2025-07-28T20:26:49.611Z",
+      "role": "workflow:owner",
+      "workflowId": "NJGbp4LD71JwPziL",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": {
     "node:Google Sheets Trigger": {
       "documentId": "1vqWSaH_Ti8rdXYXtqqxqhr4EeFc0BVLNvdbFenNlBBY",
