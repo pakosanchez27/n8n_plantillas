@@ -978,6 +978,15 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-14T20:56:19.910Z",
+      "updatedAt": "2025-08-14T20:56:19.910Z",
+      "role": "workflow:owner",
+      "workflowId": "dTaWWHy9hsymHxel",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": null,
   "tags": [
     {
