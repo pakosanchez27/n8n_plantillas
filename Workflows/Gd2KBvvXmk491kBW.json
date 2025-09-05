@@ -50,126 +50,126 @@
       "main": [
         [
           {
-            "node": "Construir Mensaje",
+            "node": "Fijo con PDF al abrir el grupo - gpo nvo",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje1",
+            "node": "Aviso nueva MC - gpos anteriores",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje2",
+            "node": "Mensaje 1 - gpo nvo- reflexión 1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje3",
+            "node": "Invitación a LIVE - todos los gpos",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje4",
+            "node": "Estamos en vivo! - todos los gpos",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje5",
+            "node": "Mensaje 2 - gpo nvo - 4 señales alerta y encuesta",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje6",
+            "node": "Aviso cierre grupo - gpos anteriores",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje7",
+            "node": "Mensaje 3 - gpo nvo - tarea preguntas a hijo",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje8",
+            "node": "Mensaje 4 - gpo nvo - reflexión 2",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje9",
+            "node": "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje10",
+            "node": "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje11",
+            "node": "Mensaje 7 - gpo nvo - Empezó MC y zoom",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje12",
+            "node": "Mensaje 8 - gpo nvo - Último aviso MC y zoom",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje13",
+            "node": "Mensaje 9 - gpo nvo - Recordatorio compra 1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje14",
+            "node": "Mensaje 10 - gpo nvo - Recordatorio compra 2 y video",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje15",
+            "node": "Mensaje 11 - gpo nvo - Quedan 12 horas",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje16",
+            "node": "Mensaje 11 - gpo nvo - Quedan 2 horas",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Construir Mensaje17",
+            "node": "Encuesta",
             "type": "main",
             "index": 0
           }
@@ -181,17 +181,6 @@
         [
           {
             "node": "If1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje1": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -288,171 +277,6 @@
         ]
       ]
     },
-    "Construir Mensaje2": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje3": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje4": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje5": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje6": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje7": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje8": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje9": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje10": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje11": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje12": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje13": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje14": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje15": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje16": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Aggregate1": {
       "main": [
         [
@@ -469,17 +293,6 @@
         [
           {
             "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje17": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -534,7 +347,7 @@
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Obtener url descargable",
             "type": "main",
             "index": 0
           }
@@ -548,22 +361,11 @@
         ]
       ]
     },
-    "Basic LLM Chain": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Structured Output Parser": {
       "ai_outputParser": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Obtener url descargable",
             "type": "ai_outputParser",
             "index": 0
           }
@@ -574,7 +376,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Obtener url descargable",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -586,17 +388,6 @@
         [
           {
             "node": "Aggregate1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Construir Mensaje": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -652,6 +443,215 @@
         [
           {
             "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fijo con PDF al abrir el grupo - gpo nvo": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aviso nueva MC - gpos anteriores": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 1 - gpo nvo- reflexión 1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invitación a LIVE - todos los gpos": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Estamos en vivo! - todos los gpos": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 2 - gpo nvo - 4 señales alerta y encuesta": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aviso cierre grupo - gpos anteriores": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 3 - gpo nvo - tarea preguntas a hijo": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 4 - gpo nvo - reflexión 2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 7 - gpo nvo - Empezó MC y zoom": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 8 - gpo nvo - Último aviso MC y zoom": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 9 - gpo nvo - Recordatorio compra 1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 10 - gpo nvo - Recordatorio compra 2 y video": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 11 - gpo nvo - Quedan 12 horas": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje 11 - gpo nvo - Quedan 2 horas": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Encuesta": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener url descargable": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
             "type": "main",
             "index": 0
           }
@@ -745,8 +745,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2672,
-        2464
+        4784,
+        2672
       ],
       "id": "014e0271-6b86-46c7-a48e-6e98093ebac1",
       "name": "Extraer Código de invitación"
@@ -761,8 +761,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        2896,
-        2464
+        4992,
+        2656
       ],
       "id": "efb9ada5-ed09-4533-9582-6e603ebdbe20",
       "name": "Buscar grupos2",
@@ -1241,29 +1241,6 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "={{ $json.introEleccionCarrera }}\n\nViene una nueva Masterclass gratuita el {{ $json.FechaMasterClass }} donde te explicaremos el método con el que podemos auydar a tu hijo a elegir con base a sus habilidades e intereses, y con un profundo conocimiento del mundo laboral.\n\n✅ Si quieres asistir, únete al nuevo grupo de Whatsapp.\n\nEnviaremos la liga para conectarse solo a ese nuevo grupo.\n\nPara unirte da clic aquí: {{ $json.LigaNuevoGrupo }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1024
-      ],
-      "id": "2f6aba3a-9849-4ca2-a660-db35f28ba10e",
-      "name": "Construir Mensaje1"
-    },
-    {
-      "parameters": {
         "resource": "messages-api",
         "instanceName": "FelizBot",
         "remoteJid": "={{ $json.id_grupo[0] }}",
@@ -1275,8 +1252,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4368,
-        4256
+        6656,
+        4592
       ],
       "id": "a862ac52-5170-4fa6-b32a-f453f5ec8551",
       "name": "Enviar texto2",
@@ -1461,8 +1438,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        4144,
-        2400
+        6240,
+        2592
       ],
       "id": "3c5b4b34-60d9-46a5-b596-e9388bf26264",
       "name": "Switch1"
@@ -1502,8 +1479,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3696,
-        3888
+        5968,
+        4256
       ],
       "id": "f22c7c58-64d2-4783-8468-cd7fe36bfd00",
       "name": "Edit Fields"
@@ -1522,386 +1499,11 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2448,
-        2464
+        4544,
+        2656
       ],
       "id": "c631c55b-9b0d-4329-a9b7-1e471c4c404b",
       "name": "Aggregate"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=¿Estás de acuerdo que al elegir carrera no se decide solo qué estudiar?\n\nEs el primer paso para todo lo que vivirá como adulto, desde dónde va a poder desarrollar mejor sus talentos hasta qué le dará el estilo de vida que quiere tener.\n\n*En esta decisión hay mucho en juego.*\n\n👉 Esta semana previa a la Masterclass quiero que sea como una conversación íntima contigo: compartirte lo que no te dicen allá afuera, y cómo convertirte en el facilitador que tu hijo necesita.\n\n*Mañana* te tengo una sorpresa. \n¡Revisa el mensaje que enviaré!\n\n",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1216
-      ],
-      "id": "41826ef9-094b-4d98-b758-09e2f1dffe95",
-      "name": "Construir Mensaje2"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=✨ *¡Ayuda! Mi hijo ya tiene que elegir carrera.*🎓\n\n🎯 Hoy en la noche daré un live para hablar de algunos temas importantes que no veremos en la Masterclass por tiempo, pero es importante que conozcas.\n\nVamos a ver puntos como:\n• ¿Cuándo es el mejor momento para elegir carrera?\n• ¿Qué mitos debes cuidar?\n• ¿Cómo afectará la Inteligencia Artificial al futuro profesional?\n• ¿Es bueno un año sabático?\n…Y como será una sesión abierta, también responderé todas tus preguntas.\n\n⏰ *Hora:* 7:00pm CDMX | 8:00pm Colombia\n       Durará solo 20 minutos.\n📍 *Dónde:* En mi cuenta de Instagram 👉 @felizconmicarrera\n\n*Agéndalo ¡y ponte una alarma!*: está hecho para ti.\n\n",
-              "type": "string"
-            },
-            {
-              "id": "ff336526-efe6-4f88-b05b-970b59916036",
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1408
-      ],
-      "id": "bedfb825-581d-4c44-b41a-68a56dc22976",
-      "name": "Construir Mensaje3"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=🚨 *¡Ya estamos en vivo!* y solo durará 20 minutos.\n\n📲*¡Entra ahora a mi cuenta* y únete a la conversación en tiempo real!\n  👉Instagram:  @felizconmicarrera\n\nPara los que preguntaron cómo entrar: \n1️⃣ Busca nuestra cuenta y síguela.  \n2️⃣ Da clic al circulo con la foto de Enrique (delineada en rojo). ",
-              "type": "string"
-            },
-            {
-              "id": "ff336526-efe6-4f88-b05b-970b59916036",
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1600
-      ],
-      "id": "90610e92-9be0-4ddf-87ca-452a9eaf94bc",
-      "name": "Construir Mensaje4"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=*¿Sabías que más del 40% de los jóvenes se equivocan al elegir carrera?*\n\nY, en su momento, todos ellos creyeron que habían elegido bien. \n\nEstas son las 4 señales de alerta que pueden llevar a una mala elección:\n🚩 No conocen su perfil a fondo, incluyendo habilidades e intereses *no evidentes*.\n🚩 No han tenido ayuda real para descubrir *TODAS* las carreras ideales para su perfil (no 3 o 4).\n🚩 Están eligiendo por razones equivocadas: por dinero, por presión… o simplemente porque “les gusta” sin más.\n🚩 No consideran la realidad del campo laboral.\n\n\n🎯 En la Masterclass te mostraré cómo podemos ayudar a tu hijo a evitar estos errores, y cómo podemos facilitar que elija con confianza y sin arrepentimientos.\n\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n",
-              "type": "string"
-            },
-            {
-              "id": "ff336526-efe6-4f88-b05b-970b59916036",
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1792
-      ],
-      "id": "98fb3719-024e-48ce-8aaa-bb6d0a22a92a",
-      "name": "Construir Mensaje5"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que cuando te unas al grupo de WhatsApp te asegures que el grupo *no se quede archivado*. \n\nPara unirte da clic aquí: \n{{ $json.LigaNuevoGrupo }}",
-              "type": "string"
-            },
-            {
-              "id": "ff336526-efe6-4f88-b05b-970b59916036",
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        1984
-      ],
-      "id": "d3e33986-5764-4ae6-a3f2-990e73c5e0ac",
-      "name": "Construir Mensaje6"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=🟢 *Tarea del día:*\n\nLas dos decisiones más importantes en la vida de una persona son: a qué se va a dedicar y con quién va a compartir su vida.\n\nLa primera decisión *ya está aquí*, porque el camino profesional de tu hijo no empieza cuando se gradúe o con su primer trabajo.\nEmpieza justo con la carrera que elija, *ahora*.\n\nNo es algo que deba decidir a la ligera o solo con lo que se ve en la escuela o en internet.\n\nEs una decisión que impactará de una forma tan amplia en su vida, que es importante hacer todo lo posible para que haga la elección correcta.\n\n*Hazle estas preguntas a tu hijo* hoy, te ayudará a sensibilizarte de cómo está:\n1️⃣ ¿Qué palabras te vienen a la mente cuando piensas en que ya tienes que elegir carrera?\n2️⃣ ¿Qué tan seguro te sientes de tener toda la información para elegir bien y por qué te sientes así?\n",
-              "type": "string"
-            },
-            {
-              "id": "ff336526-efe6-4f88-b05b-970b59916036",
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        2176
-      ],
-      "id": "ccc2e462-2610-4d9f-a039-dbe7ed9c88f8",
-      "name": "Construir Mensaje7"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=💬 _“Quisiera que encuentre una carrera que le guste mucho, donde se pueda desarrollar, pero también que tenga buen campo laboral.”_\nCeci, mamá de Jorge.\n\n⚠️ *Las cosas ya no son como antes.*\n\nHoy existen más de 150 carreras, y el mundo laboral está cambiando más rápido de lo que podemos imaginar.\n\nEn este contexto, no basta con un test o con la intuición de “esto me gusta”.\nEs clave que tu hijo conozca a profundidad su perfil único y *todas las opciones* afines que existen para que elija con bases firmes y seguras. \n\n\n\n📊 En la Masterclass te voy a mostrar cómo podemos ayudar a que tu hijo descubra opciones afines a su perfil *que ni siquiera conocía* y cómo eso puede marcar la diferencia para que arranque con confianza su vida adulta.\n\n¡Que tengan un gran día!",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        2368
-      ],
-      "id": "2da7cc80-b123-4f7d-ae5e-280c9a69b454",
-      "name": "Construir Mensaje8"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        2560
-      ],
-      "id": "c53c5ea6-61f5-4ce6-89e9-f2788d89da79",
-      "name": "Construir Mensaje9"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=*La Masterclass empieza en una hora.*\n\n⏰ Nos vemos a las 7:00pm CDMX | 8:00pm Colombia\n\n✅ ¡Sigue en este grupo! \nPorque al terminar la sesión enviaremos aquí la liga con la grabación e información importante de cierre.\n\n📲  Aquí te dejo el link para entrar: \n\n{{ $json.LinkZoom }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        2752
-      ],
-      "id": "16de5a39-efa6-4c5c-94ab-215007cc1103",
-      "name": "Construir Mensaje10"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=¿Te estás perdiendo la Masterclass?\n\n*En 5 minutos empieza la parte más importante*, ¡aún estás a tiempo de conectarte!\n\nZoom:\n{{ $json.LinkZoom }}\n\n📲 *¡Conéctate ahora!*\n",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        2944
-      ],
-      "id": "3b04c7af-3aeb-4ceb-90f5-706c8e8726b6",
-      "name": "Construir Mensaje11"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        3136
-      ],
-      "id": "74bceb17-2f79-447d-be54-982e2323037e",
-      "name": "Construir Mensaje12"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=Amanecimos con muchos mensajes de papás con su confirmación de compra.\n🙏🏼 Todos en el equipo nos sentimos *honrados* por la confianza que han puesto en nosotros.\n\nComo les dije ayer en el cierre, ya lo verán… ¡VAMOS A TRABAJAR INCREÍBLE CON Y POR SUS HIJOS!\nSi apenas es hoy es cuando lo vas a platicar con tu hijo, dale el apoyo que merece para:\n✅ Elegir una carrera alineada a sus habilidades, intereses y expectativas.\n✅ Tomar esta decisión tan importante de la *mejor forma posible*.\n✅ Reducir el riesgo de equivocarse y perder tiempo, dinero y motivación.\n\n*Recuerda:*\nEl precio especial para ambos programas estará disponible hasta el *{{ $json.FechaMaxima }}*.\n\nhttps://www.felizconmicarrera.com/method-precio-especial/\n📲 Para cualquier duda solo envía un WhatsApp al número de este grupo:\n( +52 1 55 1172 1680).\n\n¡Abrazo grande!",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        3328
-      ],
-      "id": "0b4e46ab-cfb6-4e5f-8bf1-9c7baa6c1d9f",
-      "name": "Construir Mensaje13"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=⭐ Siempre le has dado lo mejor, sobre todo en lo que realmente importa. Y esta no puede ser la excepción.\n\n🙌🏼 Aún tienes un día más para regalarle esta experiencia que lo va a marcar de por vida.\n\nHoy quiero compartirte la *opinión* de algunos de los padres que ya vieron a su hijo terminar seguro y emocionado por la carrera que eligió gracias a nuestro *Método*.\nAlgunas de las muchas historias que nos llenan de orgullo. \n*¡La de tu hijo es la siguiente!*\n\n",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        3520
-      ],
-      "id": "01cb7634-8b58-4361-9638-25ed5cbb00fa",
-      "name": "Construir Mensaje14"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=Tú elegiste carrera hace décadas.\n¿Cómo respondes cuando te preguntan cómo la elegiste?\n🙏🏼 ¿Respondes con algo que te llene de orgullo o de mucho agradecimiento con tus papás?\n⚠️ ¿O fue una decisión sin mucha profundización, casi al azar?\n\nY… *¿cómo te gustaría que respondiera tu hijo cuando, en el futuro, le hagan esa pregunta?*\n\n⭐ Regálale la oportunidad de responder con orgullo y agradecimiento profundo.\n⏳*Quedan 12 horas* para hacerlo a precio especial. Después de ese horario, el precio de ambos programas regresará al importe regular _(sujeto a disponibilidad)_.\n\n*¡Estás a un clic de distancia!*\nhttps://www.felizconmicarrera.com/method-precio-especial/",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        3712
-      ],
-      "id": "bc748f3b-af9b-4e98-9fc2-89574b90f6c5",
-      "name": "Construir Mensaje15"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=No es solo elegir carrera. \n¡Es dar el primer paso que lo guiará hacia un futuro u otro!\n*Por eso es su primera gran decisión de vida.*\n\nEsta es una inversión que cambia vidas. \n*Es regalarle el mejor acompañamiento posible para este gran paso, y una forma muy clara de hacerle ver que crees en él.*\n\n⏰ Quedan solo *2 horas* para regalarle a tu hijo la oportunidad *a precio especial*.\n\n👉 Hazlo aquí: https://www.felizconmicarrera.com/method-precio-especial/\n\n ",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        3904
-      ],
-      "id": "78ca6e5c-2fe3-493b-ac31-803692e1e2f5",
-      "name": "Construir Mensaje16"
     },
     {
       "parameters": {
@@ -1929,8 +1531,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3920,
-        2464
+        6016,
+        2656
       ],
       "id": "39170b6c-995f-4c91-99f7-1d6dc926a325",
       "name": "Aggregate1"
@@ -1948,8 +1550,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4368,
-        2976
+        6464,
+        3168
       ],
       "id": "c7e238fb-3347-4f8d-aa7f-36e2987c0f39",
       "name": "Enviar imagem1",
@@ -1975,8 +1577,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4368,
-        2784
+        6464,
+        2960
       ],
       "id": "5ff17f1f-22e4-4c73-a4ea-a91d720d26f3",
       "name": "Enviar documento1",
@@ -2000,8 +1602,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4368,
-        2080
+        6464,
+        2272
       ],
       "id": "f0dd6586-188e-4ac3-be4e-14d426d68cd2",
       "name": "Enviar Video",
@@ -2033,8 +1635,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4816,
-        4704
+        7088,
+        5072
       ],
       "id": "89886129-0928-4e44-b74d-d2d57483e28e",
       "name": "HTTP Request"
@@ -2052,8 +1654,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4368,
-        4448
+        6640,
+        4816
       ],
       "id": "546fce5c-6841-4796-bcd2-afd0c9f6ba14",
       "name": "Enviar texto",
@@ -2063,29 +1665,6 @@
           "name": "EnriqueAPI"
         }
       }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=He recibido muchos mensajes de papás que comparten sus preocupaciones sobre esta etapa tan importante en la vida de sus hijos.\n\nHoy quiero conocerte un poco más.\nAquí abajo te dejo las preocupaciones que más escucho de los padres.\n\n¿Cuáles de estas te preocupan a ti? \n¡Nos vemos mañana!\n",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        4096
-      ],
-      "id": "b3faf946-cf2e-475a-b86b-ad62db5e0c45",
-      "name": "Construir Mensaje17"
     },
     {
       "parameters": {
@@ -2205,34 +1784,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3120,
-        2464
+        5216,
+        2656
       ],
       "id": "9c4aa481-09df-4f9d-a4f9-bd35c0297bc9",
       "name": "If1"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Obtener Mensajes del día1').item.json.MediaURL }}",
-        "hasOutputParser": true,
-        "messages": {
-          "messageValues": [
-            {
-              "message": "=vas a rescibir una url debes converir esa url a una url descargable como esta : https://drive.google.com/uc?id=[idimagen]&export=download  solo devuelve la url descargable  y nada mas  en un formato JSON   { \"url\" : \"la url descargable\" }"
-            }
-          ]
-        },
-        "batching": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        3344,
-        2352
-      ],
-      "id": "7137cf39-819e-4827-a280-2ab2c651b683",
-      "name": "Basic LLM Chain"
     },
     {
       "parameters": {
@@ -2241,8 +1797,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        3488,
-        2576
+        5584,
+        2768
       ],
       "id": "9b307e5c-2361-413b-b487-214fe37f30f0",
       "name": "Structured Output Parser"
@@ -2259,8 +1815,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        3360,
-        2576
+        5456,
+        2768
       ],
       "id": "09f0fb77-9e98-48fb-b846-20ff34caeb3e",
       "name": "OpenAI Chat Model",
@@ -2306,42 +1862,19 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3696,
-        2352
+        5792,
+        2544
       ],
       "id": "67e3ee69-0ca9-4e8d-a849-19b7f1d197ff",
       "name": "Edit Fields2"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
-              "name": "Mensaje",
-              "value": "=¡Bienvenidos!\n\nSoy Enrique Molina, fundador de Feliz con mi Carrera.\n\nDurante los siguientes días compartiré en este grupo información y reflexiones que te ayudarán a *prepararte para la Masterclass* donde hablaremos de *una de las decisiones más importantes en la vida de tu hijo.*\n\n✅ Te anexo a este primer mensaje una mini guía para que empieces a entender *cómo acompañar a tu hijo siendo el apoyo que necesita* en este momento clave, sin presionarlo.\n\nLéela con calma. Es el primer paso para hacer equipo con tu hijo y se sienta confiado para tomar una decisión más segura.\n\n¡Nos vemos muy pronto!",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2224,
-        832
-      ],
-      "id": "39855a51-0fe2-4f9b-b9ec-8b152cf9d8d9",
-      "name": "Construir Mensaje"
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4592,
-        4448
+        6864,
+        4816
       ],
       "id": "b0c7292a-e282-426c-85b7-b48083d478ef",
       "name": "Wait",
@@ -2369,6 +1902,473 @@
       ],
       "id": "09dc1cdc-6120-48db-993a-cc668def4ded",
       "name": "Link Grupo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¡Bienvenidos!\n\nSoy Enrique Molina, fundador de Feliz con mi Carrera.\n\nDurante los siguientes días compartiré en este grupo información y reflexiones que te ayudarán a *prepararte para la Masterclass* donde hablaremos de *una de las decisiones más importantes en la vida de tu hijo.*\n\n✅ Te anexo a este primer mensaje una mini guía para que empieces a entender *cómo acompañar a tu hijo siendo el apoyo que necesita* en este momento clave, sin presionarlo.\n\nLéela con calma. Es el primer paso para hacer equipo con tu hijo y se sienta confiado para tomar una decisión más segura.\n\n¡Nos vemos muy pronto!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        1040
+      ],
+      "id": "39855a51-0fe2-4f9b-b9ec-8b152cf9d8d9",
+      "name": "Fijo con PDF al abrir el grupo - gpo nvo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "={{ $json.introEleccionCarrera }}\n\nViene una nueva Masterclass gratuita el {{ $json.FechaMasterClass }} donde te explicaremos el método con el que podemos auydar a tu hijo a elegir con base a sus habilidades e intereses, y con un profundo conocimiento del mundo laboral.\n\n✅ Si quieres asistir, únete al nuevo grupo de Whatsapp.\n\nEnviaremos la liga para conectarse solo a ese nuevo grupo.\n\nPara unirte da clic aquí: {{ $json.LigaNuevoGrupo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        1232
+      ],
+      "id": "2f6aba3a-9849-4ca2-a660-db35f28ba10e",
+      "name": "Aviso nueva MC - gpos anteriores"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¿Estás de acuerdo que al elegir carrera no se decide solo qué estudiar?\n\nEs el primer paso para todo lo que vivirá como adulto, desde dónde va a poder desarrollar mejor sus talentos hasta qué le dará el estilo de vida que quiere tener.\n\n*En esta decisión hay mucho en juego.*\n\n👉 Esta semana previa a la Masterclass quiero que sea como una conversación íntima contigo: compartirte lo que no te dicen allá afuera, y cómo convertirte en el facilitador que tu hijo necesita.\n\n*Mañana* te tengo una sorpresa. \n¡Revisa el mensaje que enviaré!\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        1424
+      ],
+      "id": "41826ef9-094b-4d98-b758-09e2f1dffe95",
+      "name": "Mensaje 1 - gpo nvo- reflexión 1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=✨ *¡Ayuda! Mi hijo ya tiene que elegir carrera.*🎓\n\n🎯 Hoy en la noche daré un live para hablar de algunos temas importantes que no veremos en la Masterclass por tiempo, pero es importante que conozcas.\n\nVamos a ver puntos como:\n• ¿Cuándo es el mejor momento para elegir carrera?\n• ¿Qué mitos debes cuidar?\n• ¿Cómo afectará la Inteligencia Artificial al futuro profesional?\n• ¿Es bueno un año sabático?\n…Y como será una sesión abierta, también responderé todas tus preguntas.\n\n⏰ *Hora:* 7:00pm CDMX | 8:00pm Colombia\n       Durará solo 20 minutos.\n📍 *Dónde:* En mi cuenta de Instagram 👉 @felizconmicarrera\n\n*Agéndalo ¡y ponte una alarma!*: está hecho para ti.\n\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        1616
+      ],
+      "id": "bedfb825-581d-4c44-b41a-68a56dc22976",
+      "name": "Invitación a LIVE - todos los gpos"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🚨 *¡Ya estamos en vivo!* y solo durará 20 minutos.\n\n📲*¡Entra ahora a mi cuenta* y únete a la conversación en tiempo real!\n  👉Instagram:  @felizconmicarrera\n\nPara los que preguntaron cómo entrar: \n1️⃣ Busca nuestra cuenta y síguela.  \n2️⃣ Da clic al circulo con la foto de Enrique (delineada en rojo). ",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        1808
+      ],
+      "id": "90610e92-9be0-4ddf-87ca-452a9eaf94bc",
+      "name": "Estamos en vivo! - todos los gpos"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¿Sabías que más del 40% de los jóvenes se equivocan al elegir carrera?*\n\nY, en su momento, todos ellos creyeron que habían elegido bien. \n\nEstas son las 4 señales de alerta que pueden llevar a una mala elección:\n🚩 No conocen su perfil a fondo, incluyendo habilidades e intereses *no evidentes*.\n🚩 No han tenido ayuda real para descubrir *TODAS* las carreras ideales para su perfil (no 3 o 4).\n🚩 Están eligiendo por razones equivocadas: por dinero, por presión… o simplemente porque “les gusta” sin más.\n🚩 No consideran la realidad del campo laboral.\n\n\n🎯 En la Masterclass te mostraré cómo podemos ayudar a tu hijo a evitar estos errores, y cómo podemos facilitar que elija con confianza y sin arrepentimientos.\n\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2000
+      ],
+      "id": "98fb3719-024e-48ce-8aaa-bb6d0a22a92a",
+      "name": "Mensaje 2 - gpo nvo - 4 señales alerta y encuesta"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que cuando te unas al grupo de WhatsApp te asegures que el grupo *no se quede archivado*. \n\nPara unirte da clic aquí: \n{{ $json.LigaNuevoGrupo }}",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2192
+      ],
+      "id": "d3e33986-5764-4ae6-a3f2-990e73c5e0ac",
+      "name": "Aviso cierre grupo - gpos anteriores"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=🟢 *Tarea del día:*\n\nLas dos decisiones más importantes en la vida de una persona son: a qué se va a dedicar y con quién va a compartir su vida.\n\nLa primera decisión *ya está aquí*, porque el camino profesional de tu hijo no empieza cuando se gradúe o con su primer trabajo.\nEmpieza justo con la carrera que elija, *ahora*.\n\nNo es algo que deba decidir a la ligera o solo con lo que se ve en la escuela o en internet.\n\nEs una decisión que impactará de una forma tan amplia en su vida, que es importante hacer todo lo posible para que haga la elección correcta.\n\n*Hazle estas preguntas a tu hijo* hoy, te ayudará a sensibilizarte de cómo está:\n1️⃣ ¿Qué palabras te vienen a la mente cuando piensas en que ya tienes que elegir carrera?\n2️⃣ ¿Qué tan seguro te sientes de tener toda la información para elegir bien y por qué te sientes así?\n",
+              "type": "string"
+            },
+            {
+              "id": "ff336526-efe6-4f88-b05b-970b59916036",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2384
+      ],
+      "id": "ccc2e462-2610-4d9f-a039-dbe7ed9c88f8",
+      "name": "Mensaje 3 - gpo nvo - tarea preguntas a hijo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=💬 _“Quisiera que encuentre una carrera que le guste mucho, donde se pueda desarrollar, pero también que tenga buen campo laboral.”_\nCeci, mamá de Jorge.\n\n⚠️ *Las cosas ya no son como antes.*\n\nHoy existen más de 150 carreras, y el mundo laboral está cambiando más rápido de lo que podemos imaginar.\n\nEn este contexto, no basta con un test o con la intuición de “esto me gusta”.\nEs clave que tu hijo conozca a profundidad su perfil único y *todas las opciones* afines que existen para que elija con bases firmes y seguras. \n\n\n\n📊 En la Masterclass te voy a mostrar cómo podemos ayudar a que tu hijo descubra opciones afines a su perfil *que ni siquiera conocía* y cómo eso puede marcar la diferencia para que arranque con confianza su vida adulta.\n\n¡Que tengan un gran día!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2576
+      ],
+      "id": "2da7cc80-b123-4f7d-ae5e-280c9a69b454",
+      "name": "Mensaje 4 - gpo nvo - reflexión 2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2784
+      ],
+      "id": "c53c5ea6-61f5-4ce6-89e9-f2788d89da79",
+      "name": "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*La Masterclass empieza en una hora.*\n\n⏰ Nos vemos a las 7:00pm CDMX | 8:00pm Colombia\n\n✅ ¡Sigue en este grupo! \nPorque al terminar la sesión enviaremos aquí la liga con la grabación e información importante de cierre.\n\n📲  Aquí te dejo el link para entrar: \n\n{{ $json.LinkZoom }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        2976
+      ],
+      "id": "16de5a39-efa6-4c5c-94ab-215007cc1103",
+      "name": "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        3152
+      ],
+      "id": "3b04c7af-3aeb-4ceb-90f5-706c8e8726b6",
+      "name": "Mensaje 7 - gpo nvo - Empezó MC y zoom"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=¿Te estás perdiendo la Masterclass?\n\n*En 5 minutos empieza la parte más importante*, ¡aún estás a tiempo de conectarte!\n\nZoom:\n{{ $json.LinkZoom }}\n\n📲 *¡Conéctate ahora!*\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        3344
+      ],
+      "id": "74bceb17-2f79-447d-be54-982e2323037e",
+      "name": "Mensaje 8 - gpo nvo - Último aviso MC y zoom"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=Amanecimos con muchos mensajes de papás con su confirmación de compra.\n🙏🏼 Todos en el equipo nos sentimos *honrados* por la confianza que han puesto en nosotros.\n\nComo les dije ayer en el cierre, ya lo verán… ¡VAMOS A TRABAJAR INCREÍBLE CON Y POR SUS HIJOS!\nSi apenas es hoy es cuando lo vas a platicar con tu hijo, dale el apoyo que merece para:\n✅ Elegir una carrera alineada a sus habilidades, intereses y expectativas.\n✅ Tomar esta decisión tan importante de la *mejor forma posible*.\n✅ Reducir el riesgo de equivocarse y perder tiempo, dinero y motivación.\n\n*Recuerda:*\nEl precio especial para ambos programas estará disponible hasta el *{{ $json.FechaMaxima }}*.\n\nhttps://www.felizconmicarrera.com/method-precio-especial/\n📲 Para cualquier duda solo envía un WhatsApp al número de este grupo:\n( +52 1 55 1172 1680).\n\n¡Abrazo grande!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        3536
+      ],
+      "id": "0b4e46ab-cfb6-4e5f-8bf1-9c7baa6c1d9f",
+      "name": "Mensaje 9 - gpo nvo - Recordatorio compra 1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=⭐ Siempre le has dado lo mejor, sobre todo en lo que realmente importa. Y esta no puede ser la excepción.\n\n🙌🏼 Aún tienes un día más para regalarle esta experiencia que lo va a marcar de por vida.\n\nHoy quiero compartirte la *opinión* de algunos de los padres que ya vieron a su hijo terminar seguro y emocionado por la carrera que eligió gracias a nuestro *Método*.\nAlgunas de las muchas historias que nos llenan de orgullo. \n*¡La de tu hijo es la siguiente!*\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        3728
+      ],
+      "id": "01cb7634-8b58-4361-9638-25ed5cbb00fa",
+      "name": "Mensaje 10 - gpo nvo - Recordatorio compra 2 y video"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=Tú elegiste carrera hace décadas.\n¿Cómo respondes cuando te preguntan cómo la elegiste?\n🙏🏼 ¿Respondes con algo que te llene de orgullo o de mucho agradecimiento con tus papás?\n⚠️ ¿O fue una decisión sin mucha profundización, casi al azar?\n\nY… *¿cómo te gustaría que respondiera tu hijo cuando, en el futuro, le hagan esa pregunta?*\n\n⭐ Regálale la oportunidad de responder con orgullo y agradecimiento profundo.\n⏳*Quedan 12 horas* para hacerlo a precio especial. Después de ese horario, el precio de ambos programas regresará al importe regular _(sujeto a disponibilidad)_.\n\n*¡Estás a un clic de distancia!*\nhttps://www.felizconmicarrera.com/method-precio-especial/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        3920
+      ],
+      "id": "bc748f3b-af9b-4e98-9fc2-89574b90f6c5",
+      "name": "Mensaje 11 - gpo nvo - Quedan 12 horas"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=No es solo elegir carrera. \n¡Es dar el primer paso que lo guiará hacia un futuro u otro!\n*Por eso es su primera gran decisión de vida.*\n\nEsta es una inversión que cambia vidas. \n*Es regalarle el mejor acompañamiento posible para este gran paso, y una forma muy clara de hacerle ver que crees en él.*\n\n⏰ Quedan solo *2 horas* para regalarle a tu hijo la oportunidad *a precio especial*.\n\n👉 Hazlo aquí: https://www.felizconmicarrera.com/method-precio-especial/\n\n ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        4112
+      ],
+      "id": "78ca6e5c-2fe3-493b-ac31-803692e1e2f5",
+      "name": "Mensaje 11 - gpo nvo - Quedan 2 horas"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=He recibido muchos mensajes de papás que comparten sus preocupaciones sobre esta etapa tan importante en la vida de sus hijos.\n\nHoy quiero conocerte un poco más.\nAquí abajo te dejo las preocupaciones que más escucho de los padres.\n\n¿Cuáles de estas te preocupan a ti? \n¡Nos vemos mañana!\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        4304
+      ],
+      "id": "b3faf946-cf2e-475a-b86b-ad62db5e0c45",
+      "name": "Encuesta"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Obtener Mensajes del día1').item.json.MediaURL }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=vas a rescibir una url debes converir esa url a una url descargable como esta : https://drive.google.com/uc?id=[idimagen]&export=download  solo devuelve la url descargable  y nada mas  en un formato JSON   { \"url\" : \"la url descargable\" }"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        5440,
+        2544
+      ],
+      "id": "7137cf39-819e-4827-a280-2ab2c651b683",
+      "name": "Obtener url descargable"
     }
   ],
   "pinData": {},
@@ -2377,6 +2377,15 @@
     "timezone": "America/Mexico_City",
     "callerPolicy": "workflowsFromSameOwner"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-06T19:27:39.748Z",
+      "updatedAt": "2025-08-06T19:27:39.748Z",
+      "role": "workflow:owner",
+      "workflowId": "Gd2KBvvXmk491kBW",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": {
     "node:Schedule Trigger": {
       "recurrenceRules": []
@@ -2391,6 +2400,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-08-27T00:30:42.000Z",
-  "versionId": "c003f265-8c82-4416-a6e1-dbf1952e74d4"
+  "updatedAt": "2025-09-02T20:49:08.000Z",
+  "versionId": "3894c743-c84f-4c16-adb7-37d3b462e723"
 }
