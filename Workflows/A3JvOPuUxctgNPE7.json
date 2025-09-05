@@ -2213,19 +2213,28 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-02T01:53:55.315Z",
+      "updatedAt": "2025-08-02T01:53:55.315Z",
+      "role": "workflow:owner",
+      "workflowId": "A3JvOPuUxctgNPE7",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2025-08-31T04:03:22Z"
+      "lastTimeChecked": "2025-09-05T03:50:37Z"
     },
     "node:Schedule Trigger": {
       "recurrenceRules": []
     },
     "node:Gmail": {
       "Gmail": {
-        "lastTimeChecked": 1756613039,
+        "lastTimeChecked": 1757044214,
         "possibleDuplicates": [
-          "198fe4bd76b91f1c",
-          "198fe2f07aa93445"
+          "19917ff0d761f3ed",
+          "19917dc9212351f2"
         ]
       }
     }
