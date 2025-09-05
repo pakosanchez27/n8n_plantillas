@@ -443,6 +443,15 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-28T15:57:38.445Z",
+      "updatedAt": "2025-08-28T15:57:38.445Z",
+      "role": "workflow:owner",
+      "workflowId": "sGclA7qLFoXBWKzZ",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
