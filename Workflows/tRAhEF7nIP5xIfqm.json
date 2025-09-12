@@ -1,17 +1,6 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
-    "When chat message received": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat Model": {
       "ai_languageModel": [
         [
@@ -23,26 +12,9 @@
         ]
       ]
     },
-    "Postgres Chat Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "Agente IA RAG  Litoprocess",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Edit Fields": {
       "main": [
-        [
-          {
-            "node": "Agente IA RAG  Litoprocess",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Supabase Vector Store": {
@@ -88,6 +60,192 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Data_message_extraction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data_message_extraction": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "final_messages_txt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "final_messages_txt": {
+      "main": [
+        [
+          {
+            "node": "LitoBuffer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_buffer_data": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete_buffer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get_buffer_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete_buffer": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe a recording",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe a recording": {
+      "main": [
+        [
+          {
+            "node": "final_message_voice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "final_message_voice": {
+      "main": [
+        [
+          {
+            "node": "LitoBuffer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente IA RAG  Litoprocess": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente IA RAG  Litoprocess",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LitoBuffer": {
+      "main": [
+        [
+          {
+            "node": "Get_buffer_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Agente IA RAG  Litoprocess",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-04T14:59:05.328Z",
@@ -100,22 +258,8 @@
   "nodes": [
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.3,
-      "position": [
-        0,
-        0
-      ],
-      "id": "cefc1837-002d-4625-8f87-214551f480da",
-      "name": "When chat message received",
-      "webhookId": "18da4604-821b-4376-92eb-bba58ae7c64a"
-    },
-    {
-      "parameters": {
         "promptType": "define",
-        "text": "={{ $json.mensaje }}",
+        "text": "={{ $json.concat_message }}",
         "options": {
           "systemMessage": "=Eres \"Lito\", el Asistente IA de Litoprocess.  \nTu especialidad es ayudar al personal a resolver dudas sobre procedimientos internos estandarizados de la empresa.\n\nInstrucciones:  \n- Preséntate como **\"LITO, Asistente IA de Litoprocess\"** únicamente en la primera interacción o cuando el usuario te salude.  \n- Responde con un tono cálido, feliz y entusiasta.  \n- Da respuestas detalladas y claras. Además de contestar la pregunta, explica un poco el contexto o el procedimiento relacionado.  \n- Siempre que lo necesites, utiliza la herramienta **Vector Store Tool** para obtener la información necesaria antes de responder.  \n- Revisa a fondo la información recuperada del Vector Store antes de dar una respuesta y no omitas detalles relevantes del documento.  \n- Si no encuentras información suficiente, indícalo de forma amable y sugiere al usuario consultar al área correspondiente.  \n- No inventes datos ni ofrezcas servicios o actividades que no estén documentadas o programadas.  \n- Limítate a responder preguntas: **no sugieras acciones adicionales ni ofrezcas ejecutar tareas** (ejemplo: no digas “¿quieres que haga esto ahora?”).  \n"
         }
@@ -156,25 +300,6 @@
     },
     {
       "parameters": {
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
-      "typeVersion": 1.3,
-      "position": [
-        432,
-        208
-      ],
-      "id": "e5ff8b62-1d2c-4530-9cb1-a45258a591f2",
-      "name": "Postgres Chat Memory",
-      "credentials": {
-        "postgres": {
-          "id": "VS9LlojPUjkXGlOu",
-          "name": "Litoprocess"
-        }
-      }
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -196,7 +321,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        208,
+        -80,
         0
       ],
       "id": "0451050d-9cc7-4eb4-a7d5-57cdd985baeb",
@@ -285,6 +410,470 @@
       ],
       "id": "633e0629-6022-4fc2-97dd-11a400c9c205",
       "name": "Informacion"
+    },
+    {
+      "parameters": {
+        "content": "# No Eliminar nada de aqui",
+        "height": 1056,
+        "width": 1456
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -192,
+        -256
+      ],
+      "typeVersion": 1,
+      "id": "7c78bb35-c041-4588-af97-3175bbf23f16",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Aqui colocar el buffer\n",
+        "height": 832,
+        "width": 3488,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1248,
+        -1296
+      ],
+      "typeVersion": 1,
+      "id": "d32d8913-0275-4b3d-895c-08e34b39a94c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "e768c345-829c-4551-99f4-828066b99cbc",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1088,
+        -992
+      ],
+      "id": "f2a1fdaf-a167-4c35-9bb4-da74b0835742",
+      "name": "Webhook",
+      "webhookId": "e768c345-829c-4551-99f4-828066b99cbc"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c0ca25be-09b6-4c42-826c-2d6208ab6d9f",
+              "name": "sender",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "e901593c-1f3f-4e75-b246-c465acd0f621",
+              "name": "message_type",
+              "value": "={{ $json.body.data.messageType }}",
+              "type": "string"
+            },
+            {
+              "id": "12513f7c-af66-41f0-897d-4bcb70d3e8e0",
+              "name": "text_message",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "a87d3bbb-91e8-409e-b7d1-454a635c5cfa",
+              "name": "sessionid",
+              "value": "={{ $json.body.data.key.id }}",
+              "type": "string"
+            },
+            {
+              "id": "7e666bc4-bb87-4e4a-9d08-c58af20d2d70",
+              "name": "data_time",
+              "value": "={{ $json.body.data.messageTimestamp.toDateTime('s').toLocal() }}",
+              "type": "string"
+            },
+            {
+              "id": "f6e1a738-1c0b-458e-99b5-59c90d0621bc",
+              "name": "voice_message",
+              "value": "={{ $json.body.data.message.base64 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -880,
+        -992
+      ],
+      "id": "a46b263c-5e91-49e7-81d0-fa74e9249b0c",
+      "name": "Data_message_extraction"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5ff73396-9d7d-4b4c-9ff7-0c230f2fc701",
+              "leftValue": "={{ $json.message_type }}",
+              "rightValue": "conversation",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -672,
+        -992
+      ],
+      "id": "12378383-ec99-4a42-993a-f62a633d7aea",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a32c053c-8c80-42b9-a8ec-cdf2af7c616c",
+              "name": "final_message",
+              "value": "={{ $json.text_message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -336,
+        -1104
+      ],
+      "id": "f7a9447b-4a67-41de-98a3-aed26001c95a",
+      "name": "final_messages_txt"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "message",
+        "key": "={{ $('Data_message_extraction').item.json.sender }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        352,
+        -992
+      ],
+      "id": "09bb4264-71a4-409f-a3a3-849890844ac5",
+      "name": "Get_buffer_data",
+      "credentials": {
+        "redis": {
+          "id": "po3c4NxBlxJ0hSAg",
+          "name": "LitoBuffer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ JSON.parse($json.message.last()).sessionID }}",
+                    "rightValue": "={{ $('Data_message_extraction').item.json.sessionid }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEquals"
+                    },
+                    "id": "4c0c818d-5f96-4d01-a0c3-8de4d87c5264"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ignorar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e5e091e6-b9d4-4412-ac7f-c0ae6b3c4153",
+                    "leftValue": "={{ JSON.parse($json.message.last()).date_time }}",
+                    "rightValue": "={{ $now.minus(7, 'seconds').toLocal() }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "before"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Continuar"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Esperar"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        560,
+        -992
+      ],
+      "id": "c8700839-d3d8-41d0-8fd7-35fe4efe6fac",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "amount": 7
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        -768
+      ],
+      "id": "1e1d4213-ce33-4178-a071-c26f5397cf27",
+      "name": "Wait",
+      "webhookId": "db959116-6bb8-4f3b-b8aa-463bdb718b6f"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        720,
+        -1184
+      ],
+      "id": "47b7203e-5d69-4e09-bf9f-20e44bb2b84c",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Data_message_extraction').item.json.sender }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        816,
+        -992
+      ],
+      "id": "b7c1edd1-a2e1-4d01-841c-d173773ffa16",
+      "name": "Delete_buffer",
+      "credentials": {
+        "redis": {
+          "id": "po3c4NxBlxJ0hSAg",
+          "name": "LitoBuffer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "50cc3b76-e910-44fb-8f8e-f957a08a3cbb",
+              "name": "concat_message",
+              "value": "={{ $json.message.map(m=> JSON.parse(m).message).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "ac395fee-64eb-431e-9a37-67297d188f6b",
+              "name": "sessionId",
+              "value": "={{ $('Data_message_extraction').item.json.sender }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1024,
+        -992
+      ],
+      "id": "8a87d5f8-5a89-43ea-bfdc-9862f8e06ef5",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "voice_message",
+        "options": {
+          "mimeType": "audio/ogg"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -464,
+        -896
+      ],
+      "id": "50f94885-ee41-493f-8871-b467c59cb617",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -256,
+        -896
+      ],
+      "id": "e8a3cd50-ead9-472f-8153-e27776194671",
+      "name": "Transcribe a recording",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b775cd75-77a4-4e18-a1d7-32d582cd6a7a",
+              "name": "final_message",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -48,
+        -896
+      ],
+      "id": "ef16d984-8a23-48d9-b07e-69f5ce4fec57",
+      "name": "final_message_voice"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        208
+      ],
+      "id": "e5ff8b62-1d2c-4530-9cb1-a45258a591f2",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "VS9LlojPUjkXGlOu",
+          "name": "Litoprocess"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Data_message_extraction').item.json.sender }}",
+        "messageData": "={{ JSON.stringify(\n{\n 'message':  $json.final_message, \n 'sessionID' :  $('Data_message_extraction').item.json.sessionid, \n 'date_time' :  $('Data_message_extraction').item.json.data_time, \n}\n) }}",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        144,
+        -976
+      ],
+      "id": "6922f56c-90a3-4a51-bc33-e71697b23814",
+      "name": "LitoBuffer",
+      "credentials": {
+        "redis": {
+          "id": "po3c4NxBlxJ0hSAg",
+          "name": "LitoBuffer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api.aeo-ai.com/message/sendText/LitoBot",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "apikey",
+              "value": "55AB67A8A4FF-4820-ACBF-685DE0CB1678"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('If').item.json.sender.split('@')[0] }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        768,
+        0
+      ],
+      "id": "d2b63994-7d6a-4646-8f7e-2ec8b5149ec3",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {},
@@ -310,6 +899,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-05T00:56:14.000Z",
-  "versionId": "8d1d8fc6-77a2-4d97-a467-ae06fc017984"
+  "updatedAt": "2025-09-12T02:37:50.000Z",
+  "versionId": "ac5b3e75-aaa4-45f5-9e81-c47f0483666e"
 }
