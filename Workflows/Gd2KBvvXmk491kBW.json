@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Date & Time1": {
       "main": [
@@ -263,7 +263,7 @@
         ],
         [
           {
-            "node": "Enviar texto",
+            "node": "Mensaje antes de Encuesta",
             "type": "main",
             "index": 0
           }
@@ -282,17 +282,6 @@
         [
           {
             "node": "Switch1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar texto": {
-      "main": [
-        [
-          {
-            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -420,7 +409,7 @@
       "main": [
         [
           {
-            "node": "Loop Over Items1",
+            "node": "Wait2",
             "type": "main",
             "index": 0
           }
@@ -657,6 +646,39 @@
           }
         ]
       ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Mensaje Después de Encuesta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje Después de Encuesta": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensaje antes de Encuesta": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-06T19:27:39.738Z",
@@ -701,10 +723,6 @@
             {
               "lookupColumn": "Fecha",
               "lookupValue": "={{ $json.Fecha }}"
-            },
-            {
-              "lookupColumn": "Hora",
-              "lookupValue": "={{ $json.Hora }}"
             }
           ]
         },
@@ -1643,31 +1661,6 @@
     },
     {
       "parameters": {
-        "resource": "messages-api",
-        "instanceName": "FelizBot",
-        "remoteJid": "={{ $json.id_grupo[0] }}",
-        "messageText": "={{ $json.Mensaje[0] }}",
-        "options_message": {
-          "delay": 1200
-        }
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        6640,
-        4816
-      ],
-      "id": "546fce5c-6841-4796-bcd2-afd0c9f6ba14",
-      "name": "Enviar texto",
-      "credentials": {
-        "evolutionApi": {
-          "id": "PmLHlyqZKQXgGIBQ",
-          "name": "EnriqueAPI"
-        }
-      }
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -1910,7 +1903,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=¡Bienvenidos!\n\nSoy Enrique Molina, fundador de Feliz con mi Carrera.\n\nDurante los siguientes días compartiré en este grupo información y reflexiones que te ayudarán a *prepararte para la Masterclass* donde hablaremos de *una de las decisiones más importantes en la vida de tu hijo.*\n\n✅ Te anexo a este primer mensaje una mini guía para que empieces a entender *cómo acompañar a tu hijo siendo el apoyo que necesita* en este momento clave, sin presionarlo.\n\nLéela con calma. Es el primer paso para hacer equipo con tu hijo y se sienta confiado para tomar una decisión más segura.\n\n¡Nos vemos muy pronto!",
+              "value": "=¡Da clic aquí!*\n*¡Bienvenida/o al grupo exclusivo de la Masterclass!*🎓\n\nAquí recibirás la información oficial, avisos y la liga de acceso para conectarte a la sesión.\n\n📄 Como puedes ver hay un PDF anexo a este mensaje. Es la guía:\n*“3 acciones efectivas para que tu hijo se abra contigo mientras elige carrera.”*\nTómate 5 minutos para leerla hoy: puede ayudarte mucho a ser la mamá o papá que tu hijo necesita en esta etapa.\n\n⚠️ *Importante*: \nLa liga de acceso a la Masterclass se enviará *solo en este grupo*, una hora antes de la sesión. No llegará por correo ni por otra vía",
               "type": "string"
             }
           ]
@@ -1933,7 +1926,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "={{ $json.introEleccionCarrera }}\n\nViene una nueva Masterclass gratuita el {{ $json.FechaMasterClass }} donde te explicaremos el método con el que podemos auydar a tu hijo a elegir con base a sus habilidades e intereses, y con un profundo conocimiento del mundo laboral.\n\n✅ Si quieres asistir, únete al nuevo grupo de Whatsapp.\n\nEnviaremos la liga para conectarse solo a ese nuevo grupo.\n\nPara unirte da clic aquí: {{ $json.LigaNuevoGrupo }}",
+              "value": "=📣 ¡Atención, papás y mamás!\nEl {{ $json.FechaMasterClass }} daré de nuevo Masterclass gratuita: \"Elige bien tu carrera. Cambia tu vida\"\n\n{{ $json.introEleccionCarrera }}\n\n👉 Para asistir a esta nueva sesión, regístrate aquí:\n{{ $json.LigaNuevoGrupo }}",
               "type": "string"
             }
           ]
@@ -1956,7 +1949,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=¿Estás de acuerdo que al elegir carrera no se decide solo qué estudiar?\n\nEs el primer paso para todo lo que vivirá como adulto, desde dónde va a poder desarrollar mejor sus talentos hasta qué le dará el estilo de vida que quiere tener.\n\n*En esta decisión hay mucho en juego.*\n\n👉 Esta semana previa a la Masterclass quiero que sea como una conversación íntima contigo: compartirte lo que no te dicen allá afuera, y cómo convertirte en el facilitador que tu hijo necesita.\n\n*Mañana* te tengo una sorpresa. \n¡Revisa el mensaje que enviaré!\n\n",
+              "value": "=Tu hijo está a punto de tomar una de las decisiones más importantes de su vida: *elegir carrera y camino profesional*.\n\nEn la Masterclass descubrirás los errores más comunes a evitar para que que caiga en el 40% de jóvenes que después se arrepienten. 🚫🎓\n\n👉 *Aparta el espacio en tu agenda*, porque lo que aprenderás aquí puede ahorrarle años de frustración.\n\n*Mañana* te tengo una sorpresa que no querrás perderte. \n¡Revisa el mensaje que enviaré!\n\n",
               "type": "string"
             }
           ]
@@ -1979,7 +1972,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=✨ *¡Ayuda! Mi hijo ya tiene que elegir carrera.*🎓\n\n🎯 Hoy en la noche daré un live para hablar de algunos temas importantes que no veremos en la Masterclass por tiempo, pero es importante que conozcas.\n\nVamos a ver puntos como:\n• ¿Cuándo es el mejor momento para elegir carrera?\n• ¿Qué mitos debes cuidar?\n• ¿Cómo afectará la Inteligencia Artificial al futuro profesional?\n• ¿Es bueno un año sabático?\n…Y como será una sesión abierta, también responderé todas tus preguntas.\n\n⏰ *Hora:* 7:00pm CDMX | 8:00pm Colombia\n       Durará solo 20 minutos.\n📍 *Dónde:* En mi cuenta de Instagram 👉 @felizconmicarrera\n\n*Agéndalo ¡y ponte una alarma!*: está hecho para ti.\n\n",
+              "value": "=✨ *\"_¡Ayuda! Mi hijo ya tiene que elegir carrera_.\"*🎓\n\n🎯 *Hoy en la noche* daré un live para hablar de algunos temas importantes que no veremos en la Masterclass por tiempo, pero que son importantes.\n\nVamos a ver puntos como:\n• ¿Es bueno un año sabático?\n• ¿Cómo hacer que tu hijo te cuente lo que va descubriendo en esta etapa?\n• ¿Qué mitos debes cuidar?\n• ¿Cómo afectará la Inteligencia Artificial al futuro profesional?\n\n…Y como será una sesión abierta, también responderé todas tus preguntas.\n\n⏰ *Hora:* 7:00pm CDMX | 8:00pm Colombia\n       Durará solo 20 minutos.\n📍 *Dónde:* En mi cuenta de Instagram 👉 @felizconmicarrera\n\n*Agéndalo ¡y ponte una alarma!*: está hecho para ti.\n\n",
               "type": "string"
             },
             {
@@ -2008,7 +2001,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=🚨 *¡Ya estamos en vivo!* y solo durará 20 minutos.\n\n📲*¡Entra ahora a mi cuenta* y únete a la conversación en tiempo real!\n  👉Instagram:  @felizconmicarrera\n\nPara los que preguntaron cómo entrar: \n1️⃣ Busca nuestra cuenta y síguela.  \n2️⃣ Da clic al circulo con la foto de Enrique (delineada en rojo). ",
+              "value": "=🚨*¡Ya estamos en vivo!*🚨\n\nSolo durará 20 minutos y estaré contestando preguntas en tiempo real. \n\n📲*¡Entra ahora mismo!\n  👉Instagram:  @felizconmicarrera\n\nPara los que preguntaron cómo entrar: \n1️⃣ Busca nuestra cuenta y síguela.  \n2️⃣ Da clic al circulo con la foto de Enrique (delineada en rojo). ",
               "type": "string"
             },
             {
@@ -2037,7 +2030,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=*¿Sabías que más del 40% de los jóvenes se equivocan al elegir carrera?*\n\nY, en su momento, todos ellos creyeron que habían elegido bien. \n\nEstas son las 4 señales de alerta que pueden llevar a una mala elección:\n🚩 No conocen su perfil a fondo, incluyendo habilidades e intereses *no evidentes*.\n🚩 No han tenido ayuda real para descubrir *TODAS* las carreras ideales para su perfil (no 3 o 4).\n🚩 Están eligiendo por razones equivocadas: por dinero, por presión… o simplemente porque “les gusta” sin más.\n🚩 No consideran la realidad del campo laboral.\n\n\n🎯 En la Masterclass te mostraré cómo podemos ayudar a tu hijo a evitar estos errores, y cómo podemos facilitar que elija con confianza y sin arrepentimientos.\n\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n",
+              "value": "=😟 Muchos papás nos buscan después de escuchar a su hijo decir: \"_La carrera no era lo que esperaba…ya no quiero seguir ahí._\"\n\nEse momento duele. Y lo puedes prevenir.\n\nEn la Masterclass conocerás:\n✅ Los *3 elementos clave a considerar* para una buena elección de carrera.\n✅ Cómo lo podemos ayudar a elegir sintiéndose emocionado, seguro y confiado con su decisión. *Garantizado*.\n{{ $json.linkEncuestaMasterclass }}\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos.\nEl contenido de la Masterclass lo voy a ajustar según lo que más preocupe a ustedes. \nSi no respondes, se corre el riesgo de que no hable de lo que justo más te importa.\n",
               "type": "string"
             },
             {
@@ -2066,7 +2059,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que cuando te unas al grupo de WhatsApp te asegures que el grupo *no se quede archivado*. \n\nPara unirte da clic aquí: \n{{ $json.LigaNuevoGrupo }}",
+              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que te unas al nuevo grupo de WhatsApp, ya que solo ahí enviaremos la liga de acceso a la sesión.\n\nSolo da clic aquí ⬇️\n{{ $json['link registro '] }}\n",
               "type": "string"
             },
             {
@@ -2095,7 +2088,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=🟢 *Tarea del día:*\n\nLas dos decisiones más importantes en la vida de una persona son: a qué se va a dedicar y con quién va a compartir su vida.\n\nLa primera decisión *ya está aquí*, porque el camino profesional de tu hijo no empieza cuando se gradúe o con su primer trabajo.\nEmpieza justo con la carrera que elija, *ahora*.\n\nNo es algo que deba decidir a la ligera o solo con lo que se ve en la escuela o en internet.\n\nEs una decisión que impactará de una forma tan amplia en su vida, que es importante hacer todo lo posible para que haga la elección correcta.\n\n*Hazle estas preguntas a tu hijo* hoy, te ayudará a sensibilizarte de cómo está:\n1️⃣ ¿Qué palabras te vienen a la mente cuando piensas en que ya tienes que elegir carrera?\n2️⃣ ¿Qué tan seguro te sientes de tener toda la información para elegir bien y por qué te sientes así?\n",
+              "value": "=🌎 *Más de 1,500 jóvenes en 10 países* han elegido su carrera con *nuestro método*.\n\nTerminaron seguros y confiados con su elección, y los papás tranquilos de saber que sus hijos eligieron BIEN.\n\nNos dará mucho gusto poder ayudar a tu hijo (y a ti) también.\n\nTengo una actividad que te ayudará a sensibilizarte en cómo está:\n*Hazle estas preguntas a tu hijo hoy*:\n1️⃣ ¿Qué palabras te vienen a la mente cuando piensas en que ya tienes que elegir carrera?\n2️⃣ ¿Qué tan seguro te sientes de tener *toda* la información para elegir bien y por qué te sientes así?\n\n👉 Lo que tu hijo responda puede sorprenderte… y en la Masterclass veremos cómo interpretar esas respuestas\n",
               "type": "string"
             },
             {
@@ -2124,7 +2117,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=💬 _“Quisiera que encuentre una carrera que le guste mucho, donde se pueda desarrollar, pero también que tenga buen campo laboral.”_\nCeci, mamá de Jorge.\n\n⚠️ *Las cosas ya no son como antes.*\n\nHoy existen más de 150 carreras, y el mundo laboral está cambiando más rápido de lo que podemos imaginar.\n\nEn este contexto, no basta con un test o con la intuición de “esto me gusta”.\nEs clave que tu hijo conozca a profundidad su perfil único y *todas las opciones* afines que existen para que elija con bases firmes y seguras. \n\n\n\n📊 En la Masterclass te voy a mostrar cómo podemos ayudar a que tu hijo descubra opciones afines a su perfil *que ni siquiera conocía* y cómo eso puede marcar la diferencia para que arranque con confianza su vida adulta.\n\n¡Que tengan un gran día!",
+              "value": "=⚠️ *Las cosas ya no son como antes.*\nHoy existen casi 200 carreras y el mundo laboral está cambiando más rápido de lo que podemos imaginar.\n\nEl contexto tan complejo que le tocó a tu hijo hace que los apoyos tradicionales para elegir carrera ya no sean suficientes.\n\nEn la Masterclass conocerás cómo sí es posible que con nuestro método tu hijo descubra *una carrera que le guste mucho y que lo pueda encaminar a un futuro feliz y exitoso*. \n\nTu hijo solo vivirá este momento de elegir una vez (si lo hace bien). \nEstás a dos días de descubrir *cómo lograrlo, a la primera.*",
               "type": "string"
             }
           ]
@@ -2147,7 +2140,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina",
+              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina\n",
               "type": "string"
             }
           ]
@@ -2193,7 +2186,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=*¡Hoy es el día que puede cambiarlo todo!*\n\nLa sesión es para padres, pero si tu hijo quiere estar presente, ¡ideal!\n\n✨ Prepara todo para *aprovechar al máximo*:\n🕖 *Hora*: 7:00 pm CDMX |  8:00 pm Colombia\n🖊️ Libreta para tomar notas.\n💻 Conéctate desde una computadora (no del celular) para que puedas ver la información correctamente.\n📲 *Antes de la sesión recibirás el enlace de conexión* aquí mismo.\n\n¡Nos vemos por la tarde para transformar el futuro de tu hijo!\n\nSi no lo has hecho, responde esta encuesta de solo 3 minutos para que pueda abarcar en la Masterclass los temas que más te importan.\n{{ $json.linkEncuestaMasterclass }}\n\nUn abrazo,\nEnrique Molina\n\n",
+              "value": "=🚨¡La sesión ya empezó!🚨\n\nEntra ya. Lo que verás puede hacer una diferencia importante para tu hijo.\n\n👉 Entra aquí: \n{{ $json.LinkZoom }}",
               "type": "string"
             }
           ]
@@ -2216,7 +2209,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=¿Te estás perdiendo la Masterclass?\n\n*En 5 minutos empieza la parte más importante*, ¡aún estás a tiempo de conectarte!\n\nZoom:\n{{ $json.LinkZoom }}\n\n📲 *¡Conéctate ahora!*\n",
+              "value": "=¿Te estás perdiendo la Masterclass?\n\n👉 *En 5 minutos* empezamos la parte que puede marcar la diferencia en la forma en la que tu hijo elegirá su carrera. \n*¡Conéctate ya!*\n\n{{ $json.LinkZoom }}\n\n\n",
               "type": "string"
             }
           ]
@@ -2239,7 +2232,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=Amanecimos con muchos mensajes de papás con su confirmación de compra.\n🙏🏼 Todos en el equipo nos sentimos *honrados* por la confianza que han puesto en nosotros.\n\nComo les dije ayer en el cierre, ya lo verán… ¡VAMOS A TRABAJAR INCREÍBLE CON Y POR SUS HIJOS!\nSi apenas es hoy es cuando lo vas a platicar con tu hijo, dale el apoyo que merece para:\n✅ Elegir una carrera alineada a sus habilidades, intereses y expectativas.\n✅ Tomar esta decisión tan importante de la *mejor forma posible*.\n✅ Reducir el riesgo de equivocarse y perder tiempo, dinero y motivación.\n\n*Recuerda:*\nEl precio especial para ambos programas estará disponible hasta el *{{ $json.FechaMaxima }}*.\n\nhttps://www.felizconmicarrera.com/method-precio-especial/\n📲 Para cualquier duda solo envía un WhatsApp al número de este grupo:\n( +52 1 55 1172 1680).\n\n¡Abrazo grande!",
+              "value": "=🙏🏼 Gracias a todas las familias que ya confirmaron su lugar.\n\nYa lo verán… *¡vamos a trabajar increíble con y por sus hijos!*\n\nSi hoy apenas lo vas a platicar en casa, hazlo pronto.\nCada hora cuenta, porque el precio especial vence el viernes en la noche.\n\n*Recuerda:*\nEl precio especial estará disponible hasta el \n*{{ $json.FechaMaxima }}*.\n\nhttps://www.felizconmicarrera.com/method-precio-especial/\n\n📲 Para cualquier duda solo envía un WhatsApp al número de este grupo:\n+52 1 55 1172 1680.\n\n¡Abrazo grande!",
               "type": "string"
             }
           ]
@@ -2262,7 +2255,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=⭐ Siempre le has dado lo mejor, sobre todo en lo que realmente importa. Y esta no puede ser la excepción.\n\n🙌🏼 Aún tienes un día más para regalarle esta experiencia que lo va a marcar de por vida.\n\nHoy quiero compartirte la *opinión* de algunos de los padres que ya vieron a su hijo terminar seguro y emocionado por la carrera que eligió gracias a nuestro *Método*.\nAlgunas de las muchas historias que nos llenan de orgullo. \n*¡La de tu hijo es la siguiente!*\n\n",
+              "value": "=⭐ *Ellos ya lo vivieron… y esta puede ser tu historia también*.\n\nMira cómo papás como tú vieron a sus hijos terminar seguros y emocionados con la carrera que eligieron gracias a nuestro método.\n\n",
               "type": "string"
             }
           ]
@@ -2285,7 +2278,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=Tú elegiste carrera hace décadas.\n¿Cómo respondes cuando te preguntan cómo la elegiste?\n🙏🏼 ¿Respondes con algo que te llene de orgullo o de mucho agradecimiento con tus papás?\n⚠️ ¿O fue una decisión sin mucha profundización, casi al azar?\n\nY… *¿cómo te gustaría que respondiera tu hijo cuando, en el futuro, le hagan esa pregunta?*\n\n⭐ Regálale la oportunidad de responder con orgullo y agradecimiento profundo.\n⏳*Quedan 12 horas* para hacerlo a precio especial. Después de ese horario, el precio de ambos programas regresará al importe regular _(sujeto a disponibilidad)_.\n\n*¡Estás a un clic de distancia!*\nhttps://www.felizconmicarrera.com/method-precio-especial/",
+              "value": "=⏳ *¡Últimas 12 horas a precio especial!*\n\nElegir carrera no es solo un paso académico…\nEs la primera gran decisión de vida que *tendrá un impacto en su futuro*.\n\nRegálale el mejor acompañamiento posible para que lo viva con claridad y confianza.\n\nAprovecha el precio especial antes de que termine:\nhttps://www.felizconmicarrera.com/method-precio-especial/",
               "type": "string"
             }
           ]
@@ -2308,7 +2301,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=No es solo elegir carrera. \n¡Es dar el primer paso que lo guiará hacia un futuro u otro!\n*Por eso es su primera gran decisión de vida.*\n\nEsta es una inversión que cambia vidas. \n*Es regalarle el mejor acompañamiento posible para este gran paso, y una forma muy clara de hacerle ver que crees en él.*\n\n⏰ Quedan solo *2 horas* para regalarle a tu hijo la oportunidad *a precio especial*.\n\n👉 Hazlo aquí: https://www.felizconmicarrera.com/method-precio-especial/\n\n ",
+              "value": "=No es solo \"elegir carrera\". \nEs dar *el primer paso que lo guiará hacia un futuro u otro*.\n\nDale el apoyo que *merece* para elegir bien.\n\n⏰ Quedan solo *2 horas* para aprovechar el *precio especial*.\n\nHazlo aquí: https://www.felizconmicarrera.com/method-precio-especial/\n\n\n ",
               "type": "string"
             }
           ]
@@ -2331,7 +2324,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=He recibido muchos mensajes de papás que comparten sus preocupaciones sobre esta etapa tan importante en la vida de sus hijos.\n\nHoy quiero conocerte un poco más.\nAquí abajo te dejo las preocupaciones que más escucho de los padres.\n\n¿Cuáles de estas te preocupan a ti? \n¡Nos vemos mañana!\n",
+              "value": "=Te comparto las preocupaciones más comunes entre más de 2,000 padres.\n\n¿Cuáles te preocupan a ti? \n*Responde ahora*, así mañana podré hablar de lo que más te preocupa a ti.",
               "type": "string"
             }
           ]
@@ -2369,6 +2362,70 @@
       ],
       "id": "7137cf39-819e-4827-a280-2ab2c651b683",
       "name": "Obtener url descargable"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        6640,
+        5072
+      ],
+      "id": "2c853390-530d-4561-a8dd-55a3b5b9c72c",
+      "name": "Wait2",
+      "webhookId": "404083de-1b6f-4d1a-b60c-361e2038db0d"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "messageText": "=Claro que si tu hijo se equivoca en su elección puede cambiarse de carrera...\n\nPero, *si hubiera algo que hacer para evitar que eso suceda, ¿por qué no hacerlo?*\nComo padres debemos reducir al máximo la probabilidad del desgaste emocional y el impacto económico que trae consigo una mala elección.\n\n✨ Mañana puede ser el punto de inflexión para que tu hijo elija bien. Con seguridad y confianza.\nNos vemos en la Masterclass.",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        6864,
+        4976
+      ],
+      "id": "a68be425-4576-4fb3-8cc2-96709c45b26e",
+      "name": "Mensaje Después de Encuesta",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizBot",
+        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "messageText": "={{ $json.Mensaje[0] }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        6640,
+        4816
+      ],
+      "id": "546fce5c-6841-4796-bcd2-afd0c9f6ba14",
+      "name": "Mensaje antes de Encuesta",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2400,6 +2457,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-02T20:49:08.000Z",
-  "versionId": "3894c743-c84f-4c16-adb7-37d3b462e723"
+  "updatedAt": "2025-09-12T04:54:59.000Z",
+  "versionId": "5cb88561-9e61-4e43-9035-58bd0ba8234b"
 }
