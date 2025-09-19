@@ -435,8 +435,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1248,
-        -1296
+        -1536,
+        -1104
       ],
       "typeVersion": 1,
       "id": "d32d8913-0275-4b3d-895c-08e34b39a94c",
@@ -874,6 +874,35 @@
       ],
       "id": "d2b63994-7d6a-4646-8f7e-2ec8b5149ec3",
       "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "50cc3b76-e910-44fb-8f8e-f957a08a3cbb",
+              "name": "concat_message",
+              "value": "={{ $json.message.map(m=> JSON.parse(m).message).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "ac395fee-64eb-431e-9a37-67297d188f6b",
+              "name": "sessionId",
+              "value": "={{ $('Data_message_extraction').item.json.sender }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2032,
+        -576
+      ],
+      "id": "f0f0c2f9-b2e6-498e-8d90-39ab8f547bf8",
+      "name": "Edit Fields2"
     }
   ],
   "pinData": {},
@@ -899,6 +928,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-12T02:37:50.000Z",
-  "versionId": "ac5b3e75-aaa4-45f5-9e81-c47f0483666e"
+  "updatedAt": "2025-09-17T22:16:49.000Z",
+  "versionId": "828c01f9-c060-43ca-b7fe-0a3872d43abf"
 }
