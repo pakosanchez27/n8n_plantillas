@@ -1,0 +1,120 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook Upload": {
+      "main": [
+        [
+          {
+            "node": "Extract Tags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Tags": {
+      "main": [
+        [
+          {
+            "node": "Generate DXF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate DXF": {
+      "main": [
+        [
+          {
+            "node": "Send DXF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-17T23:07:30.616Z",
+  "id": "q9h0r2tULy74UQRu",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "upload-pid",
+        "options": {}
+      },
+      "id": "e5e2f865-d573-4035-9d68-f613e8e20b6d",
+      "name": "Webhook Upload",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "webhookMethods": {
+        "POST": true
+      },
+      "webhookId": "5bac830d-b27b-4b32-9329-93e63a453115"
+    },
+    {
+      "parameters": {
+        "language": "python"
+      },
+      "id": "4d644e75-f681-4f64-a688-0e18273bc634",
+      "name": "Extract Tags",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        304,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python"
+      },
+      "id": "d16ef3cd-542f-4e85-8a4f-b728bf4041c4",
+      "name": "Generate DXF",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        608,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f4ab56c1-c43b-47bb-b172-9c9d8d750601",
+      "name": "Send DXF",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        912,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-17T23:07:30.620Z",
+      "updatedAt": "2025-09-17T23:07:30.620Z",
+      "role": "workflow:owner",
+      "workflowId": "q9h0r2tULy74UQRu",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-17T23:07:30.616Z",
+  "versionId": "e71b6c5e-0870-4a5e-9738-5b7ac8fc5c12"
+}
