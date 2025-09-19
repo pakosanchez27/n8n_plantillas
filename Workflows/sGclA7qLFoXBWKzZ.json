@@ -1,6 +1,51 @@
 {
-  "active": false,
-  "connections": {},
+  "active": true,
+  "connections": {
+    "Webhook de Entrada": {
+      "main": [
+        [
+          {
+            "node": "Convertir archivo a texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convertir archivo a texto": {
+      "main": [
+        [
+          {
+            "node": "Procesar con IA Chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Procesar con IA Chat": {
+      "main": [
+        [
+          {
+            "node": "Formatear para AutoCAD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatear para AutoCAD": {
+      "main": [
+        [
+          {
+            "node": "Responder al Usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-08-28T15:57:38.441Z",
   "id": "sGclA7qLFoXBWKzZ",
   "isArchived": false,
@@ -8,7 +53,89 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Generador Diagrama",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "diagram-upload",
+        "options": {
+          "binaryData": false
+        }
+      },
+      "id": "889eb1db-082d-4166-8458-684ec6a1c457",
+      "name": "Webhook de Entrada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -464,
+        -304
+      ],
+      "webhookId": "diagram-webhook-final"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Verifica que haya archivo binario\nif (!items[0].binary || !items[0].binary.file) {\n  throw new Error('No se encontró el archivo binario.');\n}\n\n// Decodifica Base64 a texto\nconst buffer = Buffer.from(items[0].binary.file.data, 'base64');\nconst text = buffer.toString('utf8');  // Esto convierte Base64 a texto plano\n\nreturn [{ json: { text } }];\n"
+      },
+      "id": "2fbcafcf-c79b-4e81-8d83-73e47e99c9d6",
+      "name": "Convertir archivo a texto",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -304
+      ]
+    },
+    {
+      "parameters": {
+        "prompt": "Eres un asistente que interpreta instrucciones de texto para dibujar diagramas y genera instrucciones línea por línea. NO devuelvas Python, JSON ni ningún otro código, solo texto plano listo para usar. Cada instrucción debe ser clara y secuencial.\n",
+        "options": {
+          "maxTokens": 2000,
+          "temperature": 0.1
+        },
+        "requestOptions": {}
+      },
+      "id": "c39f645e-de06-4a7c-baef-fb170a1ad929",
+      "name": "Procesar con IA Chat",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -304
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener la salida de la IA (texto plano)\nconst iaText = $json.text;\n\nif (!iaText) {\n  throw new Error('La IA no devolvió ninguna respuesta.');\n}\n\n// Separar en líneas válidas\nconst lines = iaText.split('\\n').filter(line => line.trim().length > 0);\n\n// Generar contenido SCR\nconst scrContent = lines.join('\\n');\n\n// Crear archivo binario para descargar\nconst binaryData = await this.helpers.prepareBinaryData(\n  Buffer.from(scrContent, 'utf8'),\n  'diagrama_autocad.scr',\n  'text/plain'\n);\n\nreturn [{\n  json: { success: true, instructions_count: lines.length },\n  binary: { data: binaryData }\n}];\n"
+      },
+      "id": "7ddcc99a-c364-411f-8f89-96af510bd180",
+      "name": "Formatear para AutoCAD",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        192,
+        -304
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "84b2afc8-9f87-4207-a54d-db3e49c208d9",
+      "name": "Responder al Usuario",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        352,
+        -304
+      ]
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -31,7 +158,7 @@
       "name": "PIfusa"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-09-11T18:09:11.000Z",
-  "versionId": "c652c5f6-5f62-4752-9c7b-380ab8965a3c"
+  "triggerCount": 1,
+  "updatedAt": "2025-09-19T05:17:10.000Z",
+  "versionId": "74272fc0-53f6-4747-82d3-2afe2af16c95"
 }
