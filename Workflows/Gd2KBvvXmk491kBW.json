@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Date & Time1": {
       "main": [
@@ -723,6 +723,10 @@
             {
               "lookupColumn": "Fecha",
               "lookupValue": "={{ $json.Fecha }}"
+            },
+            {
+              "lookupColumn": "Hora",
+              "lookupValue": "={{ $json.Hora }}"
             }
           ]
         },
@@ -773,7 +777,7 @@
       "parameters": {
         "resource": "groups-api",
         "operation": "fetch-groups",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "inviteCode": "={{ $json.id }}"
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
@@ -1260,7 +1264,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "messageText": "={{ $json.Mensaje[0] }}",
         "options_message": {
@@ -1584,7 +1588,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-document",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "media": "={{ $json.url_descargable[0] }}",
         "caption": "={{ $json.Mensaje[0] }}",
@@ -1611,7 +1615,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-video",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "media": "={{ $json.url_descargable[0] }}",
         "caption": "={{ $json.Mensaje[0] }}",
@@ -1641,7 +1645,7 @@
           "parameters": [
             {
               "name": "apikey",
-              "value": "3E96F60627E4-4E00-815A-CC1D4C4551A5"
+              "value": "540892C5ED88-4B4D-9E7D-565642FAA65A"
             }
           ]
         },
@@ -2380,7 +2384,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "messageText": "=Claro que si tu hijo se equivoca en su elección puede cambiarse de carrera...\n\nPero, *si hubiera algo que hacer para evitar que eso suceda, ¿por qué no hacerlo?*\nComo padres debemos reducir al máximo la probabilidad del desgaste emocional y el impacto económico que trae consigo una mala elección.\n\n✨ Mañana puede ser el punto de inflexión para que tu hijo elija bien. Con seguridad y confianza.\nNos vemos en la Masterclass.",
         "options_message": {
@@ -2405,7 +2409,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "messageText": "={{ $json.Mensaje[0] }}",
         "options_message": {
@@ -2457,6 +2461,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-12T04:54:59.000Z",
-  "versionId": "5cb88561-9e61-4e43-9035-58bd0ba8234b"
+  "updatedAt": "2025-09-18T23:50:24.000Z",
+  "versionId": "7ccf4ae9-da01-4918-884c-451b43c915df"
 }
