@@ -755,7 +755,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        -972,
+        -976,
         -576
       ],
       "id": "9389d433-3c0c-4451-9801-702e3f4114e9",
@@ -1436,7 +1436,7 @@
       "typeVersion": 1,
       "position": [
         -320,
-        208
+        192
       ],
       "id": "5fcbe7d4-678f-4a22-b61f-2dd6bd56ba66",
       "name": "Vector store tool"
@@ -2425,7 +2425,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -3702,
+        -3696,
         -544
       ],
       "typeVersion": 1,
@@ -2441,7 +2441,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4372,
+        -4368,
         -912
       ],
       "typeVersion": 1,
@@ -2878,6 +2878,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-11T14:27:26.000Z",
-  "versionId": "b45723b8-1102-4c8b-81ad-f95bf7729595"
+  "updatedAt": "2025-09-15T18:17:50.000Z",
+  "versionId": "de6950be-e361-4fa0-871f-56336d5d8cad"
 }
