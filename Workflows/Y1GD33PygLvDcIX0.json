@@ -1,0 +1,512 @@
+{
+  "active": false,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Generate an image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copiar Plantilla de Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Actualizar Documento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar Documento": {
+      "main": [
+        [
+          {
+            "node": "Exportar a PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exportar a PDF": {
+      "main": [
+        [
+          {
+            "node": "Send a document1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate an image1": {
+      "main": [
+        [
+          {
+            "node": "Copiar Plantilla de Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-17T20:30:13.153Z",
+  "id": "Y1GD33PygLvDcIX0",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "MVP Procedimientos",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1072,
+        32
+      ],
+      "id": "69e131d1-5fd8-4d84-93af-31609df2d792",
+      "name": "Telegram Trigger",
+      "webhookId": "ae934543-14c0-4bb4-83a1-b4a15acb32aa",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "Eres un asistente experto en la creación de documentos de procedimiento. Tu única tarea es recopilar la siguiente información del usuario, haciendo una pregunta a la vez.\n\nLa lista de datos que necesitas es la siguiente:\n1. Código del procedimiento\n2. Nombre del procedimiento\n3. Referencias normativas (ejemplo: ISO 9001:2015)\n4. Formatos a utilizar (ejemplo: PDF)\n5. Un prompt detallado con los pasos o el contenido del procedimiento\n\nSi te falta alguno de estos 5 datos, pregunta de forma amable y directa por el que sigue en la lista. No hagas suposiciones y no generes ningún contenido.\n\nCuando hayas obtenido con éxito los 5 datos de la lista, tu única y exclusiva respuesta debe ser la siguiente frase, sin ningún carácter adicional:\n¡Datos completos! Ahora puedo generar el documento."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -832,
+        32
+      ],
+      "id": "e43506cd-436c-4217-8a92-d2f872beb501",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -960,
+        240
+      ],
+      "id": "b1142efe-19aa-477f-9150-2978ae748565",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "pR30gkzotkExDJsd",
+          "name": "Pako OpenIA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -816,
+        240
+      ],
+      "id": "12fa4847-1c34-4247-ad30-12d43bf51b15",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -224,
+        112
+      ],
+      "id": "f2027906-4928-4871-b1b2-d434ea19f87a",
+      "name": "Send a text message",
+      "webhookId": "db75fa92-e772-490b-ac70-d8b5e0da92e3",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "346c01c5-24ec-4626-8565-52f85b92da72",
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "¡Datos completos! Ahora puedo generar el documento.",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -480,
+        32
+      ],
+      "id": "cf7ec340-b6c6-4dce-94c1-7b6e8c319d76",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": " Eres un experto en la redacción de procedimientos empresariales y de calidad. Tu tarea es generar un documento de procedimiento completo, detallado y estructurado, basándote en la información proporcionada por el usuario.\n\n\n\nEl documento debe incluir secciones claras para cada punto de la información. Al final del documento, debes crear una sección titulada \"Pasos del Procedimiento:\" y listar cada uno de los pasos principales en un formato de lista simple (por ejemplo, usando guiones o números).",
+              "role": "system"
+            },
+            {
+              "content": "=\n\nPor favor responde con los siguientes campos, cada uno en una línea separada:\n\n- Código del procedimiento: [aquí el código]\n- Nombre del procedimiento: [aquí el nombre]\n- Referencias normativas: [aquí las referencias]\n- Formatos a utilizar: [aquí los formatos]\n- Detalles del procedimiento: [aquí los detalles]\n\nDetalles del procedimiento:\n-Definiciones Clave: [Define los 3-4 términos más importantes del proceso]\n\n-Fases del Proceso y Responsables: [Describe los 5-7 pasos clave del flujo de trabajo, asignando un responsable a cada uno]\n\n-Indicadores (KPIs): [Define 2-3 métricas para medir el éxito del procedimiento]\n\n-Control de Cambios: [Redacta un párrafo estándar sobre cómo se gestionan las modificaciones al documento]\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -272,
+        -64
+      ],
+      "id": "7ed06b7d-d789-4b59-9773-167917fc4eb5",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "pR30gkzotkExDJsd",
+          "name": "Pako OpenIA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = items[0].json;\n\n// Obtenemos el contenido completo como string\nconst content = input.message?.content || \"\";\n\n// Función para extraer cada campo con regex\nfunction extractValue(label) {\n  const regex = new RegExp(`${label}\\\\s*([^\\\\n]*)`, \"i\");\n  const match = content.match(regex);\n  return match ? match[1].trim() : \"\";\n}\n\nreturn [\n  {\n    json: {\n      codigo: extractValue(\"Código del procedimiento:\"),\n      nombre: extractValue(\"Nombre del procedimiento:\"),\n      referencias: extractValue(\"Referencias normativas:\"),\n      formatos: extractValue(\"Formatos a utilizar:\"),\n      detalles: extractValue(\"Detalles del procedimiento:\")\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        -64
+      ],
+      "id": "ba24b689-4f7f-475e-8c76-ed67ab104106",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1mTvG9FnPrCIE79TEN4rNjwd1aBGf4W2rVhYQq_J8kko",
+          "mode": "id"
+        },
+        "name": "={{ $('Code').first().json.nombre_procedimiento || 'Procedimiento' }} - Documentos{{ new Date().toISOString().split('T')[0] }}",
+        "options": {}
+      },
+      "id": "1c56f256-7b45-4791-9d97-521e51e04a32",
+      "name": "Copiar Plantilla de Google Docs",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        544,
+        -64
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GWN3C4uE4hqGPQR1",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "simple": false,
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{$json.codigo}}",
+              "replaceText": "={{ $('Code').item.json.codigo }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{$json.nombre}}",
+              "replaceText": "={{ $('Code').item.json.nombre }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{$json.referencias}}",
+              "replaceText": "={{ $('Code').item.json.referencias }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{$json.formatos}}",
+              "replaceText": "={{ $('Code').item.json.formatos }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{$json.detalles}}",
+              "replaceText": "={{ $('Code').item.json.detalles }}",
+              "matchCase": true
+            }
+          ]
+        }
+      },
+      "id": "d5d3e26b-9c1f-45d1-ad10-33ec9e5283f8",
+      "name": "Actualizar Documento",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        816,
+        -64
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "KB6oE5CDUdlCH05O",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": "={{ $json.documentId }}",
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "={{ $('Copiar Plantilla de Google Docs').item.json.name }}.pdf"
+        }
+      },
+      "id": "7a74fdee-d3ee-4190-8d41-caca441dae23",
+      "name": "Exportar a PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1088,
+        -64
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GWN3C4uE4hqGPQR1",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1440,
+        -64
+      ],
+      "id": "ae9d9f41-a288-45c9-85f5-ee7a281d1c34",
+      "name": "Send a document1",
+      "webhookId": "df8a868c-9027-4ea7-8e5d-f4777f4e962e",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "=Crea una imagen de un diagrama de flujo en este caso solamente con lineas y cuadros y texto detallado en este caso nada de imagenes puro texto que represente los siguientes pasos de un procedimiento: {{ $('Code').item.json.procedure_steps.join(', ') }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        320,
+        -64
+      ],
+      "id": "4662f534-d828-4e31-a28d-0424b907f3c6",
+      "name": "Generate an image1",
+      "credentials": {
+        "openAiApi": {
+          "id": "pR30gkzotkExDJsd",
+          "name": "Pako OpenIA"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-17T20:30:13.160Z",
+      "updatedAt": "2025-09-17T20:30:13.160Z",
+      "role": "workflow:owner",
+      "workflowId": "Y1GD33PygLvDcIX0",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-09-04T14:59:17.899Z",
+      "updatedAt": "2025-09-04T14:59:17.899Z",
+      "id": "NJCajeulEkuGXGh4",
+      "name": "Litoprocess"
+    },
+    {
+      "createdAt": "2025-09-17T20:32:18.543Z",
+      "updatedAt": "2025-09-17T20:32:18.543Z",
+      "id": "xwHRss3saaSbxJhJ",
+      "name": "MVP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-19T00:46:44.000Z",
+  "versionId": "8d924025-4e4a-4284-aa12-acc16eb46367"
+}
