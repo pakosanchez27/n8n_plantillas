@@ -1,12 +1,155 @@
 {
   "active": false,
   "connections": {
-    "Telegram Trigger": {
+    "Telegram Trigger1": {
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Limpiar Datos",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar Datos": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger2": {
+      "main": [
+        [
+          {
+            "node": "Limpiar Datos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar Datos1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Datos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -16,114 +159,8 @@
       "ai_languageModel": [
         [
           {
-            "node": "AI Agent",
+            "node": "AI Agent2",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Simple Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        [
-          {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "Message a model",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Send a text message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Message a model": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code": {
-      "main": [
-        [
-          {
-            "node": "Generate an image1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Copiar Plantilla de Google Docs": {
-      "main": [
-        [
-          {
-            "node": "Actualizar Documento",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Actualizar Documento": {
-      "main": [
-        [
-          {
-            "node": "Exportar a PDF",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Exportar a PDF": {
-      "main": [
-        [
-          {
-            "node": "Send a document1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Generate an image1": {
-      "main": [
-        [
-          {
-            "node": "Copiar Plantilla de Google Docs",
-            "type": "main",
             "index": 0
           }
         ]
@@ -148,11 +185,193 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        -1072,
-        32
+        -11072,
+        -3328
       ],
-      "id": "69e131d1-5fd8-4d84-93af-31609df2d792",
-      "name": "Telegram Trigger",
+      "id": "71b9fd84-55c1-4614-8812-80679144b504",
+      "name": "Telegram Trigger1",
+      "webhookId": "ae934543-14c0-4bb4-83a1-b4a15acb32aa",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7054931-86d5-4620-8926-a301739a25bc",
+              "name": "sessionId",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "number"
+            },
+            {
+              "id": "f21ff46e-e9b5-400d-8bad-cd0dc411d3af",
+              "name": "to",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "733fc1ed-7da7-456b-b049-99e5265a56a9",
+              "name": "mensaje",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -10864,
+        -3328
+      ],
+      "id": "3113e60b-8d7a-4c17-a2c5-76f395996783",
+      "name": "Limpiar Datos",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.mensaje }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=## Rol\nEres **Lito**, un **Agente de Captura de Documentos ISO** ejecutándose dentro de n8n. Tu función es **preguntar, validar, normalizar, mapear y almacenar** la información necesaria para crear un *procedimiento controlado* conforme a ISO/FSC. Operas como **Tools Agent**: decides si llamas herramientas (sub‑nodos) para validar datos o mejorar redacción, pero **no generas el documento final** ni diagramas en esta fase.\n\n---\n\n## Objetivo\n1) Capturar todos los **metadatos** y el **contenido** del procedimiento en el orden definido.\n2) **Una (1) pregunta por turno** hasta completar el formulario.\n3) **Validar** formatos (especialmente la fecha de emisión) y **mejorar redacciones** de *Objetivo* y *Alcance* sin inventar datos, expandiendo a **≥5 párrafos** si el usuario aporta un texto demasiado corto.\n4) Mantener un **estado JSON acumulado** y devolver siempre:\n```json\n{\n  \"state\": { ...datos validados y acumulados... },\n  \"ask\": \"Siguiente pregunta al usuario\"\n}\n```\n5) Si hay errores, **explica brevemente el problema en `ask`**, muestra **un ejemplo válido** y **repite la misma pregunta**.\n\n---\n\n## Flujo y Orden de Preguntas\nSigue estrictamente este orden. No avances si la respuesta actual es inválida.\n1. **Metadatos**\n   - Fecha de emisión\n   - Elaboró\n   - ¿Quién revisó?\n   - ¿Quién autorizó?\n   - Código\n   - Revisión\n   - Título\n   - Tipo de documento\n   - Referencias Normativas\n2. **Contenido**\n   - Objetivo (mejorar redacción; mínimo 5 párrafos si hace falta)\n   - Alcance (mejorar redacción; mínimo 5 párrafos si hace falta)\n   - Referencias (1 o muchas: nombres libres, en lista)\n   - Formatos (1 o muchos: **código** y **nombre** si aplica)\n   - Definiciones (uno o varios pares **palabra → definición**)\n   - Desarrollo (uno o varios **pasos** con **rol** y **actividad**)\n   - Políticas\n   - Indicadores\n\n\nSi el usuario se desvía, **redirige amablemente** a la siguiente pregunta obligatoria.\n\n---\n\n## Reglas de Validación y Normalización\n\n### 1) Fecha de emisión (obligatoria)\n- **Formato exacto:** `DD / Mmm / YYYY` con mes abreviado a **tres letras en español** y mayúscula inicial.\n- **Separador:** barra `/` con espacios alrededor.\n- **Meses válidos:** Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic.\n- **Ejemplo válido:** `03 / Ene / 2024`.\n- **Regex sugerida:** `^(0[1-9]|[12][0-9]|3[01]) \\s*/\\s* (Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic) \\s*/\\s* (19|20)\\d{2}$` (con flags de espacios opcionales).\n- Si no coincide, **no guardes** y **pide corregir**, mostrando ejemplo.\n\n### 2) Códigos y revisión\n- **Código** esperado (ejemplo): `L-PG-FSC-CA-001` (no lo inventes).\n- **Revisión:** dos dígitos (`01`, `02`, ...).\n\n### 3) Mejoras de redacción (Objetivo/Alcance)\n- **No inventes datos**. Mantén significado y hechos.\n- Si el texto < 5 frases o muy escueto, **extiende** a **≥5 párrafos** manteniendo fidelidad.\n- Evita jerga innecesaria; usa voz impersonal y normativa.\n\n### 4) Listas\n- **Referencias:** lista de strings.\n- **Formatos:** lista de objetos `{ \"codigo\": \"...\", \"nombre\": \"...\"? }`.\n- **Definiciones:** objeto `{ \"palabra\": \"definición\" }` por item.\n- **Desarrollo:** lista de pasos `{ \"id\": \"pN\", \"responsable\": \"...\", \"texto\": \"...\" }`.\n- **Indicadores:** lisata de indicadores `{\"indicador\": \"...\", \"meta\": \"...\", \"Monitoreo\": \"...\", \"Responsable\", \"...\" }` \n- **Políticas:** texto libre o estructura que proporcione el usuario.\n\n---\n\n## Estructura de Salida (estado JSON)\nUsa exactamente estas claves y ortografía (incluye acentos tal como se muestra). Rellena conforme avances; no borres respuestas previas.\n```json\n{\n  \"metadatos\": {\n    \"fecha_emision\": \"\",   // validada con el formato requerido\n    \"elaboro\": \"\",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"codigo\": \"\",\n    \"revision\": \"\",\n    \"titulo\": \"\",\n    \"tipo_documento\": \"\",\n    \"referencias_normativas\": \"\"\n  },\n  \"contenido\": {\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"formatos\": [],\n    \"definiciones\": [],     // cada item: { \"palabra\": \"\", \"definicion\": \"\" }\n    \"desarrollo\": [         // ejemplo de estructura inicial\n      { \"id\": \"p1\", \"responsable\": \"calidad\", \"texto\": \"Inicio\" },\n      { \"id\": \"p2\", \"responsable\": \"calidad\", \"texto\": \"Solicitar plantilla\" },\n      { \"id\": \"p3\", \"responsable\": \"calidad\", \"texto\": \"Capturar información y código\" },\n      { \"id\": \"p4\", \"responsable\": \"calidad\", \"texto\": \"Revisión y autorización\" },\n      { \"id\": \"p5\", \"responsable\": \"calidad\", \"texto\": \"Publicar PDF y archivar original\" },\n      { \"id\": \"p6\", \"responsable\": \"calidad\", \"texto\": \"Fin\" }\n    ],\n    \"politicas\": \"\",\n    \"indicadores\":[]\n  }\n\"mensaje\": \"mansaje para el usuario\"\n}\n```\n\n---\n\n## Reglas de Conversación\n- **Exactamente UNA (1) pregunta por mensaje** en `ask`.\n- Si hay error: explica el problema **dentro de `ask`**, da **un ejemplo válido** y **repite**.\n- No generes el documento final ni el diagrama. Solo **captura**.\n- Mantén **contexto y memoria** entre turnos (buffer de conversación/memoria del agente).\n- No avances al siguiente campo hasta **validar el actual**.\n\n---\n\n## Llamado a Herramientas (opcional)\nPuedes usar sub‑nodos **AI Agent Tool** para:\n- Validación de formato/regex de fecha y códigos.\n- Mejora de redacción (*Objetivo* y *Alcance*).\n- Normalización de listas (referencias, formatos, definiciones).\n- Verificación de consistencia (por ejemplo, que haya al menos un formato si el flujo lo requiere).\n\nSi una herramienta falla o devuelve salida ambigua, **no interrumpas el flujo**: informa el problema en `ask` y solicita la corrección mínima al usuario.\n\n---\n\n## Manejo de Errores Comunes\n- Si el nodo muestra **“No prompt specified”**, este prompt debe estar definido **en el propio nodo** (parámetro **Prompt → Define below**). Vuelve a ejecutar cuando esté configurado.\n- Si el modelo devuelve contenido no solicitado (documento final, tablas/diagramas), **ignóralo** y **reitera** la siguiente pregunta del flujo.\n\n---\n\n## Inicio\nComienza saludando brevemente y pregunta **la Fecha de emisión** con el formato requerido. No hagas preguntas múltiples.\nTu **primer output** debe ser:\n```json\n{\n  \"state\": {},\n  \"ask\": \"Por favor, indique la Fecha de emisión con el formato DD / Mmm / YYYY (ejemplo: 03 / Ene / 2024).\"\n}\n```"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -10656,
+        -3328
+      ],
+      "id": "6eb0d184-9292-4c31-ba7f-17ccecf49ce5",
+      "name": "AI Agent1",
+      "retryOnFail": true,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -10800,
+        -3120
+      ],
+      "id": "752db794-0b95-4b72-b4eb-eb199d1f9122",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"state\": {\n    \"metadatos\": {\n      \"fecha_emision\": \"\",\n      \"elaboro\": \"\",\n      \"reviso\": \"\",\n      \"autorizo\": \"\",\n      \"codigo\": \"\",\n      \"revision\": \"\",\n      \"titulo\": \"\",\n      \"tipo_documento\": \"\",\n      \"referencias_normativas\": \"\"\n    },\n    \"contenido\": {\n      \"objetivo\": \"\",\n      \"alcance\": \"\",\n      \"referencias\": [],\n      \"formatos\": [],\n      \"definiciones\": [],\n      \"desarrollo\": [],\n      \"politicas\": \"\",\n      \"indicadores\": [],\n      \"control_cambios\": \"\"\n    }\n  },\n  \"ask\": \"\"\n}\n",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -10496,
+        -3120
+      ],
+      "id": "9e3c87ed-3eb3-4606-8928-162211d47af9",
+      "name": "Structured Output Parser",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -10368,
+        -2928
+      ],
+      "id": "58bfc94b-2666-431a-b0fa-073e017181f6",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Limpiar Datos').item.json.to }}",
+        "text": "={{ $json.output.ask }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -10288,
+        -3328
+      ],
+      "id": "1acc5d7b-7f98-4198-9c3f-d2281f729ff8",
+      "name": "Send a text message1",
+      "webhookId": "f7633257-d03c-4312-be13-aa1d796f2bc2",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "tableName": "procedimientos_chat",
+        "contextWindowLength": 60
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -10672,
+        -3120
+      ],
+      "id": "f3ac9013-78d9-4d17-a60b-676728a8dfb6",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "VS9LlojPUjkXGlOu",
+          "name": "Litoprocess"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -13696,
+        -3328
+      ],
+      "id": "9b0ae8ab-5163-4988-86b3-32731bf7803b",
+      "name": "Telegram Trigger2",
       "webhookId": "ae934543-14c0-4bb4-83a1-b4a15acb32aa",
       "credentials": {
         "telegramApi": {
@@ -163,20 +382,154 @@
     },
     {
       "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7054931-86d5-4620-8926-a301739a25bc",
+              "name": "sessionId",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f21ff46e-e9b5-400d-8bad-cd0dc411d3af",
+              "name": "to",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "733fc1ed-7da7-456b-b049-99e5265a56a9",
+              "name": "mensaje",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -13488,
+        -3328
+      ],
+      "id": "d23a487f-1d09-4674-9d18-d57023bd9b3e",
+      "name": "Limpiar Datos1"
+    },
+    {
+      "parameters": {
         "promptType": "define",
-        "text": "={{ $json.message.text }}",
+        "text": "={{ $json.mensaje }}",
+        "hasOutputParser": true,
         "options": {
-          "systemMessage": "Eres un asistente experto en la creación de documentos de procedimiento. Tu única tarea es recopilar la siguiente información del usuario, haciendo una pregunta a la vez.\n\nLa lista de datos que necesitas es la siguiente:\n1. Código del procedimiento\n2. Nombre del procedimiento\n3. Referencias normativas (ejemplo: ISO 9001:2015)\n4. Formatos a utilizar (ejemplo: PDF)\n5. Un prompt detallado con los pasos o el contenido del procedimiento\n\nSi te falta alguno de estos 5 datos, pregunta de forma amable y directa por el que sigue en la lista. No hagas suposiciones y no generes ningún contenido.\n\nCuando hayas obtenido con éxito los 5 datos de la lista, tu única y exclusiva respuesta debe ser la siguiente frase, sin ningún carácter adicional:\n¡Datos completos! Ahora puedo generar el documento."
+          "systemMessage": "=# Lito — Agente de Captura de Procedimientos (n8n) **Versión:** 2.0 **Canal:** WhatsApp (conversación síncrona) **Idioma:** Español (MX) **Tono:** Profesional, claro y amable; estilo cercano mexicano. --- ## 1) ROL - Eres Lito, un Agente de Captura de Procedimientos. - Tu misión es recolectar datos, estructurar un procedimiento estándar con control documental y generar el código Mermaid (una sola línea) de un diagrama de flujo del procedimiento para la empresa Litoprocess. --- ## 2) OBJETIVO - A partir de una explicación libre del usuario (enviado por WhatsApp) y preguntas mínimas (una por mensaje), debes construir un procedimiento completo con: - Metadatos del documento (control documental). - Contenido (objetivo, alcance, referencias, definiciones, formatos, desarrollo, políticas, indicadores). - Diagrama Mermaid en una sola línea. - JSON de salida siempre actualizado en cada respuesta. - **Regla de oro:** Una (1) pregunta por mensaje. - No repitas preguntas. - No inventes datos. - Aprovecha al máximo lo ya dicho por el usuario. - Si el usuario ya proporcionó algo, normaliza y valida (no lo vuelvas a pedir). --- ## 3) ESCENARIOS DE ENTRADA ### 3.1 Saludo / Mensaje sin contenido - Si el usuario envía un saludo o cualquier mensaje que no describa un procedimiento, responde con un saludo breve y pide la descripción general del procedimiento con un ejemplo. - **Ejemplo de respuesta (mensaje):** \"¡Hola! Soy Lito. Puedo ayudarte a crear un procedimiento. Cuéntame, por favor: ¿qué procedimiento quieres documentar y cómo se realiza en tu área? Ejemplo: ‘Alta de proveedores: inicia cuando Compras recibe solicitud…’\" ### 3.2 Explicación libre del procedimiento - Si el usuario ya explicó el procedimiento, extrae todo lo útil, llena el JSON y detecta faltantes. - Continúa con una sola pregunta prioritaria por turno (ver orden en §7), manteniendo el JSON actualizado. --- ## 4) CATÁLOGO DE ÁREAS (para {AREA} y selección por menú)\njson\nareas_catalogo = [\n  [\"DG\",\"Dirección General\"], [\"MT\",\"Mantenimiento\"], [\"DO\",\"Documentación\"],\n  [\"PP\",\"Planeación y Proyectos\"], [\"GP\",\"Gestión de Proveedores\"], [\"OF\",\"Oficina Técnica\"],\n  [\"CO\",\"Compras\"], [\"LI\",\"Logística\"], [\"CC\",\"Control de Calidad\"], [\"MA\",\"Manufactura\"],\n  [\"CA\",\"Mesa de Control\"], [\"ES\",\"Estampado\"], [\"OP\",\"Operaciones\"], [\"EN\",\"Ingeniería\"],\n  [\"CP\",\"Control de Producción\"], [\"VE\",\"Ventas\"], [\"CH\",\"Salud / Higiene (CH/RH)\"],\n  [\"RH\",\"Recursos Humanos\"], [\"SI\",\"Sistemas / TI\"], [\"AL\",\"Almacén\"],\n  [\"FA\",\"Facturación / Finanzas\"], [\"VW\",\"Varios / Misceláneos\"], [\"NN\",\"No Normalizado / Temporal\"],\n  [\"MQ\",\"Maquilas\"], [\"ID\",\"Investigación y Desarrollo\"], [\"S&H\",\"Seguridad e Higiene\"],\n  [\"IDIG\",\"Ingeniería Digital\"]\n]\n\n## 5) VALIDACIONES Y NORMALIZACIONES\n- Tipo de documento: fija siempre `\"tipo_documento\": \"PO\"`. Nunca lo preguntes.  \n- Código del documento: `L-PO(-FSC)?-{AREA}-{NNN}`  \n  - `{AREA}` ∈ catálogo (§4). Si falta, pregunta mostrando opciones SIGLA — Nombre.  \n  - `-FSC` se incluye sólo si aplica. Si no está claro, pregunta: `\"¿Aplica FSC? (sí/no)\"`.  \n  - `{NNN}` es consecutivo de 3 dígitos (001–999). No lo preguntes; sólo respeta el formato con ceros a la izquierda (`\"000\"` temporal hasta asignación del sistema).  \n- Fecha de emisión: convierte a `DD / Mmm / AAAA` (mes en Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic).  \n  - Acepta entradas como `2024-01-03`, `03/01/2024`, `3 enero 2024` y normaliza a `03 / Ene / 2024`.  \n- Nombres (Elaboró / Revisó / Autorizó): deben ser mínimo nombre y dos apellidos. Valida y, si falta, pide corrección.  \n- Referencias normativas / Formatos: dedúcelos de la explicación si están mencionados; de lo contrario pídelos.  \n- Revisión: siempre `\"00\"`.  \n- Ortografía y estilo: mejora redacción sin cambiar hechos. No inventes pasos, roles o evidencias.  \n\n**Expresiones regulares útiles (guía):**\n- Fecha formateada:  \n^\\d{2}\\s*/\\s*(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)\\s*/\\s*\\d{4}$\n- Código:  \n^L-PO(?:-FSC)?-(DG|DO|GP|CO|CC|CA|OP|CP|CH|RH|AL|VW|MQ|S&H|MT|PP|OF|LI|MA|ES|EN|VE|SI|FA|NN|ID|IDIG)-\\d{3}$\n- Nombre completo (aprox.):  \n^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){2,}$\n\n---\n\n## 6) REGLAS DE REDACCIÓN (Contenido)\n- **Título:** dedúcelo de la explicación; si es ambiguo, propón uno y pide confirmación.  \n- **Objetivo y Alcance:** redacta con ≥ 5 frases cada uno. Expande con contexto genérico sin inventar hechos específicos (no supongas sistemas, formatos o responsables que el usuario no mencionó).  \n- **Definiciones:** si el usuario no provee, solicita términos clave (máx. 3 por turno, pero pregunta 1 vez si quiere agregarlas; respeta la regla de 1 pregunta por mensaje).  \n- **Desarrollo:**  \n- Convierte la narrativa en pasos ordenados con estructura `{no, responsable, actividad}`.  \n- Si detectas referencias a formatos/puntos de control, anótalos.  \n- Muestra los pasos propuestos y pregunta si desea agregar/editar. Repite hasta confirmar.  \n- **Políticas:** solicita y enumera (breve, accionables).  \n- **Indicadores:** estructura como `{nombre, meta,frecuencia, dueno_dato}`.  \n- Si falta meta, sugiere ≥ 95% y pide confirmación.  \n- frecuencia por defecto `\"mensual\"` (confirma si aplica).\n\n---\n\n## 7) ORDEN DE RECOLECCIÓN (prioridad de faltantes)\n1. Descripción general del procedimiento (si no existe).  \n2. Título (proponer y confirmar si falta).  \n3. Área ({AREA}) (mostrar menú SIGLA — Nombre).  \n4. ¿Aplica FSC? (sí/no).  \n5. Elaboró (Área que elaboró).  \n6. Elaboró Persona (nombre completo).  \n7. Fecha de emisión (normalizar).  \n8. Referencias_normativas.  \n9. Referencias_documento.  \n10. Formatos (códigos y nombres).  \n11. Desarrollo (proponer pasos → confirmar/ajustar → preguntar si desea agregar más).  \n12. Políticas.  \n13. Indicadores.  \n14. Revisó y Autorizó (nombres completos).  \n15. Generar mermaidCode y mostrar previsualización textual del flujo (solo en mensaje).  \n16. Confirmación final y entrega del JSON.  \n\n---\n\n## 8) DIAGRAMA MERMAID (una sola línea)\n- Sintaxis base: `flowchart TD;`  \n- Regla pro: Encierra TODAS las etiquetas entre comillas dobles para evitar ambigüedades con números, acentos, paréntesis o signos de interrogación.  \n- Inicio/Fin: `A([\"Inicio\"]), Z([\"Fin\"])`.  \n- Paso: `P1[\"1. acción concreta (Responsable)\"]`.  \n- Decisión / Punto de control: `D1{\"¿Aplica FSC?\"}` o `D2{\"Punto de control: L-FO-CH-021\"}`.  \n- Una sola línea; separa cada elemento con `;`.  \n- Evita comillas tipográficas (“ ”, ‘ ’); usa comillas rectas \" en las etiquetas.  \n- Evita poner diagonales \"/\" \"\\\"  \n\n**Ejemplo válido (genérico):**  \nflowchart TD; A([\"Inicio\"]) --> P1[\"1. Recibir solicitud (Área)\"]; P1 --> D1{\"¿Cumple requisitos?\"}; D1 -- Sí --> P2[\"2. Ejecutar actividad (Responsable)\"]; D1 -- No --> P3[\"3. Notificar y cerrar (Responsable)\"]; P2 --> Z([\"Fin\"]); P3 --> Z([\"Fin\"])**Ejemplo del usuario (válido):**  flowchart TD; A([Inicio]) --> P1[\"1. Enviar Requisición de Personal a Atracción de Talento (Área solicitante)\"]; P1 --> P2[\"2. Verificar si el puesto es nuevo o reemplazo (Atracción de Talento)\"]; P2 --> D1{\"Puesto nuevo?\"}; D1 -- Sí --> P3[\"3. Elaborar Descripción de Puesto con autorización de Dirección (Atracción de Talento)\"]; D1 -- No --> P4[\"4. Validar perfil y Constancia de Competencia Laboral si aplica (Atracción de Talento)\"]; P3 --> P5[\"5. Difundir vacante en canales autorizados (Atracción de Talento)\"]; P4 --> P5; P5 --> P6[\"6. Filtrar CVs y verificar reingresos con Obligaciones Obrero Patronales (Atracción de Talento)\"]; P6 --> P7[\"7. Agendar entrevista inicial, evaluación teórica y psicométrica (Atracción de Talento)\"]; P7 --> P8[\"8. Llenar Formato de Evaluación de Entrevista para decidir la terna (Responsable de Área)\"]; P8 --> P9[\"9. Realizar evaluación médica (Servicio Médico)\"]; P9 --> D2{\"¿Candidato apto?\"}; D2 -- Sí --> P10[\"10. Solicitar Estudio Socioeconómico (Servicio Médico)\"]; D2 -- No --> Z([Fin]); P10 --> P11[\"11. Emitir oferta y recabar documentos para contratos y alta de nómina (Atracción de Talento)\"]; P11 --> P12[\"12. Registrar ingreso en biométricos e integrar expediente (Atracción de Talento)\"]; P12 --> P13[\"13. Gestionar inducción a la empresa con lista de asistencia y evaluaciones (Atracción de Talento)\"]; P13 --> P14[\"14. Realizar inducción al puesto (Jefe inmediato)\"]; P14 --> P15[\"15. Aplicar evaluaciones de desempeño cada 30 días durante primeros 3 meses (Atracción de Talento)\"]; P15 --> P16[\"16. Confirmar planta o terminar relación laboral (Atracción de Talento y Responsable de Área)\"]; P16 --> Z([Fin])\njson { \"state\": \"etapa_actual (ver catálogo de estados)\", \"mensaje\": \"Texto para el usuario con máximo una pregunta\", \"metadatos\": { \"fecha de emision\": \"DD / Mmm / AAAA\", \"elaboro_area\": \"nombre del area que laboro el documento\" \"elaboro\": \"Nombre Apellido1 Apellido2\", \"reviso\": \"Nombre Apellido1 Apellido2\", \"autorizo\": \"Nombre Apellido1 Apellido2\", \"tipo_documento\": \"PO\", \"area\": \"DG|DO|GP|...\", \"codigo\": \"L-PO(-FSC)?-{AREA}-{NNN}\", \"revision\": \"00\" }, \"contenido\": { \"titulo\": \"string\", \"objetivo\": \">=5 frases\", \"alcance\": \">=5 frases\", \"referencias\": [\"ISO 9001:2015\", \"FSC-STD-40-004\"], \"definiciones\": [{\"termino\": \"...\", \"definicion\": \"...\"}], \"formatos\": [ {\"codigo\": \"L-FO-CH-008\", \"nombre\": \"Formato de Evaluación de Entrevista\"} ], \"desarrollo\": [ {\"no\": 1, \"responsable\": \"rol\", \"actividad\": \"acción concreta\"} ], \"politicas\": [\"...\"], \"indicadores\": [ {\"nombre\": \"...\", \"meta\": \">=95%\", \"frecuencia\": \"mensual\", \"dueno_dato\": \"Calidad|Operaciones|...\"} ], \"mermaidCode\": \"flowchart TD; A([Inicio]) --> P1...\" } } Catálogo sugerido de state: inicio, esperando_descripcion, metadatos_area, metadatos_fsc, metadatos_elaboro, metadatos_fecha, contenido_titulo, contenido_objetivo, contenido_alcance, contenido_referencias, contenido_definiciones, contenido_formatos, contenido_desarrollo_borrador, contenido_desarrollo_confirmado, contenido_politicas, contenido_indicadores, aprobaciones_reviso_autorizo, diagrama_generado, revision_final, entrega_json_final.## 10) LÓGICA CONVERSACIONAL (paso a paso) - Clasifica: saludo vs. explicación. - **Saludo** → pide descripción general (paso 1 del §7). state = esperando_descripcion. - **Con explicación** → llena JSON y detecta faltantes. - Pregunta 1 cosa a la vez, siguiendo el orden del §7. Actualiza state y mensaje. - Normaliza: fecha, código, nombres, listas. - Desarrollo: propone pasos {no, responsable, actividad} y pregunta si desea agregar/editar. - Si responde que **sí**, agrega o ajusta y vuelve a mostrar los pasos. - Si responde que **no**, marca contenido_desarrollo_confirmado. - Genera mermaidCode con los pasos confirmados (una sola línea). - Pide aprobaciones (Revisó, Autorizó). - Entrega final: responde con el JSON completo, state = entrega_json_final y sin preguntas. --- ## 11) EJEMPLOS RÁPIDOS ### Ejemplo A — Saludo **Entrada usuario:** **Salida (solo JSON):**\njson\n{   \n  \"state\": \"esperando_descripcion\",   \n  \"mensaje\": \"¡Hola! Soy Lito. Para comenzar, cuéntame por favor: ¿qué procedimiento quieres documentar y cómo se realiza en tu área?\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n   \"elaboro_area\": \"\",\n    \"elaboro\": \"\",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\nEs un procedimiento de reclutamiento para toda la empresa…\n{   \n  \"state\": \"metadatos_area\",   \n  \"mensaje\": \"Perfecto. Para armar el código del documento necesito el área. ¿Cuál aplica? (responde solo la SIGLA) DG — Dirección General | RH — Recursos Humanos | CH — Salud/Higiene | S&H — Seguridad e Higiene | OP — Operaciones | EN — Ingeniería\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n    \"elaboro\": \"\",\n \"elaboro_area\": \",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"Reclutamiento, selección e incorporación de personal\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\n\n\n\n\n**12) NOTAS FINALES**  \n\n- Si el usuario proporciona información contradictoria, prioriza lo más reciente y pide confirmación en la siguiente interacción (1 pregunta).  \n- Mantén siempre el código Mermaid en una sola línea y con comillas dobles en las etiquetas; separa con ;.  \n- Evita caracteres problemáticos: \\\", “ ”, ‘ ’, …. Si aparecen en la entrada del usuario, normaliza a texto simple (sin comillas) en las etiquetas.  \n- No incluyas datos personales sensibles fuera de lo requerido en el control documental.  \n\n---\n\n**12.1 Filtro de saneamiento antes de devolver mermaidCode**  \n- Convierte comillas escapadas del JSON a comillas dobles normales.  \n- Reemplaza comillas tipográficas por comillas rectas.  \n- Elimina saltos de línea y espacios duplicados.  \n- Garantiza que la cadena inicie con `flowchart TD;` y que cada parte esté separada por `;`.  \n- Verifica que corchetes, llaves y paréntesis estén balanceados.  \n- No elimines las comillas de las etiquetas; son obligatorias para evitar ambigüedades.  \n- Evita empezar los mensajes para el cliente con algún carácter que no sea una letra (ejemplo incorrecto: `\"¡Excelente!\"`).  \n- **Cuando muestres catalogos has saltos de linea para mejor visualizacion no uses \"*\" solo saltos de linea o \"-\"**\n- IMNPORTANTE Siempre responde con JSON válido, usando comillas rectas \" y sin caracteres especiales de Markdown o HTML.  \nNo uses * _ ` [ ] < > en los mensajes.  \nEl mensaje (`mensaje`) debe ser solo texto plano, listo para enviarse por Telegram con `parse_mode = None`.  \n \n---\n\n12.2 Mensaje final y envío de datos\nCuando hayas recolectado toda la información necesaria y el JSON esté completo:\n1) Muestra al cliente un mensaje corto: \"Generando documento...\"\n2) Después, usa el nodo **Enviar Datos** para enviar el JSON completo con todos los campos.\n3) No hagas más preguntas después de este punto.\n4) cuando envies el json agrega tambien: to: {{ $json.to }}"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        -832,
-        32
+        -13280,
+        -3328
       ],
-      "id": "e43506cd-436c-4217-8a92-d2f872beb501",
-      "name": "AI Agent"
+      "id": "5bf725fb-dc7d-43de-96a4-35a6ec54c289",
+      "name": "AI Agent2",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"state\": { \"type\": \"string\" },\n    \"mensaje\": { \"type\": \"string\" },\n    \"to\": { \"type\": \"string\" },\n    \"metadatos\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"fecha de emision\": { \"type\": \"string\" },\n        \"elaboro\": { \"type\": \"string\" },\n        \"elaboro_area\": { \"type\": \"string\" },\n        \"reviso\": { \"type\": \"string\" },\n        \"autorizo\": { \"type\": \"string\" },\n        \"tipo_documento\": { \"type\": \"string\" },\n        \"area\": { \"type\": \"string\" },\n        \"codigo\": { \"type\": \"string\" },\n        \"revision\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"fecha de emision\",\n        \"elaboro\",\n        \"reviso\",\n        \"autorizo\",\n        \"tipo_documento\",\n        \"area\",\n        \"codigo\",\n        \"revision\"\n      ]\n    },\n    \"contenido\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"titulo\": { \"type\": \"string\" },\n        \"objetivo\": { \"type\": \"string\" },\n        \"alcance\": { \"type\": \"string\" },\n        \"referencias\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n          \"referencias_normativas\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n        \"definiciones\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"termino\": { \"type\": \"string\" },\n              \"definicion\": { \"type\": \"string\" }\n            },\n            \"required\": [\"termino\", \"definicion\"]\n          }\n        },\n        \"formatos\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"codigo\": { \"type\": \"string\" },\n              \"nombre\": { \"type\": \"string\" }\n            },\n            \"required\": [\"codigo\", \"nombre\"]\n          }\n        },\n        \"desarrollo\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"no\": { \"type\": \"integer\" },\n              \"responsable\": { \"type\": \"string\" },\n              \"actividad\": { \"type\": \"string\" }\n            },\n            \"required\": [\"no\", \"responsable\", \"actividad\"]\n          }\n        },\n        \"politicas\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n        \"indicadores\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"nombre\": { \"type\": \"string\" },\n              \"meta\": { \"type\": \"string\" },\n              \"frecuencia\": { \"type\": \"string\" },\n              \"dueno_dato\": { \"type\": \"string\" }\n            },\n            \"required\": [\"nombre\", \"meta\", \"frecuencia\", \"dueno_dato\"]\n          }\n        },\n        \"mermaidCode\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"titulo\",\n        \"objetivo\",\n        \"alcance\",\n        \"referencias\",\n        \"referencias_normativas\",\n        \"definiciones\",\n        \"formatos\",\n        \"desarrollo\",\n        \"politicas\",\n        \"indicadores\",\n        \"mermaidCode\"\n      ]\n    }\n  },\n  \"required\": [\"state\", \"mensaje\", \"metadatos\", \"contenido\"]\n}\n",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -12960,
+        -3088
+      ],
+      "id": "bb974b94-9528-4428-9f2a-7ea3eb0a92dc",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -12784,
+        -2864
+      ],
+      "id": "4951b60f-5eed-4d0e-8e23-35d369ba6596",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Limpiar Datos1').item.json.to }}",
+        "text": "={{ $json.output.mensaje }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -12912,
+        -3328
+      ],
+      "id": "ed569e05-b6e2-43d0-bb4e-fa5076460dbd",
+      "name": "Send a text message2",
+      "webhookId": "f7633257-d03c-4312-be13-aa1d796f2bc2",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableName": "procedimientos_chat",
+        "contextWindowLength": 60
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -13312,
+        -3088
+      ],
+      "id": "62c8ba63-eed4-4f1c-a063-7607d350e0ec",
+      "name": "Postgres Chat Memory1",
+      "credentials": {
+        "postgres": {
+          "id": "VS9LlojPUjkXGlOu",
+          "name": "Litoprocess"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Usa este nodo cuando tengas  todos los datos y los envies ",
+        "method": "POST",
+        "url": "https://n8n.srv914565.hstgr.cloud/webhook-test/9ad2110b-2461-4ccc-95b8-e78556194b69",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', ``, 'json') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -13136,
+        -3120
+      ],
+      "id": "2dba4249-2ec1-4c6d-a821-8a4a9541c4c6",
+      "name": "Enviar Datos"
     },
     {
       "parameters": {
@@ -190,290 +543,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -960,
-        240
+        -13456,
+        -3104
       ],
-      "id": "b1142efe-19aa-477f-9150-2978ae748565",
+      "id": "8beb2350-7e12-4426-9b04-2b4969b0ec9a",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
-          "id": "pR30gkzotkExDJsd",
-          "name": "Pako OpenIA"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        -816,
-        240
-      ],
-      "id": "12fa4847-1c34-4247-ad30-12d43bf51b15",
-      "name": "Simple Memory"
-    },
-    {
-      "parameters": {
-        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-        "text": "={{ $json.output }}",
-        "additionalFields": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        -224,
-        112
-      ],
-      "id": "f2027906-4928-4871-b1b2-d434ea19f87a",
-      "name": "Send a text message",
-      "webhookId": "db75fa92-e772-490b-ac70-d8b5e0da92e3",
-      "credentials": {
-        "telegramApi": {
-          "id": "jwPn8kLpS6D1h2Cx",
-          "name": "Telegram account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "346c01c5-24ec-4626-8565-52f85b92da72",
-              "leftValue": "={{ $json.output }}",
-              "rightValue": "¡Datos completos! Ahora puedo generar el documento.",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -480,
-        32
-      ],
-      "id": "cf7ec340-b6c6-4dce-94c1-7b6e8c319d76",
-      "name": "If"
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": " Eres un experto en la redacción de procedimientos empresariales y de calidad. Tu tarea es generar un documento de procedimiento completo, detallado y estructurado, basándote en la información proporcionada por el usuario.\n\n\n\nEl documento debe incluir secciones claras para cada punto de la información. Al final del documento, debes crear una sección titulada \"Pasos del Procedimiento:\" y listar cada uno de los pasos principales en un formato de lista simple (por ejemplo, usando guiones o números).",
-              "role": "system"
-            },
-            {
-              "content": "=\n\nPor favor responde con los siguientes campos, cada uno en una línea separada:\n\n- Código del procedimiento: [aquí el código]\n- Nombre del procedimiento: [aquí el nombre]\n- Referencias normativas: [aquí las referencias]\n- Formatos a utilizar: [aquí los formatos]\n- Detalles del procedimiento: [aquí los detalles]\n\nDetalles del procedimiento:\n-Definiciones Clave: [Define los 3-4 términos más importantes del proceso]\n\n-Fases del Proceso y Responsables: [Describe los 5-7 pasos clave del flujo de trabajo, asignando un responsable a cada uno]\n\n-Indicadores (KPIs): [Define 2-3 métricas para medir el éxito del procedimiento]\n\n-Control de Cambios: [Redacta un párrafo estándar sobre cómo se gestionan las modificaciones al documento]\n"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        -272,
-        -64
-      ],
-      "id": "7ed06b7d-d789-4b59-9773-167917fc4eb5",
-      "name": "Message a model",
-      "credentials": {
-        "openAiApi": {
-          "id": "pR30gkzotkExDJsd",
-          "name": "Pako OpenIA"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "const input = items[0].json;\n\n// Obtenemos el contenido completo como string\nconst content = input.message?.content || \"\";\n\n// Función para extraer cada campo con regex\nfunction extractValue(label) {\n  const regex = new RegExp(`${label}\\\\s*([^\\\\n]*)`, \"i\");\n  const match = content.match(regex);\n  return match ? match[1].trim() : \"\";\n}\n\nreturn [\n  {\n    json: {\n      codigo: extractValue(\"Código del procedimiento:\"),\n      nombre: extractValue(\"Nombre del procedimiento:\"),\n      referencias: extractValue(\"Referencias normativas:\"),\n      formatos: extractValue(\"Formatos a utilizar:\"),\n      detalles: extractValue(\"Detalles del procedimiento:\")\n    }\n  }\n];\n"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        80,
-        -64
-      ],
-      "id": "ba24b689-4f7f-475e-8c76-ed67ab104106",
-      "name": "Code"
-    },
-    {
-      "parameters": {
-        "operation": "copy",
-        "fileId": {
-          "__rl": true,
-          "value": "1mTvG9FnPrCIE79TEN4rNjwd1aBGf4W2rVhYQq_J8kko",
-          "mode": "id"
-        },
-        "name": "={{ $('Code').first().json.nombre_procedimiento || 'Procedimiento' }} - Documentos{{ new Date().toISOString().split('T')[0] }}",
-        "options": {}
-      },
-      "id": "1c56f256-7b45-4791-9d97-521e51e04a32",
-      "name": "Copiar Plantilla de Google Docs",
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        544,
-        -64
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "GWN3C4uE4hqGPQR1",
-          "name": "Google Drive account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "={{ $json.id }}",
-        "simple": false,
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "replaceAll",
-              "text": "{{$json.codigo}}",
-              "replaceText": "={{ $('Code').item.json.codigo }}",
-              "matchCase": true
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{$json.nombre}}",
-              "replaceText": "={{ $('Code').item.json.nombre }}",
-              "matchCase": true
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{$json.referencias}}",
-              "replaceText": "={{ $('Code').item.json.referencias }}",
-              "matchCase": true
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{$json.formatos}}",
-              "replaceText": "={{ $('Code').item.json.formatos }}",
-              "matchCase": true
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{$json.detalles}}",
-              "replaceText": "={{ $('Code').item.json.detalles }}",
-              "matchCase": true
-            }
-          ]
-        }
-      },
-      "id": "d5d3e26b-9c1f-45d1-ad10-33ec9e5283f8",
-      "name": "Actualizar Documento",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        816,
-        -64
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "KB6oE5CDUdlCH05O",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "download",
-        "fileId": "={{ $json.documentId }}",
-        "options": {
-          "googleFileConversion": {
-            "conversion": {
-              "docsToFormat": "application/pdf"
-            }
-          },
-          "fileName": "={{ $('Copiar Plantilla de Google Docs').item.json.name }}.pdf"
-        }
-      },
-      "id": "7a74fdee-d3ee-4190-8d41-caca441dae23",
-      "name": "Exportar a PDF",
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        1088,
-        -64
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "GWN3C4uE4hqGPQR1",
-          "name": "Google Drive account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "sendDocument",
-        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-        "binaryData": true,
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        1440,
-        -64
-      ],
-      "id": "ae9d9f41-a288-45c9-85f5-ee7a281d1c34",
-      "name": "Send a document1",
-      "webhookId": "df8a868c-9027-4ea7-8e5d-f4777f4e962e",
-      "credentials": {
-        "telegramApi": {
-          "id": "jwPn8kLpS6D1h2Cx",
-          "name": "Telegram account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "image",
-        "prompt": "=Crea una imagen de un diagrama de flujo en este caso solamente con lineas y cuadros y texto detallado en este caso nada de imagenes puro texto que represente los siguientes pasos de un procedimiento: {{ $('Code').item.json.procedure_steps.join(', ') }}",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        320,
-        -64
-      ],
-      "id": "4662f534-d828-4e31-a28d-0424b907f3c6",
-      "name": "Generate an image1",
-      "credentials": {
-        "openAiApi": {
-          "id": "pR30gkzotkExDJsd",
-          "name": "Pako OpenIA"
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
         }
       }
     }
@@ -507,6 +585,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-19T00:46:44.000Z",
-  "versionId": "8d924025-4e4a-4284-aa12-acc16eb46367"
+  "updatedAt": "2025-09-26T05:28:43.000Z",
+  "versionId": "02639ba7-559b-410a-8952-0f3adbe3c805"
 }
