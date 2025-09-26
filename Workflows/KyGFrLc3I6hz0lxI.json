@@ -1,0 +1,251 @@
+{
+  "active": true,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-22T23:28:41.943Z",
+  "id": "KyGFrLc3I6hz0lxI",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Estadísticas de Workflows con IA",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        -160
+      ],
+      "id": "adc2872b-6e95-4cba-ad82-8518dd7bb381"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tomar los items del nodo HTTP Request\nlet itemsHttp = items;\n\n// Obtener fecha y hora local de México\nconst ahora = new Date();\nconst opcionesHora = { \n  timeZone: \"America/Mexico_City\", \n  hour: \"2-digit\", \n  minute: \"2-digit\", \n  second: \"2-digit\", \n  hour12: false\n};\nconst opcionesFecha = { \n  timeZone: \"America/Mexico_City\", \n  year: \"numeric\", \n  month: \"2-digit\", \n  day: \"2-digit\" \n};\n\nconst fechaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesFecha).format(ahora);\nconst horaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesHora).format(ahora);\nconst [dia, mes, año] = fechaLocal.split(\"/\");\nconst fechaFinal = `${año}-${mes}-${dia}`;\n\n// Generar JSON para cada workflow\nlet resultado = [];\n\nitemsHttp.forEach(item => {\n    // Asegurarse de que data exista y tenga workflows\n    if (item.json.data && item.json.data.length > 0) {\n        item.json.data.forEach(workflow => {\n            const nombreWorkflow = workflow.name || \"\";\n            const tokens = nombreWorkflow.length * 50;\n            const costo = tokens * 0.000045;\n            const estado = workflow.active ? \"Activo\" : \"Inactivo\";\n\n            resultado.push({\n                json: {\n                    Fecha: fechaFinal,\n                    Hora: horaLocal,\n                    Workflow: nombreWorkflow,\n                    Tokens: String(tokens),\n                    Costo: String(costo.toFixed(5)),\n                    Estado: estado\n                }\n            });\n        });\n    }\n});\n\nreturn resultado;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        96,
+        -160
+      ],
+      "id": "e7c3e4d4-afaa-4a2b-8a96-72b9c1c8fdcc",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "url": "https://n8n.srv914565.hstgr.cloud/api/v1/workflows",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-N8N-API-KEY",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTI5MDU2Zi0yMTJiLTQ5YjEtYWI1Ni00M2M2YjQyM2FiY2QiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU4NTg5MjQwLCJleHAiOjE3NjExMDU2MDB9.c3_F4xZ-PyIT-dKc_sE1DpE8wFAxw9cU57GKiib0WAc"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -384,
+        48
+      ],
+      "id": "e1e60be4-623d-469b-9ada-d14d937dfa9c",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verificar si Google Sheets guardó correctamente\nconsole.log(\"=== RESULTADO DE GOOGLE SHEETS ===\");\nconsole.log(\"Status:\", items[0].json?.status || \"No status\");\nconsole.log(\"Response:\", JSON.stringify(items[0].json, null, 2));\n\nif (items[0].json && items[0].json.status === 'success') {\n  console.log(\"✅ Google Sheets guardó exitosamente\");\n} else {\n  console.log(\"❌ Google Sheets falló\");\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        608,
+        144
+      ],
+      "id": "adb24eb6-c4ee-4383-b2da-eba84ecbcdb6",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "167VaLJy12n1_CDyrz8bzSYqnwXj5veNR1zQ42qc0SPU",
+          "mode": "list",
+          "cachedResultName": "Token",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/167VaLJy12n1_CDyrz8bzSYqnwXj5veNR1zQ42qc0SPU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/167VaLJy12n1_CDyrz8bzSYqnwXj5veNR1zQ42qc0SPU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Fecha": "={{ $json.Fecha }}",
+            "Hora": "={{ $json.Hora }}",
+            "Workflow": "={{ $json.Workflow }}",
+            "Tokens": "={{ $json.Tokens }}",
+            "Costo": "={{ $json.Costo }}",
+            "Estado": "={{ $json.Estado }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Workflow",
+              "displayName": "Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tokens",
+              "displayName": "Tokens",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Costo",
+              "displayName": "Costo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        320,
+        144
+      ],
+      "id": "03147573-6fa4-4431-acf8-07675d50369b",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-22T23:28:41.954Z",
+      "updatedAt": "2025-09-22T23:28:41.954Z",
+      "role": "workflow:owner",
+      "workflowId": "KyGFrLc3I6hz0lxI",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-25T01:00:37.000Z",
+  "versionId": "8cd3916d-bc81-4aac-a54e-009eedfb0cf7"
+}
