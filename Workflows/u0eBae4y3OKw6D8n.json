@@ -1,0 +1,402 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Metadatos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contenido": {
+      "main": [
+        [
+          {
+            "node": "Usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Usuario": {
+      "main": [
+        [
+          {
+            "node": "ObtenerDiagrama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ObtenerDiagrama": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        []
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML to PDF": {
+      "main": [
+        [
+          {
+            "node": "Send a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metadatos": {
+      "main": [
+        [
+          {
+            "node": "Contenido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-25T04:27:00.094Z",
+  "id": "u0eBae4y3OKw6D8n",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SegundoFlujo",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "9ad2110b-2461-4ccc-95b8-e78556194b69",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -80
+      ],
+      "id": "a05b48fd-fc00-402a-9ce9-57c4dcbd67e8",
+      "name": "Webhook",
+      "webhookId": "9ad2110b-2461-4ccc-95b8-e78556194b69"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a79203ff-2223-43f6-9c0e-0024749ed6e3",
+              "name": "desarrollo",
+              "value": "={{ $('Webhook').item.json.body.contenido.desarrollo }}",
+              "type": "array"
+            },
+            {
+              "id": "d84f6d91-1339-47ad-a24f-91f007fb18cb",
+              "name": "objetivo",
+              "value": "={{ $('Webhook').item.json.body.contenido.objetivo }}",
+              "type": "string"
+            },
+            {
+              "id": "7953256b-0961-46df-a80d-dc41bccd8869",
+              "name": "alcance",
+              "value": "={{ $('Webhook').item.json.body.contenido.alcance }}",
+              "type": "string"
+            },
+            {
+              "id": "eb5729b9-0dec-4187-b77e-9e72be865c12",
+              "name": "referencias",
+              "value": "={{ $('Webhook').item.json.body.contenido.referencias }}",
+              "type": "array"
+            },
+            {
+              "id": "e9a76ebf-588e-4d62-a729-7c680e3bd48c",
+              "name": "mermaidCode",
+              "value": "={{ $('Webhook').item.json.body.contenido.mermaidCode }}",
+              "type": "string"
+            },
+            {
+              "id": "fb500f32-37f6-4e8c-aacd-db8b9f693481",
+              "name": "definiciones",
+              "value": "={{ $('Webhook').item.json.body.contenido.definiciones }}",
+              "type": "array"
+            },
+            {
+              "id": "b03dbc58-5397-4801-819c-1ec66ef67f09",
+              "name": "indicadores",
+              "value": "={{ $('Webhook').item.json.body.contenido.indicadores }}",
+              "type": "array"
+            },
+            {
+              "id": "009053a6-2903-4d8f-9ce9-2b1269fad831",
+              "name": "politicas",
+              "value": "={{ $('Webhook').item.json.body.contenido.politicas }}",
+              "type": "array"
+            },
+            {
+              "id": "946ee626-d5d9-4ed3-a6ad-6063e4f5e631",
+              "name": "formatos",
+              "value": "={{ $('Webhook').item.json.body.contenido.formatos }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        448,
+        -80
+      ],
+      "id": "d32f27b3-5cc7-40f7-8d7c-2e542d0a7d98",
+      "name": "Contenido"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f9a0946c-969a-46b9-ad6f-fc7770768f42",
+              "name": "to",
+              "value": "={{ $('Webhook').item.json.body.to }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        -80
+      ],
+      "id": "30bdc58a-9283-4ef7-880a-78acbef9ac28",
+      "name": "Usuario"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://mermaid:7000/png",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "text/plain",
+        "body": "={{ $('Contenido').item.json.mermaidCode }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "=data"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        896,
+        -80
+      ],
+      "id": "95fb2418-1a6e-407c-ba60-f0c6e9d40fc4",
+      "name": "ObtenerDiagrama"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>{{ $('Metadatos').item.json.titulo }}</title>\n</head>\n\n<style>\n            body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 20px;\n            font-size: 12px;\n            line-height: 1.2;\n        }\n\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-bottom: 10px;\n            text-align: center;\n        }\n\n        th, td {\n            border: 1px solid #000;\n            padding: 5px;\n            vertical-align: top;\n            vertical-align: middle;\n        }\n        .logo-imagen{\n            height: 40px;\n            display: block;\n            margin: 0 auto;\n            background-size: contain;\n            background-repeat: no-repeat;\n            background-position: center;\n\n        }\n\n        .header-table {\n            width: 100%;\n            margin-bottom: 15px;\n        }\n\n        .header-table th, .header-table td {\n            border: 0.5px solid #000;\n            padding: 5px;\n        }\n\n        .content-table {\n            width: 100%;\n            margin-bottom: 10px;\n        }\n\n        .content-table th, .content-table td {\n            border: 0.5px solid #000;\n            padding: 5px;\n        }\n\n        .flow-table {\n            width: 100%;\n            margin-bottom: 10px;\n        }\n\n        .flow-table th, .flow-table td {\n            border: 1px solid #000;\n            padding: 5px;\n            text-align: center;\n        }\n\n        .indicator-table {\n            width: 100%;\n            margin-bottom: 10px;\n        }\n\n        .indicator-table th, .indicator-table td {\n            border: 1px solid #000;\n            padding: 5px;\n        }\n\n        .changes-table {\n            width: 100%;\n            margin-bottom: 10px;\n        }\n\n        .changes-table th, .changes-table td {\n            border: 1px solid #000;\n            padding: 5px;\n        }\n\n        .page-break {\n            page-break-after: always;\n        }\n\n        .text-center {\n            text-align: center;\n\n        }\n\n        .text-bold {\n            font-weight: bold;\n        }\n\n        .signature-table {\n            width: 100%;\n            margin-top: 20px;\n        }\n        .signature-table-color {\n                        background-color: #eee;\n        }\n\n        .signature-table td {\n            border: 1px solid #000;\n            padding: 5px;\n            text-align: center;\n        }\n        .signature-table-nombre {\n            height: 60px;\n        }\n\n        h1, h2, h3 {\n            margin: 10px 0;\n        }\n        .definicion-item {\n            margin-bottom: 10px;\n            line-height: 1.4;\n        }\n\n        .definicion-titulo {\n            font-weight: bold;\n            display: inline;\n        }\n\n        .definicion-texto {\n            display: inline;\n        }\n\n        ol, ul {\n            margin-top: 5px;\n            margin-bottom: 5px;\n            padding-left: 20px;\n        }\n\n        li {\n            margin-bottom: 3px;\n        }\n        p {\n            text-align: justify;\n        }\n        .page {\n            width: 210mm;\n            min-height: 297mm;\n            margin: 0 auto;\n            padding: 32px;\n            padding: 1.5cm;\n}\n        .diagram-container img {\n            max-width: 100%;\n            height: auto;\n            display: block;\n            margin: 50px auto;\n        }\n        .page:last-of-type {\n            page-break-after: avoid !important;\n            break-after: avoid !important;\n            min-height: auto !important;  \n            margin-bottom: 0 !important;\n            padding-bottom: 0 !important;\n}\n</style>\n<body>\n\n<!-- Página 1 -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>{{ $('Metadatos').item.json.fecha_emision }}</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>{{ $('Metadatos').item.json.elaboro }}</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> {{ $('Metadatos').item.json.codigo }}</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>{{ $('Metadatos').item.json.revision }}</td>\n            <td class=\"text-bold\">{{ $('Metadatos').item.json.titulo }}.</td>\n            <td></td>\n        </tr>\n    </table>\n    \n\n    \n    <h3>1. OBJETIVO:</h3>\n    <p>{{ $('Contenido').item.json.objetivo }}</p>\n    \n    <h3>2. ALCANCE:</h3>\n    <p>{{ $('Contenido').item.json.alcance }}</p>\n    \n    <h3>3. REFERENCIAS:</h3>\n    <p>{{ $('Contenido').item.json.referencias }}</p>\n\n    <h3>4. FORMATOS:</h3>\n  \n    <p>{{ $('Contenido').item.json.formatos }}</p>\n\n<h3>5. DEFINICIONES</h3>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.1. Reclutamiento:</span>\n    <span class=\"definicion-texto\"> Es un conjunto de acciones que tiene por objetivo atraer candidatos potencialmente calificados con el fin de que se incorporen a la organización.</span>\n</div>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.2. Selección de personal:</span>\n    <span class=\"definicion-texto\"> Es el proceso de elegir al candidato adecuado para un puesto de trabajo.</span>\n</div>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.3. Contrato:</span>\n    <span class=\"definicion-texto\"> O convención es un acto por el cual una parte se obliga para con otra a dar, hacer o no hacer alguna cosa.</span>\n</div>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.4. Descripción de puestos:</span>\n    <span class=\"definicion-texto\"> Documento en el que se especifican las funciones asignadas a un puesto y los requisitos que una persona debe cubrir para ocupar dicho puesto.</span>\n</div>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.5. Vacante:</span>\n    <span class=\"definicion-texto\"> Puesto o posición autorizada que carece de ocupante.</span>\n</div>\n\n<div class=\"definicion-item\">\n    <span class=\"definicion-titulo\">5.6. Difusión:</span>\n    <span class=\"definicion-texto\"> Publicar una vacante a través de medios digitales, redes sociales, bolsas de empleo.</span>\n</div>\n    \n    <table class=\"signature-table\">\n        <tr class=\"text-bold signature-table-color\" >\n            <td class=\"width: 33%;\">Elaboró</td>\n            <td style=\"width: 34%;\">Revisó</td>\n            <td style=\"width: 33%;\">Autorizó</td>\n        </tr>\n        <tr class=\"signature-table-nombre\">\n            <td>Sara Reyes</td>\n            <td>Gabriela Martínez</td>\n            <td>Carlos Charabati</td>\n        </tr>\n        <tr class=\"text-bold\">\n            <td>Atracción de Talento</td>\n            <td>Gte. Capital Humano</td>\n            <td>Director General</td>\n        </tr>\n    </table>\n    \n</div>\n\n<!-- Página 2 -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>29 de Mayo 2023</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>Atracción de Talento</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> L-PO-FSC-CH-001</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>09</td>\n            <td class=\"text-bold\">Reclutamiento, selección y contratación de personal.</td>\n            <td>Página 2 de 6</td>\n        </tr>\n    </table>\n    \n    <p class=\"text-bold\">5.7. Estudio Socio económico.</p>\n    <p>Reporte relativo a las condiciones de vida y su historia laboral en las que el candidato a ocupar una vacante se desenvuelve.</p>\n    \n    <p class=\"text-bold\">5.8. Examen psicométrico.</p>\n    <p>Evaluación psicológica de un candidato para ocupar una vacante. Útil como apoyo a los criterios de aceptación o rechazo de un candidato.</p>\n    \n    <p class=\"text-bold\">5.9. Inducción a la empresa.</p>\n    <p>Sesión de bienvenida al personal de nuevo ingreso en la cual se orienta al trabajador sobre aspectos específicos y relevantes de la empresa (historia, filosofía, clientes, procesos, prestaciones, beneficios, seguridad industrial, salud, medio ambiente, sistemas de calidad), además de alinear el potencial del nuevo integrante en la misma dirección de los objetivos de la empresa.</p>\n    \n    <h3>6. DESARROLLO</h3>\n    \n    <table class=\"content-table\">\n        <tr>\n            <th style=\"width: 10%;\">No.</th>\n            <th style=\"width: 20%;\">RESPONSABLE</th>\n            <th style=\"width: 70%;\">ACTIVIDAD RECLUTAMIENTO</th>\n        </tr>\n        <tr>\n            <td>6.1</td>\n            <td>Área solicitante<br>Atracción de Talento</td>\n            <td>• Recibe por parte del área solicitante Requisición de Personal formato L-FO-RH-007, la cual puede ser un puesto nuevo o sustitución de personal.</td>\n        </tr>\n        <tr>\n            <td>6.2</td>\n            <td></td>\n            <td>• En caso de ser puesto de nueva creación, se realiza la Descripción de puesto formato L-FO-CH-006 en conjunto con el Gerente o Jefe de área, misma que deberá ser autorizada por la Dirección General.</td>\n        </tr>\n        <tr>\n            <td>6.3</td>\n            <td></td>\n            <td>• En caso de ser reemplazo, se revisa que el perfil de puesto esté actualizado con los requisitos del puesto actual. Considerando que el nivel académico puede ser sustituido por la experiencia obtenida en la actividad solicitada, avalada por el formato Constancia de competencia laboral L-FO-CH-022.</td>\n        </tr>\n        <tr>\n            <td>6.4</td>\n            <td></td>\n            <td>• Difunde la vacante en las distintas fuentes de reclutamiento Digital, Portales virtuales de empleo privados y de gobierno, juntas de Recursos Humanos, posteo, bolsas de trabajo de Universidades, Ferias de empleo, entre otros.\n                <br>• Dentro del proceso no existe discriminación por origen étnico o nacional, género, edad, discapacidad, condición social, condiciones de salud, religión, opiniones, preferencias sexuales o estado civil; acorde con el Artículo 2º de la Ley Federal del Trabajo.\n                <br>• Sólo nos reservamos el derecho de admisión a aquellas personas menores de 18 años.</td>\n        </tr>\n        <tr>\n            <td>6.5</td>\n            <td></td>\n            <td class=\"text-bold\">SELECCIÓN</td>\n        </tr>\n        <tr>\n            <td>6.5</td>\n            <td></td>\n            <td>• Filtrará CV's de candidatos que cumplan los requerimientos necesarios para cubrir la vacante, posteriormente consultar con el (la) representante del área de \"Obligaciones Obrero Patronales\" si el candidato ha laborado con anterioridad dentro de la empresa, de ser así se dará aviso a el (la) Gerente de capital humano y se procederá a verificar si es factible su reingreso.\n                <br>• En caso de obtener una respuesta negativa, se le dará aviso al candidato y no podrá continuar dentro del proceso de selección.</td>\n        </tr>\n                <tr>\n            <td>6.6</td>\n            <td></td>\n            <td>• Agendará cita con el candidato para realizar entrevista inicial, aplicar la evaluación teórica correspondiente (dependiendo el puesto); también se le aplicarán las pruebas psicométricas correspondientes.</td>\n        </tr>\n        <tr>\n            <td>6.7</td>\n            <td></td>\n            <td>• Se realiza el reporte de evaluaciones psicométricas del candidato para conocer el grado de competencias con las que cuenta; posteriormente se presentará la terna de candidatos finalistas al responsable del área, por cada candidato se incluirá CV, reporte de resultados de evaluaciones psicométricas y Formato de evaluación de entrevista • L-FO-CH-008 (este será requisitado por el encargado del área).</td>\n        </tr>\n        <tr>\n            <td>6.8</td>\n            <td></td>\n            <td>• A los candidatos que se hayan postulado pero no cumplan con los requisitos del perfil del puesto por conocimientos técnicos o prácticos, se les agradecerá su interés y participación vía correo electrónico o • vía telefónica.</td>\n        </tr>\n        <tr>\n            <td>6.9</td>\n            <td>Responsable de área</td>\n            <td>• Se realizará la entrevista directa con el Responsable del área y este mismo, con ayuda del \"Formato de evaluación de entrevista L-FO-CH-008\" determinará si el candidato es apto para realizar las funciones que requiere el puesto.\n                <br>• De ser apto se informará al área de Atracción de talento y se iniciará el proceso de contratación, de no ser apto se les agradecerá su interés y participación vía correo electrónico o vía telefónica.</td>\n        </tr>\n    </table>\n    \n</div>\n\n<!-- Página 3 -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>29 de Mayo 2023</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>Atracción de Talento</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> L-PO-FSC-CH-001</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>09</td>\n            <td class=\"text-bold\">Reclutamiento, selección y contratación de personal.</td>\n            <td>Página 3 de 6</td>\n        </tr>\n    </table>\n    \n    <table class=\"content-table\">\n        <tr>\n            <th style=\"width: 10%;\">No.</th>\n            <th style=\"width: 20%;\">RESPONSABLE</th>\n            <th style=\"width: 70%;\">ACTIVIDAD</th>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td class=\"text-bold\">CONTRATACION DE PERSONAL</td>\n        </tr>\n        <tr>\n            <td>6.10</td>\n            <td>Servicio médico</td>\n            <td>• Se programará una cita para realizar la evaluación médica correspondiente al candidato, esta podrá ser únicamente los días • martes y jueves de 9am a 12:30pm.</td>\n        </tr>\n        <tr>\n            <td>6.11</td>\n            <td></td>\n            <td>• El encargado del área de Servicio médico realizará la evaluación correspondiente donde se determinará si el candidato se encuentra en las condiciones óptimas de salud para realizar las actividades que demanda el puesto que pretende ocupar.\n                <br>• Si el resultado es apto continuará el proceso, de no ser apto no se podrá continuar con la contratación.</td>\n        </tr>\n        <tr>\n            <td>6.12</td>\n            <td>Atracción de Talento</td>\n            <td>• Solicita a la empresa contratada la aplicación del Estudio Socio-económico correspondiente al candidato seleccionado, espera recibir el reporte de dicho estudio en un lapso no mayor a 1 semana.\n                <br>• Si el candidato resulta ser \"Recomendable\" continuará dentro del proceso de selección,\n                <br>• Si resultara ser \"No recomendable\", se le informará y se le agradecerá su interés y participación vía correo electrónico o vía telefónica.</td>\n        </tr>\n        <tr>\n            <td>6.13</td>\n            <td>Atracción de Talento</td>\n            <td>• Se realizará la oferta económica al candidato seleccionado y se enviará por correo electrónico, de igual forma se solicitarán los documentos correspondientes para contratación y se le dará cita para firmar los contratos laboral, de confidencialidad y Alta de Nómina.</td>\n        </tr>\n        <tr>\n            <td>6.14</td>\n            <td></td>\n            <td>• Se da de alta al candidato en biométricos, posteriormente se integra el expediente del nuevo colaborador y enviar documento correspondientes al área de Obligaciones obrero patronales para su alta del nuevo colaborador.</td>\n        </tr>\n                <tr>\n            <td>6.15</td>\n            <td>Obligaciones obrero patronales</td>\n            <td>• El personal es dado de alta en el sistema de nómina con base al formato Autorización de alta de nómina L-FO-CH-057.</td>\n        </tr>\n        <tr>\n            <td>6.16</td>\n            <td>Atracción de Talento<br>Seguridad e Higiene<br>Integración y desarrollo<br>Servicio médico</td>\n            <td>• El personal de nuevo ingreso recibe inducción a la empresa. Registrándose en la Lista de Asistencia a Cursos formato L-FO-CH-003 y llenando la Evaluación del Curso formato L-FO-CH-004.\n                <br>• Se le entregará al colaborador la Historieta de Buenas Prácticas de Manufactura\n                <br>• También se solicita al colaborador de nuevo ingreso responder el cuestionario de Evaluación Inducción a la empresa formato L-FO-CH-045, a fin de garantizar la comprensión correcta de aspectos importantes.</td>\n        </tr>\n        <tr>\n            <td>6.17</td>\n            <td>Seguridad e higiene</td>\n            <td>• Se realizará un recorrido por la planta inmediato o en un lapso no mayor a 7 días de su ingreso.</td>\n        </tr>\n        <tr>\n            <td>6.18</td>\n            <td>Atracción de Talento</td>\n            <td>• El colaborador es entregado en el área con su Jefe inmediato y se le solicita la inducción al puesto.</td>\n        </tr>\n        <tr>\n            <td>6.19</td>\n            <td></td>\n            <td>• Al mes de haber ingresado, durante la entrevista de ajuste, se le solicita al nuevo colaborador el llenado del Formato de Inducción al Puesto L-FO-CH-052</td>\n        </tr>\n        <tr>\n            <td>6.20</td>\n            <td></td>\n            <td>• Durante los primeros 3 meses posteriores al ingreso del nuevo colaborador, se le realizará una evaluación de desempeño cada 30 días con ayuda del \"Formato de Evaluación del desempeño laboral L-FO-CH-069\" donde se determinará si al candidato se le otorga el contrato Indeterminado posterior a los 90 días de prueba, o se da por terminada la relación laboral.\n                <br>• Si la posición a cubrir es temporal o para cubrir una incapacidad, se le informará al candidato y se pactará el periodo durante el cual se requerirán de sus servicios, una vez terminado dicho periodo se dará por terminada la relación laboral.</td>\n        </tr>\n    </table>\n        <h2>7. POLÍTICAS.</h2>\n    <p>La Inducción a la Empresa se le dará a todos los colaboradores de nuevo ingreso inmediato en un lapso no mayor a 7 días.</p>\n    \n</div>\n\n<!-- Página 4 -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>29 de Mayo 2023</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>Atracción de Talento</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> L-PO-FSC-CH-001</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>09</td>\n            <td class=\"text-bold\">Reclutamiento, selección y contratación de personal.</td>\n            <td>Página 4 de 6</td>\n        </tr>\n    </table>\n    \n    </table>\n    \n    <h2>8. DIAGRAMA DE FLUJO.</h2>\n    \n        <div class=\"diagram-container\">\n            <img src=\"Diagrama1.png\" alt=\"DIAGRAMA\">\n        </div>\n</div>\n\n<!-- Página 5 -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>29 de Mayo 2023</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>Atracción de Talento</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> L-PO-FSC-CH-001</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>09</td>\n            <td class=\"text-bold\">Reclutamiento, selección y contratación de personal.</td>\n            <td>Página 5 de 6</td>\n        </tr>\n    </table>\n        <div class=\"diagram-container\">\n                         <img src=\"data:image/png;base64,{{ $json.data }}\" alt=\"Imagen generada\" class=\"imagen-diagram\"/>\n        </div>\n</div>\n\n<!-- Página 6  -->\n<div class=\"page\">\n    <table class=\"header-table\">\n        <tr>\n            <td><b>Fecha de Emisión</b><br>29 de Mayo 2023</td>\n            <td><img  class=\"logo-imagen\" src=\"Logo_Litoproccess.svg\" alt=\"Logo\"></td>\n            <td><b>Elaboró</b><br>Atracción de Talento</td>\n        </tr>\n                <tr>\n            <td style=\"width: 25%;\"><b>Código</b><br> L-PO-FSC-CH-001</td>\n            <td style= \"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n            <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n        </tr>\n        <tr>\n            <td><b>Revisión</b><br>09</td>\n            <td class=\"text-bold\">Reclutamiento, selección y contratación de personal.</td>\n            <td>Página 6 de 6</td>\n        </tr>\n    </table>\n    \n    <h3>9. INDICADORES.</h3>\n    \n    <table class=\"indicator-table text-bold\">\n        <tr class=\"signature-table-color\">\n            <th style=\"width: 25%;\">INDICADOR</th>\n            <th style=\"width: 25%;\">META</th>\n            <th style=\"width: 25%;\">MONITOREO</th>\n            <th style=\"width: 25%;\">RESPONSABLE</th>\n        </tr>\n        <tr>\n            <td>Cumplimiento de Plantilla autorizada</td>\n            <td>85%</td>\n            <td>Mensual</td>\n            <td>Atracción de Talento</td>\n        </tr>\n    </table>\n    \n    <h3>10. CONTROL DE CAMBIOS.</h3>\n    \n    <table class=\"changes-table\">\n        <tr class=\"signature-table-color\">\n            <th style=\"width: 10%;\">REVISIÓN</th>\n            <th style=\"width: 30%;\">FECHA DE REVISIÓN</th>\n            <th style=\"width: 60%;\">MOTIVO DEL CAMBIO</th>\n        </tr>\n        <tr>\n            <td>04</td>\n            <td>25/01/2017</td>\n            <td>Se agregó en los puntos 2.1 y 2.2 que el nivel académico puede ser sustituido por experiencia laboral.</td>\n        </tr>\n        <tr>\n            <td>05</td>\n            <td>Agosto 2017</td>\n            <td>Revisión General</td>\n        </tr>\n        <tr>\n            <td>06</td>\n            <td>Marzo 2018</td>\n            <td>Se agregó en el punto 6.18 y política que el personal de nuevo ingreso recibirá inducción en un lapso no mayor a 7 días.</td>\n        </tr>\n        <tr>\n            <td>07</td>\n            <td>12 De Julio de 2018</td>\n            <td>Se modificó la clave del formato perfil y descripción de puesto por: L-FO-CH-006 Las pruebas psicométricas solo son para Gerencias y mandos medios en el punto 6.8</td>\n        </tr>\n        <tr>\n            <td>08</td>\n            <td>29 de Diciembre de 2021</td>\n            <td>Revisión General.</td>\n        </tr>\n        <tr>\n            <td>09</td>\n            <td>08 de Julio de 2022</td>\n            <td>Revisión General, los cambios se indican en color amarillo.</td>\n        </tr>\n        <tr>\n            <td>09</td>\n            <td>29 de Mayo de 2023</td>\n            <td>Revisión General.</td>\n        </tr>\n    </table>\n    \n</div>\n<script>\nconst formatos = $('Contenido').all().map(item => item.json.formatos)[0];\n\nfor (const item of formatos) {\n  // Aquí puedes usar `item` para cada elemento del array.\n  console.log(item); \n}\n</script>\n</body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        -80
+      ],
+      "id": "de2ff01a-1544-4202-9c37-c73dea337dad",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "htmlInput": "={{ $json.html }}"
+      },
+      "type": "@custom-js/n8n-nodes-pdf-toolkit.html2Pdf",
+      "typeVersion": 1,
+      "position": [
+        1792,
+        -224
+      ],
+      "id": "18db7e1f-63ae-4da7-bbb5-13842093d831",
+      "name": "HTML to PDF",
+      "credentials": {
+        "customJsApi": {
+          "id": "lCllIeZx5fba9opf",
+          "name": "CustomJS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -80
+      ],
+      "id": "607fee5d-f34f-49a5-85b5-abba9b937db0",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $('Usuario').item.json.to }}",
+        "binaryData": true,
+        "additionalFields": {
+          "caption": "Aqui tienes el documento "
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2000,
+        -224
+      ],
+      "id": "2769f254-36f1-4289-8370-16508224a50b",
+      "name": "Send a document",
+      "webhookId": "76ab0cd1-d24e-4cbb-bf2e-7ef6571c3e32",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "86884632-59d9-4451-b0e7-46d106550e66",
+              "name": "fecha_emision",
+              "value": "={{ $json.body.metadatos.fecha_emision }}",
+              "type": "string"
+            },
+            {
+              "id": "feffdef4-0d3c-459e-a196-6784bb481ccd",
+              "name": "elaboro",
+              "value": "={{ $json.body.metadatos.elaboro }}",
+              "type": "string"
+            },
+            {
+              "id": "c40a7e08-2c6f-43a4-9601-04f21013d0ab",
+              "name": "codigo",
+              "value": "={{ $json.body.metadatos.codigo }}",
+              "type": "string"
+            },
+            {
+              "id": "c52a61f3-95ea-411b-b4aa-7dc16de40c35",
+              "name": "area",
+              "value": "={{ $json.body.metadatos.area }}",
+              "type": "string"
+            },
+            {
+              "id": "b07a03d8-d778-4960-b03e-335f57c25fbd",
+              "name": "revision",
+              "value": "={{ $json.body.metadatos.revision }}",
+              "type": "string"
+            },
+            {
+              "id": "6adb6dd5-bdf8-45ed-a86d-575274538a55",
+              "name": "reviso",
+              "value": "={{ $json.body.metadatos.reviso }}",
+              "type": "string"
+            },
+            {
+              "id": "cc2d21ec-4bce-4c20-96c1-72d035930c78",
+              "name": "autorizo",
+              "value": "={{ $json.body.metadatos.autorizo }}",
+              "type": "string"
+            },
+            {
+              "id": "d43b1409-d593-44f9-90f7-ed50430f28be",
+              "name": "tipo_documento",
+              "value": "={{ $json.body.metadatos.tipo_documento }}",
+              "type": "string"
+            },
+            {
+              "id": "6a624f1a-4515-4392-a07d-ae1cf6488396",
+              "name": "titulo",
+              "value": "={{ $json.body.contenido.titulo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        -80
+      ],
+      "id": "49e2ac78-03f8-496d-ac5a-63b6a5f7d275",
+      "name": "Metadatos"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-25T04:27:00.100Z",
+      "updatedAt": "2025-09-25T04:27:00.100Z",
+      "role": "workflow:owner",
+      "workflowId": "u0eBae4y3OKw6D8n",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-09-04T14:59:17.899Z",
+      "updatedAt": "2025-09-04T14:59:17.899Z",
+      "id": "NJCajeulEkuGXGh4",
+      "name": "Litoprocess"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-26T04:03:24.000Z",
+  "versionId": "0ca3009e-ff59-4133-bd8d-2538417bc4fb"
+}
