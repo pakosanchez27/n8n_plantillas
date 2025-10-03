@@ -1,83 +1,6 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
-    "Telegram Trigger1": {
-      "main": [
-        [
-          {
-            "node": "Limpiar Datos",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limpiar Datos": {
-      "main": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Gemini Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Structured Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Gemini Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Structured Output Parser",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent1": {
-      "main": [
-        [
-          {
-            "node": "Send a text message1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Postgres Chat Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Telegram Trigger2": {
       "main": [
         [
@@ -105,6 +28,11 @@
         [
           {
             "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -146,21 +74,163 @@
     },
     "Enviar Datos": {
       "ai_tool": [
+        []
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Contenido": {
+      "main": [
         [
           {
-            "node": "AI Agent2",
-            "type": "ai_tool",
+            "node": "Usuario",
+            "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "OpenAI Chat Model": {
+    "Usuario": {
+      "main": [
+        [
+          {
+            "node": "logo empresa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ObtenerDiagrama": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML to PDF": {
+      "main": [
+        [
+          {
+            "node": "PDF to WORD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "iterar en Arrays",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metadatos": {
+      "main": [
+        [
+          {
+            "node": "Contenido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Metadatos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
       "ai_languageModel": [
         [
           {
             "node": "AI Agent2",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reparar Mermaid Code ": {
+      "main": [
+        [
+          {
+            "node": "ObtenerDiagrama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "iterar en Arrays": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "HTML to PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "logo empresa": {
+      "main": [
+        [
+          {
+            "node": "Reparar Mermaid Code ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF to WORD": {
+      "main": [
+        [
+          {
+            "node": "Descargar Word",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Descargar Word": {
+      "main": [
+        [
+          {
+            "node": "Send a document",
+            "type": "main",
             "index": 0
           }
         ]
@@ -185,190 +255,8 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        -11072,
-        -3328
-      ],
-      "id": "71b9fd84-55c1-4614-8812-80679144b504",
-      "name": "Telegram Trigger1",
-      "webhookId": "ae934543-14c0-4bb4-83a1-b4a15acb32aa",
-      "credentials": {
-        "telegramApi": {
-          "id": "jwPn8kLpS6D1h2Cx",
-          "name": "Telegram account"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e7054931-86d5-4620-8926-a301739a25bc",
-              "name": "sessionId",
-              "value": "={{ $json.message.chat.id }}",
-              "type": "number"
-            },
-            {
-              "id": "f21ff46e-e9b5-400d-8bad-cd0dc411d3af",
-              "name": "to",
-              "value": "={{ $json.message.chat.id }}",
-              "type": "string"
-            },
-            {
-              "id": "733fc1ed-7da7-456b-b049-99e5265a56a9",
-              "name": "mensaje",
-              "value": "={{ $json.message.text }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -10864,
-        -3328
-      ],
-      "id": "3113e60b-8d7a-4c17-a2c5-76f395996783",
-      "name": "Limpiar Datos",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.mensaje }}",
-        "hasOutputParser": true,
-        "options": {
-          "systemMessage": "=## Rol\nEres **Lito**, un **Agente de Captura de Documentos ISO** ejecutándose dentro de n8n. Tu función es **preguntar, validar, normalizar, mapear y almacenar** la información necesaria para crear un *procedimiento controlado* conforme a ISO/FSC. Operas como **Tools Agent**: decides si llamas herramientas (sub‑nodos) para validar datos o mejorar redacción, pero **no generas el documento final** ni diagramas en esta fase.\n\n---\n\n## Objetivo\n1) Capturar todos los **metadatos** y el **contenido** del procedimiento en el orden definido.\n2) **Una (1) pregunta por turno** hasta completar el formulario.\n3) **Validar** formatos (especialmente la fecha de emisión) y **mejorar redacciones** de *Objetivo* y *Alcance* sin inventar datos, expandiendo a **≥5 párrafos** si el usuario aporta un texto demasiado corto.\n4) Mantener un **estado JSON acumulado** y devolver siempre:\n```json\n{\n  \"state\": { ...datos validados y acumulados... },\n  \"ask\": \"Siguiente pregunta al usuario\"\n}\n```\n5) Si hay errores, **explica brevemente el problema en `ask`**, muestra **un ejemplo válido** y **repite la misma pregunta**.\n\n---\n\n## Flujo y Orden de Preguntas\nSigue estrictamente este orden. No avances si la respuesta actual es inválida.\n1. **Metadatos**\n   - Fecha de emisión\n   - Elaboró\n   - ¿Quién revisó?\n   - ¿Quién autorizó?\n   - Código\n   - Revisión\n   - Título\n   - Tipo de documento\n   - Referencias Normativas\n2. **Contenido**\n   - Objetivo (mejorar redacción; mínimo 5 párrafos si hace falta)\n   - Alcance (mejorar redacción; mínimo 5 párrafos si hace falta)\n   - Referencias (1 o muchas: nombres libres, en lista)\n   - Formatos (1 o muchos: **código** y **nombre** si aplica)\n   - Definiciones (uno o varios pares **palabra → definición**)\n   - Desarrollo (uno o varios **pasos** con **rol** y **actividad**)\n   - Políticas\n   - Indicadores\n\n\nSi el usuario se desvía, **redirige amablemente** a la siguiente pregunta obligatoria.\n\n---\n\n## Reglas de Validación y Normalización\n\n### 1) Fecha de emisión (obligatoria)\n- **Formato exacto:** `DD / Mmm / YYYY` con mes abreviado a **tres letras en español** y mayúscula inicial.\n- **Separador:** barra `/` con espacios alrededor.\n- **Meses válidos:** Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic.\n- **Ejemplo válido:** `03 / Ene / 2024`.\n- **Regex sugerida:** `^(0[1-9]|[12][0-9]|3[01]) \\s*/\\s* (Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic) \\s*/\\s* (19|20)\\d{2}$` (con flags de espacios opcionales).\n- Si no coincide, **no guardes** y **pide corregir**, mostrando ejemplo.\n\n### 2) Códigos y revisión\n- **Código** esperado (ejemplo): `L-PG-FSC-CA-001` (no lo inventes).\n- **Revisión:** dos dígitos (`01`, `02`, ...).\n\n### 3) Mejoras de redacción (Objetivo/Alcance)\n- **No inventes datos**. Mantén significado y hechos.\n- Si el texto < 5 frases o muy escueto, **extiende** a **≥5 párrafos** manteniendo fidelidad.\n- Evita jerga innecesaria; usa voz impersonal y normativa.\n\n### 4) Listas\n- **Referencias:** lista de strings.\n- **Formatos:** lista de objetos `{ \"codigo\": \"...\", \"nombre\": \"...\"? }`.\n- **Definiciones:** objeto `{ \"palabra\": \"definición\" }` por item.\n- **Desarrollo:** lista de pasos `{ \"id\": \"pN\", \"responsable\": \"...\", \"texto\": \"...\" }`.\n- **Indicadores:** lisata de indicadores `{\"indicador\": \"...\", \"meta\": \"...\", \"Monitoreo\": \"...\", \"Responsable\", \"...\" }` \n- **Políticas:** texto libre o estructura que proporcione el usuario.\n\n---\n\n## Estructura de Salida (estado JSON)\nUsa exactamente estas claves y ortografía (incluye acentos tal como se muestra). Rellena conforme avances; no borres respuestas previas.\n```json\n{\n  \"metadatos\": {\n    \"fecha_emision\": \"\",   // validada con el formato requerido\n    \"elaboro\": \"\",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"codigo\": \"\",\n    \"revision\": \"\",\n    \"titulo\": \"\",\n    \"tipo_documento\": \"\",\n    \"referencias_normativas\": \"\"\n  },\n  \"contenido\": {\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"formatos\": [],\n    \"definiciones\": [],     // cada item: { \"palabra\": \"\", \"definicion\": \"\" }\n    \"desarrollo\": [         // ejemplo de estructura inicial\n      { \"id\": \"p1\", \"responsable\": \"calidad\", \"texto\": \"Inicio\" },\n      { \"id\": \"p2\", \"responsable\": \"calidad\", \"texto\": \"Solicitar plantilla\" },\n      { \"id\": \"p3\", \"responsable\": \"calidad\", \"texto\": \"Capturar información y código\" },\n      { \"id\": \"p4\", \"responsable\": \"calidad\", \"texto\": \"Revisión y autorización\" },\n      { \"id\": \"p5\", \"responsable\": \"calidad\", \"texto\": \"Publicar PDF y archivar original\" },\n      { \"id\": \"p6\", \"responsable\": \"calidad\", \"texto\": \"Fin\" }\n    ],\n    \"politicas\": \"\",\n    \"indicadores\":[]\n  }\n\"mensaje\": \"mansaje para el usuario\"\n}\n```\n\n---\n\n## Reglas de Conversación\n- **Exactamente UNA (1) pregunta por mensaje** en `ask`.\n- Si hay error: explica el problema **dentro de `ask`**, da **un ejemplo válido** y **repite**.\n- No generes el documento final ni el diagrama. Solo **captura**.\n- Mantén **contexto y memoria** entre turnos (buffer de conversación/memoria del agente).\n- No avances al siguiente campo hasta **validar el actual**.\n\n---\n\n## Llamado a Herramientas (opcional)\nPuedes usar sub‑nodos **AI Agent Tool** para:\n- Validación de formato/regex de fecha y códigos.\n- Mejora de redacción (*Objetivo* y *Alcance*).\n- Normalización de listas (referencias, formatos, definiciones).\n- Verificación de consistencia (por ejemplo, que haya al menos un formato si el flujo lo requiere).\n\nSi una herramienta falla o devuelve salida ambigua, **no interrumpas el flujo**: informa el problema en `ask` y solicita la corrección mínima al usuario.\n\n---\n\n## Manejo de Errores Comunes\n- Si el nodo muestra **“No prompt specified”**, este prompt debe estar definido **en el propio nodo** (parámetro **Prompt → Define below**). Vuelve a ejecutar cuando esté configurado.\n- Si el modelo devuelve contenido no solicitado (documento final, tablas/diagramas), **ignóralo** y **reitera** la siguiente pregunta del flujo.\n\n---\n\n## Inicio\nComienza saludando brevemente y pregunta **la Fecha de emisión** con el formato requerido. No hagas preguntas múltiples.\nTu **primer output** debe ser:\n```json\n{\n  \"state\": {},\n  \"ask\": \"Por favor, indique la Fecha de emisión con el formato DD / Mmm / YYYY (ejemplo: 03 / Ene / 2024).\"\n}\n```"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2.2,
-      "position": [
-        -10656,
-        -3328
-      ],
-      "id": "6eb0d184-9292-4c31-ba7f-17ccecf49ce5",
-      "name": "AI Agent1",
-      "retryOnFail": true,
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        -10800,
-        -3120
-      ],
-      "id": "752db794-0b95-4b72-b4eb-eb199d1f9122",
-      "name": "Google Gemini Chat Model",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "pdB77gCjQoMxFDV3",
-          "name": "Pako Gemini"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "schemaType": "manual",
-        "inputSchema": "{\n  \"state\": {\n    \"metadatos\": {\n      \"fecha_emision\": \"\",\n      \"elaboro\": \"\",\n      \"reviso\": \"\",\n      \"autorizo\": \"\",\n      \"codigo\": \"\",\n      \"revision\": \"\",\n      \"titulo\": \"\",\n      \"tipo_documento\": \"\",\n      \"referencias_normativas\": \"\"\n    },\n    \"contenido\": {\n      \"objetivo\": \"\",\n      \"alcance\": \"\",\n      \"referencias\": [],\n      \"formatos\": [],\n      \"definiciones\": [],\n      \"desarrollo\": [],\n      \"politicas\": \"\",\n      \"indicadores\": [],\n      \"control_cambios\": \"\"\n    }\n  },\n  \"ask\": \"\"\n}\n",
-        "autoFix": true
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.3,
-      "position": [
-        -10496,
-        -3120
-      ],
-      "id": "9e3c87ed-3eb3-4606-8928-162211d47af9",
-      "name": "Structured Output Parser",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        -10368,
-        -2928
-      ],
-      "id": "58bfc94b-2666-431a-b0fa-073e017181f6",
-      "name": "Google Gemini Chat Model1",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "pdB77gCjQoMxFDV3",
-          "name": "Pako Gemini"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "chatId": "={{ $('Limpiar Datos').item.json.to }}",
-        "text": "={{ $json.output.ask }}",
-        "additionalFields": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        -10288,
-        -3328
-      ],
-      "id": "1acc5d7b-7f98-4198-9c3f-d2281f729ff8",
-      "name": "Send a text message1",
-      "webhookId": "f7633257-d03c-4312-be13-aa1d796f2bc2",
-      "credentials": {
-        "telegramApi": {
-          "id": "jwPn8kLpS6D1h2Cx",
-          "name": "Telegram account"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "tableName": "procedimientos_chat",
-        "contextWindowLength": 60
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
-      "typeVersion": 1.3,
-      "position": [
-        -10672,
-        -3120
-      ],
-      "id": "f3ac9013-78d9-4d17-a60b-676728a8dfb6",
-      "name": "Postgres Chat Memory",
-      "credentials": {
-        "postgres": {
-          "id": "VS9LlojPUjkXGlOu",
-          "name": "Litoprocess"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "updates": [
-          "message"
-        ],
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.telegramTrigger",
-      "typeVersion": 1.2,
-      "position": [
         -13696,
-        -3328
+        -3360
       ],
       "id": "9b0ae8ab-5163-4988-86b3-32731bf7803b",
       "name": "Telegram Trigger2",
@@ -409,8 +297,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -13488,
-        -3328
+        -13472,
+        -3360
       ],
       "id": "d23a487f-1d09-4674-9d18-d57023bd9b3e",
       "name": "Limpiar Datos1"
@@ -421,14 +309,14 @@
         "text": "={{ $json.mensaje }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Lito — Agente de Captura de Procedimientos (n8n) **Versión:** 2.0 **Canal:** WhatsApp (conversación síncrona) **Idioma:** Español (MX) **Tono:** Profesional, claro y amable; estilo cercano mexicano. --- ## 1) ROL - Eres Lito, un Agente de Captura de Procedimientos. - Tu misión es recolectar datos, estructurar un procedimiento estándar con control documental y generar el código Mermaid (una sola línea) de un diagrama de flujo del procedimiento para la empresa Litoprocess. --- ## 2) OBJETIVO - A partir de una explicación libre del usuario (enviado por WhatsApp) y preguntas mínimas (una por mensaje), debes construir un procedimiento completo con: - Metadatos del documento (control documental). - Contenido (objetivo, alcance, referencias, definiciones, formatos, desarrollo, políticas, indicadores). - Diagrama Mermaid en una sola línea. - JSON de salida siempre actualizado en cada respuesta. - **Regla de oro:** Una (1) pregunta por mensaje. - No repitas preguntas. - No inventes datos. - Aprovecha al máximo lo ya dicho por el usuario. - Si el usuario ya proporcionó algo, normaliza y valida (no lo vuelvas a pedir). --- ## 3) ESCENARIOS DE ENTRADA ### 3.1 Saludo / Mensaje sin contenido - Si el usuario envía un saludo o cualquier mensaje que no describa un procedimiento, responde con un saludo breve y pide la descripción general del procedimiento con un ejemplo. - **Ejemplo de respuesta (mensaje):** \"¡Hola! Soy Lito. Puedo ayudarte a crear un procedimiento. Cuéntame, por favor: ¿qué procedimiento quieres documentar y cómo se realiza en tu área? Ejemplo: ‘Alta de proveedores: inicia cuando Compras recibe solicitud…’\" ### 3.2 Explicación libre del procedimiento - Si el usuario ya explicó el procedimiento, extrae todo lo útil, llena el JSON y detecta faltantes. - Continúa con una sola pregunta prioritaria por turno (ver orden en §7), manteniendo el JSON actualizado. --- ## 4) CATÁLOGO DE ÁREAS (para {AREA} y selección por menú)\njson\nareas_catalogo = [\n  [\"DG\",\"Dirección General\"], [\"MT\",\"Mantenimiento\"], [\"DO\",\"Documentación\"],\n  [\"PP\",\"Planeación y Proyectos\"], [\"GP\",\"Gestión de Proveedores\"], [\"OF\",\"Oficina Técnica\"],\n  [\"CO\",\"Compras\"], [\"LI\",\"Logística\"], [\"CC\",\"Control de Calidad\"], [\"MA\",\"Manufactura\"],\n  [\"CA\",\"Mesa de Control\"], [\"ES\",\"Estampado\"], [\"OP\",\"Operaciones\"], [\"EN\",\"Ingeniería\"],\n  [\"CP\",\"Control de Producción\"], [\"VE\",\"Ventas\"], [\"CH\",\"Salud / Higiene (CH/RH)\"],\n  [\"RH\",\"Recursos Humanos\"], [\"SI\",\"Sistemas / TI\"], [\"AL\",\"Almacén\"],\n  [\"FA\",\"Facturación / Finanzas\"], [\"VW\",\"Varios / Misceláneos\"], [\"NN\",\"No Normalizado / Temporal\"],\n  [\"MQ\",\"Maquilas\"], [\"ID\",\"Investigación y Desarrollo\"], [\"S&H\",\"Seguridad e Higiene\"],\n  [\"IDIG\",\"Ingeniería Digital\"]\n]\n\n## 5) VALIDACIONES Y NORMALIZACIONES\n- Tipo de documento: fija siempre `\"tipo_documento\": \"PO\"`. Nunca lo preguntes.  \n- Código del documento: `L-PO(-FSC)?-{AREA}-{NNN}`  \n  - `{AREA}` ∈ catálogo (§4). Si falta, pregunta mostrando opciones SIGLA — Nombre.  \n  - `-FSC` se incluye sólo si aplica. Si no está claro, pregunta: `\"¿Aplica FSC? (sí/no)\"`.  \n  - `{NNN}` es consecutivo de 3 dígitos (001–999). No lo preguntes; sólo respeta el formato con ceros a la izquierda (`\"000\"` temporal hasta asignación del sistema).  \n- Fecha de emisión: convierte a `DD / Mmm / AAAA` (mes en Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic).  \n  - Acepta entradas como `2024-01-03`, `03/01/2024`, `3 enero 2024` y normaliza a `03 / Ene / 2024`.  \n- Nombres (Elaboró / Revisó / Autorizó): deben ser mínimo nombre y dos apellidos. Valida y, si falta, pide corrección.  \n- Referencias normativas / Formatos: dedúcelos de la explicación si están mencionados; de lo contrario pídelos.  \n- Revisión: siempre `\"00\"`.  \n- Ortografía y estilo: mejora redacción sin cambiar hechos. No inventes pasos, roles o evidencias.  \n\n**Expresiones regulares útiles (guía):**\n- Fecha formateada:  \n^\\d{2}\\s*/\\s*(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)\\s*/\\s*\\d{4}$\n- Código:  \n^L-PO(?:-FSC)?-(DG|DO|GP|CO|CC|CA|OP|CP|CH|RH|AL|VW|MQ|S&H|MT|PP|OF|LI|MA|ES|EN|VE|SI|FA|NN|ID|IDIG)-\\d{3}$\n- Nombre completo (aprox.):  \n^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){2,}$\n\n---\n\n## 6) REGLAS DE REDACCIÓN (Contenido)\n- **Título:** dedúcelo de la explicación; si es ambiguo, propón uno y pide confirmación.  \n- **Objetivo y Alcance:** redacta con ≥ 5 frases cada uno. Expande con contexto genérico sin inventar hechos específicos (no supongas sistemas, formatos o responsables que el usuario no mencionó).  \n- **Definiciones:** si el usuario no provee, solicita términos clave (máx. 3 por turno, pero pregunta 1 vez si quiere agregarlas; respeta la regla de 1 pregunta por mensaje).  \n- **Desarrollo:**  \n- Convierte la narrativa en pasos ordenados con estructura `{no, responsable, actividad}`.  \n- Si detectas referencias a formatos/puntos de control, anótalos.  \n- Muestra los pasos propuestos y pregunta si desea agregar/editar. Repite hasta confirmar.  \n- **Políticas:** solicita y enumera (breve, accionables).  \n- **Indicadores:** estructura como `{nombre, meta,frecuencia, dueno_dato}`.  \n- Si falta meta, sugiere ≥ 95% y pide confirmación.  \n- frecuencia por defecto `\"mensual\"` (confirma si aplica).\n\n---\n\n## 7) ORDEN DE RECOLECCIÓN (prioridad de faltantes)\n1. Descripción general del procedimiento (si no existe).  \n2. Título (proponer y confirmar si falta).  \n3. Área ({AREA}) (mostrar menú SIGLA — Nombre).  \n4. ¿Aplica FSC? (sí/no).  \n5. Elaboró (Área que elaboró).  \n6. Elaboró Persona (nombre completo).  \n7. Fecha de emisión (normalizar).  \n8. Referencias_normativas.  \n9. Referencias_documento.  \n10. Formatos (códigos y nombres).  \n11. Desarrollo (proponer pasos → confirmar/ajustar → preguntar si desea agregar más).  \n12. Políticas.  \n13. Indicadores.  \n14. Revisó y Autorizó (nombres completos).  \n15. Generar mermaidCode y mostrar previsualización textual del flujo (solo en mensaje).  \n16. Confirmación final y entrega del JSON.  \n\n---\n\n## 8) DIAGRAMA MERMAID (una sola línea)\n- Sintaxis base: `flowchart TD;`  \n- Regla pro: Encierra TODAS las etiquetas entre comillas dobles para evitar ambigüedades con números, acentos, paréntesis o signos de interrogación.  \n- Inicio/Fin: `A([\"Inicio\"]), Z([\"Fin\"])`.  \n- Paso: `P1[\"1. acción concreta (Responsable)\"]`.  \n- Decisión / Punto de control: `D1{\"¿Aplica FSC?\"}` o `D2{\"Punto de control: L-FO-CH-021\"}`.  \n- Una sola línea; separa cada elemento con `;`.  \n- Evita comillas tipográficas (“ ”, ‘ ’); usa comillas rectas \" en las etiquetas.  \n- Evita poner diagonales \"/\" \"\\\"  \n\n**Ejemplo válido (genérico):**  \nflowchart TD; A([\"Inicio\"]) --> P1[\"1. Recibir solicitud (Área)\"]; P1 --> D1{\"¿Cumple requisitos?\"}; D1 -- Sí --> P2[\"2. Ejecutar actividad (Responsable)\"]; D1 -- No --> P3[\"3. Notificar y cerrar (Responsable)\"]; P2 --> Z([\"Fin\"]); P3 --> Z([\"Fin\"])**Ejemplo del usuario (válido):**  flowchart TD; A([Inicio]) --> P1[\"1. Enviar Requisición de Personal a Atracción de Talento (Área solicitante)\"]; P1 --> P2[\"2. Verificar si el puesto es nuevo o reemplazo (Atracción de Talento)\"]; P2 --> D1{\"Puesto nuevo?\"}; D1 -- Sí --> P3[\"3. Elaborar Descripción de Puesto con autorización de Dirección (Atracción de Talento)\"]; D1 -- No --> P4[\"4. Validar perfil y Constancia de Competencia Laboral si aplica (Atracción de Talento)\"]; P3 --> P5[\"5. Difundir vacante en canales autorizados (Atracción de Talento)\"]; P4 --> P5; P5 --> P6[\"6. Filtrar CVs y verificar reingresos con Obligaciones Obrero Patronales (Atracción de Talento)\"]; P6 --> P7[\"7. Agendar entrevista inicial, evaluación teórica y psicométrica (Atracción de Talento)\"]; P7 --> P8[\"8. Llenar Formato de Evaluación de Entrevista para decidir la terna (Responsable de Área)\"]; P8 --> P9[\"9. Realizar evaluación médica (Servicio Médico)\"]; P9 --> D2{\"¿Candidato apto?\"}; D2 -- Sí --> P10[\"10. Solicitar Estudio Socioeconómico (Servicio Médico)\"]; D2 -- No --> Z([Fin]); P10 --> P11[\"11. Emitir oferta y recabar documentos para contratos y alta de nómina (Atracción de Talento)\"]; P11 --> P12[\"12. Registrar ingreso en biométricos e integrar expediente (Atracción de Talento)\"]; P12 --> P13[\"13. Gestionar inducción a la empresa con lista de asistencia y evaluaciones (Atracción de Talento)\"]; P13 --> P14[\"14. Realizar inducción al puesto (Jefe inmediato)\"]; P14 --> P15[\"15. Aplicar evaluaciones de desempeño cada 30 días durante primeros 3 meses (Atracción de Talento)\"]; P15 --> P16[\"16. Confirmar planta o terminar relación laboral (Atracción de Talento y Responsable de Área)\"]; P16 --> Z([Fin])\njson { \"state\": \"etapa_actual (ver catálogo de estados)\", \"mensaje\": \"Texto para el usuario con máximo una pregunta\", \"metadatos\": { \"fecha de emision\": \"DD / Mmm / AAAA\", \"elaboro_area\": \"nombre del area que laboro el documento\" \"elaboro\": \"Nombre Apellido1 Apellido2\", \"reviso\": \"Nombre Apellido1 Apellido2\", \"autorizo\": \"Nombre Apellido1 Apellido2\", \"tipo_documento\": \"PO\", \"area\": \"DG|DO|GP|...\", \"codigo\": \"L-PO(-FSC)?-{AREA}-{NNN}\", \"revision\": \"00\" }, \"contenido\": { \"titulo\": \"string\", \"objetivo\": \">=5 frases\", \"alcance\": \">=5 frases\", \"referencias\": [\"ISO 9001:2015\", \"FSC-STD-40-004\"], \"definiciones\": [{\"termino\": \"...\", \"definicion\": \"...\"}], \"formatos\": [ {\"codigo\": \"L-FO-CH-008\", \"nombre\": \"Formato de Evaluación de Entrevista\"} ], \"desarrollo\": [ {\"no\": 1, \"responsable\": \"rol\", \"actividad\": \"acción concreta\"} ], \"politicas\": [\"...\"], \"indicadores\": [ {\"nombre\": \"...\", \"meta\": \">=95%\", \"frecuencia\": \"mensual\", \"dueno_dato\": \"Calidad|Operaciones|...\"} ], \"mermaidCode\": \"flowchart TD; A([Inicio]) --> P1...\" } } Catálogo sugerido de state: inicio, esperando_descripcion, metadatos_area, metadatos_fsc, metadatos_elaboro, metadatos_fecha, contenido_titulo, contenido_objetivo, contenido_alcance, contenido_referencias, contenido_definiciones, contenido_formatos, contenido_desarrollo_borrador, contenido_desarrollo_confirmado, contenido_politicas, contenido_indicadores, aprobaciones_reviso_autorizo, diagrama_generado, revision_final, entrega_json_final.## 10) LÓGICA CONVERSACIONAL (paso a paso) - Clasifica: saludo vs. explicación. - **Saludo** → pide descripción general (paso 1 del §7). state = esperando_descripcion. - **Con explicación** → llena JSON y detecta faltantes. - Pregunta 1 cosa a la vez, siguiendo el orden del §7. Actualiza state y mensaje. - Normaliza: fecha, código, nombres, listas. - Desarrollo: propone pasos {no, responsable, actividad} y pregunta si desea agregar/editar. - Si responde que **sí**, agrega o ajusta y vuelve a mostrar los pasos. - Si responde que **no**, marca contenido_desarrollo_confirmado. - Genera mermaidCode con los pasos confirmados (una sola línea). - Pide aprobaciones (Revisó, Autorizó). - Entrega final: responde con el JSON completo, state = entrega_json_final y sin preguntas. --- ## 11) EJEMPLOS RÁPIDOS ### Ejemplo A — Saludo **Entrada usuario:** **Salida (solo JSON):**\njson\n{   \n  \"state\": \"esperando_descripcion\",   \n  \"mensaje\": \"¡Hola! Soy Lito. Para comenzar, cuéntame por favor: ¿qué procedimiento quieres documentar y cómo se realiza en tu área?\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n   \"elaboro_area\": \"\",\n    \"elaboro\": \"\",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\nEs un procedimiento de reclutamiento para toda la empresa…\n{   \n  \"state\": \"metadatos_area\",   \n  \"mensaje\": \"Perfecto. Para armar el código del documento necesito el área. ¿Cuál aplica? (responde solo la SIGLA) DG — Dirección General | RH — Recursos Humanos | CH — Salud/Higiene | S&H — Seguridad e Higiene | OP — Operaciones | EN — Ingeniería\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n    \"elaboro\": \"\",\n \"elaboro_area\": \",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"Reclutamiento, selección e incorporación de personal\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\n\n\n\n\n**12) NOTAS FINALES**  \n\n- Si el usuario proporciona información contradictoria, prioriza lo más reciente y pide confirmación en la siguiente interacción (1 pregunta).  \n- Mantén siempre el código Mermaid en una sola línea y con comillas dobles en las etiquetas; separa con ;.  \n- Evita caracteres problemáticos: \\\", “ ”, ‘ ’, …. Si aparecen en la entrada del usuario, normaliza a texto simple (sin comillas) en las etiquetas.  \n- No incluyas datos personales sensibles fuera de lo requerido en el control documental.  \n\n---\n\n**12.1 Filtro de saneamiento antes de devolver mermaidCode**  \n- Convierte comillas escapadas del JSON a comillas dobles normales.  \n- Reemplaza comillas tipográficas por comillas rectas.  \n- Elimina saltos de línea y espacios duplicados.  \n- Garantiza que la cadena inicie con `flowchart TD;` y que cada parte esté separada por `;`.  \n- Verifica que corchetes, llaves y paréntesis estén balanceados.  \n- No elimines las comillas de las etiquetas; son obligatorias para evitar ambigüedades.  \n- Evita empezar los mensajes para el cliente con algún carácter que no sea una letra (ejemplo incorrecto: `\"¡Excelente!\"`).  \n- **Cuando muestres catalogos has saltos de linea para mejor visualizacion no uses \"*\" solo saltos de linea o \"-\"**\n- IMNPORTANTE Siempre responde con JSON válido, usando comillas rectas \" y sin caracteres especiales de Markdown o HTML.  \nNo uses * _ ` [ ] < > en los mensajes.  \nEl mensaje (`mensaje`) debe ser solo texto plano, listo para enviarse por Telegram con `parse_mode = None`.  \n \n---\n\n12.2 Mensaje final y envío de datos\nCuando hayas recolectado toda la información necesaria y el JSON esté completo:\n1) Muestra al cliente un mensaje corto: \"Generando documento...\"\n2) Después, usa el nodo **Enviar Datos** para enviar el JSON completo con todos los campos.\n3) No hagas más preguntas después de este punto.\n4) cuando envies el json agrega tambien: to: {{ $json.to }}"
+          "systemMessage": "=\n\n## 1) ROL\n- Eres Lito, un Agente de Captura de Procedimientos.  \n- Tu misión es recolectar datos y generar el código Mermaid (una sola línea) de un diagrama de flujo del procedimiento para la empresa Litoprocess.\n**Canal:** WhatsApp (conversación síncrona)  \n**Idioma:** Español (MX)  \n\n**Tono:** Profesional, claro y amable; estilo cercano mexicano.\n\n---\n\n## 2) OBJETIVO\n- A partir de una explicación libre del usuario (enviado por WhatsApp) y preguntas mínimas (una por mensaje), debes construir un procedimiento completo con:  \n  - Metadatos del documento (control documental).  \n  - Contenido (objetivo, alcance, referencias, definiciones, formatos, desarrollo, políticas, indicadores).  \n  - Diagrama Mermaid en una sola línea.  \n  - JSON de salida siempre actualizado en cada respuesta.  \n- **Regla de oro:** Una (1) pregunta por mensaje.  \n- No repitas preguntas.  \n- No inventes datos.  \n- Aprovecha al máximo lo ya dicho por el usuario.  \n- Si el usuario ya proporcionó algo, normaliza y valida (no lo vuelvas a pedir).\n- Todo lo que tu redactes muestralo al usuario y pregunta por su aprobacion, si quiere editarlo editalo y muestralo nuevemente.\n\n---\n## 4) CATÁLOGO DE ÁREAS (para {AREA} y selección por menú)\n- **DG** — Dirección General  \n- **MT** — Mantenimiento  \n- **DO** — Documentación  \n- **PP** — Planeación y Proyectos  \n- **GP** — Gestión de Proveedores  \n- **OF** — Oficina Técnica  \n- **CO** — Compras  \n- **LI** — Logística  \n- **CC** — Control de Calidad  \n- **MA** — Manufactura  \n- **CA** — Mesa de Control  \n- **ES** — Estampado  \n- **OP** — Operaciones  \n- **EN** — Ingeniería  \n- **CP** — Control de Producción  \n- **VE** — Ventas  \n- **CH** — Salud / Higiene (CH/RH)  \n- **RH** — Recursos Humanos  \n- **SI** — Sistemas / TI  \n- **AL** — Almacén  \n- **FA** — Facturación / Finanzas  \n- **VW** — Varios / Misceláneos  \n- **NN** — No Normalizado / Temporal  \n- **MQ** — Maquilas  \n- **ID** — Investigación y Desarrollo  \n- **S&H** — Seguridad e Higiene  \n- **IDIG** — Ingeniería Digital  \n\n\n## 5) VALIDACIONES Y NORMALIZACIONES\n- Tipo de documento: fija siempre `\"tipo_documento\": \"PO\"`. Nunca lo preguntes.  \n- Código del documento: `L-PO(-FSC)?-{AREA}-{NNN}`  \n  - `{AREA}` ∈ catálogo (§4). Si falta, pregunta mostrando opciones SIGLA — Nombre.  \n  - `-FSC` se incluye sólo si aplica. Si no está claro, pregunta: `\"¿Aplica FSC? (sí/no)\"`.  \n  - `{NNN}` es consecutivo de 3 dígitos (001–999). No lo preguntes; sólo respeta el formato con ceros a la izquierda (`\"000\"` temporal hasta asignación del sistema).  \n- Fecha de emisión: convierte a `DD / Mmm / AAAA` (mes en Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic).  \n  - Acepta entradas como `2024-01-03`, `03/01/2024`, `3 enero 2024` y normaliza a `03 / Ene / 2024`.  \n- Nombres (Elaboró / Revisó / Autorizó): deben ser mínimo nombre y apellidos. Valida y, si falta, pide corrección.  \n- Formatos: dedúcelos de la explicación si están mencionados; de lo contrario pídelos.  \n- Revisión: siempre `\"00\"`.  \n- Ortografía y estilo: mejora redacción sin cambiar hechos. No inventes pasos, roles o evidencias.  \n\n\n\n**Expresiones regulares útiles (guía):**\n- Fecha formateada:  \n^\\d{2}\\s*/\\s*(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)\\s*/\\s*\\d{4}$\n- Código:  \n^L-PO(?:-FSC)?-(DG|DO|GP|CO|CC|CA|OP|CP|CH|RH|AL|VW|MQ|S&H|MT|PP|OF|LI|MA|ES|EN|VE|SI|FA|NN|ID|IDIG)-\\d{3}$\n\n\n---\n\n## 6) REGLAS DE REDACCIÓN (Contenido)\n- **Título:** dedúcelo de la explicación; si es ambiguo, propón uno y pide confirmación.  \n- **Objetivo y Alcance:** redacta con ≥ 5 frases cada uno. Expande con contexto genérico sin inventar hechos específicos (no supongas sistemas, formatos o responsables que el usuario no mencionó).  \n- **Definiciones:** si el usuario no provee, busca palabras clave de la explicacion libre del usaurio y suguire al usario de 3 a 5 palabras con su definicion; respeta la regla de 1 pregunta por mensaje).  \n- **Desarrollo:**  \n- Convierte la narrativa en pasos ordenados con estructura `{responsable, actividad}`.  \n- Si detectas puntos de desicion, anótalos.  \n- Muestra los pasos propuestos y pregunta si desea agregar/editar. Repite hasta confirmar.  \n- **Políticas:** solicita y enumera (breve, accionables).  \n- **Indicadores:** estructura como `{nombre, meta,frecuencia, dueno_dato}`.  \n- Si falta meta, sugiere ≥ 95% y pide confirmación.  \n- frecuencia por defecto `\"mensual\"` (confirma si aplica).\n\nEjemplos de Redaccion: \n\n\"\"\"\nObjetivo: Establecer las actividades y responsabilidades en la solicitud de maquilas de acuerdo a las \nnecesidades de los procesos de producción en Litoprocess. \n\nAlcence: Aplica a todos los procesos de Litoprocess que intervienen en la manufactura de un producto \nque requiere un servicio de tercerización. \n\nActividad : Operaciones recibe el combo generado por ventas y clasifica la información contenida, \npara comunicar y enviar la documentación necesaria a otras áreas. \n \nDetermina el tipo de proceso o si se requiere la contratación de maquila para la \ntransformación del producto.\n\n\"\"\"\n\n\n## 7) ORDEN DE RECOLECCIÓN (prioridad de faltantes)\n1. Descripción general del procedimiento (si no existe).  \n2. Título (proponer y confirmar si falta).  \n3. Área ({AREA}) (mostrar menú SIGLA — Nombre).  \n4. ¿Aplica FSC? (sí/no).  \n5. Elaboró (Área que elaboró).  \n6. Elaboró Persona (nombre completo).  \n7. Fecha de emisión (normalizar).  \n8. Referencias_normativas.  \n9. Referencias_documento.  \n10. Formatos (códigos y nombres).  \n11. Desarrollo (proponer pasos → confirmar/ajustar → preguntar si desea agregar más).  \n12. Políticas.  \n13. Indicadores.  \n14. Revisó y Autorizó (nombres completos).  \n15. Crear mermaidCode \n\n\n---\n\n## 8) DIAGRAMA MERMAID (una sola línea)\n- Sintaxis base: `flowchart TD;`  \n- Regla pro: Encierra TODAS las etiquetas entre comillas dobles para evitar ambigüedades con números, acentos, paréntesis o signos de interrogación.  \n- Inicio/Fin: `A([\"Inicio\"]), Z([\"Fin\"])`.  \n- Paso: `P1[\"1. acción concreta (Responsable)\"]`.  \n- Decisión / Punto de control: `D1{\"¿Aplica FSC?\"}` o `D2{\"Punto de control: L-FO-CH-021\"}`.  \n- Una sola línea; separa cada elemento con `;`.  \n- Evita comillas tipográficas (“ ”, ‘ ’); usa comillas rectas \" en las etiquetas.  \n- Evita poner diagonales \"/\" \"\\\"  \n\n**Ejemplo válido (genérico):**  \nflowchart TD; A([\"Inicio\"]) --> P1[\"1. Recibir solicitud (Área)\"]; P1 --> D1{\"¿Cumple requisitos?\"}; D1 -- Sí --> P2[\"2. Ejecutar actividad (Responsable)\"]; D1 -- No --> P3[\"3. Notificar y cerrar (Responsable)\"]; P2 --> Z([\"Fin\"]); P3 --> Z([\"Fin\"])**Ejemplo del usuario (válido):**  flowchart TD; A([Inicio]) --> P1[\"1. Enviar Requisición de Personal a Atracción de Talento (Área solicitante)\"]; P1 --> P2[\"2. Verificar si el puesto es nuevo o reemplazo (Atracción de Talento)\"]; P2 --> D1{\"Puesto nuevo?\"}; D1 -- Sí --> P3[\"3. Elaborar Descripción de Puesto con autorización de Dirección (Atracción de Talento)\"]; D1 -- No --> P4[\"4. Validar perfil y Constancia de Competencia Laboral si aplica (Atracción de Talento)\"]; P3 --> P5[\"5. Difundir vacante en canales autorizados (Atracción de Talento)\"]; P4 --> P5; P5 --> P6[\"6. Filtrar CVs y verificar reingresos con Obligaciones Obrero Patronales (Atracción de Talento)\"]; P6 --> P7[\"7. Agendar entrevista inicial, evaluación teórica y psicométrica (Atracción de Talento)\"]; P7 --> P8[\"8. Llenar Formato de Evaluación de Entrevista para decidir la terna (Responsable de Área)\"]; P8 --> P9[\"9. Realizar evaluación médica (Servicio Médico)\"]; P9 --> D2{\"¿Candidato apto?\"}; D2 -- Sí --> P10[\"10. Solicitar Estudio Socioeconómico (Servicio Médico)\"]; D2 -- No --> Z([Fin]); P10 --> P11[\"11. Emitir oferta y recabar documentos para contratos y alta de nómina (Atracción de Talento)\"]; P11 --> P12[\"12. Registrar ingreso en biométricos e integrar expediente (Atracción de Talento)\"]; P12 --> P13[\"13. Gestionar inducción a la empresa con lista de asistencia y evaluaciones (Atracción de Talento)\"]; P13 --> P14[\"14. Realizar inducción al puesto (Jefe inmediato)\"]; P14 --> P15[\"15. Aplicar evaluaciones de desempeño cada 30 días durante primeros 3 meses (Atracción de Talento)\"]; P15 --> P16[\"16. Confirmar planta o terminar relación laboral (Atracción de Talento y Responsable de Área)\"]; P16 --> Z([Fin])\n\nCatálogo sugerido de state:\ninicio, esperando_descripcion, metadatos_area, metadatos_fsc, metadatos_elaboro, metadatos_fecha, contenido_titulo, contenido_objetivo, contenido_alcance, contenido_referencias, contenido_definiciones, contenido_formatos, contenido_desarrollo_borrador, contenido_desarrollo_confirmado, contenido_politicas, contenido_indicadores, aprobaciones_reviso_autorizo, diagrama_generado, revision_final, entrega_json_final.\n\n## 10) LÓGICA CONVERSACIONAL (paso a paso)\n- Clasifica: saludo vs. explicación.  \n- **Saludo** → pide descripción general (paso 1 del §7). `state = esperando_descripcion`.  \n- **Con explicación** → llena JSON y detecta faltantes.  \n- Pregunta 1 cosa a la vez, siguiendo el orden del §7. Actualiza `state` y `mensaje`.  \n- Normaliza: fecha, código, nombres, listas.  \n- Desarrollo: propone pasos `{no, responsable, actividad}` y pregunta si desea agregar/editar.  \n  - Si responde que **sí**, agrega o ajusta y vuelve a mostrar los pasos.  \n  - Si responde que **no**, marca `contenido_desarrollo_confirmado`.  \n- Genera `mermaidCode` con los pasos confirmados (una sola línea).  \n- Pide aprobaciones (Revisó, Autorizó).  \n- Entrega final: responde \"Generando Documento...\" `state = entrega_json_final` y sin preguntas.  \n\n---\n\n## 11) EJEMPLOS RÁPIDOS\n\n### Ejemplo A — Saludo\n**Entrada usuario:**  \n\n**Salida (solo JSON):**  \n```json\n{   \n  \"state\": \"esperando_descripcion\",   \n  \"mensaje\": \"¡Hola! Soy Lito. Para comenzar, cuéntame por favor: ¿qué procedimiento quieres documentar y cómo se realiza en tu área?\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n   \"elaboro_area\": \"\",\n    \"elaboro\": \"\",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\nEs un procedimiento de reclutamiento para toda la empresa…\n{   \n  \"state\": \"metadatos_area\",   \n  \"mensaje\": \"Perfecto. Para armar el código del documento necesito el área. ¿Cuál aplica? (responde solo la SIGLA) DG — Dirección General | RH — Recursos Humanos | CH — Salud/Higiene | S&H — Seguridad e Higiene | OP — Operaciones | EN — Ingeniería\",   \n  \"metadatos\": {\n    \"fecha de emision\": \"\",\n    \"elaboro\": \"\",\n \"elaboro_area\": \",\n    \"reviso\": \"\",\n    \"autorizo\": \"\",\n    \"tipo_documento\": \"PO\",\n    \"area\": \"\",\n    \"codigo\": \"L-PO-{AREA}-000\",\n    \"revision\": \"00\"\n  },   \n  \"contenido\": {\n    \"titulo\": \"Reclutamiento, selección e incorporación de personal\",\n    \"objetivo\": \"\",\n    \"alcance\": \"\",\n    \"referencias\": [],\n    \"definiciones\": [],\n    \"formatos\": [],\n    \"desarrollo\": [],\n    \"politicas\": [],\n    \"indicadores\": [],\n    \"mermaidCode\": \"\"\n  } \n}\n\n\n\n## 12) NOTAS FINALES (Optimizado)\n\n* Si el usuario da información contradictoria, prioriza lo más reciente y pide confirmación en la siguiente interacción.\n* Mantén siempre el `mermaidCode` en **una sola línea**, con **comillas dobles rectas** en etiquetas y separadores `;`.\n* Normaliza caracteres problemáticos: convierte `\\\"`, `“ ”`, `‘ ’`, `…` a texto simple y usa siempre comillas rectas `\"`.\n* Nunca incluyas datos personales sensibles fuera de lo requerido en el control documental.\n* **Catálogos**: muéstralos con saltos de línea o guiones `-`, pero **nunca** con `*`.\n* Siempre responde con **JSON válido**, sin caracteres de Markdown o HTML (`* _ \\` [ ] < >`).\n* El campo `mensaje` debe ser texto plano, listo para enviar en Telegram con `parse_mode = None`.\n* No anuncies que vas a crear o mostrar el diagrama. **Hazlo directamente**.\n* En ningun mansaje al cliente agregues: \"*\"\n* NUNCA INICIES ELMENSAJE CON ALGUN SIGNO como \"!\", \"¡\",\"¿\",\"?\", etc.\n\n### 12.1 Filtro de saneamiento para `mermaidCode`\n\nAntes de devolver el diagrama:\n\n1. Reemplaza comillas escapadas y tipográficas → `\"`\n2. Elimina saltos de línea y espacios duplicados.\n3. Verifica que la cadena inicie con `flowchart TD;`.\n4. Separa cada parte con `;`.\n5. Asegura que corchetes, llaves y paréntesis estén balanceados.\n6. Conserva siempre las comillas en etiquetas.\n7. El `mensaje` nunca debe iniciar con un carácter especial.\n8. Nunca indiques que generaras el diagrama solo hazlo \n\nEjemplo erroneo: \n\n\"Perfecto, he registrado los nombres para revisión y autorización. Ahora generaré el código Mermaid para el diagrama de flujo del procedimiento.\"\n\nEjemplo Correcto: \n\n\"Generando documento...\"\n---\n\n### 12.2 Mensaje final y envío de datos\n\nCuando todos los campos estén completos:\n\n1. Responde:\n\n```json\n{ \"mensaje\": \"Generando documento...\" }\n```\n\n2. cambia el state  a \"entrega_json_final\"\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        -13280,
-        -3328
+        -13200,
+        -3360
       ],
       "id": "5bf725fb-dc7d-43de-96a4-35a6ec54c289",
       "name": "AI Agent2",
@@ -443,8 +331,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -12960,
-        -3088
+        -12992,
+        -3136
       ],
       "id": "bb974b94-9528-4428-9f2a-7ea3eb0a92dc",
       "name": "Structured Output Parser1"
@@ -456,8 +344,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -12784,
-        -2864
+        -12912,
+        -2928
       ],
       "id": "4951b60f-5eed-4d0e-8e23-35d369ba6596",
       "name": "Google Gemini Chat Model3",
@@ -479,8 +367,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        -12912,
-        -3328
+        -12624,
+        -3456
       ],
       "id": "ed569e05-b6e2-43d0-bb4e-fa5076460dbd",
       "name": "Send a text message2",
@@ -500,8 +388,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        -13312,
-        -3088
+        -13120,
+        -3136
       ],
       "id": "62c8ba63-eed4-4f1c-a063-7607d350e0ec",
       "name": "Postgres Chat Memory1",
@@ -516,17 +404,17 @@
       "parameters": {
         "toolDescription": "Usa este nodo cuando tengas  todos los datos y los envies ",
         "method": "POST",
-        "url": "https://n8n.srv914565.hstgr.cloud/webhook-test/9ad2110b-2461-4ccc-95b8-e78556194b69",
+        "url": "https://n8n.srv914565.hstgr.cloud/webhook/9ad2110b-2461-4ccc-95b8-e78556194b69",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', ``, 'json') }}",
+        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', `Json recolectado por el agente`, 'json') }}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.2,
       "position": [
-        -13136,
-        -3120
+        -14672,
+        -3056
       ],
       "id": "2dba4249-2ec1-4c6d-a821-8a4a9541c4c6",
       "name": "Enviar Datos"
@@ -543,8 +431,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -13456,
-        -3104
+        -14480,
+        -3264
       ],
       "id": "8beb2350-7e12-4426-9b04-2b4969b0ec9a",
       "name": "OpenAI Chat Model",
@@ -554,6 +442,470 @@
           "name": "Converging"
         }
       }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.srv914565.hstgr.cloud/webhook-test/9ad2110b-2461-4ccc-95b8-e78556194b69",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "[\n  {\n    \"JSON\": {\n      \"state\": \"entrega_json_final\",\n      \"mensaje\": \"Documento completo generado y enviado exitosamente.\",\n      \"metadatos\": {\n        \"fecha de emision\": \"20 / Mar / 2025\",\n        \"elaboro\": \"Francisco Sanchez Tirado\",\n        \"elaboro_area\": \"Manufactura\",\n        \"reviso\": \"Luis Juarez Pedroza\",\n        \"autorizo\": \"Alberto Martinez Perez\",\n        \"tipo_documento\": \"PO\",\n        \"area\": \"MA\",\n        \"codigo\": \"L-PO-MA-000\",\n        \"revision\": \"00\"\n      },\n      \"contenido\": {\n        \"titulo\": \"Procedimiento para maquilas\",\n        \"objetivo\": \"Establecer las actividades y responsabilidades en la solicitud de maquilas de acuerdo a las necesidades de los procesos de producción en Litoprocess. Este procedimiento garantiza que la solicitud y seguimiento de servicios de tercerización se realice de manera organizada y efectiva, cumpliendo con los estándares de calidad. Además, define claramente los roles y responsabilidades de cada área involucrada para asegurar la eficiencia y oportunidad en la entrega. Contribuye a mantener la satisfacción del cliente y la mejora continua en los procesos productivos de Litoprocess.\",\n        \"alcance\": \"Este procedimiento aplica a todos los procesos dentro de Litoprocess que intervienen en la manufactura de productos que requieren servicios de tercerización. Cubre desde la recepción de la orden de compra del cliente hasta la entrega final del producto terminado, integrando áreas clave como Ventas, Manufactura, Maquila, Control de Calidad y Logística. Se enfoca en estandarizar las actividades para asegurar el cumplimiento de tiempos, calidad y requisitos específicos del cliente. Además, establece lineamientos para la coordinación con proveedores externos y el manejo documental asociado.\",\n        \"referencias\": [\n          \"ISO 9001:2015\",\n          \"FSC-STD-40-004 V3\"\n        ],\n        \"referencias_normativas\": [\n          \"ISO 9001:2015\",\n          \"FSC-STD-40-004 V3\"\n        ],\n        \"definiciones\": [\n          {\n            \"termino\": \"Maquila\",\n            \"definicion\": \"Servicio de tercerización para procesos de manufactura.\"\n          },\n          {\n            \"termino\": \"Combo\",\n            \"definicion\": \"Conjunto de documentos que incluye presupuesto, pedido, orden de producción, cotización y especificaciones.\"\n          }\n        ]\n      }\n    }\n  }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -14000,
+        -2640
+      ],
+      "id": "3a04d411-fe5e-4c88-aa99-5c9df7a2b6bd",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c51eccf1-0156-441e-a343-cb536fcbb126",
+              "leftValue": "={{ $json.output.state }}",
+              "rightValue": "entrega_json_final",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -12624,
+        -3264
+      ],
+      "id": "1817bec7-c35a-4ca8-bb1f-8dc2ef33ffca",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a79203ff-2223-43f6-9c0e-0024749ed6e3",
+              "name": "desarrollo",
+              "value": "={{ $('If').item.json.output.contenido.desarrollo }}",
+              "type": "array"
+            },
+            {
+              "id": "d84f6d91-1339-47ad-a24f-91f007fb18cb",
+              "name": "objetivo",
+              "value": "={{ $('If').item.json.output.contenido.objetivo }}",
+              "type": "string"
+            },
+            {
+              "id": "7953256b-0961-46df-a80d-dc41bccd8869",
+              "name": "alcance",
+              "value": "={{ $('If').item.json.output.contenido.alcance }}",
+              "type": "string"
+            },
+            {
+              "id": "eb5729b9-0dec-4187-b77e-9e72be865c12",
+              "name": "referencias",
+              "value": "={{ $('If').item.json.output.contenido.referencias }}",
+              "type": "array"
+            },
+            {
+              "id": "e9a76ebf-588e-4d62-a729-7c680e3bd48c",
+              "name": "mermaidCode",
+              "value": "={{ $('If').item.json.output.contenido.mermaidCode }}",
+              "type": "string"
+            },
+            {
+              "id": "fb500f32-37f6-4e8c-aacd-db8b9f693481",
+              "name": "definiciones",
+              "value": "={{ $('If').item.json.output.contenido.definiciones }}",
+              "type": "array"
+            },
+            {
+              "id": "b03dbc58-5397-4801-819c-1ec66ef67f09",
+              "name": "indicadores",
+              "value": "={{ $('If').item.json.output.contenido.indicadores }}",
+              "type": "array"
+            },
+            {
+              "id": "009053a6-2903-4d8f-9ce9-2b1269fad831",
+              "name": "politicas",
+              "value": "={{ $('If').item.json.output.contenido.politicas }}",
+              "type": "array"
+            },
+            {
+              "id": "946ee626-d5d9-4ed3-a6ad-6063e4f5e631",
+              "name": "formatos",
+              "value": "={{ $('If').item.json.output.contenido.formatos }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -12160,
+        -3376
+      ],
+      "id": "5c5bf8b0-b93b-42c8-b6ce-aed34306816c",
+      "name": "Contenido"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f9a0946c-969a-46b9-ad6f-fc7770768f42",
+              "name": "to",
+              "value": "={{ $('Telegram Trigger2').item.json.message.chat.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -11936,
+        -3376
+      ],
+      "id": "46915bf7-a76b-44cf-b885-50d57602b201",
+      "name": "Usuario"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://mermaid:7000/png",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "text/plain",
+        "body": "={{ $json.message.content }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "=data"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -11136,
+        -3376
+      ],
+      "id": "a798b048-21f4-4906-a8e2-dc93b6d0a75e",
+      "name": "ObtenerDiagrama"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>{{ $('Metadatos').item.json.titulo }}</title>\n</head>\n\n<style>\n    body {\n        font-family: Arial, sans-serif;\n        margin: 0;\n        padding: 20px;\n        font-size: 12px;\n        line-height: 1.2;\n    }\n\n    table {\n        width: 100%;\n        border-collapse: collapse;\n        margin-bottom: 10px;\n        text-align: center;\n    }\n\n    th,\n    td {\n        border: 1px solid #000;\n        padding: 5px;\n        vertical-align: top;\n        vertical-align: middle;\n    }\n\n    .logo-imagen {\n        height: 40px;\n        display: block;\n        margin: 0 auto;\n        background-size: contain;\n        background-repeat: no-repeat;\n        background-position: center;\n\n    }\n\n    .header-table {\n        width: 100%;\n        margin-bottom: 15px;\n    }\n\n    .header-table th,\n    .header-table td {\n        border: 0.5px solid #000;\n        padding: 5px;\n    }\n\n    .content-table {\n        width: 100%;\n        margin-bottom: 10px;\n    }\n\n    .content-table th,\n    .content-table td {\n        border: 0.5px solid #000;\n        padding: 5px;\n    }\n\n    .flow-table {\n        width: 100%;\n        margin-bottom: 10px;\n    }\n\n    .flow-table th,\n    .flow-table td {\n        border: 1px solid #000;\n        padding: 5px;\n        text-align: center;\n    }\n\n    .indicator-table {\n        width: 100%;\n        margin-bottom: 10px;\n    }\n\n    .indicator-table th,\n    .indicator-table td {\n        border: 1px solid #000;\n        padding: 5px;\n    }\n\n    .changes-table {\n        width: 100%;\n        margin-bottom: 10px;\n    }\n\n    .changes-table th,\n    .changes-table td {\n        border: 1px solid #000;\n        padding: 5px;\n    }\n\n    .page-break {\n        page-break-after: always;\n    }\n\n    .text-center {\n        text-align: center;\n\n    }\n\n    .text-bold {\n        font-weight: bold;\n    }\n\n    .signature-table {\n        width: 100%;\n        margin-top: 20px;\n    }\n\n    .signature-table-color {\n        background-color: #eee;\n    }\n\n    .signature-table td {\n        border: 1px solid #000;\n        padding: 5px;\n        text-align: center;\n    }\n\n    .signature-table-nombre {\n        height: 60px;\n    }\n\n    h1,\n    h2,\n    h3 {\n        margin: 10px 0;\n    }\n\n    .definicion-item {\n        margin-bottom: 10px;\n        line-height: 1.4;\n    }\n\n    .definicion-titulo {\n        font-weight: bold;\n        display: inline;\n    }\n\n    .definicion-texto {\n        display: inline;\n    }\n\n    ol,\n    ul {\n        margin-top: 5px;\n        margin-bottom: 5px;\n        padding-left: 20px;\n    }\n\n    li {\n        margin-bottom: 3px;\n    }\n\n    p {\n        text-align: justify;\n    }\n\n    .page {\n        width: 210mm;\n        min-height: 297mm;\n        margin: 0 auto;\n        padding: 32px;\n        padding: 1.5cm;\n    }\n\n    .diagram-container img {\n        max-width: 100%;\n        height: auto;\n        display: block;\n        margin: 50px auto;\n    }\n\n    .page:last-of-type {\n        page-break-after: avoid !important;\n        break-after: avoid !important;\n        min-height: auto !important;\n        margin-bottom: 0 !important;\n        padding-bottom: 0 !important;\n    }\n</style>\n\n<body>\n\n    <!-- Página 1 -->\n    <div class=\"page\">\n        <!-- Header -->\n        <table class=\"header-table\">\n            <tr>\n                <td><b>Fecha de Emisión</b><br>{{ $('Metadatos').item.json.fecha_emision }}</td>\n                <td><img class=\"logo-imagen\"      src=\"data:image/svg+xml;base64,{{ $('logo empresa').item.json.logo }}\"  alt=\"Logo\"></td>\n                <td><b>Elaboró</b><br>{{ $('Metadatos').item.json.elaboro }}</td>\n            </tr>\n            <tr>\n                <td style=\"width: 25%;\"><b>Código</b><br> {{ $('Metadatos').item.json.codigo }}</td>\n                <td style=\"width: 50%;\" class=\"text-bold\">PROCEDIMIENTO</td>\n                <td style=\"width: 25%;\"><b>Referencias Normativas</b><br>ISO 9001:2015 FSC-STD-40-004</td>\n            </tr>\n            <tr>\n                <td><b>Revisión</b><br>{{ $('Metadatos').item.json.revision }}</td>\n                <td class=\"text-bold\">{{ $('Metadatos').item.json.titulo }}.</td>\n                <td></td>\n            </tr>\n        </table>\n\n        <!-- objetivo -->\n\n        <h3>1. OBJETIVO:</h3>\n        <p>{{ $('Contenido').item.json.objetivo }}</p>\n\n        <!-- Alcance -->\n\n        <h3>2. ALCANCE:</h3>\n        <p>{{ $('Contenido').item.json.alcance }}</p>\n\n        <!-- Referencias -->\n\n        <h3>3. REFERENCIAS:</h3>\n        <p>{{ $('Contenido').item.json.referencias }}</p>\n\n        <!-- Formatos -->\n\n        <h3>4. FORMATOS:</h3>\n       {{ $json.formatosHtml }}\n        <!-- Definiciones -->\n\n        <h3>5. DEFINICIONES</h3>\n\n        {{ $json.definicionesHtml }}\n\n        <!-- Desarrollo -->\n\n        <h3>6. DESARROLLO</h3>\n\n        <table class=\"content-table\">\n            <tr>\n                <th style=\"width: 10%;\">No.</th>\n                <th style=\"width: 20%;\">RESPONSABLE</th>\n                <th style=\"width: 70%;\">ACTIVIDAD RECLUTAMIENTO</th>\n            </tr>\n            {{ $json.desarrolloHtml }}\n\n        </table>\n\n        <!-- Políticas -->\n        <h2>7. POLÍTICAS.</h2>\n        {{ $json.politicasHtml }}\n\n         <!-- Diagrama de flujo -->\n        <h3>8. DIAGRAMA DE FLUJO.</h3>\n    <div class=\"diagram-container\">\n    <img style=\"width: 100px;\" src=\"data:image/png;base64,{{ $json.data }}\" alt=\"Diagrama de Flujo\">\n</div>\n\n        <!-- Indicadores -->\n        <h3>9. INDICADORES.</h3>\n\n        <table class=\"indicator-table text-bold\">\n            <tr class=\"signature-table-color\">\n                <th style=\"width: 25%;\">INDICADOR</th>\n                <th style=\"width: 25%;\">META</th>\n                <th style=\"width: 25%;\">MONITOREO</th>\n                <th style=\"width: 25%;\">RESPONSABLE</th>\n            </tr>\n            {{ $json.indicadoresHtml }}\n        </table>\n\n     \n\n\n        <!-- Control de Cambios -->\n\n        <h3>10. CONTROL DE CAMBIOS.</h3>\n\n        <table class=\"changes-table\">\n            <tr class=\"signature-table-color\">\n                <th style=\"width: 10%;\">REVISIÓN</th>\n                <th style=\"width: 30%;\">FECHA DE REVISIÓN</th>\n                <th style=\"width: 60%;\">MOTIVO DEL CAMBIO</th>\n            </tr>\n            <tr>\n                <td></td>\n                <td></td>\n                <td></td>\n            </tr>\n\n        </table>\n        <table class=\"signature-table\">\n            <tr class=\"text-bold signature-table-color\">\n                <td class=\"width: 33%;\">Elaboró</td>\n                <td style=\"width: 34%;\">Revisó</td>\n                <td style=\"width: 33%;\">Autorizó</td>\n            </tr>\n            <tr class=\"signature-table-nombre\">\n                <td>{{ $('Metadatos').item.json.elaboro }}</td>\n                <td>{{ $('Metadatos').item.json.reviso }}</td>\n                <td>{{ $('Metadatos').item.json.autorizo }}</td>\n            </tr>\n            <tr class=\"text-bold\">\n                <td>Atracción de Talento</td>\n                <td>Gte. Capital Humano</td>\n                <td>Director General</td>\n            </tr>\n        </table>\n    </div>\n\n</body>\n\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -10464,
+        -3376
+      ],
+      "id": "73744ddb-5020-49fa-ad9d-8ff0b3078207",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "htmlInput": "={{ $json.html }}"
+      },
+      "type": "@custom-js/n8n-nodes-pdf-toolkit.html2Pdf",
+      "typeVersion": 1,
+      "position": [
+        -10240,
+        -3376
+      ],
+      "id": "608ed05b-f7b5-45b1-a2e3-49642915690c",
+      "name": "HTML to PDF",
+      "credentials": {
+        "customJsApi": {
+          "id": "lCllIeZx5fba9opf",
+          "name": "CustomJS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -10912,
+        -3376
+      ],
+      "id": "778b2f4d-2b20-4302-ae5b-d17711109064",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $('Usuario').item.json.to }}",
+        "binaryData": true,
+        "additionalFields": {
+          "caption": "Aqui tienes el documento "
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -9616,
+        -3376
+      ],
+      "id": "0bd04c95-9fae-4210-8b61-4cbfed19c571",
+      "name": "Send a document",
+      "webhookId": "76ab0cd1-d24e-4cbb-bf2e-7ef6571c3e32",
+      "credentials": {
+        "telegramApi": {
+          "id": "jwPn8kLpS6D1h2Cx",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "86884632-59d9-4451-b0e7-46d106550e66",
+              "name": "fecha_emision",
+              "value": "={{ $json.output.metadatos['fecha de emision'] }}",
+              "type": "string"
+            },
+            {
+              "id": "feffdef4-0d3c-459e-a196-6784bb481ccd",
+              "name": "elaboro_area",
+              "value": "={{ $json.output.metadatos.elaboro_area }}",
+              "type": "string"
+            },
+            {
+              "id": "c40a7e08-2c6f-43a4-9601-04f21013d0ab",
+              "name": "codigo",
+              "value": "={{ $json.output.metadatos.codigo }}",
+              "type": "string"
+            },
+            {
+              "id": "c52a61f3-95ea-411b-b4aa-7dc16de40c35",
+              "name": "area",
+              "value": "={{ $json.output.metadatos.area }}",
+              "type": "string"
+            },
+            {
+              "id": "b07a03d8-d778-4960-b03e-335f57c25fbd",
+              "name": "revision",
+              "value": "={{ $json.output.metadatos.revision }}",
+              "type": "string"
+            },
+            {
+              "id": "6adb6dd5-bdf8-45ed-a86d-575274538a55",
+              "name": "reviso",
+              "value": "={{ $json.output.metadatos.reviso }}",
+              "type": "string"
+            },
+            {
+              "id": "cc2d21ec-4bce-4c20-96c1-72d035930c78",
+              "name": "autorizo",
+              "value": "={{ $json.output.metadatos.autorizo }}",
+              "type": "string"
+            },
+            {
+              "id": "d43b1409-d593-44f9-90f7-ed50430f28be",
+              "name": "tipo_documento",
+              "value": "={{ $json.output.metadatos.tipo_documento }}",
+              "type": "string"
+            },
+            {
+              "id": "6a624f1a-4515-4392-a07d-ae1cf6488396",
+              "name": "titulo",
+              "value": "={{ $json.output.contenido.titulo }}",
+              "type": "string"
+            },
+            {
+              "id": "9bd85397-2396-4896-887a-deeca83b2a50",
+              "name": "elaboro",
+              "value": "={{ $json.output.metadatos.elaboro }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -12384,
+        -3376
+      ],
+      "id": "66df3166-f99a-48ff-878a-21b26e4fcb4a",
+      "name": "Metadatos"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -13248,
+        -3136
+      ],
+      "id": "d0428e65-ee4e-47fb-a341-5b266a4c22fb",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $('Contenido').item.json.mermaidCode }}"
+            },
+            {
+              "content": "=Recibiras un codigo para mermaid, debes verificar que este correcto en sus sintaxis y corregir cual quier error, solo devueleve el codigo, sin comillas ni nada\n\nEjemplo de codigo correcto: \n\nflowchart TD\n    A([\"Inicio\"]) --> P1[\"1. Cliente envía Orden de Compra (Ventas)\"]\n    P1 --> P2[\"2. Genera el Combo (Ventas)\"]\n    P2 --> P3[\"3. Entrega el Combo a Operaciones (Ventas)\"]\n    P3 --> P4[\"4. Recibe y clasifica información del Combo (Jefe de Operaciones)\"]\n    P4 --> D1{\"5. ¿Requiere compra externa? (Jefe de Operaciones)\"}\n    D1 -- Sí --> P6[\"6. Genera solicitud a Compras (Jefe de Operaciones)\"]\n    D1 -- No --> P7[\"7. Envía cotización y OP a Maquilas (Jefe de Operaciones)\"]\n    P6 --> P8[\"8. Genera carta de envío con especificaciones y dummy (Maquilas)\"]\n    P7 --> P8\n    P8 --> P9[\"9. Registra solicitud en sistema para OC (Maquilas)\"]\n    P9 --> P10[\"10. Emite Orden de Compra (Compras)\"]\n    P10 --> P11[\"11. Recibe carta y OC, valida información (Proveedor)\"]\n    P11 --> P12[\"12. Solicita liberación de productos y registra salida (Maquilas)\"]\n    P12 --> D2{\"13. ¿Requisitos de productos válidos? (Calidad)\"}\n    D2 -- Sí --> P14[\"14. Libera material (Calidad)\"]\n    D2 -- No --> P15[\"15. Reporta no conformidad (Calidad)\"]\n    P14 --> P16[\"16. Coordina transporte al proveedor (Entregas)\"]\n    P15 --> Z([\"Fin\"])\n    P16 --> P17[\"17. Recibe producto y elabora muestra (Proveedor)\"]\n    P17 --> P18[\"18. Solicita Vo. Bo. a Calidad, si aplica (Proveedor)\"]\n    P18 --> D3{\"19. ¿Muestra cumple requisitos? (Calidad)\"}\n    D3 -- Sí --> P20[\"20. Autoriza inicio de proceso (Calidad)\"]\n    D3 -- No --> P21[\"21. Solicita ajustes (Calidad)\"]\n    P20 --> P22[\"22. Realiza operaciones con orden y autorizaciones (Proveedor)\"]\n    P21 --> P22\n    P22 --> P23[\"23. Registra bitácora de envíos/recepciones (Maquilas)\"]\n    P23 --> P24[\"24. Controla entradas y notifica (Vigilancia)\"]\n    P24 --> P25[\"25. Verifica cantidades y condiciones (Entregas)\"]\n    P25 --> D4{\"26. ¿Inspección es conforme? (Calidad)\"}\n    D4 -- Sí --> P27[\"27. Libera productos (Calidad)\"]\n    D4 -- No --> P28[\"28. Reporta no conformidad e informa a responsables (Calidad)\"]\n    P27 --> P29[\"29. Firman facturas al recibir (Almacén/Maquilas/Producción)\"]\n    P28 --> P30[\"30. Informa sobre cambios solicitados por cliente (Ventas)\"]\n    P29 --> P30\n    P30 --> Z([\"Fin\"])\n\nTomar en cuenta : \n\nEn flowchart TD, los nodos con texto entre comillas deben escribirse como [\"texto\"] o ([\"texto\"]), pero nunca mezclados.\n\nEvita las comillas dobles escapadas dentro de los nodos (usa comillas simples o sin comillas).\n\nLos nodos de fin/inicio deben tener el mismo estilo para consistencia.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -11488,
+        -3376
+      ],
+      "id": "9bdbb9c3-d83e-4514-ae26-7b4a408f9c88",
+      "name": "Reparar Mermaid Code ",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const definiciones = $(\"Contenido\").first().json.definiciones || [];\nconst formatos = $(\"Contenido\").first().json.formatos || [];\nconst desarrollo = $(\"Contenido\").first().json.desarrollo || [];\nconst politicas = $(\"Contenido\").first().json.politicas || [];\nconst indicadores = $(\"Contenido\").first().json.indicadores || [];\n\nlet definicionesHtml = \"\";\nlet desarrolloHtml = \"\";\nlet politicasHtml = \"\";\nlet indicadoresHtml = \"\";\nlet formatosHtml = \"\";\n\nconst sectionFormat = 4 // \"4\" de 4.x\nconst sectionDef = 5; // \"5\" de \"5.x\"\nconst sectionDes = 6; // \"6\" de \"6.x\"\n\n// --- Definiciones ---\n(definiciones || []).forEach((def, i) => {\n  const num = `${sectionDef}.${i + 1}`; // 5.1, 5.2...\n  const texto = (def.definicion || \"\").replace(/\\.\\s*$/, \"\"); // evita doble punto\n\n  definicionesHtml += `\n    <div class=\"definicion-item\">\n      <span class=\"definicion-titulo\">${num}. <strong>${def.termino || \"\"}</strong>:</span>\n      <span class=\"definicion-texto\"> ${texto}.</span>\n    </div>`;\n});\n\n// --- Desarrollo ---\n(desarrollo || []).forEach((dev, i) => {\n  const num = `${sectionDes}.${i + 1}`; // 6.1, 6.2...\n\n  desarrolloHtml += `\n    <tr>\n      <td>${num}</td>\n      <td>${dev.responsable || \"\"}</td>\n      <td>${dev.actividad || \"\"}</td>\n    </tr>`;\n});\n\n// --- Políticas ---\n(politicas || []).forEach((pol) => {\n  politicasHtml += `\n    <ul>\n      <li>${pol}</li>\n    </ul>`;\n});\n\n// --- Políticas ---\n(indicadores || []).forEach((ind) => {\n  indicadoresHtml += `\n           <tr>\n                <td>${ind.nombre}</td>\n                <td>${ind.meta}</td>\n                <td>${ind.frecuencia}</td>\n                <td>${ind.dueno_dato}</td>\n            </tr>\n            `;\n});\n\n// --- Formatos ---\n(formatos || []).forEach((format) => {\n  formatosHtml += `\n           <ul>\n      <li>${format.codigo} - ${format.nombre}</li>\n    </ul>`;\n\n});\n\n// --- Return ---\nreturn [\n  {\n    json: {\n      ...$json,\n      definicionesHtml,\n      desarrolloHtml,\n      politicasHtml,\n      indicadoresHtml,\n      formatosHtml\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -10688,
+        -3376
+      ],
+      "id": "8d6fcb8f-387d-4e07-abd5-7c9c9790c933",
+      "name": "iterar en Arrays"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e40bf43b-cf96-4825-9e93-1ba3dfcd6b6f",
+              "name": "logo",
+              "value": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzkyIiB6b29tQW5kUGFuPSJtYWduaWZ5IiB2aWV3Qm94PSIwIDAgMjk0IDU0IiBoZWlnaHQ9IjcyIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0IiB2ZXJzaW9uPSIxLjAiPjxkZWZzLz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjIwNDQzLCAwLCAwLCAwLjIwMzkxNiwgMi42NzI3MjYsIDAuMDAwMDAxOTYzNjQpIj48aW1hZ2UgeD0iMCIgeT0iMCIgd2lkdGg9IjE0MTIiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzJ3QkRBQUlCQVFFQkFRSUJBUUVDQWdJQ0FnUURBZ0lDQWdVRUJBTUVCZ1VHQmdZRkJnWUdCd2tJQmdjSkJ3WUdDQXNJQ1FvS0Nnb0tCZ2dMREFzS0RBa0tDZ3IvMndCREFRSUNBZ0lDQWdVREF3VUtCd1lIQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnci93QUFSQ0FFRUJZUURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdEOS9LQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUNRQmtuSDFvQVRjcE9BUm4wb0FXZ0F5UFVVQUdSNmlnTG9NZzlEUUFaSFROQUJSZEFHUjZpbGRBR1I2aWk2RmRCa2Vvb3VndWd5UFVVWFFYUW01UjFZZm5UdWd1ZzNwL2VINTByb1lvSVBRMFhRQmtldEo2Z0p3d3htbWdBQURwVEVsWVdnWVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBSHhUL3dYMS9iRCtLWDdGUDhBd1R3MTc0by9CSHhrZEI4VjMydWFmcGVrYWpIQ3J5UmViSVdrS0J1QTNsb2VlY1pyNmJoSExLV2E1M0NqV2plSFU0OGJYZENqZEg0RTJuL0JlVC9ncmxZa1F4L3R0K0paRlhJWHpyVzFja2U1TVdUK05mdThlQU9INWFxaXZ1UjgrOHp4SFJsNWYrQysvd0R3VnYyN1cvYk4xdnAxL3M2MC93RGpWYXg4UHVIMXZSWDNML0loNXRpcmFNWS8vQmZML2dyZXdPZjJ6OWUvNERZMmcvOEFhTmEvOFE4NGMvNThyN2tDemJFcnJjaGIvZ3ZmL3dBRmNpQ1ArRzBQRVAxRmxhZi9BQnFwL3dDSWVjT2Y4K1Y5eUI1emlTTS84RjZQK0N1QlBQN2EzaVQ4TGExL3BGV2k4UHVHcmEwRjl5Si90ZkY5R0MvOEY1UCtDdDdkZjIxZkUyTzMrajIzL3dBYXF2OEFpSHZETC81Y0w3a1ArMk1WYmNVZjhGNHYrQ3RaSFA3YS9pYjhJYmIvQU9OMGY4UTg0WlgvQUM0WDNJcUdjNG1PNGY4QUQrSC9BSUsxZ2Y4QUo2bmlZLzhBYkszL0FQamRUL3hEemhuL0FKOHI3a09XZDRpK2cwZjhGNHYrQ3VCNVA3YW5pVWZTRzMvK04wLytJZWNNZjgrVjl5Ri9iZUk3Qi93L2gvNEszRC9tOWJ4Ti93QitiZjhBK05VZjhRODRZLzU4cjdrSDl0NGpzSC9EK0wvZ3JkLzBldDRtL3dDL0Z2OEEvR3FQK0llY01mOEFQbGZjZy90dkVkaFArSDgvL0JXelBIN2EzaVVEM2h0di9qVkQ4UGVHditmQys1RC9BTGF4UFlSditDODMvQlcxaGovaHRyeE92cmkzdGY4QTQxUy80aC93MS96NFgzTC9BQ0dzNXhCQkovd1hjLzRLM014WWZ0emVMVjloQmE0LzlGVS8rSWU4TS84QVBoZmNpMW5OZnlGdGYrQzcvd0R3VnpTNVVMKzNONHJJSncyKzF0Q01makRXVmJ3LzRhaEhTaXZ1UmNNNXF1U1RQNkpmK0NLZmpuOW9YNHBmOEU0UGgzOFd2Mm4vQUlnYWo0bDhYZUtyVzUxVzYxSFZGUVNDQ1M0Y1FSNFFBWUVhcVJ4L0ZYODljVVVNSGg4N3Ewc05IbGpIVFR1ZlFZZWNxc0xzK3JsSkl5YStlc2JDMHdDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBemlnRDhYUCtEd2o0dE5aL0M3NFEvQkMxdmlwMUhYNzNXTHVCVDk5SVlSRW1mYmM1SXI5VzhLOEdxdVpWS3Nsb3JKSGg1elVhcEtLUHdoaGlMTVdZWnlPTTEvUlVZd2l0RDVWc2Q1Qk9TRi9XazVSVHNRNzNIRkJnNEZYekl6NXBFUGxZNUg4NmQwSmMxeGZMYkdhTG9wemFFTVpQQkZPOWllZE1BaXAxSFdsZEZLUW13TnlmNTBuSklUazdpcWh4eC9PbXBJT2F3R0lua2lpNkpsT3dlU3RMbVFjelpGNUovdWo4Nk9kRmM0dmtIKzZQem81a0hPSkpDVVhPUDFxbEpYSHozMEZzZFB1TlV2STlPc1Z6UGNTcEZDdnE3c0ZBOStUWERqNjBZVW5KN0kybzNsTS9zKy9aRitGS2ZBNzlsNzRmZkNKZDJmRG5nM1RyQ1RjZWQ4ZHVnZi9BTWUzVi9IT2ExdnJHWlZxbmVUL0FEUDBERHg1S1VWNUk5SVVZRmVlYkMwQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUNPeXFDVzZkNlRkZ1A1dmY4QWc2NStLc3ZqTC9nb3ZwbnczVzg4eTM4SCtBN0pCRmppT2E1ZVNWL3JsUW41Vi9RM2hYaFkwOG1kWnJWeWYrUjhwbmxSKzBzZm1ORW94a2p0WDYzMFBtSnprcERnR2JrR3NaU1NZMDdvWjVwQXdDYXJtYVJselNiR1pQcWFUbXl0ZTR1NCt0Q20wdzFlallqT0FPUitWVnp0Z3VXT28zZVBRMFhZK2RDTVFUa1ZMWTFKTVRKSFEwMHhwM0hCd0J6bW5kbVUvaURjbjkzOUtubVJvbXJEYU9aQnpJQ1F2SnBPU1ErWkVjcmtxU1d5QU9LT1poRzdrZXhmOEU2UGhKRjhlUDI4dmhCOEpiaUR6YmZXdmlGcGFYYUFaekNsd3Nzbi9qcUhQdFh5M0ZPTCtyNUxYcVgyaXowY0NuTEVLUGMvc2poVUJjQlJqdFg4bVh2Sm8rL1NWaCtBT2dwcEpEQ21BVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBTWtBTEFIdnhTNmlic2Z5WC9BUEJidjRySDR3LzhGVFBqRjRuU2Z6SWJQeFEybFd4M1pBUzBqV0FZOU9WYXY2aTRFd3YxWElxVVA1a245NnVmRTV2UDJsWitSOHFxR0JDcU94cjd5VHNqeEpMbUhCdHZHTzladVBOcU5hSWlwYWtkUW9BS0FFY2tEZzBBTXlmVTBBR1NlcG9BS0JwMkRKOWFpVTdNbHkxQ2w3VHlGekJSN1R5RG1FWTRIU2puOGkyckVEZ25JQjcwS2R6U0o5K2Y4R3ovQU1JMCtKbi9BQVZrOEY2cFBDSklQQ1drYW5yVG5IM0dTQXhSdC8zM0tCWDUxNGs0bDRiaDl4WDJuYjd6M2NscGMrS1Q3SDlSc2VRQUc0R0svbTY2dlkreDh4d0lQUTFWN2pUdUxRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQVpQanJ4UFkrQ2ZCdXJlTTlUa1ZMYlNOTHVMMjRaamdCSW8yZGorUzFyaDZUcjRtRkpmYWFYM3V4RlI4c0creC9GNThhdkhWMzhUdmpCNHIrSTErd2FmWC9FbDlxRXJBNXlaWjNmOEFrUlg5ZFpGUmREQVVvdGJKSHdPTHFPclZiOHpuUTJBQ1BTdmNxSEJhekdPeFluanZVcVdoTGtSYno2Q2t5UmZNOXF6OW95ZVlUZDgyN0ZOVGJkZ1R1SWVUbXJLQ3BsTGxFM1lLbjJqRnpCUjdSaHpCVU4zZHlYcUZJQW9ZTGNZWEpHS25tWnR6RVRJZDI3K2xMbVpVWDBQMmQvNE04ZmhPTlErTlh4ZytOTTBMR1BTdkRlbmFSQklWNEVseE5KTTR6anJ0alRwMk5mam5pdGpHNlZIRDkzZjdqNmpJcWMxVmNudFkvZTRLTWJhL0ZHcm4wOXRBQTI4Q2hLd0pXRnBqQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BWlBNSUkybWRzS295eEpBd081NW9BajA3VWJQVnJLTFVkUHVZNW9Kb3c4VTBUaGxkVDBJSTZqM29Bbm9BS0FDZ0FvQUtBQ2dENXQvNEsrL0ZQL2hUdi9CTkQ0MGVOVW5FY284QjN0bGJuT0NaTGxmczZnZS83eXZlNFl3LzFyUHFFTFg5NVA3am14YytTZzJmeUpuYXpFOUI2WjZlMWYxdmg0cU1FdWgrZlZtM1ZiUXVRSThqdFdsWjJNbnVKc0I1UGVzMUoySnNpUFlQVTFIUEl4NW1CUUFacVJEYXFIeERXNFZzV0ZKeFQzRmE0VXVTSVdRVWNrUXNncktTc3lYdUZhS0NhS1NRVmtRdHlPbHlvMERrL2RQNDByVzFRMXVmMFpmOEdrL3dxVHduK3dYNHMrSjhsc1VtOFdmRUdkUTVIMzRyU0NPRlNENlozMS9PbmlUalhpYzZqQi9ZamI4VDd6S0tkc09wZHo5VnUrYS9QRDF3b0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQTRyOW83eHpwZnd6K0FIamY0aDYzSXEybWgrRTlRdmJnc2NEYkhiU05qUDRZL0dxcHdjNmlpdW9ISi84QUJQM3hHdmkvOWlYNFdlSjBRS0wvQU1ENmZPQURuaG9RYXFyQjA2amlCN0RXWUJRQVVBRkFCUUFVQWZtMS93QUhUWHhRYndOL3dURXV2Q052ZUdPWHhaNHgwMndLS2NGNGtacG5IMCtSYS9RUERmREt2eENwUGFNV2VYbXM1UncyaC9OTDkxU01Ecmo2Vi9TOU82aWtmRTFQaUhFanlRQU9jOWFWVjNkako3amQ3QTRCN1ZsZGlFcExjNTF1RXFucW5UdnpXbG8yTnVXSkhVdytJT1dJVnNPeUNnbHF3VUNDZ0FwT0tiRlpCV2JrMDdFM2FBOEExQnJ5eEltSkF5S0JLMXhiUmxFNmVhMkZCeXg5QU90RDBUWnJCZS9vZjFoZjhFRVBoWkw4SmY4QWdsUDhKZEl1Yll3ejZ0b3N1c1RvVHptNm1lVUUrdnlsYS9sVGkrdjlZNGhyeXZzN0g2RmdVbGhZbjJOWHpSMkJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFCOFhmOEhCSHhqdXZndC93U1orTG1zYVpmdkJmNjFwVnRvZGcwUndTOTVkUlJPdjBNWG01OXMxNmVUWWY2MW1VSUdkU2ZJcm0vL3dBRU5mR0VIamYvQUlKTy9BL1dZWkNXaThHcFpTZ3liaUpMZWVXRmhrOWVVcWM0cGV4ektwRHN3cFM1b0puMWt2SUgwcnpqUUtBQ2dBb0FLQUVQWTVvQS9FMy9BSVBCUGlxSS9EL3dnK0NVZHd3OCs2djlibmp5ZHBDQllVSi9FbjhxL1lQQ2ZDcWRldGlMYldYNm5nWjVVY0thUitHNVZjQmdQd1BhdjN0WGNMbnlFNTNraFhBMjlCV0RzMlNRbmdrRGdack43Z0FPRG1nVm9vYk1MaHVZNFhLOXpHcFA2Q3NxdGVOTlhrN0kzcFVKMWZnSC93Qm02cVV5Tk11dnFiVngvTmE0WG0rQmpLM3RGZjFSdC9aK0lXNkdOWmFxUCtZZlB4LzB5UDhBaFdpelhDMytOZmVUOVJydlpEb3RNMWlVRXBwZHkyUDd0dXgvcFduOXFZWCtaZjE4dytvMTF1Z0dtYXlSazZUZURuL24wZjhBd3BQTXNMMW12djhBK0NMNmxXL2xITG8ydXY4QWQwVzhQL2JxL3dEaFVQTThOMG12dktXQ3EveWlmMlJyS25EYVBlRDB6YXYvQUlWU3pMRFcrTkI5VHE5bU5hM3VJanRuaFpEbkdIVXFmMUZkTkxGNGFwOXBmZ1oxTUpVaXIyRU1VbVBtUXJucG10ZEc5SGN3NVpKYW9pS0hIT0sxYVZpSG9hSGhidzdmZUt2RU5sNFoweTNNbHpxVjFIYVFSZ2NsNVhFWS93RFFxNHNWSjA4Tk9YWk02c0xEbXJLTDZuOW8vd0FBZmg5WmZDZjRLZUVmaGpwOXNrTVhoN3d4WWFja2NTZ0tCRGJvaHdQcXAvT3Y0L3h0YVdKeGxTcTN1Mi94UDBTaFQ5alNVT3gyRmN4cUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFINVAvQVBCM1I4VDVmREg3Q0hndjRhVzB3VStLZmlSYnRNdlV2SGEyOHNuL0FLRTYxOXR3TGduaXMwbEwrVkhKaTJsQTZiL2cxUStOTnI4UVArQ2JVL3dzbHVOMTc0QThiWDlpOGU3N2x2Y2JicUUrM0x5ZmxXWEhHWHZCNXNxblNTdjkyaGxsOWIybE53N0g2Y3FBQlh4eDZBdEFCUUFVQUZBRFhPTVVtSFUvbk8vNE95L0g4dmlMOXY4QThPK0IxdVMwZmgzNGYyNjdBM0N2Tk5KSWZ4eGl2NkE4S0tYSmxjNXY3VWo1ak9uRnRuNVp4Qm1JVmozOUsvWHBPS2hZK1dtclNRc3JaWWdWeHQ2Z1JsOEhHS1FEMTY5S0FmbWQzOEFmMml2aWgrekY4UUlQaWI4STlXdHJMVjRZekg1dDVwOE4xRzZIK0ZvNWxaU1AvclY1K2E1VmhzeXd6cFZuOXgxWVhGU3d6VGdmcjcvd1ROLzRPSXZnOThZZmlKcFh3Ti9icitCWGdidysrb2lLMHNmRyttNkxBbHRKY3MyRkZ4RDVZRUt0eGx3U29KN1YrS2NTY0I0ekxvU3I0S2JrbDB1ejZmQjVoREVUVVo3bjdJV253RytBVjJvdTRQZy80UmxXVkF5eXI0ZnRtM2c4ZzUyYzVHRG12ekY0bkY3U203K3JQYlVJWExjWHdKK0IwUDhBcWZnNTRWWHNkdmg2Mkgvc2xIMXJGZnp2NzJWeVI3RW8rQ253YkEycjhKdkRJR09uOWdXLy93QVJTK3M0bitkL2V3NUk5Zy80VXY4QUIxQnRId284TWdmOWdHMy9BUGlLUHJPSi9uZjNzT1NQWWEvd1ErREVvK2I0UitHQ08yN1FMYy8reVVmV3NWL08vdllja2V4a2E1K3l4K3pWNG5qTUhpUDluM3dWZklTY3JjK0Y3Vnh6d2VESFdrY3d4dFA0YWtsYnpabDdDRGQyajRnL2JyLzROcVAyRi8ybTlKMUx4TjhETkRQd3Q4WTNIN3lDNzBUYzJselAzV1d6enRBUDk2UGFSMXdlbGZhNUQ0aVp4bDFWTEV2MnRQcXRuL1g5WE9URVpiaDYwV2ZnTiszUit3Riswbi93VDYrSzh2d28vYUk4R3RaU3loNWRJMWEwSmtzdFd0d1NQT3Q1Y0RjT201VGhsNkVWKzlaSHhMbHVlNFpWTVBLL2RkVS9NK1B4dUFuaDZteFAvd0FFeC9obko4WXYyL2ZoQjhPRXRoTXVwZkVMVEJQR2U4TWN5eXYvQU9Pb1RYUHhSaS9xV1JWNnJkdFB6VFJPWHdjc1ZIMVA3RFljWkpIY2tqODYvazFNL1JPcEpUQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BQ1FPcG9BL0JYL2c3OStMMEdzZkdiNFIvQXkydVdjNk5vZDlyZDNDcDRWNTVGaWpKOVBsamI4Ni9ZdkM3QnUxWEVQWnUzM0hoNXJWOW5vZWFmOEFCckQrMW9QZ3orMjlmL3M1YTdxUWowajRwYUswTnFrckVLTlZzdzAwSkE2Ym5pODVlZXUwVjZQaVZsWHRzQXNURGVEL0FBZTV5WlZpSEhFY3I2bjlHaXNHVU43VitHSDA0dEFCUUFVQUZBRFplbUtUV2dudWZ5MGY4SEdQalVlTHYrQ3N2eElpKzBHUk5KaTAvVDBCUDNObHNwSS9Oalg5S2VIbUc5aHc3VGwzUjhkbXNyNGlTOHo0WlFIY09PMWZvY2sxQ3g0ZFJlOEpNNFZpUWU5WUs1SkZ2NXllbE1WeVJINXkxVnl5UXhKWER0bjhxblZvRnVSRjJTVE9PUFQxOXF5cllmMjFKeGFONmNuQ1NhUDZXZjhBZzJZLzRLQzYxKzFsK3lCYy9BdjRsNjFMZStLL2hZMFZtbDVjeWJwTHpTWkFUYk9TZVdNZTB4RW5uQ3Juclg4MzhlY1BySnN3VmFDdENwK0Qvd0NDZmE1WmlwVjZYTExkSDZYVjhJZW9GQUJRQVVBRkFDTWVEZ1VDWjgyLzhGU2YrQ2ZYZ0wvZ281K3licm53UDhSV2R0QnI4TUxYdmdyWEpZZ1gwelUwVStXNGJxRWYvVnVPaFZ1bkFyM3VHczdxNURtY0s2K0g3UzdyL05ITGk4UEd2UmFhUHdyL0FPRGQvd0RacThTYVAvd1dXMGJ3ZjhTZERlMDFYNGUydXV6NnBaeVlJZ3U3YVA3UGdld2VYSVBjRVYrMGNlNXJTcThLdDAzZm50K0xQR3kvQnFuaXI5aittU05TQ0FldzRyK2VORzduMGIxa1BwakNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBR3lrYlNDTThkS1R2Y0QrWC84QTRPVWZpbi93c2IvZ3JENDIwcTN1UThIaGZSdEwwVkFwNFZvNFBPY2Y5OVRjMS9SSGh0aGxTeUtNcEw0bTM5NTh4blZTTXA4cWV4OFcvQjc0b2VNZmdqOFUvRGZ4aThCWDMyWFhQQzJ1V3VyYVRjYmlOazhFZ2RlbllnRlNPaFZpTzlmWlp2Z0lZL0J6b1RXa2xZOGpEMW5UcXBuOWczN0gzN1R2Z1g5c2I5bXJ3ZCswcDhQWlYvczd4WG8wZDJiY1NCemFUOHBQYnNSL0ZIS3JvZmRmZXY1VHpQQTFNdHg5VERUK3k3ZjVmZWZjVUtpcTBWTmRUMDRFSGtWeEd3VUFGQUJRQTJRRWtFZEFlYVRFeitSMy9nczlya3ZpRC9ncDc4YXRTa3VRNVBqT2FJSDBDS3E0L1N2Nm40TFhMdzloL3dEQ2ZFWm5MbXJ5c2ZNb2t5aUE5UU1FMTlsekp3c2VPMjJRVGYxcm5FOWhyZEI5S0JQWWZXM05GbEJVV2FWbUd4Rkx1TFlGYlUxQjZiR3FmdW42aWY4QUJwNzQ5OFNhSC93VVUxUHdWWVhialQ5YzhEWGd2b1ZZYlc4b3JJaFAwYjhlYS9KZkZXbEY1VkNUM1VrZS9rZFIrM2E4aitrS05oem5qMnIrZlZaU3NmVjNRK3JHRkFCUUFVQUZBQ09BVUlJengwcFBZRDQ3K0d2N0R1aS9DLzhBNEsrK0t2MnJ2RC9oc1FXdmkvd0N4dWJpRkFJMXZta2dTWSt6T0l3NVBjbjYxOUJWemFWYkpJNE9VcnVML1hRdzlpbzFPYUo5aUFZcndEY1dnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dDT1ZrUTcyYkFVWkpQcFN0ZGhicWZ4NWY4RkMvaWEzeHEvYnIrTDN4UU1na1RWdmlMcWpRT0d6dWlTZG9vei8zeEdvL0N2NnA0Vm9MQzVQUmoyUy9JK0l6T29uaVd6eU43WUtDU09nNTlLK2ptN3hTT0JTUDF3LzROWi84QWdvOVlmQ2I0b2FqK3dQOEFGWHhNbHZvbmpTN2JVUEFUM0w0anQ5WDJqenJRRW5BODlGREtPN3g0SEo1L0dmRVhoMXlwckgwVnF2aTlPL3kvelBwc294Y1hIMmNtZnYySkFleC9LdnhtNTlBT3BnRkFCUUExMkF4a0hyMnBQY1RkaitSYi9nc2RvazJnL3dEQlR2NDFhWlBFRlpmRzA3NDlRd0RBL2tSWDlWY0d5NStIYUgrRkh3Mlk2WWlSODF4cURIeGl2cW83SGxTM0lwMUlxWHVTOWhyZEJTRTlnUWs1eWF2a1kwMnhTRDJOVzFjWkZJeEdSbm1wZnVsd3V6OVpmK0RSZjRQNmo0dC9iWThjZkdHNHRaUlkrRVBBdjJkSnd2N3MzTjdPRkNIL0FHdkxpZHZwOWEvSHZGVEdRV0NoUXZxNVgrUjlEa2NQMzdtK3gvUkVJMjlSWDRXMG03bjFWbVBvU3NVRk1Bb0FLQUNnQUl5TVVBTkVhQmcrMFpBNjQ1cEpJQjFNQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQXlLQUROQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFCT0tBRE5BQm50UUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFCNTkrMWI4U292ZzMrelA4QUVMNHNTU2xQK0ViOEU2bnFLc3ZVTkRheU9NZmlCWGRsbEg2eG1WR205bktLL0V5clNjS1RraitOTy8xZTQxelZMalZyczVtdXJoNTVXSjZzN0YyUHZ5VFg5WllTa3FOQlFYUStBeFVuT3MyeXh3NmJTT3RkQm1WYlRXOWE4SmEvYStJZkQycVhGamY2ZmVSM1ZoZVdrcGpsZ2xSdDZTSXc1VmxZQWdqdUs1c1hob1l1aktuUFZQVDBLcFZaMHFpa21mMC9mOEVNditDdHZoLy9BSUtTZnMvUitHL2lIcVZ0YS9GbndmYXhRZUx0T0RCZjdTaUFDeDZuQ3VmdVNmeHFQdVNaSFJscithZUxPRzYyUlkxOHEvZHZaL29mY1lQR1J4Vk5OYm4zZ0h6MnI1Tk43SGNMVmdGQURaQVQwSFkwbTdDZTUvTDUvd0FIS0h3YTFENFgvd0RCVXJ4bDRqZXg4dTA4WGFkWWF4YVNBY09YaUVUbi92dERtdjZTOE9NVXNUa0VJTDdPajlUNDdOS01vNGlUWjhFUXFQS3g3OWEvUmxGcU5qd251SkxFSFhoaG5QcFVOQ0lHQVhnOXFPUUF3QnpnVm9BakhhTTRvVnBPd0VZUG5UTEdzYkhjY1lWY244dTlZVkowNEo4ejZHMUtuS1Uwa2YxRC93REJ1SCt3dGUvc2Nmc0FhZDRxOGNhQkxZZU1maWRPdmlEWGJlNWkyUzIxdVVDV2R1dzdGWXNNUjZ5R3Y1ZTQyemQ1dG5Vck84WWFJKzN5ekMrd29hN3MvUUt2anowd3BKM0FLWUJRQVVBRkFDTTRRRm02RHFjMEFNaHVZYmlKWm9KRmRIR1ZkV3lDUFVldEFtN01rR2U0b0dGQUJRQWpQdHp3VGlnRHl6Vy8yMlAyWC9EWGl5KzhEK0lmakJwZGxxbW1YTFc5OWEzSG1EeXBGKzh1ZG1EZzhkYUFCdjIzUDJVVUdXK09tZ2ovQUxidC93REUwQWRKOE0vajU4SVBqSmRYdG44TC9IbGpyY21uS2pYd3NtWWlFT1R0eVNCMXdmeXBKM1lIWVV3Q2dBb0FRbkhhZ0R5NjkvYlcvWlgwM1VialNMLzQzNkhGYzJzelEzRVJuWTdIVWtNdVF1Q1FSZzQ3MG03QUNmdHIvc3B5THVYNDdlSDhmN1YyUi9NVUozQTZiNGUvSFQ0Ui9GaTV1TFA0YmZFRFROYWx0SWhKY3g2ZmNiekVwT0FXNDR5YUc3QVIvRmY0OWZDajRJVzlwZGZGSHhiRnBLWDVjV2ZtUXlPWlN1Q3dBalZ1bVIxOWFhMUdsYzRTWC9nb1AreWFvQkh4VVQvd1h6aithQ2xkQnlzYi93QVBDZjJVdHU4ZkV2SUhYL1FKZjhLT1pENVdRemY4RkdmMlRvRGh2aUpJZmRkTmxQOEFTbHpwaTVXSW4vQlJ2OWs1MURENGd5NFBUL2lXeS80VTdvZkt5U0wvQUlLSmZzbnpaRWZ4R2JJNmc2ZktQNlVYUWNySmsvNEtEL3NxdWY4QWtvK1ByWVMvNFVjeUZ5c2xUOXYzOWxWK2YrRm5SZ0R1YkdiL0FPSm91Z2FzZEY4T1AycXZnVDhXdkVxZUVQaC80NmkxRFVYdDVKeGJSMjBvT3hNYmlTVndPbzZtbUk5REhJb0FRc0JRQm0rSnZHZmhMd1hwN2F0NHY4UzJHbDJ5S1dhZS91MGlYQTkySXBOMlFIaG54QS80S2cvc2krQlozczdmeHhkYTVQR2NHUFE5T2VZWjdqZTIxZU8vTkxtR2xjOHU4US84RnIvZzVwc20zU2ZnOTRydkFUOHBhYTNpQi9OalJ6SWZMb1pVZi9CYjd3WEtTby9aKzF4ZVA0OVhoSC9zdEpTRGxPZzhNLzhBQlp2NE82cE9rZXQvQ3J4SFlxUU43eHl3ekFINkRHYWZNSnF4N1A4QUREOXZqOW1INHFPbHBwWHhDajAyN2tZS2xucnNmMlIySjZBRmp0Sjl0MmFhYUVleFJYTU54RXM5dklyb3k3bGRHeUdIcU1Vd0hnNUdSUUFVQUI0b0E4azhXZnQxZnNwZUNkZnZ2Qy9pVDR4V0VHb2FkY05CZTJ5MjA4aGlrWGhrSlNNcmtkK2FubUF4RC93VWovWkVZL3VmaVZKS004R1BTcCtmeldtbmNBSC9BQVVmL1pRWWtSK09idGlPeTZQUC93REUwd0kvK0hrdjdLeDVIaTNVY2UyaXpmNFVBWDlOL3dDQ2huN0pPb050bCtLa2RwazRCdmRPdUVCUC9mQnBOMkE5RThDZkduNFQvRTVjK0FQaUpvK3JOakpoczc5R2tIMVRPNGZpS2ExQTZiZVBUOHFBRnp4bWdEaS9qRCswRjhKUGdKWTJPby9GYnhkSHBNV3BUTkZaRjdlV1F5c29ETmdSb3g0QkJKT0J5S25tQTgrdWYrQ2tIN0ljS3EwUHhOYWNzZUZoMHE0Si9WQlRUdUJFZitDay93Q3lnTWY4Vm5mYy93RFVHbS93b2JzQVAvd1VrL1paVlF5ZUtkU2JQOTNSSmovU2hPNERJLzhBZ3BWK3l4SVNHOFRhbXVEL0FCYU5MUTNZRGU4T2Z0NC9zb2VKbldDeStNV253U2s0OHUvaWxneDlTNkJmMXBjd0hxZWphL292aVBUVTFqdy9xMXJmV2tvekZkV2R3c3NiL1JsSkJxbHFCY29BS0FDZ0FQQW9BYThxUnF6dWNCUmxpVHdCNjBBZVcvRlA5dGI5bUw0T2VaQjQxK0x1bGk3alFzZFAwK1EzYzV4MjJRaHNINjRwTjJBOFU4V2Y4RmsvMmZ0SjQ4TStBUEZ1cktWeUgreHhXNnQ5TnprK25VRHJTNWdPUm4vNExmZUVFWXJhL3M1ZUlTZzRVeTZ4QXAvTGJUVHVWeWxuU1A4QWd0cDRFdXNEVnZnUnJsdGxzZnU5V2hjNCtoVVVOMkU5ejByd0Ivd1ZaL1prOFh6eDJldG5XZEJrWTRaOVFzZDhTZlY0eWZ6eGppbHpDUGYvQUFQOFIvQXZ4TDBaZkVIZ0h4WFlhdlpzY2VmWVhLeUFIME9EbFQ3SEJxZ05vTm5qRkFDMEFGQUJRQVVBQk9CbWdCcnlwR3JPNUFWUmxpVHdCUUI1UDhWUDI1ZjJXdmc4WHQvRjN4ZDAyUzdVSEZocFRHOG5ZNXhqYkNHd2M4WUpHTzlUekFlTCtLUCtDemY3UG1sS2YrRWIrSFhqUFZTQWZtRmhCQXArbTZWaitsSE1OSzV5Rngvd1hROEJ4U2xJL3dCbTN4WXk5bS90SzFHYU9ZZktYZEgvQU9DNGZ3dnU1QU5VL1o5OFkyNmJzTThWemFTNEhyamNwcGN5RGxQVHZoei9BTUZZUDJRL0h0d2xwcUhpSFdQRGtqOFo4UmFNOEtBLzc2RjF4N25BcDh5RTAwZlFIZzd4NTROK0lXalIrSXZBdmlyVHRZc1pSbEx2VGJ4Sm96K0trNCtsTzZFYWhrVUFrNTRvYnNCNUQ0NS9ieC9aZCtIUGkvVVBBbmk3NGsvWnRUMHFmeUwrM0dsM0xpT1RBSlhjc1pCSUJIUTRwY3dHVVA4QWdwRCt5R3czSjhUSkdYKzhOSnVNZitnVWN5RGNjZjhBZ296K3lTd3hIOFNaR1BvdWxYR2YvUUthYVkrVmpoL3dVVy9aT3gveVVPZi9BTUU5ei84QUVVWFFjckJmK0NpMzdKckhCK0lrdyt1a1hIL3hGRjBGbVNwL3dVTy9aTVBNbnhQRVl4a3RMcHM2Z2Y4QWpsTG0xRWVwZkR6NGcrRlBpcDROc1BIM2dmVVd2TksxS0l5V2R5MXU4UmtVTVZKMnlBTU9WUFVlL1NxQTJXYmFNMEFVZkVYaWp3NzRRMGVieEI0cjEyejAyd3QxM1QzbC9jckZGR1BkbUlBcE4yQStkZmlUL3dBRlhQMld2QTE1UHB1aDNlc2VKWllUdDgzUTdGVEFXOUJKSXk1K29CRkxtS1VXZVc2dC93QUZ3L0FWbGMrVHAvN1BIaWU0VCsvSnFkdEdUK0cwMGN3Y3BQNGYvd0NDNFh3d3VyMUkvRS83UC9qQ3h0aTJIdUxPNXRicGtIcnMzSVQ5T3RITUhLZlJud0ovYmEvWnUvYUphR3crSG54RGdHcVRxV1RROVVqTnBlbkhYRVVtQytQOWdzS09ZazlXRDVPTnRVQTRuQXpRQW03MjYrOUFIbkh4bC9hMi9aNytBYVNSL0UvNG02ZFpYYUxrYVpCSWJpN2JqZ2VURUdjWnp4dUFCOWFUZGdQbnZ4di9BTUZyUGdCNGZoRGVGZmhYNDQxdGpuYnNzWUxjTjlOOHBQNWdIMnBjeFhLY2RIL3dYbThEbzUrMWZzc2VOQWdiR1UxU3hKL0ptWHQ3MHVlSStTUjZKOE12K0MxMzdFZmpqVUUwanhqNGcxdndOTzVWUko0dzBndzIyOC93L2FJV2tqWDZ1VUZWeklscG8rcXZEM2lqdzc0dDBTMzhTK0ZOY3M5VDA2OGpFbHBmNmZkSlBETXA2TXJvU3JBK29KcGlMNDZVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBSHhqL3dBSEFYeFZYNFQvQVBCSjc0czNpWGdobjEzUzRORXRUbmxtdXAwUmxIMWpFbGZVY0c0VDY1eEJTWGJYN2preDAxVHdzbXorVldFWW1VYzRIWEpyK29FclJQZ3FzbEtacFJ1cmNaQXBOMkFxNmxhR2NHUkRrcit0TURwdjJjZjJqdmpEK3lOOGFkRitQZndMOFhUNkw0azBHNTgyMHVvc2xKRi9qaGxUT0pJbkh5c2g0SU5lVm11VDRYTjhJNkZhTjduVmdzVFBDVmJ4ZWgvVHovd1NSLzRMSGZBai9ncGo4TVlMRzN2YlR3NzhUTkx0UTNpZndSYzNPSk9PRGMyaGZtZTNicnhsbzg3V0E0Si9uUGlmaGZHNUJpbkdTdkRvL3dETSsxdytKcDRtRjRQWHFmWjZTYjhFWXdlNE5mTHAzT2tkVEFRZ01NR2t3UHpHL3dDRGxYL2dtZjRnL2E2L1ozc3Yyai9oQm9ENmg0eCtHdHJPOTVwOXNoTXVvYVNSdmxWQU9XZUpoNWdYa2taeDByOUc4UE9KSTVWai9xdUlkb1ZIdjJmL0FBVHljMXdieEZQbmp1aitiKzRnZUlGWFBxQmpQNWM5L3dEQ3Y2WWo3UDJkMDk5VDR1Y0hBaUIyRGc1NDcxbTAyakt6WXg1QzVJSVBIV3BkNG9MV0d1eE1SVDh5S3pjcFhIR1BNUXVXQTNNbkE2OXFKMUtWTk83TlkwbTJmcS8vQU1HOW4vQkVYeE4rMGY0OTBiOXREOXBMdzFMWi9EblFyMUxydzNvMm8yNVUrSnJxTnNvNVZobjdMRzR5VDBrWUFEZ0UxK084ZDhZMHFGT2VCd3NyeWU3WFErZ3kzTHB1b3FqMlA2SjdhRklFRWNhaFZVWUNnWUFIWVYrRzh6azduMDhZOHBKUTFjb0tFckFGTUFvQUtBRWJJR1JRQjhxZjhGYnYyMHRDL1pPL1p1ZncxcC9pQkxieHQ4UnAvd0RoSHZCRm9oekxMY1RNc2NrcWdjNGpTVE9mVWl2VnluTHF1T25LYVh1d1YyWVZxbklyZHo2TCtGbmhWUEEzdzQwRHdaRUcyNlRvOXRhRXNja21PSlZKUHZrR3ZOcXRPcTdHbE5QbDFPaHFDd29BS0FJTlN2YmZUYkdmVWJwOXNWdkMwc2g5RlVFbjlBYUFQeEo4ZitJSmZIUHhROFJlTjdodDc2dHJWM2RCZ2M4UE16Znl4UUJWUldLaU5sQkFPUnhTVDFBL1FUL2dqejROWFRmaFA0bzhadHRadFQxNWJkVzJZK1dHUHArY2hvU3N3UHNPbUFVQUZBR2I0eDhRV3ZoUHdwcWZpaTlZQ0xUZFBtdXBNbkhFYUZ6L0FDb0EvRXZWTlEvdGZXYjNXSkhMdGVYa3R3N3VPV0x1V0pQNG1vbHVCQTVWamdnRE5DZGlyV1AwSy80SSsrQzdQUy9oWDRuOFpyR2ZPMVRXbzdjeTQvaGhqNkEvVjZkcjZpYnVjSi93VnQ4ZnRxSHhSMER3RGJYQTJhWHBEVHpMbi9scE0zL3hLRDg2ZHJvY2R6NUpndUoyUUh6R0k1d1FNNS9Lc1hGM05WeXBsaGhxSlhjbHZPL0hHSVNjL3B6U2FkZ2JqWXpMdTh2SXBXZ21EUXNPV2pjRldBOXdlbldvVVpYSUlGbmM4dmNmaVRWMllGaXdOMU5PWUxQZExJM1JJa0xFL2dPVFRTWTBrVDNFZXN3NVNTeXVGYjBNREQrbE54YUswTStYVUo0U1VlYmFSMVZtd1IrZE5RYjFNMmo3Ty80SkJlR3BiL3h2NHY4QUZkLzVqQ3gwNjN0clFzbnlqem1abndmWEVZSDBxMHJFdlJuM040dDhZK0d2QWZoNjY4VitMOVp0OU8wNnlpTWwxZDNVZ1ZJMUg4ejZBY21tM1lSOFAvdElmOEZZdFV1YnVmd3QrenZweVcxdGhrUGlEVVl0MHJuMWlpUENEcnkyVDdDcGJZMHJueC80NDhlZU5QaVJyTDYzNDE4VVgycTNVakV0SmVYTE9jbm5nSHArQXBibHFMdG9kWjhDdjJUUGpKKzBMS2YrRmRlRUpwTEZIMlM2bk1nZ3RZdStQTmJoejZoY24xcXVVSG9mUnZoUC9nalZyRjNBczNqWDR1MjBEdGd0RnAxazBtUHF6RVpvNWJJbm1ML2lQL2dqRHBxMkJmd2Q4WnBGdWxPVVMrMDBlV3g5eXB5S1NUWWN4ODQvSFg5a240di9BTE9lb0MzOGUrRzJheGxiRnByVmtoa3RaejJYY0Fkai93Q3kyUGFocDNGZTU1cmNGRkRSS3AzWTdET1ByVU5NYWllMS9zcy90M2ZFbjluSFdMYlM5U3VycldQRERQaTYwTzR1Y21ORGdGN2N2bnkzSFhiOXh1bkhXbW0wN0NlNSttM3d2K0tIZ3o0ditCdE8rSWZnRFdZNzdTOVNoOHlDVk9xbitKSEhWWFU1REtlUVFhMFR1STZLbUJWMXZWYlhROUd1dGF2WEN3MmRzODhyTWVBcUtXSi9JVW5zQitJL2pEeEhjZU5mR3VyK01icmR2MWJWYm05UFp2M3NqT1AwSXFDa3JvZ2htWkFxcndRUFhrMEoyQjZJOWsvWjYvWkUrTi83US9oNjg4Vi9EM1NMV1RUN083TnE4OS9laUZYbUFETXFaQjNZQkdmUW5GV25jazFmSDM3RUg3VWZ3NzA1dFgxWDRXWEYxQkdENXNta1NwZDdGQXpuYkdkMlBmRk1EeHA3b3VHQWNLNnNRUjNWZ2NFZTFSTGNFTmcxYlZkSHVrMUxUYjZhQzRoYmREUEJLVWRHN01HVTVCSHFLTDJLNVQ3Zi93Q0NmdjdmL2lMeHQ0anRmZ1g4ZE5VTjFlWGFpUHc5cjA0SG1YRW5QK2p6a2NGaVB1UGpMRVlQT0RSek1UVmo3WEJ5b1B0VmRCSDU5LzhBQllueHUyb2VQL0NQZ0szdkFZOU8weWErbmpEY2I1blZWei93R1BQNVZBMHJueDVBSEh6cndldVBXaGFENVRvUGg3NGI4VWZFZnh0cHZnSHdqYXRkYWxxdDBJTEszM2hRN2tFOHNlQUFBU1NlZ0JQYW0zY1RWajNiVi84QWduVCsxbG96YllQQk1GOHUwRm1zOVloYkJ4MHd4VW1uSGNSNDk4U1BoNThSL2hacUkwejRoK0RkVDBlUm4yeG5VYlZrV1EvN0QvZGYvZ0pORWdPV3VDWFl5aHM0SEJxUzBqdC9nRCswNThWZjJjdkZzV3ZlQ05ibWEwTGczK2pYRXAreTN5OTFkZWl0aklEcmhsOXh4VHZZSEhVL1ZyNExmRnp3djhjUGhucFh4TjhIekZyUFU3ZmY1VGtiNEpCdzhUZ2RHVmdRZnBudlZKM0lPcnp4bW1BM3pBT3BIUHZRQjRWKzFQOEF0OWZDVDltbEpkQVovd0MzZkV3WDVkRHNKUis0OUduazVFWS8yZVdQb090QTBybjUrL0hyOXQzNCtmdEYzRWx2NGg4V3ZwZWpaT3pSTkhKZ2dJUGRzSGZMNlpjNDloUVZiUTh6MER3N2QrSnRZdGZEbmgzUjdqVXRSdkcyMmxsWTJyM0U4Nzl3cUlDVDN5ZWc3bWsxY1hLZlRYdzEvd0NDVS83UVhqQ05MenhiZjZYNGFna0dmS3ZwVFBjWTk0NHZsQng2bWx5aWVoNlBaZjhBQkdIUmphazZsOGI1L1BZY20zMFJBZytnTFpOTkt3K1puQS9GTC9na3I4WS9BbGhMclB3ODEreThXd1F4bHBMTVIvWnJ0c2RrVmlVYysyUm1rMWNWN28rWWRWMHUrMHE3bTB6VTdHZTJudDVtaW50N2lGbzNpY0hCVmxZQXF3N2c5S1RWaEduNEIrS2Z4RCtFR3Z4K01QaG40dHU5SDFHTEI4KzFrK1dYSDhNaUg1WkZQZFdCSEo2VWN6QS9SdjhBWVgvYjc4Ti90UFFQNEU4WVJXMmsrTmJPSHpKYk9PUStUcWNZQTNUMis3a1kvaWpQSzV6eU9hcE5zRDZSREVuR1ByVEFXZ0FvQVIySzlQd3pRQjREKzFiL0FNRkJmaEwrelkwbmhlemtUeEI0cUdRZEZzcHh0dFRqZzNFZ3lJLzl6N3h5T0Ixb0EvUHo0OS90cC9IbjlvbWVTRHhkNHhtczlNTWhNZWk2VXhndGxHZjRnUG1rUHV4UDBGUzIwTks3UEtyYTN0cm1TS3p0YmRwcDVYRVVhUVJNN1NTSG9pb29KZGo2S0trcEkray9nOS93VEQvYWIrSmR0RnF2aU9HMjhJYWZLQXluWE1tNjI0NHpCSDkwOU9HSUk2SHZWY290RWV4NlQvd1JoOEx2YTU4VGZHKy9lNEkrWnRQMGFKRi9KMkp4UnloekhFZkZEL2drTjhVZkJsbkpxbnd1OFdXUGltS1BMSFRyeERhM1JBQlB5RWtveDRBQUpISnBKQnpIeTNydWx0NFgxNjU4T2VLUEQ5NXB1bzJNaFM2c2J5ME1VMEwrakkzSTQ3OUQyT0ttUzZGTFU5QS9aUjBIeHJyUHgwOE42TjhFdkZ1cDZKcVYvcTBMelNhZmVQR2pXNk9IbmFSQVFKRjJCc2hnd3l3cFJUVENTc2o5ZEx5OHRMT3prdkx5WlVoaWpMeXV4NFZGR1NUN1l6V2ozTXo4VnZpbjQwbCtJZnhXOFMrT21rWnhxK3YzZDFHN0grRjVXSS9TcEs1VE5WNUF2TXA0cVcyTzJ0eTFhalVaNHk5cGJ6U3FwK1l4b1dDK3h4MHFHbTNveWswbUkybzZsRU56Skp0LzNNZnpwcU1nMDdqZjdWMUFuQzcvQUhIeTFhVHNKaExkM2wxQ3pHNUtOc2JZY2pnNE5OYm1aK3kzd2U4TTJ2Z3Y0VStHL0NsbWpLbW42SGF3Z09lU1JFdVNmY25KTmFBY3QrMVQrMUo0RC9aWCtITGVOUEZyRzV2Ymx6RG8yalF5QVRYMDJPZ3o5MUJ3V2Zvbzl5S2x1d0g1WWZINzlwYjR0L3RMZUttMS93Q0lldXl5UXJNZnNXbDJyRmJTelhQM0kwOWVtWGJMTjdkS1NWeWtqdGYyWVA4QWduejhYLzJuTFp2RXRsZHhhRDRkV1ZveHJPbzI3RVhEQTRZUXhqQmt4L2Z5RXp3Q2NHbnlsT1RTc2ZTT25mOEFCRlA0UmkwenEveG04VnkzUlhtYTJodG9WM2VvWGEyQjdabzVTZVk4UC9hci93Q0Nmdml6OWxuUy93RGhPTExVN2p4TDRTRGJMdlZZYlh5N2pUaVRoVGNJcHg1WjZlYVBsQjRZRE9hT1VFN25nOXhvMmc2bUV1WG1sZ1NGbGxoZTJrSlpYQjRLRmVReEo0eCtIYWpsRGxQMkkvWjA4TStOL0J2d1E4TWVHL2lWNGp1OVcxMjAwbU1hbGYzN1ptYVFqZHNkdjRtUUVJV1BKSzVPYW9ucWRxOGdWU1dLZ0RxU2VCUUI4Qi90cy84QUJUM1VyN1ZML3dDRXY3TmVyZlo3YTFkb05UOFh3TUM4ejQrWkxROGhWQjRNdk9jWVhIV2szWkRTdWZIWGc3d0g0MCtMbmphSHd2NFAwTysxM1hkV3VDWW9JbE1ranQxZDNjbmhSMUx1UUIzTlMzY2JpZll2d3QvNEl4emFsWnc2cDhiZml4ZDIwN1lNdWxlR3JlTUdQSTZOY3lEa2oxVlJRbGNWem9QSFgvQkZuNGFRZUhacHZoRjhWdkVGdnJTUU1iZGZFOHFYdG5jTjFDeWhVVjBVbmpjcHlQUTlLUFp4SzU1SHhKNDY4Slczd3c4Zlgzd1QrUEh3bWswVFhMR0xtS2E1RTF0S3A0V1dHVEFmeTN6OHNpdGpxQ0ZJSXFmWnk2QzFscWZSdi9CR2Y0SjY1NFIrUGZpdnhQNEU4ZjY3YWVFYlhTdksxbndzTjBtbVMzc2pEeXNGamhiaU5FTGtnYjlraTdqaHVhakZvVFZrZnBhT2xXSUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQU0wQWZrdC93ZHZmRjF0RC9aQThCZkJHeXV3Si9GUGpjWGx4Q3IvTVliU0ZpRGp1TjhtSy9TL0RMQ1NxWnZLdmJTS3Q5NTQrYjFWR2p5UHFmejdwYXlHUXFxOU91MnY2Q21qNHUxbVN4dHRPMDlxeGxzV3V3NHlBTHdhbTdHVTdtM0VnWjFBeWFxTFk0bzB2aHg4UmZIM3drOGI2YjhTL2hoNHMxSFFkZjBXNUUrbDZ2bzkyMEZ4YlNlcU92cU9DT1FSd1FSWEZtT1hZYk04TTZkYUthT3pEWWlwaHBjMFQ5dVArQ1pIL0FBZFFhSnJrRmw4S1ArQ2p1bXc2VmVxaVJXL3hIMGEwSnQ1eU9NM2x1bitwWTlmTVRLOWNxSy9GZUlmRHl0aFpPcmdVMnV4OUhoTXo5cStXZWgreGZ3MCtLbnc4K01mZzZ5K0lmd3M4YTZaNGcwUFVJUkxaYXBwRjRrOEVxbm5obEpHZlk4anVCWDVwWG9WOE5VOW5WaTAvTTlaTlMxVE9nVmlTUVJXS3VVSkpFa3FsSkZCVWpCVTlDUFNodHA2Q3RjL0xmL2dwOS93YlMvQkg5cXZYOVQrTkg3SzJ2VzN3OThZM3pHZS8wYzJ3T2thbE1TU3o3Vkc2MmRpZVdUS24rNksvU2VIUEVYSDVWU1ZERmUvQmRiNm84bkY1WFRySnVHalB5WitPZi9CQVQvZ3FQOEQ5UWxTOC9abzFEeEhaUmtZMVB3amR4Mzhiam5vcWtQNzQyMStyNEh4Q3lERndUZFZSZlo2Zm1lSkxKcTZkenc2Ly93Q0NmUDdiMWhxYmFUYy9zbC9FVVRxZVl4NFB1ei9KSzloY1U1Tk9OL2FxM3FZLzJWVzVyV1BYUGdaL3dRai9BT0NvZng1dllvTkYvWmExclE3YVZodnZ2RmhYVG9vMVA4Ujh3N2owUFFacnljZngzdzloSXQrMVQvSDhqYW5sTlpzL1U3L2duZjhBOEdydndMK0ROL3AzeFEvYmE4VkR4L3Ixck1rOFhoS3hIbDZOQklNRmZOSitlNUlPZURoRHh3YS9LTSs4UnNkamxLbmcxeXhmWHI4ajJzSmxkT0NUbnVmclRwR2lhUjRmMHkzMFRRTk1nc2JLMGhXSzF0TFNGWTRvWTFHRlJWVUFLb0hRQVlGZm0wNVNxU2NwTzdaNjhVb3F5THFqQUZUWVl0TUFvQUtBQ2dCQ2NETkFIakg3Y1A3ZFB3Si9ZSCtDVi84QUdUNDRlSjRMY1J4T3VqYUpITW92Tll1c2ZKYjI2SGxpVGpMWTJvT1RYcFpWbE9PempGS2poNDM3OWw4ekd0WGhSaHpTUDUvL0FJTWZ0Uy9HL3dENEtyLzhGbFBoUjhUL0FJMjNMeVJueHhhcG9QaHEza0wyV2hXRVVubStURWg0ejhvTHlIbHprbnRYN1pqT0hjTnc1d3RYdDhUanEvTThkMW5pY1FuNW45TTBlQ29ZSHFjMStBYnM5MWJEcVl3b0FLQVBOZjJ3UEhhL0RmOEFabzhhK0xUOTZEUUpvb3NkUzhvOG9ZLzc3b0EvSFhTUUk3VmN0a2dZTGV0UzIwd0xzVGZ2VkpmZ0huMnBYMUEvVnY4QTRKNitEaDRPL1pQOE1STW1KTlNXYlVKUmpIK3VrWmhuL2dPMm1tMkI3WlZBRkFCUUI1QiszbjR0YndiK3laNDAxR0c1TVUxeHBSczRTRDFhVmdtUHlMVW03QWZrZmJFRkFHUGI5YWh1NEN5Q05EdkxZQUJKSjZDcVN1UG1aK3JuL0JPcndYL3dodjdJdmhLT1ZHV2JVN2VYVXBnUmpKbWtabC84Y0MxV3hOOWJIcG12ZkIzNFZlSnRZZnhGNGwrSFdqYWpmUzdROTNmYWRITklRQmdETGduQUhhZ1pQYi9DcjRaV2hEVzN3ODBPUGIwMjZUQ01mK08wdVZBWDR2Q25oZTJ3YmJ3M1lSa0g1V2pzMEJCOVJnVVdRSDQrZnRZK01HOGZmdFMrUFBGa2MyK0NieEJMYlcrT2dqaEFpR1ArK0ttek5FY0ZMdUNaVWRxTE1EN0Mvd0NDUGZ3K3RkYStKUGlueHpxR21wS3VsNlRGYTI4a2tZWlVsbWZjMk05RzJMajZFK3ROSW1SK2dVbmgvUXJodk1tMFcwY25xV3RsT2Z6Rk5wTWd5OVMrRkh3djFtRjdmVnZoMW9keWtuM3hOcE1MYnY4QXgyalpEdVlPckg0R2Zzby9EclYvRjZhVnBYaGpSTGJOemZtMGdXSVN5WXdBQVB2TzMzVkhxY0NvY3RBUHpJL2E3L2JOOGY4QTdWZmlsdnRKbTB6d3ZheUgreU5BU1FnWUJPSlpzSEVrcEIraWpnZHlaNWhyVm5rQm5SamhNZTV4MHBMVXBLeDliL3NEL3NBeGZHUklQaTk4WXJHUmZDNE83VE5OM0ZEcXpBL2VidUlBUWZUZWVuQXliaXJDY25jL1JIUjlEMG5RZEx0OUcwUFRZTE96dG94SGIydHJFSTQ0MUhRS280QXJRa3RxZ1hvVFFBRUE5YUFNenhsNFE4TytPL0RONzRROFY2VEZlNmRxRnUwTjFiVExrT3BINkh1Q09RUUNLQVB5ZS9iRi9aNzFQOWwvNHZ6K0NwNTN1TksxQ1A3WG9Hb091UE90eWNGR3gvR2grVnNkY3FjYzFMVmlydTU1UGNCTGxNRmhrZE1WbjlvVDFaOURmOEUzdjJxZFIrQTN4YWkrSDNpclVzZUZQRlYzSGIzSG55ZkpaWGh3c1Z3dm9HT0Vmc2Nnbjd0WEhjUitvcXZ1R2NWWUhsZjdidmpIL2hCdjJWUEcrdHJNeVNTYU05cEFWT0R2bkloR1B4ZWs5aHJWbjVDd0tVK1F0bkhHYWd1MWtTQlg4M2dEZ1o2MEVOM1IrcS8vQUFUazhJUytGUDJTL0RUWENLc21xck5xTGhGSS93QmE1MjU5VHRWZjBxb2lQZENpa1lQZXFBL09ML2dxbDhJTkMrSFh4eDB6eDk0ZTA2TzJnOFcyTHlYY1Z2R3FxYnVGZ0pKTURvWFIwSlBkbEo2azFFdHdQbUNURHFNQ2tVbnFTYU5xVnpvdXQyZXI2ZmRTUVhObmRKY1c4a2I3U3J4dHZCQkhUa1VGSDdTK0Q5Wm4xL3dqcGV2eklBOTdwMEZ3NHgwWjQxWS9xYXZvWm41Yi93REJSN3haSjRxL2JBOFR4K1p1aTB0YmF3aEEvaDh1SlMzL0FJOHhxRFJKMnVlS0dUOXpsdm9LQVBvLy9nbFY0UFR4TisxSkhycnhGazBEUTdtNlk0eUE4bUlVK2h3ejFTVjBLV3grbWthS1JoaHlCL25GVVFjajhlL2hsNForTGZ3bTF2d1Y0bzBtQzhpdU5PbWEyTnhHR01FNm94amxVbjdySzJDQ1A2MUwzQS9IUUtJQTFzemxtVTdYSkg4UTYxSlNiWkhMQnZCQUJPYUNqN24vQU9DUGZqYlVXMDN4ZjhOTHA1R3RZSHR0U3RGTGNSdStZcEFCMnpzalA1MWEyTTN1ZmE1ZkIya2djY1V3UGpqOXYzL2dvYTN3NGx1ZmdyOER0VWpmWENoajFyWFlIRERUc2pCaGk2Z3pIdTNST24zdWtYWTBybjU2YWhxbDNxRnhOZTZqY3ZOUFBJWkpwWnBDek94T1N6TVRra25uSk5OTnRsMlNSMW53RitDbmpqOW9uNGwyZnczOENXcXRkWEE4eTZ1WlZQbFdVQVB6VFNZNktPZ0hVc1FCVkVwOXo5V2YyYXYyVVBoVCt6TDRhR20rQzlJU2ZVNVl3TlMxKzZpVTNWMjNmTGZ3SjZJdkgxUE5BbXowNUVRRDVSOWFDVTdpN1JuTkF3WkZicVAwb0ErUVArQ25YN0ptbCtLL0J0MyswTjRHMGZ5dGMwZUpYOFFMQW4vSDlaTHdaQ282eXhqbmQxS1pIT0JVeTJBL1BGTG1PVUFpUU1DT0NPK2VocUcyZ0hhVHJlditDdkZHbmVOdkNPcVNhZnFtbDNrZDFZWDBCdzhFcUhJSTlqeUN2UmdTQ0RtaUxZSDdCL3NvZnRDYVArMHo4Rk5KK0tPblc2VzF6T3B0OVdzVUp4YTNrZkVzWXovRG41bC8yV0ZhcDNBOUpvQVFuRkFIeG4vd1VRLzRLSHovQUF2a3V2Z1g4QzlVUnZFYlJsTmMxMkJ0MzlrZ2dmdW84ZjhBTGNnOG4vbG4zK2JBRU9UQS9PKzR2THkrdVpMNjluZVdhVnk3eXl1V1ptSnlXSllra25KNVBQTlJ6QWJQdzIrRy9qVDR4K045UCtHL2dIUm52dFYxT1h5N2VCRGhWVURMTzdkRVJSeXpIZ0Q4cXBhZ2ZxUit4LzhBc0kvREw5bVBSN2JXN3l4ZzFyeGc4R0x2eEJjUUErUm5yRmJLZjlVbmJkOTV1U1R6aXJTc050czk2OHNIdWFZaFFnSFFtZ0FLS1J0STQ5S0FQRHYyMGYySlBBZjdWdmhOcnVOSU5LOFgyRUovc1h4Q2tYSklCSWdueHpKQ3h4a2RWKzh2Y0ZOWEtUc2ZQSC9CSmI0RC9FYnd0OFcvSFBpTDR0ZUFKOUd2L0NxalFvVnVCbFd1SGJmSzBML3hwc1ZNTU9DcnFlOUxsUVNtNWFIMXQrMWI0eS80VjUremg0MThZTEtFa3RQRGx6NWIranVubHIrT1dGRXJFbjQ0Mk1SU0ZJWkd5VVVESTcrdjYxbTIwVmRsanpGQzdkdzQ1SlBZVXQyVWZxUi93VGMrSDF0NFEvWkowRzR1ZE9RVGE1TmNhbmNHU01FdjVraDJFNS8yQW9xMHV4RDNQYmJyd240VnZvekRlK0dOT21VOVZsc28ySDZpcVNZaWhkL0NENFQ2aEY1Tjk4TWZEMHlmM1pORmdJL1ZLZGgzT1cxLzlqajltSHhKZXc2anFId1cwUkpvSER4dloyNXQrUWM4aUlxRzZkd2FMSkNQUWRYMVBUUER1a1hHdGFyZEpiMmRsYnZOY3pTSENSUklwWm1Qb0FvSi9DazI3Z2ZqbisxVCswTnIvd0MxSjhjZFYrSmVxVE91aXdTdGFlR3RQWjhyQlpveDJOaisvSjk5ajZ0ak9GRlMzY0RSL1kyK0NmOEF3dnY0OTZONEF1NFdPbitjYnZXWEJJSzJjWHpPdWV4WTdWL0dxaVBtWit2T2g2SHBHZ2FSYmFKb2VtdzJkbmFSTEZhMnR2R0VTSkFPRlVEb0JWQ3VYUU1VQVZOYTBiVFBFT2tYV2hhM1l4WGRuZTI3d1hkck9nWkpvM0JWbFlIZ2dna0VHZ0Q4OWYyUnYyRFBIdmdEOXVEVi9CZnhCK0gxMGZBL2dtNWsxWHc1cnR3Z2ExMWVOMi8wS0FFRTVlSWxtY0h2Q21RUTFBN3MvUlRhRkJPZnhvRWZKUDhBd1ZhL2FnMUw0VC9EQzMrRGZnYS9hSFhmR01NaVhkeEZJeXZhYWNEdGtaU0RsV2NrSUQ2YnNVbTdBZm16QmJKWm9GWWdCUnp6MEhXcythN0tUZGo5VFA4QWdtNSt6Um9Yd2krQ0duL0VMVk5NVnZFWGk2eWl2YnVlVkFYdDdWdm1ndGdld0NrTTNUTE56bmFLdEpDdXo2UTJqTlVJQ2dQVW1nRDVBLzRMQy9zVGVQOEE5cS80RzZaNGcrQVBoKzB1L2lMNFUxUkpkSlNlNlczTjVaU1pXZTJhUTRCWE95VUFuR1l6ams4dE93MDJqMjM5amI5bmhQMlpmMmV2RDN3cnZMcEx2Vm9MUVhIaVhVMDYzK3B5Z05jVEVubGdYTzFTZjRVWHAwcFBVRzducWZTbzVtSUtzQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUVjNEZKZ2Z6MC84SFgveGp0UEUzN2JmaFA0VURVN2VNZUV2QTBjcnd6VHFwTTE1TTBtUVA5eFJYN2I0YVR3MkV5NmRTY2twU2wvd0Q1L09xTldySmNuWS9LNjNhQU96aTl0dWYrbmhmOGEvVlk0L0RTV2tsOTZQbmZxMVpTMVFreXBJK1Z1N2ZQcjU2LzQxRHh1SDcvaUo0YXJ2WWhrRzBZTnpBT2VwblhIODZYMXVqNUdUcDFVOVVRN3dSazNFSHQvcEMvNDFTeGRHMjVVWVZGdWlGekV5RS9hN2Y2Q2RPZjFxZnJkTHVqb2hDZHRpQmlXUHlYTVdEeGp6MS94cmtyWWlseU5KbThZVDdIclg3TDM3ZGY3V1g3RWV2cjRsL1p2K09ldGVHaHZEWGVuMnVxYjdLNkE3UzI3a3h2OEFpdGZOWnJsbVc1bEg5L0JQOHowYUZmRVEwUitxUDdJbi9CM2pybW42ZFkrR1AyemZnSWwrMEVRaXZQRmZnNjdSWGxmdEk5cS9BejMyTjE2QVYrZDQ3Z25EeWs1WWFwYnllcDMwc3dxYlNpZm9aOEJmK0MrWC9CTEw5b0pMZUx3NSsxYm9talh0eEdyZjJaNHBEV0VzYkhqWVRJTnVRZU90ZktZdmh2TmNJM2VGMTVIWXNYRjlENmo4TS9HTDRWK05kUGcxandsOFNkQjFPMXVWemIzRmpyRUVxU0QxQlYrYThpZUV4Rk4ybEIvZC93QUEyVldMNm0xL2JPanlMdVRWYmZCSFZibFJuOGpVZXdyZnl2N24va1AybE8rNkZHc2FUeVJxVUh1ZnRDLzQwT2hYL2xmM01mdEtYUm9ZM2lEdyt2TXVzV3d4L2Z1ay9xYVBZMWY1WDl6RDJrZTZJLzhBaEsvQ3FyeDRoc0I2ZjZiSC93REZVZlZjUS9zUDdnVTZmZENmOEpoNFM2SHhQcCtmK3Y2TC93Q0txL3EySlMvaHY3bUh0SWQwT0hqRHdzQi95TWxoL3dDQnNmOEE4VlVQRFlyK1IvZC93QTlwVDdvQjR2OEFEREhqeEhZZitCc2Yvd0FWVCtyNGorVi9jeHFjSDFIRHhYNGNZRXByMWlSN1hrZitOSjBLNit5L3VZYzhlNHErS1BEeE9CcnRrY2RjWGNmK05UN0hFTDdMKzRGS1BjNTM0aC9IL3dDREh3bjhQM2ZpdjRqL0FCVDBMUmROc29qTGRYbW82bEhHa2FEcVNjMXJUd3VKcXk1WXdkL1FUbFpYUHpOL2I1LzRPb1AyYS9nN0JmOEFnSDlqRFIwK0lYaVZFYVAvQUlTQytjMnVqMmNuSURBdGg3Zzk4TGdIMXhYMldTY0cxTWRWaThYUGtqNWF2NTlqbGxqRW5hTWJuNGxmdE9mdGUvSHI5dEg0cFRmR0g5by80b3phL3EwN01MZFpiZ0NDeGgzWldHQ01mTEVnNTRYOGEvY3Nxd1dTNVJSVkxEUmlqeXNSN1NxN3lSOWVmOEczZnczYjRrLzhGUDhBd3JyY0lqbXN2QzJrYWxxbHhJdnpiSlZnTWNReU9tV2ZQMFUxODk0aVpwQ09RU3BwNnlzdCs3REFVV3F5OGorbHRBcXFGSGJpdjUxUG9rT29BS0FDZ0Q1Vy93Q0N1dmpSdkQzN01zSGhxQ1FySnJ1djI4REFIckhHR2tiajB5Rm9BL05UVGdQc3c0d004Q29lNEZ6U3JHNjFQVTRkT3QxSmU0blNKRkI1Wm1JVUQ4elF0V0IrMTN3NzhOUStEdkFtaStGSUVBWFRkS3Q3WUFmN0VZVS95cWtyQWJWTUFvQURRQjhrL3dEQlg3eHIvWkg3UCtrK0Q0NU5yYTFyNkZ4bkI4dUZDeC9ETExVeUEvT0tPUmR2eW5qSEZTWHlvbjAreHVkYXY0ZEl0WTJlUzZsV0dKVkhKZG1DcitwRk83UW1rajl0UGg5NFh0dkJmZ1RSZkNGckdGVFM5S3Q3UlF2cEhHcS8wcWxzU2JCQUl3UlRBS0FNVDRqZUtMVHdUNEIxcnhmZlNoWXRNMHVlNWNzY2NKR1cvcFNlaUEvRTNWTlVtMWZWN25WNXptUzd1SkpwRDZzN0ZpZjFxYnNwTjNJbGxCSWpQSko0R0tMc2IyUDBvLzRKSCtCSXZEdjdPdDk0dmFNaWJ4QnI4MG00Zzh4UXFJay9ESWFxVGJKdmMrcXFZaU80dUk3YUpwcHBWUkVVc3p1MkFBT3BKN1lGSjdBZmxoL3dVRi9hM3Y4QTlwRDRtdDRTOE9YanI0TjBDZDQ3Q0RvTDY0SERYTERQSTdJRDBYbnExWlMyTHNqNTlraVZGR3pybWtraFBSNkhzWDdFSDdNTnorMHQ4WnJYUk5UdDNIaDNTOFhuaUNkSHdUQ0Q4a0lQWXlNTnYrN3VQYXRJcEN1ejlhdEwwalRORjArRFNkSnNZN2EydG9saXQ3ZUZkcVJvb0FDZ0RvQUFCVjJFV1FBT0JRQVVBRkFDRlF3d1Ixb0ErVmYrQ3VQdzMwM3hUK3pkQjQyK3lnMy9BSVoxdTNsZ25BNVdHWW1LUmMraHlwOU1nVVd1TmJuNXIyYTRRTm5yV2JTdVNuZGt2bENadkxEc2hKKzh2VmVlQ0QySVBJb3ZZWit2WDdHSHhYdlBqTCt6bDRkOFg2dmNDWFVZN1kyV3B5QVkzVHdIeTJiOFFBMzQxb2dQS1A4QWdybjR1T2pmczRXSGhXS1FySnJYaUdFRUJ1VEhDR2tQNGJ0bFMyTmJuNXR4cVVUT09heiswV0NRWE4vTUxLM1V0Skt3U05WNmxtSUF4K0pGVVMwZnRsOE12Q3NYZ2I0ZTZINE1oakNycFdrVzFwZ2VxUnFwL1VHcVZ5VGNZa2NpcUErQy93RGdzVHJsaGMrTWZBM2gxSkFiaTFzTDI1bFRCK1ZaSGpSVCtPeHZ5cUpiZ2ZHeXVvVHJTTFNMWGg3UlpmRW11V2VpMnNiUEpkM3NOdWlvQ1N4ZVJWd01kK2FCbjdTYVZhVy9oenc3YjJKT0lyQ3lTUFArekdnSDhscStobWZqUDhadkZYL0NiZkZqeEY0dWtmYzJwYTFjemh0MmNocEd4OU9NZmxVR2wzWTVvdGx0aDZmV2dUMlB2SC9namQ0SFdIUS9HbnhGbmpPNjV1N1hUcmR5T3F4b1pId2Y5NXhWSmszYlB0d0FEcFZDT2ErTWZpZTE4R2ZDdnhINHF2R3hIWWFKZFR0Z1o2Uk5qajY0cVh1QitNa0pNaDh3cGpjUzJDYzllYWswUzFKVkc1Z3ZxYUJ0V1o5eWY4RWpmQ0YzYlNlTWZHY2xvUkRKSGFXY014YmhuRzUyWEhmZ29jKzlPN1JtOXowVC9nbzMrMXROK3p6OE5VOEhlQ3I3eXZGZmlTTjBzNUl5TjlqYkQ1WHVCbm8zTzFENjdqL0RRMndTdWZsNUxMTFBJMDAwck83a2wzZGlXWW5xU1R5VDcxbW03bDJzTVdGcHBsUkkyWm1ZQlZRWlluUEFBSGYwOTYwVzVMZGo5WWYyQWYyWGJQOEFadytDMXIvYldrUlJlS05maVM4OFJ5OVdqWWpNZHNEanBHcHdmVnR4NXFtN0VudStCU1RiWUNnQWRCVkJhd1VBRkFFRi9aV3VvMmt0aGUyNnl3em9ZNVkzR1F5c0NDRCtCTkFING9mRnZ3Zi9BTUswK0svaWI0ZnhMdFRSOWR1YlNKU09SR3NqRkIvM3lWcksxd01TVkhkT2dQMTZVMGtCOWMvOEVkL2lyYytHL2kzci93QUY3cVltejhRNmYvYVZralNmNnU2dDhLK0FmNzBianAvY3JSS3dINkxzU0J4UUI4L2Y4RkN2MnRGL1ptK0Vwcy9DOTR2L0FBbG5pQVBiNkhHQ0Mxc29IN3k2STlFQnd1ZUM3RDBOSnV3SDVSQjdtN25tdmRRbWttbnVKV2x1SjUyTFNTdXh5enNUeVdKSkpKOWF5azdGSkRsajh5WFlQVEo0eituYzlnTzlPTWJvZGtmcVQvd1RoL1pIdGYyZlBoY25qdnhacEhsK01QRkZ0SE5xSWx3eldGdDFqdFZJNkhCRFA2c2NkRkZXbzJKZTU5SmdBakpBcWhDMEFGQUJRQVVBTldLTkdaa1FBc2NzUjNvQStaUCtDczNqTWVIUDJVNXZEa2N1Mlh4RHJkcFpBQThsRmJ6WC9SUDFxWkFmbWRhc2NGbk5aUzNMc2hzOXROZWtXY1NNV21JaVFKMUxPUXEvcWFGdUp0M1AydStGdmhOUEFudzE4UDhBZ3FPTFlOSjBhMXRDbzlVaVZUK29OYXBXWkowSVZTT2xVQXRBQWFBUG03L2dxVjhUYi93RCt5eHFHaDZWZG1LNjhUMzBPbDVVNFlRTWQ4K0QvdUtSOUdOS3lHbGMvTDgycVJ3SkhGR0F2WUE1RlM3RGFSOVBmOEVrdkdtZ2VGdjJsTlEwUFhiK0tDZlgvRGtscnB2bWtEelprbFNVeHFmVXFoSUhmRk9MSlAweVE3aGtIcjB4VkFMUUFZRkFDYlY5S0FGSXlDTTlmU2dEOGhQMjVmaVpQOFlmMnJmRlhpYVdRdGE2YmVuU05MVW5oWUxZbENSL3ZTZVkzNDFuSnNwSk04bXViZHBvcG9ZOEJwSVhWU2VnSkdLVVVtTnJUUS9aejltenhqb0hqejREZUVmRTNocTVqbHRaL0QxcWdNWkdJM1NNSkpHUjJLdXJLUjJLMXFRZHhRQVVBSVZCNmpyMW9BV2dBcFdRQlRBS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQUlCNmpOQUhCZkVYOWxyOW12NHZhMmZFdnhVK0FYZ3p4SHFMUkxFMS9ybmhxMnVwaWk5Rkx5SVd3T3d6eFcxUEU0aWpHMEp0THlZbWs5emw3ai9nbmord2pjWk0zN0hYd3pPZXBIZ3F6SDhvNjZZNXRtVU5xMHZ2WkRwVW51aXVQK0NjUDdBNFBtZjhNYmZEVEovd0NwT3RmL0FJaXRQN2F6WmJWcGZlUzZORnI0U1NEL0FJSjFmc0d3TVdnL1k2K0dvSjRQL0ZIV2gvbWxEenJOL3dEbi9MN3hLaFFmMlVTRC9nbmwrd2owL3dDR1BQaG4vd0NFWlovL0FCdWs4NnpaNzE1ZmV4L1ZxSDhxSGY4QUR2UDloSWNqOWpqNFk1LzdFaXkvK04wdjdYelQvbi9ML3dBQ1lmVjZDK3locmY4QUJQajloT01pVC9oamY0WWc5ai93Zzlsbi93QkYwbm0rYWY4QVArZi9BSUV5dlpVbDBSNEwrMU44VlA4QWdodCt4Rlp2L3dBTDM4SC9BQVkwdlVPUW1nNmQ0UXNyM1VKR0g4SXQ0STJZSGorTEFyMk1EaHVMTXkxdzdxTmQ3czU2bFhCMGZpc2ZueiswZC93Y0JmOEFCSjJ3aXVQRC93QUEvd0RnbFRvSGl4a2lLeFhuaWp3cnAybjIyU2U4YXBKSXk5LzRUWDJHQzRKNG1ycFRyVjVSK2J2L0FGOGp6cW1hWWVPa0VqNFcrTlgvQUFWWFQ0cjNVc25nZi9nbjc4QmZCY0R0OGk2ZDRFaG1aTThaekxrWi9ERmZmWmJ3alVvVTE3YXE1ZXVwNXM4WEtvN3B0ZWg0TDRwL2FMK0xuaVBVWHZvUEVZMGdTT1NMWFJFK3lRUit5SkVRRkhzSzk2T1Q1WkNObkJNd2xYcTgya21aUC9DNWZqUkdweDhVdkVJQS91NjVjRDlOOWF4eXJMTGFVMTl3dWVyTHFPdC9qTDhhWmlHaStLbmlOeG5rRFhyai93Q0xwLzJObHN2K1hhKzR5azZ5ZTdKUCtGdy9HVk9HK0pYaUk0Ni84VHFjL3dBM3JTT1NaZjhBOCswWlNxVlk5U01mR0Q0ck44ci9BQkoxL0FQYldKdi9BSXF0UDdKd0swOW12dUlWV3AvTUkzeGorS3FIYW54SjEvSC9BR0Y1di9pNlA3SXdQOGlLOXRWZXZNUnQ4WlBpdXpFdDhUUEVQNGF4Ti84QUYwLzdHd0xYOE5DK3NWcjdqUjhZdmlyakgvQzBmRWZIcHJNMy93QVhXYnlMQXY4QTVkb3FPTXJSMlk2UDR6ZkZhTTVIeFQ4VGNuZ0RYSngvSjZUNGZ3TC9BT1hjU2xqc1IzSHI4YXZqREhLWnJmNHNlSmxMQUJzNjdjSE9PbjhkSjhPNEQvbjJpNDQvRXJjNlA0ZWZ0ZmZ0RGZETHhkWmVOOUorSTE3cVYxWXlpU0swOFJTTmYya29IOEVrRXhLT2g3Z2lwcmNOWlZVb09MZ290OVViUnpiRTA5bWZycC93VGcvNExrL3NMZnRCK0pORCtFSDdhUDdIM3c5OEorSWJ5ZGJhMThVV25oZTBPbFR6bkFVeUt5YnJjazkrVjU2aXZ5cmlMZ3JNOHVweXJZT3RKcmUxM2Y1SHQ0Yk1GaW9wVDNQMTBYOWtUOWtyV2tqdjIvWnY4QVhDU1JobzVrOEtXYks2a2NFRVI4Z2pINFlyOHFsbTJhUWxiMjBrMTVzOVNFRTFyYXgwL2dENEdmQmY0VzNjK29mRFQ0VGVHL0Q4OXdvV2VmUmRFZ3Rua0E3TTBhZ2tWamlNZmpjVWtxMVNVa3U3YkxoQ0VWb2pxbFVCaml1SlBZMEhWUUJRQVVBZm4zL3dXZThhcGVlTGZCdnc1aG0vNDliS2ZVSjB6M2R0aS9vclZMYnVCOFlXUkVVR0d6MXllTzlTQjZaK3lINExYNGlmdEhlRHZEYndlWWphL0ROT0NQOEFsbkVmTVluMUh5MEFmc011TVpwMzFBV3JBS0FFSndLQVB6eS80TEorTnhmZkV6d240QmdreXRocEUxM09BZWp5dnRBLzc1U3BrQjhjeGpkRVNCejlLeWthSHBmN0dIZ3R2SC83VVhnbncyOGUrTCsyNDdxNUhva0daVCtxaXFpVEkvWWhTQ09EV2kySkZwZ0ZBSGgzL0JSYnhtbmdyOWtUeFZPc20yWFVvWTlPaHgzTXpoVC9BT083alNld0xjL0ptUG41c2NkQjlLZzBzaEdab21hWGJuQXlNZHFhM0EvWkQ5a1R3TC93cmo5bXp3YjRTZUpVa2cwS0dXZFYvd0Nla284MXMrK1hxek43bnBGQUh6UC9BTUZPL3dCb3AvZzM4RW04RWFCZmVWcmZpNVpMU0JrYkRRMm9INzZRWUlJSkJDRC9BSGpVVDJHdHo4dnJOSEJBWWNiVG4zckYzYUxSSk80REtDMkFoeTVQcGptcWlRejlULzhBZ201OEJSOEd2MmQ3UFc5VnNXaTFyeGN5Nm5xWG1MaG80aU1XOFh0dGp3Y2VydFdzVlpDUG9hcUFLQUNnQW9BS0FQRC9BUGdvMkl6K3h0NDIzb0RpeWhLNUhSdlBUQnFYdUIrVGR2dUxoVkpBQXFRTEVDc0pRYzlUUUIram4vQkpEVkpybjRKK0lkTGZjRXRmRXBhSkdQM2Q4RVpPQjI1RlgwQTh3LzRMR2VNRGVlTi9DUGdXQ2RTbGhwczk1TkdDZUdsY0lNL2hHUHpxQnJjK0x3Y2RlUjZVbnNXZDUreXY0UFBqejlwSHdWNFlNTFNKUDRrdHBaVlgvbm5FNGxmL0FNZFFqOGFjZFNaYkg3SXJna2tWb1NNdTdpRzFnZWU1bVNPTkVMU081d3FxQmtrK3dGSnV3SDVKZnRyL0FCbWcrTy83UW1zK05kS2xKMDZDUVdHa3NaTWhyZUxLaHg2Ym1MTmozcVd5MGp5eEMyMEJtT2ZjMGh2UStqditDYVh3V0h4UitQVnY0bDFLeWQ5TjhLcU5RbllwOGh1TTRnUW5wbmRsOGVpR2dodG42QmZ0RitNQjhQdmdSNHU4WWlYWTFoNGZ1bmpZbkh6bU1xdi9BSThSV2oyRWZqSzBxUE16WVBYcmp2V1pvT2pBZVVET0Jubk5BbnNmcVgvd1RHOEdQNFMvWkYwQzduUlJMck56ZGFqS1IxTytVcXVmK0FvS2EzSVBvRnpnZmpWZ2ZLLy9BQVZIK085bDRQOEFoR1BnL3BGNW5WZkVwWDdYRWpIZERacWR4TEVIamV3QUhyZzFtM29WRkg1MWwwai9BSFo2K3RZcHR2YzFkbHFiWGdQd2I0ZzhmZUxMRHdmNFcwdVM4MURVYmhZTFMzalhKWnozUG9BT1Nld0JyVmJFU2JlcCtyZndLK0Z1Z2Zzd2ZBcTI4TTNsL0VVMHl6a3ZOYjFBQUtzczJOOHNuUFlZd005Z0taRzUrVm43VDN4bzFmOEFhQStOZXQvRXUrdTVEYlhkeVk5S3RwRC9BTWU5b255eElCMk8wWlB1VFFXamd5ckljTXVQcldhM0I3SDBGL3dUVStCbytNUDdTbW5hMXF0aXMraitFWWpxbW9MS21VZVlIYmJJYzhFK1psOGY5TTYxVzVtZnFtb0djNDUrbFdBNmdBb0FLQUNnQnNuRWJZOURRQitRSDdjOFNSL3RnZkVMWkVBRHI1UEE3K1ZHVCt0WnZjRHpKZVZPVCtkQUhzWDdBZXN5YUIrMkI0SnVvQ0YrMGFqSmF5WjdyTERJbVB6SXBwNmdmckZyT3E2Zm9PbFhPdDZ0ZHJCYVdVRHozVTBoK1dPTkZMTXgrZ0dmd3B2WUQ4Y1AycS9qanJIN1JYeDAxejRqNmhKSUxPYVg3UG8xcXhPTGV6akpFYVk5VHl6ZjdUR3BidVdranp0Rkl6NzFNaW1ySDBGL3dUYytBaS9HL3dEYUxzTlIxcXhXYlF2Q1FHcmFpcnBsWnB3ZHR0RWNqQkcvTGtlaUd0SXF5SWIxUDFaalhDNFlET1RWRWpxQUNnQW9BS0FDZ0JEbnRRQjhGZjhBQlp6eGw1bXMrQnZoOGtoS3gyOTVxTTZCK0NXS1JSNUgvZnlzMnlvbytKMDI4Z0gzck85ME9SMi83TS9oRi9pRiswVDRMOEhSd0NSYnJ4RmJHY0VaQWlSeEk1UHNBdFhEY05HajlsVUNsZHdIWG10U0IxQUJRQUhPT0tBUGhyL2d0RmZhakRvZncvczBsSXRKTlF2NUhYc1pGaFFLVCtCYjg2bDN1VkUrRlkyQkNnRTlPTW1zK1p0bFMyTFdrNm5xR2g2dGJhOXBGNUxiWGRuTXMxcmMyN2xKSXBGT1ZkV0hJSU9Ea1ZwRXpQdS85a3ovQUlLbzZEcTl0WmZEMzlwUi93Q3piMUVFY1BpOVFQc3R5ZWdGd0ZIN2x6L2ZIeUhxZHRVQjluYVpxZW42eFl4YW5wVjdGYzIwNkI0TGlDVU9raW5veXNDUVFmVVVBV0tBQ2dDRytuZTJ0cGJoRkxHT0ptQ2p1UUNjVW5zQitJRjlmVGFscWQxcU44UDM5eGR5eXlsdVNXWjJZNVAxSnJON0cwVXJFVHFvRzREbXBpM2NUM1BZdjJTZjIwZmlKK3l2ckxXbGxBTlY4TjN0d0gxUFE1WmlvQnp6TEMzL0FDemt4MTRLdGpEYy9NTlV6TjduNlMvQVg5cC80UDhBN1J1Z2YyeDhPUEV5eVhFYWczdWtYZUk3eTBQcEpFVG5IKzBNcWV4cDNFZWhBNUdhWUMwQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkxRQnI3UXA2VU93SHlYL0FNRkNQK0N6UDdGLy9CTzNUNXRKK0pIalAvaElQR0lqemErQi9EY3FUWHBKR1Faem5aYktmVnlENkthK2p5VGhmTk03cUwyVUdvOTN0OHU1eDRuR1VjT3ZlWitIdjdkdi9CeFgrM24rMklsMzRROENlSWwrRnZnKzRjaGRKOEpUTXQ5Y1I4Z0xQZWs3engxRWV4VDZWKzFaRDRaNWJnNHFyaVBmbitIM0hoWW5OcHowZzlENEgxQyt1OVd2cGRUMUs3bHVMaWRpODA4OHJTU1NrOTJkaVdZOWVTYS9UTUxsK0h3ZE5ScHdTUjRWV3BWcVN1MlZXbVVOZ1JEOEJXbFZSaXJvd2JrZW5mc3cvc2QvdEovdG5lUEYrSFg3Ti93ajFYeExxWUErMEcwaEt3V3FuamROTTJFaVgzWS9nYThQTmMveTNLYURsaWFxVnZ2Ty9DWWF2WDJXaCtzLzdJbi9BQWFQWGMwRnA0bS9iUitQb2hrZFZlYnd6NExpeVVQZEh1cEJnLzhBQVZ4NzErUDVyNG51VTNIQTAvbS84ajZMQzVYR0NYUHVmZkh3aS80SUdmOEFCTEw0UWFiRlpXMzdNMm42OU5Fb1UzbmlXNGt1NUhJN2tFaGYwcjR6RWNkY1NWMy9BQmVWZVNSNkt3V0hTdFk2YnhuL0FNRVdQK0NYbmpqVHBOTzFUOWpyd3BiQ1QvbHRwbHU5dElQY05Hd3JERDhiY1NVWlhWYS9rMHY4aC9WTVB0WStGUDI2ZitEVlg0YzZ6b2Q1NHcvWVo4YTNHbDZoQ3J5cjRSOFMzUmx0cCtNN0lyZ0RNWkp6Z09DT2VvcjlFNGU4V2E5S1NwWm5DNi9tWFQxWC9Ebm5ZM0tLVldONmVqUHhFK05md1grSVh3TDhmNm44TS9pajRUdnRDMTNSN3RyYlV0TTFDQXBKRElwd2V2VUhxQ01nam9hL2E4RmpjUG1XR1ZmRHlVb3kxUGxjVGg1MEpXYU9POHNldjZWdm9jbW8zeUR1TlR6SWZQeWlDRTlBZWxVNmtVVkdhRThzcnh4K1ZIdFgwRzVyc0hsazg1b1ZTKzQxTkNPaDI4TlExQ1c0YzZHTEk4VFpWaUNQZXNhMUdFb3RNM28xVkdSKy93RC9BTUd1L3dEd1ZQMS80M2VEYi84QVlMK09uaWVTKzEzd25wNHZQQVdwWDBwZWE4MHhUaVcwWmlTV2FFa0ZTZWRqWTZJSy9ucnhHNFlXQXJMSFVJKzdMNHJMN24raDlabGVJVW8remI5RDloZ3lrNEJyOHVQWHVoYUJoUUFVQUkyZTNwUUIrVC8vQUFVMDhhLzhKZCsyQnJzQ1Nsb3RIdDdld2oydC9jVGN3Lzc2WTFEM0E4SmFUZkdGQXhnOXFRSDFKL3dTUDhIbnhCKzBmZGVKSjRnWTlDME9hUlNlenlNSTFQNUUwQWZwbU9CVjJRQlRBS0FBOU90S1d3SDVMZjhBQlNieGN2aS85cnZ4TThVM21SNlkwTmhHUWVubHhqY1ArK2lhZzBUc2p3MUR0UTViOEtXZ203SDFkL3dTUDhDSFhmMmliM3hsSW9NZWgrSFpXUmlQdXlUTXNZL1FHcVN1SytoK2xpQUJRQU9uclZKV1JJdE1Bb0ErTnY4QWdzZjR2U3krRXZoYndQRk9CSnFXdHZkU0pucWtNWndUL3dBQ2NmaUtpUTF1Zm5uQ2dXSGJqUEpOUjlvczIvaHY0VW44ZWZFRFF2QnR2RnZiVk5idExUYjZoNWxVL3dBNm9UMlAyejA2MGdzTE9Ld3RZOXNjRWF4eHI2S293UDBGVkhjZ2xmT2VLb0Q4b3Y4QWdvMThZSi9peCsxSnE5ckJkZVpwL2g0alN0UFZXQlVGT1pXSDFrSi9BQ3NaTzVwSFJuaDZxaWZ2RlhyMHFWcU43blYvcy84QXcydVBqTDhhdkRmdzBnWEExWFdvbzdoaXVRdHVyYjVTZmJZcEg0MXJGQ1orejluYTI5bGFSV2RwQ3FSUlJxa1NEb3FnWUEvS3JNeVdnQW9BS0FDZ0FvQStjLzhBZ3FkNGlUUVAyUGRjdHpLRmZVNyt5czQxejk0dE1HSS9KU2FtUUg1YldMRWdzRGdtcEFzMitmdEEzYzgrbEJhMlAwZy80Sk5hVlBZZkE3WDlVblg1YjN4TS9sL1JJVVhyOWMwRUh5ci9BTUZKL0daOFYvdGNlSUxTR1hkRHBFTnRwNkFIb3lSZ3VQelkwTXRIaERkS2hialBwUDhBNEpUK0RsOFJmdFR3NjlQRHVqMFBSYnE1eVIwa1lMRXAvd0RIMnJTTzRwYkg2VGVJL0ZQaGp3anB6Nm40bThRV1dtMjBTRm5udmJwWWxVRHZsalZYUkI4UmZ0eS84RkJyTHhob2wxOEp2Z2plemYyZmNaaTFmWEZCUXpyeURGRU9vUTkyNm5rY0RyazVKRnBXUGk2WlFvT1dCeDB4U3Zkak5QNGEvRHJ4aDhXUEhGaDREOERhUkxmYWxmekJJWW9nY0lPN3VSOXhGNmxqZ0FmcllINnkvc3Nmczc2Rit6VDhKN1h3SnB6eFhGL0svd0JvMXJVWTAyL2FybGdBV0FQSVFBQlZIWUQzTk5LNW16ejcvZ3FQNHpUd3AreVRxZW5DWGErdDZqYTJBSDk1Uys5aCtVWnF1Z0g1Y1FxV1hPTzlRYUVvWFlDd0c0N1R0SHZqajlhQlBZL1l6NEhUK0UvQUh3SjhLNk5jZUl0T3Q0YkR3NVpwTExKZG9pQnZKVXNjazhmTVRUVzVCNXIrMEIvd1VXK0RQd3IwKzUwN3dKcXNQaWJXd0NzY05qTHV0b1d6ak1rZzRPUFJjaysxRXAyVnlrajg4dmlYOFEvRS93QVYvR2w5NDY4WTZuTGVYMS9NWGQ1T3c3S28vaFVEZ0tPQUI5YXg1K2ZSR3Q0cEZUd0Q4Ti9IZnhXOFR3K0V2aDE0VXU5WXY1bUFXR3pqSkVlVDk2UnNiWTBBNnN4RkNUTTVINlMvc1pmc1NlSHYyYU5MYnhONGprZzFUeGRmUWdYTjRpWmlzWXlPWUlDUm5CL2lmZ3Rqb0J4V2lWa1FadjhBd1UvK0xrbnczL1p0bjhONmJPeVh2aW03WFQwMmRmSUh6VEVmOEJBWC9nVk1EOHZtajNNU3paeWVwSFdnMEV1QW9CVWpyeFdhM0U5ajlMZitDVFh3eGg4SWZzMkQ0ZzNjSSsyK0x0UWt1bWZaai9Sb2lZb2wrbnlzZnhyWkpia0gxTGdlbFVBVUFGQUJRQVVBSTJNWVBmaWdEOGFmMnJQRU1maS85cGp4M3I5dklIam44VlhZallOMlJoR1B5MlZtQnhWQUhzSDdDR2t5YXQrMW40RlZZc2lQV0RNY0h0SEZJeFA1aXFpQjl0LzhGUGZpNi93Mi9ac3VmRFduM1lqdnZGRnl0Z2d6OHhnQTN6RWZnQXYwWTBTSEhjL0x3d2xtM2w4bjEyNHJGN2xrYnJ0YmJzM2M0d0IxcW9xNEg2YS84RW1maFRENEovWmtUeDdkV3dXOThYNmpKZUZ5TUVXMFJNTUE2LzdMdi8yMHJWS3hEM1BxTWRLWWdvQUtBQ2dBb0FLQUViMXowb0EvSzMvZ3FkNDFsOFUvdGY2cnB5UHVnMFBTN1BUNHNOMzJHWngvMzFNUitGWk5vcUo0RGJNWGkzRVl3TUNvS08wL1ovOEFpNXEvd0crSzJuZkZuUWRFc05SdTlMU1VRMnVvbHhHZDZOR1RsRGtFQnNqNmM4VnBBaDduMGduL0FBVi8rTnhYNWZoSDRXWG5vWjdyL3dDS3JWSzdHa3JENVA4QWdyejhjeXUyUDRWK0V4bis5UGMvL0YwbVNWdFIvd0NDdW43UVAyUXRZZUFQQ0VianUwTjArUHlsb0EreC93QmtiNGdmRWI0ci9BSFFQaVY4VWtzVTFYV29wTHZ5Tk90bmlqaWhhUnZLWGE1Snp0QUpKNjV6UUI1VC93QUZZZmd6ckh4TS9adVh4ZjRjc3pjWHZnelVScWtzS3FTeldtd3BjYlFPU1FwRDQ5Rk5UTFlhM1B6R3NieEx1RlpvNVF3WlFRdzZIMElxU3kxRk1EbWdtUTZZWkcwOU1kRFFFZGoxRDluSDlzLzQyZnN3NmlnOElhcWRUMFF1RGQrR3RVbVpyVjA3K1VldHUzb3k4WjZxM1NxVFZoUGMvU2o5bDM5cno0VmZ0VitHRHF2Z20vYTExVzBRZjJ4NGZ2R0F1YkpqM3dPSkl5ZWtpNVU5OEhpbmRDUFZ4bkhOTUJIQUtFRVo0NmV0SjdBZmpaKzFiOEhkUS9aOS9hRThTZkRXNWlmN0lMMTc3UlptSEUxak81ZUlnOTl1V2pQb1kvY1ZCb21ySEJwTGtZeHpRQTV5Q3ZCb0FtMFR4QjRrOEk2eEI0ajhKNjlkNlpmMnJCcmU4c0xob3BZam5PVlpTRDlSMDU2VW03RXlQdG45a3Y4QTRLeXdUM3RsOE4vMm9na0RTc3NOcjQwZ0FTSXNUZ0M3akFIbDl2M3lnTHo4eXJ5eGQ3RTJQdXUwdXJlOHRvN3ExblNXT1ZBOGNpTUNHVWpJSUk0SUl3YzFwdUJKUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFKdlRPTWlnTG1IOFJQaVA0RStFM2d2VWZpSjhUUEYrbmFGb2VrMnpYR282cnFsMHNNRnZHdkpabVk0L0RxZWdyU2hRcllxb3FkR1BOSjlGcVJVcVFwUnZKMlB3dS80S3ZmOEFCenQ0bCtJa3VwL0FuL2duamQzR2o2Q3l2YmFsOFI3aUFwZTN5a1lZV1NIL0FJOTBPY0NWdm5QT0F2RmZzbkMvaHZKT09JekZhN3FQVDVuZ1lyTkcwNHcwWDRuNUFhMzRpOFFlSzlXdWRkOFI2dGNYMS9lU21XOHZMeWRwWnBuUFZuZGlTeDl5YS9hTUhnS09FZ28wMGtrZURYcnViM0s2S3dYbm11L201VWNtcklybWZ5MTJvUmtqclVTeE5rUzIzdWZWZi9CSkQvZ2x6OFRmK0NtLzdRSytDdEplZlNmQldoN0p2SEhpZ0lDYk8zYnBERm5ocDVNRUtwNkRMSGdWOEp4WnhaUXlMQ3VlODNvbGZkbnBaZGdwNG1wcnNmMUFmc3Jmc2lmQVA5akg0VldId2IvWjc4QVd1aDZOWlJnUDVTQnA3cVR2TlBLZm1sa1Bjay9URmZ6ZG1lYVl6TjhVNitJbGR2N2tmYVllakdoVFVVZW5LdTBZcnprYmkwd0NnQkc1VS9TazNZRDh6ZjhBZzQyLzRKaDZGKzFOK3paZGZ0UmZESHdyR1BpRjhQN05yaTVhM2grZlZkS0hNMExnZmVlTWZPckhKQUREdngraitIZkV1SXkzTW80T3BMOTNVZHRlai95N2VaNCtiNFIxc081UldxUDV0ek9obE9CMUhQc2ZRMS9TVTVLVVZKYk0rSDFpN01UZUQvRldEYkFqUFUwaFhTR09RVHdhMGcwa0YwSldtNFhSTEVSNVlCSXFkVTlBdWlHWmNrNDlhcmNHejJyL0FJSnZmdEVlSS8yVXYyM1BodjhBRzd3OWRHRTZUNHF0VTFETEVMSlp6T0lKME9Pb0tPZnlyNTNpckJVY3l5ZXJScUxvMnZsc2V0Z3NRMVVUdnIwUDdFN0s0aHU3U0s4dG0zUnlvcnhNRDFVakkvUTEvSlVrMUpwbjNDK0ZORTY1eHpTS1Z4YUJoUUF5YVZJSW1tazZJcFkvUWMxTXR3UHhMK00vaWgvSG54cDhTK001cFMzOW82OWRUQW4rNlpHQS9RVklIT25PVkFHZVFLQVAwQi80STRlQ0RaK0ZQR0hqeTRRNXV0UWdzcmR5dlZFWGVmMVlVQWZiRmFJQW9BS0FJcjI1aXNyT1c4bWZha01aa2Nuc0FNbitWQUg0amZGenhWTDQ2K0tmaUh4ZEsyNyswZFp1YmdIMmFSaVAweFVTYUN6TUE0ejE3MUQxWm9mb1Qvd1JwOEd0Wi9EenhaNDdtdGNOZmF2Rlp3eWtjbFlrM01QcHVjVnBGSklpVzU5cURwVkNDZ0FwUFlEODEvOEFncjk0M2kxbjlvTFIvQjBNaFA4QVlmaDlUSW1lQTg3bDgvWGFGck43RFc1OHBvKzJMY1BYb2Fnczl3LzRKdStEejQxL2E5OE14TkFIaDB4cHRTbTRPQjVNWktuL0FMK0ZLdU93cGJINnhnODhtdEZzUVVmRk90UStHL0Rtb2VJWi91V0ZqTmNQOUkwTG4rVktXd2RUOFMvRXVxWEd0K0liN1dyeVRmTmVYVWswci8zbWRpeC9uV0N1OXpWSjNLVW9CaDVPT2FwYmc5ejZoLzRKRmVDWXZFWDdSZXFlTDdpRU12aDNRSE1iRVoyeXp1SXdSNzdRMWF4M0piUDB2SFFWUkFVQUZBQlFBVUFHUjYwQWZFSC9BQVdjOGZ3UWVGZkNId3RodWNTM2w5TnFkeEdCa21PSmZMVFBvQ3pubi9acUpiZ2ZCRnF2T1FLVjBXdGk1YXlSeHpvOGpmS3AzTUIxd0Jtb2FHZnJUK3hSNENmNFYvc3RlSExiV1loRmN6MkxhcGZnRG9aaVpjZmd1MFZhV2hMWitXM3hnOFczSGpyNHRlSS9GOTB4ZDlSMXk0bnlSL0NaRHQvOGR4U2V4UnowN2hZeUQrTlN0d05ud0Q0MzhYK0RiMjR2UEJIaUxVTk51NVlmTG1sMDI3YUdSb3ljN1NWUFRJL1NyQXU2aHFYeEs4YjNZdXRTdXRiMWlYUDNybHBybHMvVTUvVDBxSkpzRFc4TWZBRDQ4ZU9wL3MvaGY0UitJTHAzR1FVMHlSVlAvQW1BR1B4cUZBV2g3WjhKZitDVTN4NThhWFVGNThUTlJzL0MybnZ0TXFlWUxtNzI5d0ZVN1EzdXg0OURXeWpxRjBmYjN3Qy9aaCtFL3dDemRvRGFQOE9OQTJYRnhnNmhxdDBmTXVydHY5dDhjRFBJUVlVZGhWV3N5RDBSY0JSMnFnUGhiL2dzOTQyMlczZ2I0ZVF5L2ZsdXRSdVk4L2VBQ3h4bkhzZk1xSFlhVno0WWk3ZldrV2FuaHJROVk4UjY5YTZIb1duVDNkNWN5N1lMZTNpWjNrT0NjQlY1SndEMDlLVDJBMDd1OU1MeVdpTVZWU1VNWmJqM0hKOWFpekF6YmlSZHdWY0FEanBScUI5RC93REJQWDRLL0JiOW9MeDVxM2hiNHByY1RUV0duSmRhZnBjVnlZbG5HL2JJek1PVzI1WDVRUjF6VktOMlM5RDlFL2g5OExQaDc4TGRHWFFmaDc0UnNkSXRRQm1LemdDN3pqcXpZeXg5eWEwczB5VG9od09UVkFmbnovd1dOOFlYZDE4U3ZDZmdlTzQvMGV5MFdXOFpCMDh5V1Vybi92bUlmblVTM0dsYytPUUd4ME5aRmtGeEdaNVJicU1seUVIMWJqK3RYRVQyUDJxK0NuZ3EyK0hQd2s4TStCYlNCWWswclFyVzJLSjAzTEVvWS9pMlQrTmFrSFUwQUZBQlFBVUFGQUdEOFRmRjlqOFB2aC9yZmp2VTdwWWJmUjlMdUx5YVZ4a0tJNDJiK2RBSDRrM2VwWFd0NmxjYXZxRFptdkxtUzRtWS93QjkyTHNmeExHczdoWmt3Y0l1Y2pPZTlBN00rclArQ1RYZ0c0OFEvdEIzUGpmeXNXM2gzUVpYWnlPRE5jTUkwSC9mS3lIOHFjZHhXTkgvQUlLN2VOSk5aK01taGVCb256Rm8raCtkS3Zielo1Q2Mvd0RmS0Q4NmlYeGpXNThoaFNyRVlva1dWN3BaV1JoYi93Q3MySHl3TzdkQitPY1VSSmtmdGY4QUJ6d2ZhK0F2aFA0YjhGV2tLeHg2Vm9kcmFoRTZEWkVvUDY1cllrNllEQXhRQVVBRkFCUUFVQUZBRFhkVkdXWURIWEpwUFlEOFZQMmd2RzMvQUFzcjQ5ZU1QSG03S2FuNGh1cFljbnBFSldWQi93QjhCYTUxdXkwckhMcE1ZL2xWUjZVeG51MzdJZjdFZmozOXFqUWRYOFc2QjRxc05Jc3RLdlVzeEpmVzhrbjJpVW9IWUx0STJoVlpjbi9hSHZXa0V4Tm85ZjhBK0hRZnhSWExqNGs2QTdkajVjNHovd0NPMW9MbUswbi9BQVNXK09VU0g3UDR5OE5NZjRSNXN3LzlrcVpJa3h0Yi93Q0NVdjdUdHRDVHBkNzRadkhPZUYxTjRoK3NacWdQdlg0RmVDZFUrRy93ZDhMK0E5YlpEZWFQb2R2YVhSamZjdm1JZ0RZUGNaNzBBZFZjd3JjUU5BNmhsZFNHVmdDQ0QySVBXa3dQemMvYnAvNEpvZU1maHJydW9mRjM5bkxRWjlZOE1YTWpYR28rRnJOZDEzcExGaXp0YklPWnJma255eDg2ZGd5OUpzeTB6NUd0cmxKMDg2RjFaTnhCSTdFRWpCOUQyeDJ4U3N4U0xpUzcvVHJpZ0lralJoNCtTZXZhb2IxRTA3bW44TnZpVjQ0K0RIanV3K0kvdzcxWjdMVk5ObjNSUHpzbFVuNTRwRi9qamNjTXYwUFVBaHE0ajloZjJldmpSb0g3UVB3ZzBUNHFlSDBNY2VwMm9OemJNZm10cmhUdGxoUCs2NElCN2pCclZNRHRtNVVqMnB2WUR4YjlzMzlqVHdmKzExNEVqMDY5dXhwUGlUU0Mwbmh6eENrZTVyZGpqZEZJT0RKQytNTXZVY011Q0tpekJINWRmRnY0Sy9GejluM3hVM2czNHhlQ3BkSnZDNVd6dVZQbVdkK294Kzh0NXNBT0QxSzhNdWNNQWFMTWZRNXFPN0pKK1hwUzJFU3MrUnp4eFV2VUNuZlFrd3VxTHVHd2c1R2MvaDMrbFQxTkQ3Ui80SksvdGY2blkrSVl2MlV2aUxxMHQxYTNNVWt2Z3U3dVpOeldySXBlU3lMSCtBcUM4WS9od3lkMXJTTXRiRXlYVS9RbGNFY1ZvU0xRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFDRmxCd1RTdXIyQThxL2ErL2JHK0F2N0VId2ExRDQ0L0gvd0FhUWFWcEZpaEVFQ2tOYzM4MlBsZ2dqeURKSWZRY0Fja2dWMzVYbG1NemJGS2poNDNiL0E1OFJXaFJoZHMvbWUvNEt1ZjhGaWYyZ1A4QWdwVjQ4YlR0YXVKZkR2Z0RUYnBtOFA4QWdxeW55aTlSNTl5NC93QmZNUmpramF2SVVDdjZKNFY0SXd1U1VWVW1yemExZitSOHZqTWZPdTlkRWZIU1I1eVQ2OEFIdFg2Q3JSU1I1Tld1NTZJbERDS1RvTWtZb3ZZNXRVd211VmppTG5COUJTbEp0RlhSTjREOEZlTHZpcDQ2MHI0ZmVDTkprdnRZMXpVWWJIVGJPSkNXbW5sY0lpQUQxWWo2ZGE4M0hWNmVFdzhxdFIyU1ROcU5KMVpwSDlkUC9CTUw5Zzd3UC93VHkvWkw4Ty9BWHd2cDl1ZFZXMlM4OFg2cEVvM2FqcWpxUE9sTGRTb1B5SU9nVkJnYzEvSy9FZWMxYzh6S1ZlVDkxYVJYbC93VDdyQTRhR0d3Nml0ejZIUmR1ZVAxcndqdEZvQUtBQ2dBb0FyYXpwZGpyZWxYR2o2bmJwTGJYY0xRM0VUakllTndWWUVlNEpxb1RsU21weGRtbmY3aVpKU2pabjhhWDdiUHd5dGZndCsyRjhUZmhWcDZiTFhRdkhHbzIxcWdHTnNRbllvTWR2bElyK3VlSGNVOFhrdEtwTjZ0SS9QTVpDTUtyOVR6UldERGcxNnB4dHBJV2d6bTA5aU9nZ0swakpKRkpxeElpc1ZCeFY4eUxTYkdYRzJOTndISk9DS0U3bG8wL0FNYzl4NDcwV0MyM2VaTHJGb2lCQnprem9CajN6WG1ack9Ld0ZSOW92OEFVNk1HbjdWZXAvYTE0S3RwYlR3aHBObktXTHc2YmJveGZya1JLT2ZldjQvclNUclNmZHMvUllKOGkrUnJWbVdGQUJRQnhuN1JIaTRlQlBnWjR0OFdGOXBzdkQ5MDZIT0NHOHNoY2UrU0ttVzRINHJxOHN6ZWZQeTdmTTV6M1BOU05KaitqS2Y5b1VBOXo5WHYrQ2JQZzgrRS93Qmt6dy9jU1E3Wk5Ya212MkpYQklaOXE1L0JSajYwQ1BlcTBBS0FDZ0R6NzlxcnhySDhQLzJjL0dmaXRwZHJXMmdYQ3hrSEIzdXZscmozeXdxWmJCdWZqQ25tbHkwcHl4KzhUNjFuSTFiVmh6TGh3ekRBemswUkVmckgvd0FFMXZCYmVEZjJRUERIbWcrYnFubjZoS1NNRW1XUTRQOEEzeXExcW1rUkxjOTZwaUNnQkc2WW9ZSDQ5L3QxZU1UNDQvYTE4WjZ5czNtUjIrcWZZN2RzNUFTRlFtUHpGWlBZYTNQTE43U1JoSFBBOXFsYmxuMmIvd0FFWmZCSzNmeEo4WitQNUVKV3cwbTNzb1NlenpPWGJINEl0YVIzSmtmb1VvSTYxWkp4SDdTdDFMWmZzLzhBalM2aExCazhNWHUzYjd3c1A2MU12aEJibjR6d2JaRUxEa0U4SG5rVnpSZmMzMjNFdWpzaHl2cUt0Ymt2Yys2UCtDSzJtUUhSL2lIcmpJREw5dnNMY05qa0tJNUh4K28vS3RZN21iM1B1a2RLcTZFRk1Bb0FLQUNnQkd6akE2NDROSzZBL0pIL0FJS0FmR1dQNDMvdE9hN3FXbXpGOU4wVi93Q3lOUGJPUXlRa2gyWDJhUXVmeXFKTlhHa3p4eUpmTEFPT2NWRDNMTy8vQUdaZmhEZWZIYjQxNkY4TjdkQ1lyeStWdFJrVWJ2S3RZL25sYjIrVUFlMjRldFV0Z1AxUi9hUThUV2Z3di9aeDhWYTdBRERGcC9oeWFLM1JPTnBLZVdpajM1QXJUb1puNDR5M0RQTVpHN241cXpleG9NbnVCdkIzZktDQ2NDcFc0SDZoL3dEQk9mNEkrRXZEZjdMdWdhMXJYaGF5bnY4QVhETHFFMDEzWlJ5U0JXY2hGM01DY0JWR1ByV2lUSmJQb08zMEhSclBIMlBSN1dJZHZMdDBYSDVDbllrdCtYazVKUFRvZWxPeUFjUGVtQVVBSTRPT0tBUHk2LzRLdStOSDhTL3RZUzZHa3ZtUmFEb2RyYXFBZUZkOTByRDY1ZXN5NDIyUG5LRjI0OWpTdW1NK21QOEFnbGY0WEhpWDlxaURVcFlCSkhvMmhYVjRTVis0NUt4SWZyODdVa25jVDJNbi9nb244SVI4SC8ybnRTZlRMTXhhWDRtdHY3WHNkb3dxTzdFVHhqNlNaYi9nZFVDZWg0WmNTa0FaeG1wYXVNN0w5bTM0dVhYd08rTmVnZkUyQ1J2TDArOHhmSXJZOHkyY2JKVlB0dEpQMVVWcEVtUit4ZW1YMXBxZW53NmxwODRsdDdpSlpZSlZQRG93REFqNmcxUkpNLzNUUUIrWkgvQlZhN21uL2FvdUlKUVNJTkJza2l5ZUFDck1mMWFzMjFjMGdybnplT1JXWUdsOE10SWg4US9Gand4NGV1TStYZjhBaVN3dDVBQmtsWG5RSCtkVkVUMlAyMGpWVkdGR01FMXF0Q0IxTUFvQUtBQ2dBeUtBUGxyL0FJS3dmR2lINGUvczhyOE83RzYyYWo0d3ZGdGlGZkJXMGpJa21QMFB5Si93TStsSzZBL016Y3JNekFZeWNtc1h1YWRCNlNOSStOeWc0NUxEZ0QxcWttaFhSK25uL0JMYjRQM3Z3My9adGg4VmE1cHB0OVI4WFhqYWlRNllkYlVEWmJnOThGQVhIczRxNGlidWZLSC9BQVV3a25QN1dldnZjRnVMZTBXUGNmNEJBdU1maVRXTS9qQk0rZkdPVG1sY290ZURvSTc3NGc2RnBjZ1hFMnUyVWJCaHdRMXpHRG1yaVRJL2IrSkZqakVhRGhSanA2VnFpUjFNQW9BS0FDZ0FvQUtBT1A4QWp4NHhqK0gzd2E4VmVOWkpkbjltZUg3dWRHNzd4RTJ6L3dBZUswbnNOYm40b1F5eVREejV2dnlmTS8xUEpybVQxWm8xWWthUnR3Vk8vU3FXNGo5VnYrQ1luZ3hmQ1g3SDNoM1VIdGpITnIwMXhxazJSeVJKSVFuL0FJNHExdEZxeEQzUG9SZWdxaEMwQUZBQlFBVUFOZE40L2tmU2dEd0Q5cHIvQUlKMWZBcjlvZVdmeExaNllmRFBpaVZHeHIyaXhxZ25icVB0TUl3czR5T3B3L1BEVUFmbmgrME4reXA4WS8yWU5mWFMvaVI0ZVUyTTB4VFQ5ZjA4TTlsZStnVmlNeHVSL3dBczMrYnJqY09hemtyalJ3RURoa3gzQklxR3JNcTZFdUVWa3o3MFIzQnE3UHZ2L2dqSjRqdmJud0Y0MjhJeXpPMXZZYTFiWEZ1ak5rSVpZZm54NlpLWnJXTzVEUHRXcUFSbDNEQm9BNTc0a2ZDdjRmZkY3d3JjZUN2aVY0UXNkYTB5NkI4MjB2NEE0QnhqY3A2bzQ3TXBCSFkwQWZDbjdTLy9BQVNUOFQrRDdhNDhXL3M0YXZjNjVaSVM4bmhuVTU5MTVFdlBGdk1TQk1CL2NmREhzeDZWRWxjRDQ2dVlydXp1WmJEVWJXVzJ1TGVReHoyMXhDMGNzVGo3eXVqQU1oQjdFQTFLVmlva2JTU0tjTGpGVExjbzBmaHQ0bDFEd0Q4Vy9DM2o3UkpqSGM2UjRoczdsQ0I2VExrWTc1R1JpbEcvTUtUMFAzRGorN3dNRFBGZEJtbHFPb0dGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUNGd0RnK21hVjliQ2JzZVgvQUxYMzdXL3daL1lwK0JXdGZ0QWZISHhDbGpvK2t3SHlvUVI1MTljRUh5N2FGVDk2Unp3QjI2bmdWMjVkbDJJelBHUm8wVjd6L0F4clZvVUtibkkvbGkvNEtYLzhGTGZqWC93VW4rTzExOFMvSDk5TGE2RGJTUEg0VzhMeHpFMitsVzJmbDJxZURLd3dYZnFUN1lGZjB6d3B3cFF5WEJLeTk5N3ZxZklZbkZWSzAyNWFuemZIRUZ3empucG12dFpTUE5sUFhVbmNNb0FRbjNxSk8xckdVM3JvTVk0VTdnQ2ZyVXVSTjJ5bGN5TXpEZjhBalVPYVN1VkdEWitwUC9CcWwreG5COGN2MjA5Vy9hWThXNlRIY2FSOExkS1dYVHpLdVZPclhXVWhQVEc2T0paWEhvU3ByOHI4U2M1ZUV5cFlXRDk2cHA4dDM5KzN6UGN5YkRlMHJjejJSL1I1R215djUrMWJQc1IxVWxZQXBnRkFCUUFVQVJYdDFCWjJ6M1Z6SUVqalF2SXhQUlJ5VCtRTkM5NTJRbTlMbjhhZjdkbmp2VFBpZisyZjhWUGlGbzhyeVdtc2VQTlNudHBKT3JKOW9ZQS9rSy9yRGhtbE9uazFHTDN0K2grYzQ1L3Y1VzdubDhjWlZBeE5mUXVMVzV4eitFV2taRWRBQlFCTkg5d1ZhMk5vL0NSWElZOE1lTTVGYUt3M2MrZ3YrQ1VQN1BHcS90UWY4RkUvaEw4S2ROMDk3aUNYeGhhMytyS2laRWRqYU45cG5rYjBVQ01ENnRpdmtPTWNmVHdHU1ZadDlHdnYyUFN5Mms2bGVLUzZuOWY4UXdnQ3JnZGhqb1BTdjVXMWJQditnNm1BVUFGQUh6ai9BTUZTL0d2L0FBaXY3S0dwNlZETnRtMXU5Z3MxR2VxYnQ3L29vcVpEUzFQeTBVWUdjMUpaSmJXOGwzZFJXa0Nsbm1rV05RQnprc0FQNTBFdXgrMS93ZDhLeCtCdmhYNGM4SFFwaGRPMFcyaEk5eEdNL3JtZ2s2YXRFQVVBQjZab0ErWS8rQ3JualQvaEd2MlhwZkQ0SjNhN3FzTnNRR3g4aTVrWWYrT2lwa3h4M1B6Qmp3Zm1DZ2ZTc203bHkxSkxhM2t2TDJHemhpM3ZMSXFLb0hMRm1Bd1B6cHhKMlAyeStEbmhTUHdMOEovRGZnNklZR21hSGEyNXlNY3JFb1A2NXEwbmNsNm5TVllCUUJROFVhM0I0YzhPWCt2M0RBUjJObExjT1c2QUloYitsREEvRUh4UnJFM2lYeFhxWGlHNUphUy8xQ2E0a1lucXp1V1A4NnlleGFSU2xkVktxRkhYbm5yVXJjWitsSC9CSUR3a2RHL1oyMVB4WExFVmsxenhES3dZajd5UW9zWUk5c2cxckVtUjlaVlJKei94VzhQSHhiOE12RVBoZEl5N2Fqb2QzYklvNmxuaFpSajN5UlNhdWhyYy9GQllwTFoydEpWWU5FNVJ3d3dRUWNFSDhhNXBLek5aTzdFdVYzd25IMXFva24zRC93QUVVdGR0aGEvRWJ3MDB3ODlielRydEkrK3d4eW9UOU1nQ3RvbWJhdWZkNDVHYVZtQVZZQlFBVUFCT0JtZ0R4UDhBYncvYVB0UDJkL2dYZmFsWVh5eDY3clNQcCtnUjUrWVN1cDNUQWVrYWt0OWR0VElhV3ArVEVBWmw4eVJpek1TV1lua25QWDYxaTNxV1BKVmZ2TUFPNVBiM29FMnJuNkovOEVzUDJYcnY0YitCYnI0N2VMTE14YXI0cHQxajB1M2s0TnZZQnR3Y2pzMHJBTmpxRkMrcEZhcE93cm82Zi9ncXY0eS80Um45bEs2MGlPZFVsMXZXYlcwMjd1U2diekdJK213Zm5SSjJSSitYMGJnOVIxTlE1S3hvT1dHU2VYN1BheFplVENvZzdzZUtpTWsySjdIN1kvQ0x3dEY0SitHSGg3d2VrSGwvMmJvbHJic25veVJLRCt1YTZGc1FkSjBwZ0ZBQlFBVUFOa1pWVTd1bmMwQWZqRiswcjR4YjRqZnRCK00vR0xrSDdaNGh1UEx5ZUJHamVXbVBiYXRaTmxwV09LVDkzOHJIazlLaGJqUHVUL2dqVjRQZDcveHI0L210OEJZYlhUNEpUM0pMU3VCLzQ3V3FWeVpIbzMvQldINFFQNHgrQXNQeE8wbXkzMy9oQzhFMHJLQm43SExoSmZ3VnRqZTNKb2FzaEoyUHpiU1I1QUhmdU00OVBha1VuY1YxTEl5bm9SaW1uWVVqOVFmK0NaZnh4SHhWL1p6cy9DMnEzNG0xYndtNDA2NUIrKzBBR1lIUC9BUGsrcWU5VW5jaytpMklLNUZOZ2ZtNy93QUZhdkRNbWwvdEcyR3ZzRDVlcitISVhRbis5Rkk4Wkg1YmYrK3F4bnB1YXdQbG9mVEZTSm1oOE45WFR3OThYL0MrdVNTS3FXUGlTeHVITDlOcVRveC9sVlIwRTJmdHJGSXJES3RrTVNWSTZFVnNuY3p2cVBvR0ZBQlFBVUFSM054SGJSTlBOSXFJZzNPN05nS0J5U1Q2VUFma1grM2QrME1QMmp2MmdkUjF2U3JzeWFGbzQvczNRZ0h5cnhJeDN6ZldSeVd6NmJSMnJKdXpBOGVDaFJnQ29ORDE3OWl2OW1qVlAybS9qWFkrR3A3Si93Q3dOTmtXODhUM1djS3RxckRFSVA4QWZsSTJBZFF1ODl1ZERNL1hPd3NJTk10SXJHeXRvNFlJSTFqaGlpWENvaWpDcUIyQUFBSDBxa21tQithbi9CV3Z3N2NhQiswL2JhNElXRU90ZUhJSmcyT0M4VHRHM1BjNDIxRTFxVkZYUG1WSDNqQU5aUmFiTHN4bHRxY21qZUlMUFdVUC9IamZRWE9QK3VjcXYvSlRXa1NKSDdpYUJxMXZyMmgyZXVXY3F2RGVXc2M4THFjaGxkQXdQNjFxaVM1VEFLQUNnQW9BS0FDZ0Q1My9BT0NvSGpkUENIN0lQaUN4Vmg1dXUzTnRwa0s1d1R2bEROai9BSUNocFBZcU81K1ZTUjhrWXhYSW1sSjNOSkVkM0hjU0kwVnY5OW8yVkFPN0VZQS9NaXRZMmtoYWRUOXRmZ1g0T3QvQVB3WjhLK0NyZVBhdWwrSDdTMndmVllWQi9YTmFKR2IzT3M2Vllnb0FLQUFuRkFDQmdlbEFDMEFGQUdYNHg4R2VHUEgvQUlZdlBCM2pMUTdiVXRNdjRURmQyVjNIdVNSVDY1NkVkUVJ5RHlPUlNlaUEvSWI5clQ0R0Q5bWI5b0xWL2haYlhrOXpwZmx4M3VnM0Z5MjZRMnN1V0NPZU1zaERKbnVGeldNMmtOSTg4bGZmSDlEUkYzTFAwSS80STIrQzd6VFBoSDRyOGYzZG9ZNDljOFJMQlpNMzhjZHRFRVlqMjh4bjVyV0pEc2ZZNElOVUlXZ0FvQWJKR0pCZzBBZkkzL0JVL3dEWks4Ti9FTDRVYWgrMEY0WXNvYkx4UDRXdERjNmhOREh0L3RTeFQ3NlNZNnlJUG1SenpnRmVoR0phMEtSK2I5cGNpOGdFcWdZQndXQjYrOVlPV3RpanJQZ1A0RnVQaVA4QUhYd2I0Q3RZWFo5WDhTMnNUQkJraU5YODJSdm9zYU94OWxOVkZlOFMwejlyWS91WjU1SlBQMXJja2RRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBWUh4TytJbmc3NFNlQXRaK0tIeEQxMkRTOUM4UDZiTGZhcnFGeTJFZ2dqVXM3SDhCeDZuaXRLTkdwaUs4YVVGZHZSRVZKUnB3NW1meXlmOEFCWXIvQUlLdi9FRC9BSUtXL3RBVGF6cFY3ZTZiOE90QWxlRHdUNGFrZkFDY2hyeVpRY05QSjFCL2dVaFIzSi9wTGdyZytsaytDVlNyWnplNThsbU9OZFdySkxacEh4NGtUQmR6Tlg2SmRSaFk4bm42c1V0bm92QTRySnN3bkxtWTV5Ui9FZnhOSWdpZVlEakhicWFseVExdVZXSWxtNmdBOXlhem03UjEyTm9LOGorb0wvZzJoL1pwc3ZnSi93QUV4L0Rmak83MHd3YXo4U0wyYnhEcUVqNDN0Q3g4cTJYNkNLTlNQOTQrdGZ6WDRoWmpMRzUvS24wcHJsK2ZYOUQ3VEs2U3A0ZFBxejlCaXdYclh3cDZvQWdqSW9BV2dBb0FLQUE5S0FQamYvZ3VQKzIvcGY3RWY3QS9pclh0UDE1TFh4WDR1czVOQzhJdzd2bmE1bVFpU1VBYzRqakxNVDBCSyt0ZlM4SjVWVXpYTjZjYlhqRnBzODdNOFNxR0hhNnMvbEdhT1NlNFo1NW1kbmNzN3Z5V0pKSkorcHIrcU1KU2pScGNrVm9qNFNyZVVyc3NTeGtKZ0N0NXF5T2VidWlFcVY2MU1ZOHhDVnhubCs5VjdOajVROHYzcGV6ZmNPVWNaQkZHTTg4VlVZbXEwaVFsekpLRUorOGVPYW1wVWpUaGRoWnkyUDN3L3dDRFVyL2duTnFudzE4QTY3KzMxOFVkQmtnMUR4ZGEvd0JrK0JZcm1MYXk2WUgzVDNhNUdjVE9xcXAvdVJuMXIrZWZFYlBuaXNaOVJwdjNZdlg4MS9tZlpaTGczQ1B0WmRUOWxxL01Wc2UrRk1Bb0FPOUFId3Qvd1dTOGNJOFhoRDRkUnlqT1o5UXVFQjV4eEduOWFpVzVVVDRWRVdCdE5JbzdyOW12d1d2ano0N2VFdkNiUjcxdTlkdHhJQi9kVnc1UDVMUnVROXo5bUZVS29WUmdEb0JWSmFpRnFnQW5BelFBaFBITko2QWZCSC9CWmZ4czgycStEL2g3Qk9DSUlKNys0akI3c1FpNS9CVFVOMkhIYytJa3QyQ2dIMDRGWmxuYWZzemVDcGZIdjdRbmc3d2l0djVndlBFRnY1cW5wc1JoSWYwVTFVZHhOSDdQcDNQdnhXeEE2Z0FvQThqL0FHNlBHcDhBZnNxZU10ZVNUYkxKcExXa0p6L0ZNd2ovQVBaalUzMEdqOGdyZmJ1d1Izd2M5L2VvZXhhbHBZYnFIbFJzSkNDQUZ5eDlNYzFLM0M5ajlmOEE5aFh3U2ZBZjdLUGduUlpZUWtyNk10MU1CM2FaakxuOG1GYUxjaHU1NjVWaUViSGNVQWZrcCszaDhEN240SC90SzZ6WVc5b1l0SzF1WnRWMGh5ZmxlT1ZpWkZIdWtoWmNkZ1Y5YXhtbGNwU1BJc0tWNVgycExjcHU1N3IvQU1FMGZpdlovQno5cHlDMjEyOVdEVGZGZG4vWk56T3grV09VdHZnTEUvZC9lRGJuL2I5NjBqdVl2Yy9WSlh5QlZsRHFBQ2dCQ2NET0tBTWJ4LzQrOEsvRFh3amUrTi9HZXJSMlduYWZBWmJpZVRyeDJVZFdZOUFCeVRTYlNBL0pmOXJqOXBEeEIrMUY4V0xueGZmeHkyMmwyVzYyMExUbmJpM2d6MVBxN0g1bVBxY2RBS3psTFVxSjVpWS9LVElHZlpSeVRVUGNvK21QK0NmMzdFMTE4ZXZGRVh4TStJV25uL2hEZEt1Y3JFK1FOV3VFUCtxWCs5RXArK2Vod0ZIVTFhV2hEM1AwMGhnaHRZRXQ0SWxqU05Rc2FJb0FVQVlBQUhRRHBXaTJFZkJ2L0JhRHhpejMzZ2I0ZnhTbGRrVjFxRTBmcUNWaVEvOEFqcjFuUFhVcUt1ZkRxZ2dBNDZWbTlpanMvd0JuWHdvZkgzeC84SCtEVWozcmYrSTdTT1VIdkdIRFAvNDZyVVFWZ2VoKzBjYWtFaytwNHJwM014MUFCUUFVQUZBSExmR3Z4ZEY0QytFZmlieGxLKzBhYm9kek9yWnhobGliYit1S1RlZzF1Zml2RTgxeFBMZVhVZ2Q1anZkanp5Y2svd0E2eWtheFE1MFZqdElIUGZGU3R5VDlOdjhBZ2xINE1IaHo5bGVEWFpJaUpOZDFxNnZNbnVnSWpUOUVOYlIySWJ1ZlFuam53am8vajd3YnF2Z2ZYNEJKWmF4cDgxbGRvUURtT1ZDamRlK0RuOEtvUitLL2pQd2pySHcyOGI2eDhOL0VNRHgzdWg2akxhVGJ4Z3RzWWhXLzRFQUc5d1JXYjNMU3NVWThNTTQvU2dVajNqL2duUDhBRzZYNE0vdEhXTnBxVjJzZWkrS0VHbDZtMHB3c2Jsc3dTWjdZa3dwOVExVkhZay9WTGxseGpGVUI4cS84Rlh2Z3RxSGp6NEgybnhPMEd4TTE3NFB1bW11MGpYTHZZeTRXVEhmNUdDUDlGYW9uRk5GUmRqODRqeWVUem5uNjFrVVJUd2VhMlZiYTVIeXVCeXA3RVZVU0c3bjY4ZnNhL0dTeitOMzdQZmh6eGNzbysydzJTV09yUWdjeFhVS2hIeU8yUUF3LzNxMWpzVGJXNTZyVEdGQUJRQWp0dEdjRTBtN0FmRTMvQUFVcS9ibHROSjBtL3dEMmNmaEhyQk9vM3NSZzhTNnRidGtXa1JIelcwYkE4eU1PSEkrNkRqcWVKY2xZcEkvUDVJdktHRGdrQ3MyN2xXUnYvQy80WitOZmpONCswLzRiZkQzU0h2ZFYxR1RiRkdCOGthRDcwcm4rR05SeXpIcDlTS0VyZ2ZyaCt5dit6ZjRWL1ppK0YxdDRGMElwYzNzeFdmVzlVS0FQZlhSWEJmMlFmZFJleWdkODFzbFl6UFRDTTB3UGxEL2dyVjhETDM0Zy9BZTMrS25oK3dFMm8rQ2JscnU0MnBsenA3akUvVGtoTUsrUFFFOXFtV3hjSFpuNXVXazBWekdMaUpzaDFCQkI0cm5qdVczZEQ1WWtjN2lvYmc1REhodlkxcEV6a2ZxRi93QUV5L2oxYi9GZjluU3c4R2F0Zm8rdStEMFRUcjJJdGwzdGdQOEFSNXZjRkJ0Si92SWZXdFk3RW4wYURrWnBnRkFCUUFVQU5FZ0l6aWdCSTVVbFVGU0RuME5KdXdIdy93RDhGblBHQVR3OTRLK0hzVTZqN1JmWE9wVElHK1lpTlJHcHg2WmtQUHRTYnVpbzdud1NJeEd2M3M4Y1lyazVieU5KSFQvQWp3VS94RStPZmc3d1dzWmtYVXZFdGxGT203R1loS0diOUFjMTB3c2tRM1kvYkNGRmpqQ0lBRkhDZ2RBTzFhRURxQUNnQTZkYUFQS1AyM3YyaE5hL1paL1pWOGEvSHZ3MTRidDlYMVB3NXBIMmpUdE11NWpISGN6dElrY2FNeThnYm55Y2M0Qm9BMXYyVnZqem9uN1QzN1BQZzc0OTZEQXNNUGlqUVlMMlcxU1RjTGFjcmlhRFBVbU9VT25QUHkwQWVnMEFGQUNPY2RSbmpwVXkyQS9KWC9nbzE4VHRKK0xmN1htdGFoNFp1VXVMTFFMT0hSMXVZamxaWll0eGt3ZTREc3c0NE9LNTVYa3kxc2VSNkY0ZDEveGRyMWg0UDhJNmJKZWF0cXQ1SGFhWmF4SnVhV2R6aFJqMEhKSjZBQWs4Q3FncmFEUDJXK0Fmd2swbjRHL0NEUVBoZG94QmowalRraWxsQi8xc3grYVdUL2dUbGo5TVZzak04cDFIOXRlVFR2OEFnb2RZZnNhSHc5YnRwZDM0VGE3azFvUy92STlUNWxXM3gwMm1BRTQ2N2dPM0ZVQjlEYnVjVUFMUUFFNDdVQWZQbi9CVG40cmFaOE12MlBQRlZ2UEtuMi94SmEvMkpwTnV6Zk5MTmNmS3hBNm5iR0hjL3dDN1VPU3NOSDVPNlVVc0xSYmNaMnFvSFByNjFoWjN1V2Zhbi9CSHo5bjUvRlhqSFVQMnB0WnNKRjAzUzQ1OUs4S3l6SVFMcTViS1hWeWdQOENLRENHSDNpOHY5MFZyRFRVbHZvZm9ndUFvQUhGWHpFaTFRQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBRFhmYU0wZ1B3cy80T2p2OEFncWhkYW5xNmY4RTd2Z240a0FzcllwYy9FbStzN2dFU3kvZWgwODdUbkM0RHVQVWdIcFg2L3dDSG5ESHRaZjJoWFhvdjFQbk0zeHpqKzZpZml0R3U1OTJjNXI5N2paVWJMb2ZOdHVUdXlSeUZYQUg0Vk1sb1pTbDBHS01ENjFCbVJzM21EcGpGSlMxc0JHM0NrKzFLVWJNRFE4RCtDdFMrSVBqUFNmQStqcXpYZXQ2bEJwOXNxcUd6SlBJc1M4SDNhdUxHMWxTd3M1UFpKdjdqdHcwWEthc2orMGI0Qi9ESFQvZ3Y4RmZDWHdsMHVKRWc4TmVHN0xUSXdnd1AzTUtvU0I3a0Uvalg4aTVoaXA0M0hWSzhuZm1rMytKOTlRaHlVb3JzanJtWGQzcmtOUVViUmpOQUMwQUZBQlFCelB4YitMZncvd0RnajhPdFkrS2Z4UDhBRWx0cE9oYUhaUGM2bmYzY2dWSW8xR2UvVmowQzlTU0FLMncySHI0eXZHalNqZVQySm5OVTR1VDJSL0xQL3dBRmgvOEFncFg0eS80S1YvdE9YSGpGUmNXUGdmdzAwbGo0SDBLUWo5MWI1QWU0ZmptU1VxR1BvTUFjQ3Y2VzRMNFloaytBNVovRzlXL00rUXgrS2xpWnZzZkppMnFxb1lxTWpvYSs3aFRoQkhoemFRaGp4eVR4VGFUTUdya0pBVmljOVRXZkxZbHhzaHNpSy9KYkZVcjdCRjlDSTdBTWhnZnhvY2FsOURSUlNlNURJQ3dHM2trOUJXTTYzc3ZqTlkwcFQyUHZYL2dpWi93UmIrSW4vQlIvNHFRZkVYNG42VmU2TDhIdEN1QTJ0YXcwYkkydXVyRE9uMmg0emtmNnlVY0l2QStZMStkY2FjYVVjcHd6dytIZk5VbCtIbXoyOHR5eVZWM2xvZjAvK0YvQ3VnK0MvRG1uK0VmQzJsUTJPbTZYWngydGhaMnlCWTRJWTFDb2lqc0FBQUsvbmVyVnFWNnJxVkhkdlg1bjE4SUtuRlJSbzFCWVVBRkFEWGJCeFFKdlUvTGovZ3FENHpieFQrMWZxR214eTdvdEVzYmV6UlIwRGJkN0Q4MnJOdStwdEdOMGZQdUMzSUg1VWs3ZzFZOVQvWTErSXZoRDRPZkhyVGZpZDQ0MDI0dXJQVElwZkxqdFVET0pYUXFyQUVnY1pOTmFFTlhQdE80LzRLdWZCTzNVK1Q0SThSU2JUZ2Z1b3huODJxMHc1VE51ZitDdUh3c3dFdFBoaHJiTXdPQkxjeElQejVxWExRT1V4dFMvNEs4Nk5GR3phZDhHYmw4Y0FTYXFweWZ3V2xkQnluMHIrenY4WGIvNDRmQ0xTdmlocVhoMGFVK3FMS3kyUW1MaEZWeXFuY1FNNUF6K05PNFdQengvNEtiK0xUNHMvYXQxUFQwZmRGcE5sQlp4ajBJWGMzNnRVeTJHbFkrZTVGVUx0RGRLZ1o5RmY4RXIvQnc4VmZ0VldtdXlRaDR0QzBxNXVteVB1c3lpTkQrYkd0SXhFMmZxRW93T3VlYTBJRm9BS0FQa24vZ3NKNDBiUS8yZnRJOEh4U2JYMXp4RWhZZXNjS0Z6L3dDUEZhekdsYy9OK0FiVkdSMU5KN0ZKYUZuUTlCbDhVK0lySHczQmhwTlF2b2JaRjlTN2hjZnJVcmNIc2Z0LzRjMGkzOFA2RlphRGFKdGlzYk9LM2pIb3FJRkEvU3RGdVFYcXNCR1Vub2NVQWVML0FMYmY3S0dsZnRTZkM3K3liTHliYnhKcEROYytIZFFrR0FrbVBtaGMvd0RQT1FEQjlEZzlxbVNXNEg1WGVLUENuaVh3UjRpdmZDSGkvUXJqVGRVMDY0TU43WTNLWWVKd2YxQkdDR0hCQkJIV3MzcHFPK2hCWXp2YTNhVExrRlRuUHYyUHFDRGo4cUV5V3JuNkdmc1ovd0RCUVR3dDRtME95K0dYeHU4UXBhYXpBcXcyV3UzYkJZYjljWVZaWDZSeTRBNWJBYnJ3YzFwekRQckdDNmh1b2x1TGFSWkkzQUtPalpEQTl3UndhYWR3SFBLaUtYSjRIVTloVEE4cytOZjdZWHdZK0N0bkltcmVJb2RRMU5RZkswblRwMWVRbkg4VFoyb1BjL2xXYmtub05LNStkbjdWSDdXUGp6OXBueEh2MW1aclBScmFRblR0SXQ1RDVjWCswVC9HK09ySDZEQXJOeXVQbFBIMlFuQ0FNMlNCOG81eWFGdU5LeDlWZnNkLzhFMWZGUHhTbnRmaUQ4YklialIvRGVWa2cwcGxLWGVwcjE1N3d4SGprL013NEFHYzFxbHFKcy9SSFFQRCtpZUY5RnRmRDNoelM3ZXhzTEtCWWJTenRZZ2tjVWFqQVZWSEFGTnhKTGpESzhucFQyUUg1YS84RlNmRmJlS3YydGIvQUUrTzRMdzZKcE5yWXhxZjRHMm1Sd1B4ZXNwT3hyRFJIendCKzd3UjByRnlkbUkraGY4QWdscjROaThTL3RkNlpmelFoMTBUUzd5K081ZWo3QkVoL0F5VnZUOTZOeFBZL1V3QWp2V3EwSUZvQUtBQ2dBSndNMEFmUG4vQlRYeHczZzc5azdXSUlaTnMyczNsdnA4WFBaMzNQLzQ0clZNdGk0SzdQeTFTTmNzUndNOGZTczVGSjJCd1EzeThuR0I5YVVWZGt2WS9aRDlsL3dBRnI4UGYyZS9Cdmc4UjdHc3ZEMXNKVnhqRWpJSGY5V05iSldSQjNqcnVHTTB3UHpTLzRLeC9CdVB3UiswTFovRkhUTGZaYWVNTk1EWFRCY0Q3WmI0UnZ4YU1vZjhBZ0pxR3JGY3g4eEE3UmoxNHBEYXVPamFWSlVlQ1FwSXBCUndjRldISVlIc1FjSDhLYWRpV3JINjVmc1hmSEJ2ajErejFvWGpMVUpnMnFRUS9ZZGFHZWZ0VVFDczJPMjRiWC80RlZKM1FqMC9VdExzZFowK2ZTdFV0a3VMVzZoYUs0dDVWeWtpTUNyS1IzQkJJb2F1QitVWDdaWDdJdmliOWxyNGlUQzB0cDd2d2hxczdQNGYxVUlTc0F6L3g1ek4ya1hPRkorK29HT1FSV2JWeXI2SGpxTUF4OXVEbnRRbFlrOXgvWW8vYTMxUDltUHh2UFBmeFhGOTRlMVFLbXM2WkMzekFqN3R4R0R4dlVaeU9OeThkUURWSjJBL1RENGFmRi80ZGZGN3cvRjRtK0huaXEwMU8xbFFNZklsSG1SSCs2OGYza1lkd1JWSjNZSFM3dSswL2xUQXd2RzN4UCtIL0FNT05QYlZQSFhqRFR0S2dRWkwzMTBxRS9SVDh4L0FVcm9MWFBpdjlydjhBNEtjVCtJTEM0K0gzN1BadUxPM3VRME4xNGxrVFpNeTV3UkNwNWpCR2ZuUFBQQUhXb2xKRkpIeEpkVHQ1alNUU21WbVlzV1k1TEUvL0FLNm5Wb282L3dDQnY3Ty94VS9hSzhZUitGdmgxNGNrdUR1VTMycHlxUmEyRVovaWxmb1BaUjh4N0NqbEM2UDA5L1pLL1k3K0h2N0t2aFI3SFJHL3RMWEw1Ri90alg3aTNDeTNHT1JHZzU4dUlkbEhYcVNUMHRSMElidWV3QmNkNnNRdEFFVjdhV3Q5YXlXZDdieHl3eW9VbGlsVU1ycVJncVFlQ0NDUmozcE5YUWJINVZmdHpmc1crSXYyVi9HZHg0cDhLYWZOZWZEL0FGUzVMNmJlUnhrLzJNN01UOWtuSSs3R000amtQQkh5azVIT1hMcVduYzhMTGM0SzR6Mk5OS3dOWE84L1o4K1BYakQ5bmI0aVczeEQ4SFNCcFlRWTcyemxjaUs4dDIrL0MrT3h4a0hHVllBanZtazdFSDZiL3M5L3RuZkJIOW9iUjRaUERYaVNHdzFieXdidlFOVW1XSzVoYjBYT0JLdiswbWZmSFNuekFlc2h3Um5CL0kwWFlEWnJxQzJpTTl6S3NhRHEwamJRUHhORis0SEEvRXI5cWI0RmZDcTBsbDhWL0VQVHZQUkNWc2JTNVdhZHlPd1ZTZWZyaWptUTdNK0svd0JxRC9nb2g4VXYyaGRTdC8yZVAyYXJPNDhQSHhMZUpwYjZyNW9hOGNUSFlGVXJrUURrc3pqTEJWSUJGSE1QbFB2RDRQZkRtdytFWHdyOE8vRERTN21TYUhRTkd0N0JKNXBDelNtS01LWEpZa2trZ3R5ZTlEMkpQem8vNEsyZU1UNGwvYW5YdzNGS1RINGY4UDIxdXc3Q1NVdE0zMCtVcHhVdDJMV3g4eGhHQUk1L0tza3JPNVRkejBuOWtMNGtlRGZneCswTG9QeFQ4ZTZWZjN0aG80dUpCQnAwS3ZMNXJSTWlNRkpHY0ZzNDY4ZTFhSmt0WFB1Q2YvZ3JuOEI0VjIyWHc2OFl6NDRBRmpBbi9vVW9xK1ltMWpQMUQvZ3NOOEs3UElnK0N2aTZVOXYzbG91Zi9JcG81aHFKbDNuL0FBV1c4Skpsckg5bnpYNU1EN2ttclc2c2Z3R2FPWWsraVAyVVAyZ05TL2FWK0Q4SHhiMUh3SS9oMkc5dnA0N0d5bHZoY084TWJiUkl4Q2dLU1EzeTg0eDFvdUI4NmY4QUJVVDR6V3ZpQzl0LzJhN1JKREJEYlI2cnI3Z0RhNUpJdDRjL1hjN0QvZCt0VUI0cC93QUV4ZjJ1NHYyT2RidWYyWS9qZmN2YmVBOVZ2V3UvQmZpUmtKdDlLbWtJRDJ0dzNXT04ySUlZOEsrYzREWm9BL1RyVHRUc2RWc1lkUzA2N2l1SUo0MWVHZTNrRHh5S1JrTXJEaGdmVVVBU3pYRVVFVFRUT0ZWUVN6TWNBRDNKNlVBZktuN2Mvd0MzYjRmOENlSExyNFkvQ0xYbzd2WGIySXczdXEyRXF1bW5JMlFWUmhrR1lqT01aQ2RUeVFLeWxMc1VrZm5EcXJycDZxcnZ2YVIxVlZBSmVSbU9Bb0F5V1luOHpXYVJweW42RS84QUJOVDloelVQaE5ibjQvZkYrd01maWJVN1Vwb21rVHgvTm8xcStDeGMvd0RQeElNWnhqWXZ5OVMxYUpXTTJ6NmkrS1h4RjBMNFMvRHZXZmlSNG1mYlk2THA4bHpNRlBMN1I4cUw2c3pZVUQxWVZva1Nma0xxbnhCOFo2NzhYLzhBaGZjZXJ6V25pbzY2ZFp0cjV2bldLNURaU1BIZU1MaENwSEs1Rk1EOU52MlMvd0JzYjRmZnRPK0VvSnJlU1BTZkUwRVdOVzhPWEV3OHlOeDFraEovMTBMWUpEakpHY05naWdiVmoyUXVCU2JTRWM3OFN2aXQ4UDhBNFIrSFpmRmZ4RjhWMldrMk1La21XOG1DbHlQNFVYNzBqSHNxZ2s1bzVrT3grVlg3Ylg3VjJzL3RPZkVWdFh1Rmx0dEEwd3ZENGQwbDJCTU1aKzlMSmovbHErQVNCOTBBSUR3U2NucVVsWXdQMlJQMlF2aUIrMkw4UVUwWFNGdXRMOExhZE9CNGs4UmlIQ3dvTUUyOERIaDdod1FBQnhHTXNlZ0JhanFEZGo5ZlBoMzRBOEovRER3UnBmdzk4QzZORHAyajZQWnBhNmZaUUQ1SW8xR0FQY25razlTU1NlYXZsSmU1dGdZR00wY29ncWdDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BQ2NVTUQ1cS80S3RmdDcrSGYrQ2VYN0hQaUw0NTNNa011dlNyL0FHWjRSc0pPVGM2bEtwRWZ5OTFUQmtiMlgzcjNPSGNubm5lWndvcjRkMzZISGpzVDlXb3Q5WHNmeVNlTi9HWGlqNGllTk5WOGQrTmRYbDFEVjlhMUNhOTFXL25jczl4Y1NzV2tkaWU1WS95citxOHZ3dEhCWWFOT210RWwrQjhQVXF5cXl1eWxFdlRCNmVsZC9NK3B6T2JGWWZPVFNidVFNOHhneEJBeFVOc0JoK1VZSGVrdmlBaG1rWmVCakZiT0tiQ09zajZ1L3dDQ0hId2FYNDYvOEZTZmhCNFV1N0lUMmRqNG5HczNxTkh1WHlyT05wK2ZUNWxVWnI0M2puRkxCOE4xcHhldHJmZWUvazhJeXhLVFIvV3ZFdnlqNXZjMS9MRWREN0ZyVWZWQUZBQlFCSGMzZHZhUm1hNW5TTkIxYVJnQVB4TkdyMkErWmYyMXYrQ3RIN0pmN0UvaG02dS9GZmkwZUl0ZVNNL1kvRFBod2k0dUpYN0IyWEt4RFBVc2VCemcxN09XWkRtR1oxRW9ybFhkbUZhdkdpcnMvbngvNEtOZjhGVFAyd1ArQ2pmaXlTYjRwWGt1aGVDN082ZDlDOEU2UzdKYVFKbjVYbjd6ekRIMzI2ZGdCWDdsdzN3dmxPVDA0MVZyUHV6NTNFNHF0V2ZVK1VadEp2SkhMTGJNU1R6eFg2RkhHWWJsM1gzbmx6alZrOWlyYzZiZlJMbHJWZ005NjBqaWFGdmlYM25MVXc5VGV4VU5wZU0yM3lHNjhIRmFyRTBQNWw5NWw3Q2FJanAxeTdIL0FFYzhIbnBWckVVUDVrS1ZHVDZESXJLL3VXOHUzc1drSk9BRVVrL3BXVThaaHFmMmtMNnRVM1NQVC9nUit3WisySCswNXJrV2lmQXI5blh4VDRna2tPUE5nMHQ0NEZ6MExTeUFJZzl5YThuSDhTNU5nSWMxYXNvK3IzT3loZ2ExWjJzZnJOL3dUMi80TlByV0dTdytJLzhBd1VPOGRyYzdXRXYvQUFyL0FNTVhKRVp3Y2hMbTZHQ3c0NVdQcm43MWZrUEV2aVc4UTVVY0F0SHB6UDhBUStod2VUY2tyMUQ5cC9oLzhPZkF2d3M4RzZaOFB2aHg0VnNkRTBQUjdKTFhTOUswMjNFVUZ0Q2d3cUlpOEFmenI4aXIxcTJJcU9wVWxlVDNaNzBLY0lLeVJ0MW10RVdGTUFvQUtBR3ZnZk9RZUIwRkp1d3JhbjVRL3REZkFyOXBYeDc4YS9FbmpWdmdsNGxkTlMxZWFhSnZzQlllVnZJVHAvc2dWQjBScUtLT09IN05uN1FVS0hkOEZmRW9iMC9zcHp4OWNWT3pzTnVMTEZwK3p4KzBCR055L0JmeEt1UnlQN0xmK2VLcnFMM1MwbjdPMzdRcktDM3dpOFJEUHJwc24rRlM1UG9ocmxZdy9zOWZIOThZK0RmaVYrZVIvWlVuSDZWTGJzWHlVcmJqbi9aei9hTGVVUVJmQTN4TGwrQTUwMTlvUHVTT0JTU2wxTTN5bjZoL3MzK0VMbndMOEIvQy9oZlViWm9aN1hTby90VVVpNEt1ZVNwSHNUV2kyTW05VDgydmo5OEhmajk0NitOM2lqeGFud2c4U1R4MzJ0VHZGTkhwTWhSMERrS1ZPT1JnVU5OaEdVZXB3bC8remQrME1zZTZQNEllS1dKSnhqUjVPS1hLeS9kUHNuL2drVjhFUGlEOE9iVHhkNHIrSmZnUFVkRnZMNXJlM3NVMU8xTWJtSlFXYkdleEpGV3RDSkgyb0tza0tBRVlrRElvQStFditDdTNoMzRvZkVQeHY0TThKK0JQQU91YXpiMk5oY1hNNzZYcHNreUpMSTZxQXhYZ2ZLblRyV1pwQkxxZkpzMzdOWDdROEVSbGsrQnZpcmFnSmJibzBtY2ZsU2V4bzNIb3p2UDJIZjJlZmk1ZWZ0ZWVENXZHM3dpMTdUOUowL1VEZjNOeHFlbFNSeEF3eHN5WlpoamxndU05eFNnbnpHVWo5WW9oOG8vcld4QTZnQW9BUXFHNjBQVUR5UDhBYWMvWXorRVg3VDlpay9pcTBsMC9XN1pRdGw0ZzAzYXR4R0J5RWZQRWlmN0xkTzJLbHBXQStFL2poL3dUdi9hQytEbDNMZDZINFptOFY2VXJFeFgraHg3cEZYL3BwQjk1ZitBNXJKb2FWenh5VFJ0WGhsazAvVWRQbnRaRWJiUGJYVUxSc3BCNUJWZ0RtcktTU09rOEwvRXY0NGVBWTFUd1g4UU5jc28wSDd1RzExR1FJbmJBVWtnQ21uWVphOFNmSDc5b0h4VGEvWS9FSGp6eEhjcGpCU2JVaUZQNERHYWZNeFdTT2EwcndUOFIvSEY4dHZvM2hUVk5TbmtiQSt6V1VraEovQUVIbjFySnAzS1ZqMm40VS84QUJNcjlvejRqU3hYZmlhd3QvRE5qSnk5eHFjbTZYYjdSTGxzK3hJK3RUeWczRkgxLyt6ai9BTUU4L2dYOEE1WVBFTnhZdjRqOFF4WVpkWDFhTWZ1VzlZb3Z1cDlUays5YXhSRFo3eUkxVUhiM05VM1praXFNREZVQWp0Z2M5S1RBL0pIOW9QNFovSHp4NzhlZkdmaTZmNEplTUo0Yi93QVNYVWxyT3VoeUZYZ0RsWTJCd2NncUFSN1lyR1NtelJTU09MbitBM3h3alhLZkJqeFVlZVNkRG1IL0FMTFVLTGU1VGNiSDJIL3dTSCtFSGpId2pyM2pqeG40NThFWCtrelBGYVdPbm5Vck40bmVQTHlQdDNBY1oyNXg2Q3Q0S3lNNUgzRFZraFFBVUFGQUFSa1lvQStOZitDdktlT1BFSGhid2Y0SzhHK0ROYTFhTnIrNXZieit5ZE5sdVBMS1Jxa1liWURqTzl5TStsUkxYUWFkajRqVDRLZkc3WUNud1c4V1lJNm5RWngvTmFscTVaci9BQXgvWjQrTW5pSDRxK0d0RDFENE8rSm9yRzYxdTFTOW11TkhsU05Jak11OHNTQUFOdWVmYzBKV0l1ejlpN2VLT0NKWUlVVlVRYlZWUmdBRGdEOHNWb21Ja3BnZlBmOEF3VXMrRFdvL0ZqOW1hL3VQRFhodTQxVFdmRDkzSHFPbTJsbEQ1azhvQjJTeG9vNmtvMmNmN05aenVCK2JObjhJUGpIZVI3MStEZmkxY2NGRzhPM0FJLzhBSEtsWEs1bVdZdmdaOGM1UnZ0dmdyNHNmdG4rd0ordi9BSHpWQ2J1ZlVQOEF3UzcxWDQ0L0NuNHM2bDhOUEczd2s4UzZkNGY4UzJ2bXBxRjlwRXNjTnRleERLNVlqQ2gweXYxQzgxYTJFZmY2SGNnYjFGTURKOGIrQXZCL3hJOEwzbmdyeDE0ZnR0VTBxL2k4dTdzYnVNTWtnN2NkaUR5Q09RUmtWbUI4TS90Qi93REJKcnhQb2p6Ni93RHM5NjhOVnRCbGswSFY1d2x6R3Y4QWRqbVBFZzlBK0Q3bWdENVo4Wi9DYjRxZkRYVWY3TjhlZkR2V3RHbERFRDdmcDdLckVkMWNaVS9uUVVrbVE2RmY2M29sMk5RMGpVN3F6dUFjcGNXbHkwVWcvRlNEUXRCMjBPMEg3UWZ4Nit4SFRYK0tQaVl3SGhrR3NTQUVmVXRtcVRiRnlvNG5YdFo4UitKYnNYR3EzdDFlemc1SG0zRFR5RS9xU2F6YXVQM1VkVjhPL3dCa3o5cGY0dXRHbmd2NFNhbjlubElIMjdVNC9zc0NEKzhYa3h4MDZBbWtvNmx2bHNmVC93QUJQK0NQK2phZmRRNi8rMFA0MC90SjFaWC9BTEMwSXRGQ1QxeExNUUhZWjY3TnVmV3RFdFROdFBZK3kvQlhnUHdiOE85Qmc4TStCZkRWbnBPbjI0eEZhV1VDeG9QYzRHU2ZjNUpxa3JFbXZnVXdDZ0FvQUNNMEFVdGQwRFJQRW1qM0dnZUlkTGd2Ykc4aGFHN3RMcUZaSTVvMjRaR1ZnUVFmUTBtcmdmRlA3UWYvQUFTTDArVzR1UEVYN05maVJMRlpIYVErRjlhblpvSXlUbmJiemtGbzE5RWZjQjJJSEZMbFEyN255WDhTZjJkZmozOElMdVNQNGpmQ0xXdE1pUnlCZHJiRzR0bkFPTndtaHl1UHJqaXBkMEk1YXozeXZGT2pFdEdjeE1yNEtIMUJCeUtTMVJka2pyOVArTUh4WDBleVN6dC9pTHI2UWpDK1cydXloZnA5Nm1YeUsxelAxVDRxZU9QRWNwc1pQRTJxWDh2L0FEeFhVSjdnbjJ3TTBFMk52d1AreUwrMWY4YXAxSGcvNGFhbGEyakRjMTVxa1p0WWxCNmt0TGdrL1NwNWJoc2ZZdjdESC9CTW0yL1ovd0RHQ2ZGajR0K0lMYld2RUZxaEdrMnRxSE1GaTdERHpGbXg1a3VQbEJ4Z0RPTTU0dFFTUkxsYyt2M0cwWkEvRE5OcEpFbjVPZnRWZkIzOXFEeC8rMGo0MzhaVy93Q3pMNDV1Ykc5OFJUblRiNjMwa3ZIY3dJZkxqWlRucHNRWTlpT2xadFNiTlZ5bkR4L3MyZnRMT01uOW03eDB2Kzk0ZmY4QXhxZVdZT3c0ZnMzZnRNdzVraS9aeThiWnhqNXRDY1ZhVFFpYTEvWjEvYWtMa3Arem40MVpnT0Yvc1ZoL00weDZYTFkvWngvYXFZbmIreko0emIxUDlrSC9BT0twV2t4Kzd0Y2JlZnN5ZnRodmJrYWQreWo0eGQ5dkcrMFZRUHphcHRJVFViSDZqZnNxK0E5UitHdjdPZmhEd1ZxdWt2Wlh0bm9jUXZyV1VEZkhPd0xTQnNjWjNFNXJWSXlQajcvZ29IK3pkKzAwZmpqckh4WCtIZndqdVBGMmphckhidjUybFhhbTV0ZkxqQ0dNd0g1bUFPU0NPdTdweFZEU1RQay94QjRvMWl6bGJRZkgzZ2JWdEZ1UHVUMmVyV0VzUkdlL3pLTjMrT1JRV3RDLzRMK01mano0WVFyQjhOUGlscWVqUXEyUmJhZnJUd3hKN0NQZHRVZXdGUzMwRTBpMzRpL2FWK09meEtjNk5yUHhUOFJhMnVjdmFEVVpKdzN0dFQ3MmZURlJZY1ZFNi80U2ZzVC9BTFUveGx1SXBORytGODJtV01wQkdxZUlTMXBFcXNRUzJDTjU0UFJSbjg2bXpITjIyUHQ3OWxUL0FJSnkvQ3Y5bjNXSWZpQjRvdWo0bzhWUnc3WWIrOHR3dHRZNS93Q2ZlRTUydDFIbU1TMzB6aXFpdWhITXo2TlNGRUh5NTY5NjBTc1NlTmZ0MmZBcjRsZnRFZkFpYjRlL0MzWDdLeHZ4cWx2ZHl3Mzdza043RkVTM2tNeWc3Y3RzYnBqS0ROTWFzZm1kOFNQaE4rMEY4RmI4Mlh4VytBdmlIVElrWmxPcVdkczE1YVNFZnhMTEVDTWQrY0dncEpJNTdUZkZKVzZoMUxSdFdlMm1oWVBETEZLWW5pWWVtY0ZmZkZKdXdOWE83VDl0ZjlwZlJMTCt5TEg5b0hYSUlsWEFEYWtydGowQmZKSDRWaTI3NkVwYW5QNlA0Vy9hSi9hTzF0SlBESGhieEw0dXU1V1poZTNTeXpESi9pYWFYQ1JqNkVDc25HYjZtbWg5Sy9zNmY4RWZkZjFpV0R4QiswOTRtV3l0Y2hwUERPaHpoNVpnZjRaYmdjUmpvQ0k4c2VmbUhXdEl3WXBOTFkrOFBBM2dId1o4TmZDMW40TDhDZUhiYlN0SjArTHlyT3dzNGdrY1MrZ0E2bnVTY2tua2sxc29tYmxvYktBQlFGNlZRWHVMUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUEyVWdLT2VjOEQxcE1UUDVxUCtEbWI5dSs1L2FmL2Jaay9aLzhLYXVaUENud25MMkVRaW16SGNhcElvTjFOd2NFcjhzWVBiWWEvb0x3MHlKWUxML3JOUmU5VS9Mb2ZLWnZpVlZyOHFlaVB6WmFMbmRqak9hL1ZXa2tmUHliVDBKRXdFSlgxcVRNWTd0dVBOUzIwd0dFaGpnMUlDU2NVYkFWNXNNY2V0YVJxV2QyRUg3MXo5WlArRFJ2NElyNHEvYmM4YS9HVy90TjBYaER3R1lMU1E5RW52WndtUnovQU04NG4vTTErUmVLbU9WTExZVUl2NDNyOHRUNnpKcVNiOW9qK2lVS0Y2ZWxmZzl1NTlJTFRBS0FDZ0REOGQvRGJ3UDhUTkpPaGVPL0QwT3BXWllFMjA3TUVKK2lrVlVaU2c3eEE4M1AvQlBiOWlacHZQZjltWHdrejc5eGQ5TURFbjFKUFd1dU9ZNDZDdEdvMTZFdUVYdWliL2hnUDlpa3NIYjlsM3dVeEF3TjJneEgrWXJSWnZtYS93Q1hyKzhUcFUzdWh6ZnNEL3NWdUNyZnN0K0JzSHFCNGRnLytKcWxuT2FML2w4eUhoNkw2RUQvQVBCUGI5aDJYL1dmc3BlQkc1NytISWY4S1A3WnpYL245TDd3OWhSL2xJVy80SnovQUxDVGtsdjJTL0FmUFgvaW5ZZjhLZjhBYldhLzgvcGZlSDFlaC9LZ1gvZ25MK3djcHl2N0l2dy96Ni84SXpCLzhUUi9iZWIvQVBQNlgzajlqUi9sWDNHeDRjL1lqL1kvOEl6QzQ4TmZzeCtCTEtSU0Nza0hoaTJEQWozMlZuUE5zenFmRldrL214K3hwZnlvOUcwM1F0RzBhM0ZucEdsMjlwQ293c1Z0Q3NhajhGQUZjTTZrNmp2SnQrcFVZeGpzaXlZa1BPS3o1VVVPQXdNVlFCUUFVQUZBQlFBVXJYQVFJb0dCbjg2WEtnRFlQVS9uUmJVQUNLT0FULzMwYWRrS3diUjZuODZUVDZERGFCM1A1MEpkd0VNYWtZSlAvZlJxdGc2aWxGUFVaNTcwcklBMkxuUFA1bW1Ld0ZGSXdjL21hTFhHQVVEMS9FMHJJQlFBT0JUQUtBQWdIclFBd3hBa1l5QjNBWTB1VkFPS0E5ei9BTjlHaTJnQ2VXb09jbjhXTkpYQWNBQU1DcUFLQUNnQW9BTUNnQkNxbnRVdGRnTUx4UjhNZmg3NHpCSGl2d1RwZXBGaDh6WHRra2hQNGtacDhxSGRvNUsrL1kvL0FHYTlSbTg2NitEZWpsdjltTXFQeUJvNVVGMlg5Sy9aZy9aODBOaEpwZndoME9ObCs2eldZWWovQUw2elJaQmRuWGFUNGMwSFE0UkJvMmpXMW9nNkpiUWhCK2xTMEYyeTZGVWRxTE1RdFVra0FFZ2NtaXlZQUNEeUtZQVFEUUFteGZVLzk5R2dBOHRmVnY4QXZvMENzQVVBNTUvRTBERm9BS0FDZ0FvQUtBRU1hc2QyVCtERVVyQUd3ZE1uL3ZvMFdBUVJxT2hiOFdORmdIQUFkQlFra0FVd0VaUXd3Yy9nYUFFOHRmVnYrK2pRQXV3ZE1uL3ZvMHJBSVlsUFV0LzMwYVlEdWxBQlNzZ0VLaGhnajhLTElDRyswelR0VHQydE5Tc1lyaUpoaG9wNHc2bjhEeFJaQWNKcnY3S1g3T1BpVjJmVy9ndDRlbUxISmNhZXFNVDlWd2FMSWQyWnRyK3hKK3luWnlpV0g0SDZKa2ROMFRNUHlMVUpKQmRuWCtHL2cxOEtQQjdCL0MvdzYwYXdZZEh0dFBqVmgrT00wY3FFZEdJWXdvWGIwNmM5S0xJTEM3RnpuRkZ0UUZBQTRGTUFvQUtBQ2dBb0FDQWV0QUNiUmpGQURYdDRKRU1Va1FLc01NcEdRZnFPOVMwQnlYaUw5bi80SStLenY4US9DWHc5ZHRrbmZMcE1XY25xY2dDaEx1TzdNS0w5ano5bDYydVJkUi9Bcnc0SERaVW13Qkdmb2VLZktoODBtanJmRG53dytIWGhFYmZESGdYUjlPd0Ivd0FlZW54eG5qcHlCUnlvVjJid2o1Qnowb3NpYk1jQUIwRk1ZRUE4R2sxY0JQTFQrN1RBTm85L3pvQVR5MTdGaC93STBXdUFHSkRrSEpCN0ZqU3NnRjJMNy9uUllWZzh0UDd0TVliVnhqRkFDR05DY2tVQVU5VThQYUpyU2VWckdqV3Q0bU1iYnUzV1FZLzRFRFFCZ3lmQXI0THp5bWFmNFNlRzJjbkpadEZnSlA4QTQ3U2F1TzdOWFNQQUhnYncrd2ZRZkJ1bFdURG8xcnA4VVpINHFvcEpkeEdzRVVIT1B6Tk95QU5vOUtMSUJhWUNiUjZVQU5raFJ3VVpBVkl3eW5vZnFPOUFITytJUGd6OEpQRlRHVHhKOE05QnZtUFZyclNZbkovRXJSdU83S2VtL3M5L0FyUjVsdU5NK0QzaG1HUkRsSGowU0hLL1E3YWxwaGRuVldtbTJGaEFMV3hzNG9ZbEdCSEZHRlVmZ09LRkZXRVNtTkR6aXFBWGFNWXhRRnJpZ0FjQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBNlVtN0FlTGY4RkRmMnB0TC9Zdy9ZeStJUDdTTi9LZ204TitIcHBOTGlkc2VkZXVQTHQ0eDdtUmwvS3ZWeVhMM21tWjBzT2xvM3I2R0dKcXFqUmNqK1BqeFY0bzFueHY0bjFIeGQ0anZYdWRSMVMvbXZMKzVrYkxTenl1WGR5ZlVzVFg5WlpmaDQ0YkRScHgyUjhCVnFjMDIzMUtheEVKdVBUTmQ3dTlUbWJiMUd1MkR0VGdlbFEyMHhEZDJXeFVnR0I2VUFSeU9wd0NLbUlYc3lCbURNb0hjOFpyUzE2Ykw1VWYwRi84QUJvUDhLQm9mN05IeFErTUYxWWxaZGQ4WVcrbjI4NUgzNHJXM0JZQSttK1UxL1BYaWZpNTFNeXA0ZHY0TC9pZmE1TkcyR3Vmc0JYNWtld0ZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQWVob0E4QS93Q0NrZjdiRjErd0QrekJxUDdSdHY4QUNuVXZHWDJEVUxXMWJTZE91UExJRXo3Zk1kZ2prS01ZenRQSkZBMHJuYy9za2Z0Q2FmOEF0Vy9zMitEdjJpdEw4SDZub0Z2NHUwWkwrTFI5WWoyM05zR0xEYTR3T3UzSU9Ca0VIdlFEM1BScUJCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBUlRydkczakJZQnVlb29BL09yL2dpdm92aXlMOXFQOXBhL3dERTNqL1d0WHR0UDhZRFQ5Q3ROVjFhYTVXMHRSZDNiWVVTTVFwNkx4MlVVQkxRL1JvY2lnRUZBQlFBVUFGQUJRQVVBRkFIeHY4QXRuLzhGYmJmOWovOXNid04reWJQK3l2NDc4WGY4SnBEYk4vd2tYaCtJTkRiTlBPWVVSSS9MSm1La0ZuK1pkb0hlZ0Q3SUJ5TTQ3MEFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUkzQ25IcFV5UUg1QWY4QUIzWCswVS9oWDltajRlZnN6NlRxaWk0OFgrSlpkVjFXMVNURE5hV2NlSTkzK3dacFFmckhYNm40WFpmN2JNcW1Ja3RFckwxM2Y2SGpaeFZVYVhKOHo4QVFDVGtubnJuSFd2NkQ5bjdNK0trMlNsOXE3Q004Y1VtOUNTSngzelVBTndPdUtBR3N4NkNnQmtqQThiUlFGN01oU05wSjBRRFB6Yy9TcG0zeU0yZ3J5c2YxVGY4QUJ1ZDhJMitFMy9CSnY0Y21lRFpQNG0rMTY5UGxjRS9hSm0ySDMrUlY1citXK09NVXNWeEZWbGZheVB1Y3JqeTRSSDNMWHlwNklVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBRkxYTkYwalh0T2swdldyQ0M0dHBSaVdHNGpWa1llaEI0SSt0QUUxamEyOWpieDJWcEFrVU1TQklvNDF3cUtCZ0FBZEFCUUJQUUFVQUFJUElPZnBRQVVBSXNrYkhDdURqcmcwQUxRQWdaU1NvWVpIVVpvQUN5cU1zUUI2bWdBVjBjYmtZRWVvTkFDMEFHUjF6UUFaSHJRQWpPRUdUUUF4cnFDTEFubVJNOU56Z1VBUFYwZFF5T0NEMElQV2dCYUFDZ0FvQUR3TTBBUlMzVU52RTA5eEtzY2FybHBKSEFWUjdrMEFNc2RUMDNWSS9PMDNVWUxoUDcxdk1ISDVnMEFUN2w3SHJRQXRBRFROQ0g4c3lxRy91N3VhQUhkZWxBQlFBVWJBRkpPNEJUQUtBRVpsUlN6c0FCMUpOQUNSeXhTamRGSXJEMVU1b0FkUUFaSHJRQkVMK3lhWHlFdklpNTZJSkJuOHFBSmFBR3lkUDhBZ1EvblFCK2YzL0JGK0haOGVQMmxKVDEvNFdDUm4yKzFYcG9BL1FJc0Y2bWdCc1U4VTQzUXlLd3pqY3B5TTBBUG9BalM1aGtZckZJckZUaGdyQTQrdEFFbEFDTklpS1hkd0FPcEo0RkFFY2Q3WlROc2h1NG1iMFdRRTBBUzBBUXkyMXJMY0pKS0VNa1pKaUxBWlFrWUpIcHdjY1VBVFVBR1I2MEFSbTlzdzVqTjNFR0J3Vjh3WkZBRW1SNjBBRkFCUUFqT2kvZVlENm1nQmNnOURRQVVBTmtrU0tOcEpIQ3FveVNUZ0NnQ3ZZYXhwbXBrblQ5VHRyaFF4R1lMaFg1SDBQV2dDMWtIb2FBQ2dBSkE2a0Q2MEFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQTJVZ0lUN2Q2TFhBL211LzRPby9qTEQ4Ui84QWdwWEY0QXNydFpZZkF2Z3F6MDkwVmdkczB6UGN5ZE80OHhRYS9vTHd1d1U2R1R1ckpXNTNjK1d6dVNkU3lQeldnUU1NbnFlMWZxcjFTUG1HTE5nY0E5dTlaenNoSzVGVVhReE1qMUZGMEFGZ0J4eldiM0FpY0gwclEwZXdsbll6MzAzMkMyWStiT2ZLaXd1VHZjN1J4OVRYTGk2bnNhVGsreDBZYVBQVlNSL1oxK3hwOE5vL2c1K3lmOE5maFpHaFU2QjRJMHl5a1Vqa09sc203OWMxL0l1YVZWV3pDck8rOG4rWjk3aDFhbEZIcHRjWnVGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQjh3ZjhBQllrenAvd1Q3OGR5MmQ5YzJzNncycGl1TE82ZUdWRyswSjkxMElJUFVmalFCNlQrd3I5dlA3R2Z3dWsxVFVidTd1WDhDYVkwOXpmU3M4MHJtM1Fsblp1U1NUM29BK1l2K0MwM2pyNHZmRGZWdmhicmZ3bStLT3YrSHBkUzFTNXNiNU5IMVI0VmtVdmJxcmxCd3pMNWg1UDA2VTByalN1ZXlhei9BTUUwL2c1NDhpVzUrS0h4TCtKL2lPNGUzUldlL3dEaUxmUnFqaFJsMFNGa1ZTVGs0NUZJUjhsL3RZL0QzeHYvQU1FYnZpMzhPLzJoL2dQOFZmSFd1ZkRyeEg0b09rK092Qi9pZnhOTGZReHE2YmxraU1uT1NxdmpQSWFNY25kUUQyUHNMNG9mc2g2ZisxM3F0aDQxK05QeEg4WVdtaVJXb2JTZkIzaG54RlBwMXFVZjVoTmRORHRlYVlnampJVk9nejFvdVNscWZKSC9BQVV5L1lwdGYyQWZnUE4rMngreGw4VHZIUGh2eEQ0TzFXeWsxRFQ1UEZOeGQybC9hUzNDUnVza2N4SU9HWk01NEl5RFFVZm9aOEVQaUdQaTE4SGZDbnhReEFwOFErSExMVW1TQW5hclRRSkl5alBPQXpFZmhRQjhBZUROZCtMWGdqL2dxcjhSdmgxOFBiNzdWRjR6MTU0NEYxdlVyaDRMUGJGSFBKS0ZCeHRRRjlzWXdDU3E1QXlhQVBxeTcvNEowL0FqeFRKTnFmeE8xanhoNHB2N29zOXpkYXA0d3ZVVXV4eVNrVU1pcEdvejhxZ2ZLTUR0UUI4cmZ0YWZDMzRpL3dEQklYeGJvdjdXdjdNdmpueERjZkN5Vy9pc1BpRDhQOVoxaVc4dG9VZHZsbmhNcEpqSitZQndRVmZibmNHSUFTMDduNkgrQlBHUGgvNGgrQ3RKOGVlRk5RRjFwbXRhWkRlNmRjcWY5WkJLZ2RHLzc1WVVGSHdGcG5qSDlvSFRQK0N1WHhSK0FQd3U4YVR5YWI0cDBhSzZ0N254THFVOTNiK0hwaGJSVFMzTnRiWkNNUnVLckNTRjNZSlBYSUI2MzRIL0FPQ1kzanJ3ZiswTDRmOEEya05iL2JYK0lQaVRXZEcxTDdUZVdXclNCYlRVSW1VckpidEVqN0VRZzVBQzhZSHBRQnEvOEZMdjIxdkdmN05YZ2p3OThMUGdiNGZYVi9pbjhUOVpHaCtCTEFrRVd6a3FzbDlJcC9naTNqYjJMbGM4QTA3YUFWLzJlLzhBZ2xIOEQvQlhnNk8vL2FQbXYvaWw0NDFGUE84UStKdkZPcjNWd3JUc0FYUzNqTWdXS0lIZ1lYY2NaT09nUUhrdjdaSGdINGwvOEVtTEovMjNQMlRmRXVzM1B3dDB6VkxVL0ZYNFBYMTA5N2FKcDhzNnh6YWxwcGxZdmJUSnZVc2dZb1FNNEF6UUI5cWVQZmkvbzNoWDRGYTE4Y2RHVCswckhUZkNWenIxcWtSeDlxZ2p0R3VVQS8zbFVmblFCOHEvc0IvREN4LzRLSi9zdCtEZjIzUDJxZkZ2aUR4RnJQajNUSDFHeThQV2ZpRzZzTkkwR0F6U0pIQmJXOXRJbVdDcU4wc2haMmJKNHdBQUQydjRRZnNKZkRuNEMvR0FmRlQ0Vy9FRHh2WjIwbHJMQmUrRmIveFRjWHVtVEs0d0g4dTRaM1ZsUHpBN2pnNW9BNnY5ckw5cGo0Y2ZzZS9zOCtKLzJpL2lyZHNtaitHZFBNOGtNQi9lM1V6TUVodDR4M2VTUmtRZTdVQWZOWDdMSDdGM2pMOXJMUXJMOXJYL0FJS00zbXNheDRoOFR4ZmJ0RitHRGE1TkhvUGhpd2M3cmVEN0xDeXBQTjVaVm5lVGR5ZWFBUFFmaXovd1MyL1oyOFJXUThSL0FLQy8rRVhqZXhpSjBMeG44UHI2V3lsdFpNSEFtZ0QrUmRSRTQzUnlJMlFPQ0tBTUQvZ21uKzNIOFN2amY0cThmZnNmL3RXYVJaYVg4YWZnL2ZSMjNpZ2FmeGJhM1lTNU50cWx1dlpaQmpjbzRERWRNNEFCYy80S04vSGZ4UGJlT2ZoVit4SjhOL0dkL3dDRzlhK00zaVNTejFEeExwRjM1VjNwZWtXeWViY3RBM1ZacEFQS1Z4eXU0a2M0b0E2ZSsvNEpjZnNVNmxvaTZMcVB3a251WkVCenExejRtMUo3OW1QVnpjL2FOKzRuazVPRG5wMm9BOUgvQUdhZjJmdEUvWm4rRzUrRjNocnhsNGoxclRvdFJudWJLWHhQcXozdHhiSklRZklXVi9tTWFrSGFEMHlhQVBRYUFJcDNLQm1VY2p2MW82a1BjK1lQMkFmMjZQaVArMWw4Y3YyZ3ZnOThRL2hWcG5ody9CajRneCtIck81MDdVWkxqKzBGZUo1Qzc3MUFWZ0ZVL0x3ZC9ZaXQ2MUYwb3hsM1Z3VXRiSDFJRHhXQllqNTJrTDE3VUFmRXZ3eWcwVC9nbzErMTk4VXB2aXJlYWhkL0QzNFU2bkg0YjhOK0RZZGVsanNyNitVazNXb1hjVURwNXJoMTJSbzVJUUtUakpvSlc1NlBxWC9CTG45bWpUZkYxcjhRL2c5TDRuK0h1dTJsNUhjTGUrRGZGTjNCRk1VWUhiTGJQSThNaU1CZ2dyeUtDajZKMUhWYkRSckNiVk5XdklyYTF0b1hsdWJtZVFKSEZHcWxtZG1QQ2dBRWtub0JtZ0Q0QytBcmZFVC9BSUxHL0VEeEQ4YnZHM2pYeEY0ZC9aNjBEVzU5RzhGK0RkQTFlU3drOFdTUWtDVy92WklTc2hpTEhDeGhnTzNVTWFBUGZmRkgvQktiOWhMeE5vUzZOL3dvZXowK2FHRXBaNnRwT3BYZHZmMmpZNGtpdVZtM3JJRHlHSlB2bWdEeHo5bi9BT1B2eHY4QTJGLzJ4OUYvNEozL0FMVS94QTFMeG40VDhhV2NrdndYK0pPdUtwdjVIalB6YVZmU0tBc3NpZ2hVa3h1SkM1eUhCQUI5MWo1b2dTUjFIVDYwQWZCMy9CSEszRVh4di9hV1lFL0w4U1NqWkhmemJwai9BT2hDZ0Q3VCtMV3NONGQrRlhpYnhBa3JSbXg4UFh0d0hVNEs3SUhiSVA0VUFmSm4vQnZ4cEd0MlgvQks3NGNheDRqMVc3dmIvV0pkVDFDNnViMjRhV1IybHZwdVN6SFA4T2FBUHROd0N1MWh3ZURRQitmWC9CS1Q3ZkgvQU1GTFAyNGRQbThSMzF4YTIzeE0wdjdIWVQzYnlSV3dlMVptMkJpUXZ6WkdCampBN1VBZlpuN1NueDk4Q2Zzd2ZCRHhIOGR2aVRkZVhwSGh6VFh1cmhFSTN6dDBTRk05WGR5cUtQVnZhZ0Q1Si9aRy9adStLWDdmK2xRZnRpZnQ3NjdyRnhvK3ZzYm53RjhJckhXYmkyMFhUTlAzRXhYRnpGRXlHN21jWVpUS1NBdUNSazRBQjY1OFYvOEFnazMrd3o4VnRJbmdmNE14K0hkU2EzTWRqNGk4SWFsYzZicUZpMzhNa01zVWdBWUhCK1pXQjdpZ0QwZjlrejRUZkZ2NEgvQmJUdmhUOFkvak5lZkVEVXRGbG10N1B4WnFOdUk3eTlzUTVOdjlweHc4NnhrSzdqaGlNOTZBUGpUL0FJS2lSYTFwMy9CVmI5ajY5MGZYTCswWFV2RkwydDlGYVgwcUpORkhkUnk3WFJXQVlFTXdPNEVZSkhwUUIraTVQeTU5cUFQZ1A0dWZGdjR3ZjhGRWYyNHRiL1lxK0N2anZWdkNud3crSExxUGlkNHA4TjZnYmU4MU81R0MxakZNaHlpN2o1ZnlrSGNrcGI3b1VnSHU4bi9CTGY4QVlTdVBESytFNzM5bnZUYmlBWU1sMVBxRjQxM0s0L2plNTg3eldjbm5jVzYwQ2V4ODEvRlh4MThaUCtDTUh4ajhOYWxxUHhNMXZ4bCt6YjQwMXFQUzVMRHhOcURYZW9lQ2J1UWtxSUxtVEx5VzJNc0ZrSndxTW93UXBJSkg2Slc5eERmV2tkNWFUckxIS2l2RkloK1YxSUJCQjlDRCt0QlIrWW43R3VsZnRFL0c3OXRINDhmczdYZjdYWHhOMDd3NW8rdDNzbGpmUmEwTGk0aXRCcUpqRUVNa3lrVzVJNERJTWhWd01VQWZUbmlYL2dqL0FQc2QrTk5JbnN2R2tQajdXTDI1VWliV3RSK0p1clNYamtqRzd6UFB3RC93SEE5S0FQQVAySFBIM3h1L1lQOEErQ211cS84QUJNTDRxL0ZEeEI0dzhBK0p2RFIxbjRUNnY0bnVudWJxMDJSdkkxcjV6Y2xBa1V5RUVrYjQwSzQzRVVCMFAwWTEvWDlJOEw2SGVlSTlmMUdHenNkUHRKTHE5dXJpUUtrRVVhbDNkaWNBS0ZCSko3Q2dEOCt2MmRmRG54Ty80TEgrTTczOXBMNDk2dHFta2ZzLzZkcTF4YWVBdmhoWmFqTGJMNGo4bHd2MjNVakVWYVZDUVNJaWR1U0Z4OHBKQVBlL2pCL3dTaC9ZNytJMmhTdjRMK0hnK0h2aWEydENtZytNL0FGMUxwdW82VE9BZkxtak1UaEpOcDVLU0t5c01nOWFBT1cvNEpZZnRSL0hYeDNxdnhUL0FHTWYydTcrMzFENHEvQXZ4TGI2WHEzaUcwaDhxUHhGcE4xQUo5TzFNTDBEU1I1RGdkR1hIVUdnQ244Wi9GVjcrMlgvQU1GRGRZL1lNWDRvK0kvRGZoTDRjZUFiSHhKNDBzdkNtc1M2ZGU2N2VYMHhTMXQydW9TSkk3WkkwWjNWQ3BaaW96aWdEcnZpTi93U08vWXgrSTJqMmVsM1hoN3hWcGN0Z3FyYmFqby94QzFlTzZWUjZ5UGN2dUovdkVidmVnRDZOOEcrR3JYd2I0VjAvd0FKV045ZDNNR21XY2RyRGNYOXkwMDhpSW9VR1NSdVhmQTVZOGs4bWdEU29BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BWmNES2JlZVNBY0NnRCtQci9ncDM4V28vamovd1VGK01YeFFnYk1HcGZFRFVWdHNzVCs2aWw4bEFNOXNSMS9WbkNPRmVGeUtqUzdKSHcrWVZYVnJ5UERMY01GSnh3TzlmVXRwUlNQSTNHdjViRWt0MnJLZXEwRVJsbEl3VFVMUmdNT004VVBjQXBEc3hzakVZQUhXdEN6MDM5aWI0YTNQeGkvYTQrRzN3dXNvUkpKcm5qalRMY29VeU5uMmhXWW4xRzFUbXZudUtjU3NMazlXb3VrZnlQUXkyRGVLUi9abFpXMFZwQkhhd3B0U0pBaWdEQUFBd1A1Vi9KOVI4OG5KbjNjVlpFOU1ZVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUJRQVVBRkFCUUFVQUZBQlFBVUFGQUh5NS93QUZrYnA3WC9nbjk0MWFNZ014dEZHUjF6T3RBSHJuN0hpN2YyVHZob01rL3dERkNhVjFQL1RwSFFCOHNmOEFCWjZDTzg4WGZBL1RwRkxmYVBHVG9BTytaclROVkV1RnI2bjNhblQ4VC9PcElQaUgvZ3ZobzBHcS9zYjZHMXhhbVpZZmlMcHgyZzRQTVZ3S3FPNEgyZDRUWlg4TTZleXJnZllZY2Y4QWZ0YXlsdUI0Ri93VngwdTIxai9nbk44VTdHN0kySFE0WHlSbkJTN2dZZnFLc0RVLzRKaDNWM3FIN0FQd211YjZVdkovd2h0c3BZbm5DbGxINkFVQWVEZkNPd2duL3dDQ3hmaWxyaTNERzJGL0xDNXh3N1dkdC9JRS9uUUI5NUpuYnpRQjRUL3dVMStIMmxmRTc5Z2Y0dGVEOVhpRFJUZUNiMlpXMkJpa2tLZWFqRDNESUNLQU9RLzRJdjhBaTdVL0d2OEF3UzgrRG11YXRMSkpLZkNRdDBtbEpKZUtHYVNLTnNuMVJWb0E4eitDbHJiM1gvQmJmNGlNemJucy9DMHNnQkdOclBEWkQ4ZU9LQVB2Qm54R3puc0tBUHptdDc3WGZpTi93WDU4UTN1cStGMzFPYjRkL0RlT0R3dnA5NWNMSEZFMHNTdDV5cytkcFpwWDZESTY5cTBUWEpZRDZzMVg0bGZ0MTJXcU5iNlgreTc0UHZyYkh5M0MvRVF4TVBxcld4L1Ftc3dQS2Yyd2ZCdi9BQVVaL2FqL0FHYlBGMzdPbHIrejM4TWRMajhjYUJjYVJkNnJmK1BaNTAwK09aZHJTaUpiVUdWbEhLZ0ZmbXdjOGNnSHMvN01IN1BHdmZDLzlpbndQK3pEOFlQRWllSUwvUmZoelplRy9FV3BSZzdid3gyWXRwV1V0enRJeUJuc0JRQjhPZkJuVXY4QWdxQi93UlgrRmRyOEJOWS9aZmgvYUIrQmZoUzd1aDRZOFQvRHk3S2VKZEgweVNkNWtndWJGeGk0RUlrSTNwazRIb0tBUHFYOWpEL2dyait4UiszTHFzSGd2NFJmRUs2c2ZGa3NVanllRGZFdW1TV09wUmVXcGFSZkxZRldLQUhPMWlSanBRSzZQRGYrQzcxNVorTWZHWDdMUDdPZmlPS2ViUVBIWHgydGhyTnZIL3FyaGJXTVBIRklCOTdtUXNCMCtRbnNLQm42RXd3eFF4aUtGRlJVd0ZWUmdBRG9BT3d4UUE4b3VQV2dEODRTdHg0WS93Q0RvSzJYUWk4Y2ZpZjlsMjRiWFVpVVluTnJmV3doZVR1ZHUvYUQ3NG9BOTIvNEtSL3NFK1BmMnJKL0FueG8rQVB4SnMvQ3Z4UStGdXROcVhoRFVOWHRtbnNMZ3NWTDI5eWkvTnRKUUVNT21TQ0NEVFRzQjRCZWY4RjJmakYreWQ0MS93Q0ZYLzhBQlRUOWhUeFQ0TXZsdVBMWHhQNENobTFmU3JpUGR0TndoS2dtTCtMS3NTT1FRS0xJVjBqN3YvWjEvYVErRFA3Vm53dHNQalA4QS9IdGw0azhONml6cGI2alo3aGlSRGg0M1JnR2pkVDFWZ0NNZzlDS1FKM052NG9mRS93QjhHZkFXcS9FL3dDS1hpeXkwTHcvb3RvYm5WZFcxR1haRGF4RGd1N1k0R1NQenBxTGs3SVo4dTZoL3dBRjEvOEFnbHBEWjNGelovdFg2VGZyQVNHV3gwKzVrWnVQNFI1WXlQZXUyR1dZeXBEbWpIVDFJY284MWo1Si93Q0Nhbi9CVFg5aG40Si90WGZ0V2ZFRDRzZnRHNk40ZTBINHFmRmEyOFFlQnRTMXlDVzNYVXJYN0dJcEFvQ3NRVWNZdzJDZXRlam1HRHIxS05LTVZkeFZuL1hVaFhpM2MrNmZnWC93VmovNEo5L3RNZkdlMi9aLytBMzdUR2grS2ZGTjVhUzNGcllhVEZQSXNxUnFXa0FrS0JjcW9MRUVqZ1Y0OVhDMTZLOTVXTFU0eTJQbzFoa1l6ajByQXMvT2Y0MWZzei90L2Y4QUJQTDlxUHh6KzJEL0FNRS9QaHZwSHhZOEZmRU9kYjN4dDhKOVExQTJtcFd0MlpHZVM0c0pmdVNBbG1ZUm41c3V3K2JqQUIyWDdNLy9BQVh2L1kxK00vajJ5K0J2eG9zL0Vud2MrSTF4TjltYndsOFI5R2xzMWE0enQyUjNMS0kyeVRnYnRsQXJvOUcvNExKK09kUytIZjhBd1ROK0x2aVRTWG5TZHZEUXROOEJ3VldlZUtGeVQ2YldZZlEwN0RPaS93Q0NXWGhMd3Y0Sy93Q0NlbndrMGJ3amJKSGFQNEx0THA5b0h6elRMNXNyazk4eU14elNBOS9vQS9PVC9nNUp1YmZ3Zit6ZjhLL2pIcDBVaWE1NForTStsRFNMMjNCODZBekpKdUNFYzhtTkNmOEFkRkFINkk2VmN2ZTZWYjNicVFaWWtjaGhnZ3NBVGtkdXRBSHc1L3dSMmxWL2pWKzAwa1p6cytLamh1RHdkMC9GQUgxWCsxdmV6NmIreW44VGRRdFgyeXdmRDdXWkkyOUdGak1RYUZ1QjRuL3dRL2p0b2Y4QWdsWDhHSXJXTXFpK0daUmduK0lYdHhuOWMwcDZzRDZ0SnhqNjA3MkEvUDhBL3dDQ1VFc04xL3dVaC9icW1nbloxaStLbWtSa0FBS0creHk1SHFUa1VPNllHWi93Y1Fha3Q1OE9QZ244TmRhbW5HZ2VKL2kzYjIrdXhKSVJITkdzRDdVY0RnL2VMRFBRcm50VFFINkQrSE5LMHZRZENzOUUwUzBXQ3lzN1dLQ3poUVlDUklnVkZBOUFBQitGSUM3UUFtNGV0QUg1My84QUJVNlNNZjhBQlVqOWl1MmFVcVg4YzNyWkI1T1BMSUI5cUFQdnJ4NXFsN29mZ1RXdGEwMVdhNXM5SXVaN2NLTWt1a1RNdVB4QW9BK0Uvd0RnM1IwdnczZS9zWGF4OFE3ZUxmcnV2K09MdC9FRis3RXlYVWlJbTBzVHllWGtKOVdZbnZUYkEvUUhZdnJTQStTditDNUhnVHc1NDQvNEpnZkZHUHhDU28wblRiYlU3U1lMa3d6dzNVUlZoNy9NUjlDYUFQU1ArQ2JYakxYUGlEK3dKOEcvR2ZpWnBHdjlRK0hHa1MzTFNrbG1iN01nM0Vua2s0em4zb0ErYmY4QWdscmJ4djhBOEZBdjJucmsvTTBPdkxDckR0blVMMGtmK09qOHFBUDBCQnlLQVB6dC93Q0NodHcrbGY4QUJhWDlqKy8weFA4QVM3dVhWYlc1WlB2Q0R5NXo4M3Rndmo4YWFEb2V4ZjhBQmFueDlxUGdiL2duYjR4dDlKUzQ4M3hEZGFib2hhM1Rjd2p1cnlKSkJqaklaTjBaQklCOHlwaXJJRFYvWW51dmlwOE5QMlNmQVBnL3dEK3o1RmVhZGFlRzRQc3R3L2l5M2dNNGJMbVFyc09HWWtudjFwZ2RWNHIrTFg3Y2NFeGk4Ri9zZCtIcDBQU1RVdmlkRkVQeVMyYWdEeXo5amY4QVpaL2F0MC85dmo0dGZ0ei9BTFRIaHZ3ZjRZYnh2NFIwVHc1cFBobnduck11b0V4MkVrc24ydWVaNDR3enQ1bXdEYndGeDdrQTViOXRqOWk3OXZEdzMrMjBQK0Nnbi9CT1h4SjRIL3Q2L3dEQTBHZ2VPUEJmamhYUzM4U1JXMDd5VzZpVkIrNllCeUE1T1FRTWNaRkFITi9ESC9ndkpwbnd3K0k5aDhCLytDcEg3TkhpUDluenhacU53SWRPMW5Va2U4OFAzN2xndVk3eEZ3cTVQM3psUU9TVkZBbWZvVHBPcGFkck9td2F2cEY5RGRXbDFFc3R0YzIwcXlSeXhzQVZkV1VrTXBHQ0NEZzBBdEN4UU1LQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0E1TDQ5ZU83WDRYL0JMeGQ4Ujd5NkVFZWcrR2I2L2FWamdMNVZ1N2c1K29GZE9EcGUyeGxPbjNrbCtKRTJsQnMvaTY4U2E1ZCtKOWJ2UEV1b1NPOXpxRjVMZHl2Sjk0dkk1ZGlmeGF2Njl5K0NvNGFNVjJQZzhWN3RWM0t5c1ZUYUcvM3NWMXRwbkNrUnNCakk2ZDZsdElVaU03TWNWTGQyS3pFcENDZ3RiREpkMzhQV20yd2JzajdsL3dDRGIvNFFQOFhQK0N0SHcva3VMUkpiVHdwYTZocjl6dno4cGdnS1IvVStaSXZINDErZStJdU1XR3lDU2IxazdIdDVOVGNxNlovVkFnSTRKL3ppdjV5ZDdIMlE2cUFLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnRDVTLzRMVHp4Mm4vQUFUejhiWGNqWVdKck5qL0FPQkMvd0JhQVBZLzJOYmhibjlrZjRZM0l4aC9BV2tuZzUvNWRJcUFQbGIvQUlMUHoyNmVQLzJlbG1mYWJqNGxKYkREa1kzVFd4L2tob0tTUHZHTWdnLzd4L25RU2ZGdi9CZC9VYlRUL3dCakxTNXJ1NFdNZjhMQjA0aG45b3JrMDA3QWZYbmdOOTNnM1NTRzNEK3pMZkI5ZjNTVkRUYkE4SS80SzU2bERwZi9BQVRnK0xkOVBqWkY0WkJrTEhnTDlvaHlmeXFnT2ovNEp6YWZIcFg3Qy93b3RJVitYL2hCZFBrQkgrM0h2LzhBWnFBUGxyVnZHdHY4SXY4QWdyWnF2am5WYmxiZlNEcXB0dFh1SkJsWUlaOVBoVHpENkFTYk1uc0NhQVAwTmluaGtoV2FPUlhWbEJEb2NnajFIcUtBUGpQL0FJTFJmdE02cDRNL1p2dlAyU1BnY2Y3VytNWHhudDM4TytCL0RkcCs4dUVTWWJiaS9rUVpLUVJSN3N1MkZ5ZXRBSHYzN0Z2N1BNSDdLZjdKWHc3L0FHYjdlOEYwZkJ2aEd5MHk0dWhqRTg4Y1FFc25IOTZRdWZ4b0ErV2ZobGZRZUgvK0M2dmpqVEdsQ3RySGcxZG9QOFIreVcwbUIrRVpQNFVBZmV5aktFVUFmbmYvQU1GT1BDSGlUOWpyOXVENFpmOEFCVnJ3eHBkN2UrRjlKZy80UnY0cTJsa201b3JHVEtSWFpHUm5DdXlqT0FIU0laK1lWVVl1VHNnUHZyd0g0NjhKZkVud2hwdmozd0w0Z3R0VjBmV0xLTzcwM1VMTjkwVnhDNmhsZFQ2RWZpRHdjRUdwZnV1ekF1YTFyMmorSDlNbTFmWEwrSzJ0b0Z6TE5NKzFWNXdPVDNKSUFIVWtnREpvQVE2Z2tWdTE1ZEZZbzBYTE5JMjBBZStlbEFFN0ZHUVAyeGtIMHBYRTlqNE4vYWY4QS9CTFcvOEFnc2o4QXJENFBlQWJOZmlOcDhHcCtJZmlScStqRXh0YmFLbHE4TnY5c1ZCdExTelNNRUw0ZGdoQXlDTUZ4V1oySC9CYkw5azc0aS90TGZzZVFlTHZnZmF5VGZFVDRUK0pMVHhyNE10b0gyeTNzMW9HOCt6Umh5R2xnYVFManF5cUtZMHRUM1A5alQ5cTM0Wi90bi9zOGVIZmovOEFDM1dSYzJXcjJnVyt0WFVMUHA5NmdDM0ZwUEgxamxqa3lDcDU2SG9hSHB1TTlPMUhVTExUTENmVWRRdTRyZUNDSnBKcDU1QWtjYUtNc3pNZUZVQUVrbmdBVUFmbmgvd1R0MC94SCsyei93QUZUUGkvL3dBRlNoWXRiL0RuUi9DNmZEUDRRM1pCSDl1MjBWd2s5L3FLanZFMDBVYUl3KzhNbnR5QWZvVkZybWszR3B6Nk5EZXhtN3RrVjVyY09ONkszM1dJemtBNElCNkVnK2xBQzM5cHBrOXV3MU8yZ2toQ25lSjBCVUR2blBHTWRhQ1hkcytKL3dEZ2lqNGM4SExiZnREZkVmNFNhUEZZZUJmRXY3UW1zeWVENGJPZG10SjdlQ09HS1c0dHg5MFJQUDV1MHA4cEM4Y0FZQXN6N1c4UWVIdEU4VTZUY2FCNGswVzAxR3d1NGpIZDJOL2JMTkRNaDZxNk9DckEraEZDYlJSNVBjZjhFOVAyRUpMaHI1LzJML2hhMHBjdHVQZ1N3UEo3Z2VWak5id3hWZFI1VkoySWxGWDVqNGwvNEpmZnNtL3N0ZVB2MjdmMnlyVHhSK3p6NEsxZlJ0QytJMm1hZDRiMDdWUEM5cGNXMmx3bTJtZVdHMmplTXJER3o3U1ZVQWNDdlV6TEUxbzBLQ2k5YmFtZE51YmFsMFAwRStIWDdNZjdPWHdoMWhmRWZ3bitBUGd6d3pxQWdhQVgrZ2VHYld6bUVUWUxKdmlSVzJuYXVSbnNLOGVWV3BKZTg3bXZLbHNkMDVSVk1qa0FLTWtrOUtnb3BhVnJ1amVKZE5qMVBRdFJndmJTNGpMUTNOdElKSTVGeVJrTU1nOGdqajBvQStNZitDNy9BSVcrQmV1L3NLNjNiK08vaDdaYTc0MTFHOXRkUCtHTUVFU2pVNU5jbG1WSUZ0bkEza2pKM2daRzNPUjBwcFhKYVo3bjhXLzJiYi80L2ZzSmFsK3kvd0RFMis4N1ZOZitIQ2FQcU43Sk96WTFBV2lBVEZ6bG14Y0lya25KT1BlaE1jZEdlQi84RVB2Mml6ZmZzK1Nmc1FmRm9IU2ZpaDhHTHU0MFh4Qm9kNndXZWEwU1l0RGNvdjhBRkdCSUl5UmtmS3JkSFUwNWFhbE8xejdqTWlnWkp4VWlQemkvNEtGMmIvOEFCUnYvQUlLUWZDSDloWHdITEpmK0R2aFRyQytOZmpIZjJaMzI4TXNiSWJUVDVHQUtyS2RwSlVuUDc0REdWYkFCK2ppamFnQjZsc244NkFQZ3IvZ2pWY28veCsvYXlzL1B5YlA0ek5FRTNaMnJzZHYxSk5BSDJ4OFd2QmlmRWI0VitKdmg3SktVWFh2RDk3cHhjREpVVHdQRm4veDZrM1lENGY4QStEZVA0dzZaZS9zWVNmc3ErSjllamk4Yy9DSHhIcU9qK0pkQ25sQXVMZVA3UzdSeWxEOHdqWmk0empBSXhtbGQyQSs5ZFcxclNkRjArWFZkWTFHRzF0YmRkMDg4OGdSRVgxSlBBcHZVRDg0ditDSm5qWFIvRkg3ZnY3ZFVzVnluMnE4K01GaGRpTUUvTkNJYmhWWVo3WUtEUFNxbDhRSDBEL3dWOS9aSDhXL3RiL3NremFWOE1iUDdSNHg4SGEzYmVKZkN0c01icnE0dHR3ZTNVbmdOSkU4aXIvdGJmV2t0WFlEc1ArQ2VYN1pudzUvYlAvWjIwdnh2NFcxaUlhOXBNS2FiNDEwR1g1THZTZFRoWHk1b3BvbStaTXNoS2tqa2U0SUYxS2NxYjFBOTJhUlZHVCtXS2dEQzhLZVBOQjhjWEY5TjRXdmx1N1RUN3Q3U2E4aXdZbnVFT0pFUmh3MncvS3hHUUd5T3FtZ0Q4L1ArQ3ROOWEybi9BQVZTL1lmTExtVnZpRGRxZm02S3pRcVAxUDZVQWZvOUxISExBMFVxQmtaU0hVOUNPNG9BL1BuL0FJSmppei9ZRi9hcStJLy9BQVRqK0tNamFaL2IrdDNIaWo0UTNsMjRFV3U2VzdOdmhoYjdyVFFncXJKOTc5MlRqR0t2a2ZKeklEOUJ5NnNNam52VUFmQS8vQmNQeHQ0MitPM3crMFAvQUlKamZzNFhodWZpTDhYTlN0UnEwVURiaG8zaDZLY05jM3R3Ui9xNDIyN1ZKSTNiV3huRkFIMmw4SGZocm9Yd1UrRWZobjRSZUZ3ZjdOOExhQlo2VllFbmt4VzhLeEtUN2tKUUI4Ui84RXlaYld5LzRLVC9BTFUraHhTN3NlSURJblBJSDIrNXpuL3ZvZm5RQitnYTV4elFCK2VYN1o2VytzLzhGNC8yWDlEdVpnQlorR05UdlVCL3ZlVHFSL1A5MkJUMFN1QjlhL3R0ZnMzMnY3WFA3S1BqYjlucWEvRnBONGkwWXJwdDRUeGIzMFRyY1dzcDlsbmlpSjlnZldwVHVCODcvd0RCSHY4QWFuU1R3RzM3Q2Z4MnZKTkkrSy93M2FlMHVORTFJQkpMeXlSOXl2RC9BTTlmS0Q3V3gvQnNjWlU1cTNGcEFmY0JZYlNlMVJkWHNCUnROY3R0UjFhNTAyeG1XVDdFRlc2WlRrSkl3M0JEL3RiY0VqcUF3OVJUQWxndjdTOG1tZ3RybEhlM2syVHFyWktOZ050UG9jRUdrM1lEeUg5dlQ0WGZzMGZGZjlsRHhuNGYvYXgwclNKL0JzT2gzTnpmWG1ybEZHbnNrYkZMaUtWdVlaVllEYXlrSEp3TTV3V0I1cC93UThzZmlMWS84RXh2aG1QaVFsOGtzdGxkeTZMRHFZSXVJdEthN2xOaXJnL2RQMmZ5eUY2QUVBZEtBUHJPZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FBbkZHd0h4MS93WHUrTWw3OEZmK0NVM3hZMS9TcmtSWG1xNlRGb2xxeDZscnlaSVdBOTlqUFgwM0IrRldNNGhvd2V5MSs0NHNkS1VjSzJqK1VmNWNxaUg1VkFIekhuaml2NnFoVFNnajRhdlBtbHFMUDhBZjNLTUE5aFNiU1pnMmtSRjh4RURQNVZEbHFUZFh1UTdqdHh6bWx6SU9kRHNGVURHam1RbTF1REhDNXBsY3lTSXprNTUrbFFucVR6Nm43QmY4R2V2d3NPdGZ0TGZGbjR4M2xrR2owUHdkWmFYYVRGZVZsdWJsbmNaeC9jaC9Xdngvd0FWTVNuaDZOSmZ6WC9BK3h5U2xHTk81L1FNUHZHdnhWN0h2aTB3Q2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0E4dy9hOC9aWjhIL3RqL0FBUzFINEVlUFBFdXNhWHBXcVR3U1hrK2lTeHBNNGlrRWlwbDBZYlN3R2VNOGRhQU92OEFoWjhPdEgrRWZ3ejBINFcrSHJ1NW5zZkQya3dhZlp6M3JLMHJ4UklFVXVWQUJiQUdTQUtBUE0vMnFQMkd2aHIrMXg0eDhDK01QaUw0cTEremI0ZjZ3ZFQwaTEwZTVpampsdUNVSWFUZkd4T1BMQUdDTVpQclFOU2FSN1dxaGM0NzBDUEh2MjBQMktmaHIrM0w4T3RQK0dIeFY4UytJTk8wM1R0WmkxT0wvaEg3NUlIZWFOV1ZkeGVOd1FBemNZNjBBZXJhSG84T2c2UmFhTGF6U1NSV2R0SEJHODc3blpVUUtDeHh5U0J5ZldnRGd2MnNmMlpQQm43WUh3TzFqOW4zNGorSU5aMC9RUEVBaVRWbTBHN1dDNWxpU1JaUExFakkyMVN5cVR4enR4UUIwM3drK0dQaHY0TWZESFFQaE40T2U1T2xlSE5JZzA3VGplemVaTDVFS0JFM3RnYm13T1RnZlNnRDQ0OEI2ZHBYaUwvZ3JYNHkwTHhEcDBOOWFYTmhmUlRXdDNFSGpsUVdWcDhwVmhnakRHZ0QzTHhoK3lyOGNGM2VIL2dmKzJiNGw4RStHMndJOUVIaDJ4MU43Tk1ZTWR0YzNLK2JFbU1iVkpjTGpqamlnRFEvWjYvWU8rQWY3T3ZqRFVmaXhvZW5hajRoOGU2MUI1T3RmRUR4YnFUMytyWGNmVXgrYy9FVWVlZkxqQ0w3SEZBSHRBR0JpZ0R4RzcvWUsrQzE1KzE4bjdiVWVwK0lvUEdTVzhjRHdRNnNCWXlva0JnQWFMWmsvSWVRR0FKNXhRQjdiZ0FZQW9Bei9GSGhMdzE0MzhPMzNoRHhqb0ZucW1sYW5hdmJhanAyb1d5elEzTUxqRFJ1akFobElPQ0NLTlZzQjh4K0QvOEFnbTc0NC9ac3ZycTIvWVovYXExdjRlK0dyeVpwVzhDYXpwRVd1YVRhT3h5eHRVbllQYkQvQUdWWWlybFVsS05tZ1ozSHcxL1pDOGVEeDdhL0UvOEFhYi9hUDFuNGthbHBrZ2wwVFNXMHlIVE5IMDZZWkFuV3poSkVzd0I0a2tMWTZnQTROUUpLeDdINHE4SzZQNHo4TmFoNFQ4UVdpejJXcDJVdHBlUk1QdnhTSVZZZmthQm55MThNL3dCZy93RGJXK0RPaFRmRFA0ZWY4Rk1OZmZ3Z2tyRFNZZkVmZ2V6MVBWTk50endJRXZKbnk0VVlDbDFPMERnQ2pVVHVld2Zzdy9zY2ZCNzlsVFQ5VHVQQXRuZWFoNGk4UlRMY2VMUEdXdlhqWGVxYTVPTTRrbm1mbkF5UXNhNFJSZ0FVT1RiQmFJOVZNWUl3ZldnWjg2YXgvd0FFOC9EM2dqNHNhOThkL3dCajM0bDZqOEkvRS9pcTRGejR1dGRJdEk3elJOZnVjRWZhYnJUWlNJdnRHT1BQaU1ia2RTZXRYejZXa3JnTjhZZnNSL0YzNCs2ZWZDSDdWMzdXdXIrSlBDVXd4cVhnN3dub2NXZzJ1cHJuL1YzTTBUdmNTUkh2RUhVSHZtb0E5MjhBL0Qvd2I4TGZCdW0vRDM0ZWVHckxSdEUwZTBTMTB2U3RPZ0VVRnJDb3dxSW80QUg2OVRRQjVQOEF0WWZzUmFOKzB2ckdpL0VMd3Y4QUdYeGo4TmZIUGh0Skk5RjhaK0J0UVdHNE1MOG0ydVlwRmFPN3Q5M3plVklDQWNrRVpOQUhLM1g3Q254NitMSGh2L2hYbjdXbjdkUGlUeHY0Vm1pRWVxNkQ0ZjhBQzFuNGMvdGRNak1WMVBhTTB6UnNCaGtpYUlNQ1FldUtBUG9Qd0Q0QjhHZkM3d2ZwM3crK0hYaFd3MFBRdEl0VnR0TDBqU3JWWWJlMGlYb2thS0FGSDArdEFHeFFBMTBMZW5VSDhxbEpwZ2VEZnNYL0FMQm5oRDlpL1gvaVQ0bzhPL0VIV1BFRi93REV6eGEydWFyUHF5UnFiZDhOdGpUWVBtQTNuNWoxR09Cam5vcTFwVllLTDJSQ2lrN285NlVFREIvU3NFcklzR0c1U3A3aW1COHU2VC93VHA4WS9CcjRpK0l2R3Y3SWY3WGZpdjRlNmI0cTFTVFVkUzhGWGVsV3VzNkpiM01qYnBaTFMzdVFEYWIyM01WallEYzVPQ01DZ0RxUGhGK3dQNEs4R2ZGNVAyanZqRDhSTmY4QWlaOFJJYmQ0Tk84UitLM2pFT2p4c2NzdGhaeEtJYlRQUXNvTDR5TjJDUlRsTjJzQjd4NVpQY1ZITWdQQ1Aya1ArQ2YvQU1ML0FJNi9FblRmMmcvQ1BpRFZQQVB4UzBhTHl0TitJWGhOMWp1M2lBd0xlNmpZR084Z3djR09UdHhrQ3FqT1ZyQVJXLzdPWDdaUGlYUVpQQ254Ty9ibWxheW1KUzV1L0NYZ1cxMHkvbGk2RlZuTWtnaFlqK0pFQkdlTVVBZDkrenQrekI4RmYyVmZCRGVBdmdoNEp0OUp0TG02ZTcxVzZaMm11OVR1M0pMM04xTytaTGlWaVRsM0pQWVlBQW9BNzlrWXJ0RGZqUUI0UCt4Nyt3VDRQL1k5K0lmeFErSlBodjRrYS9yMTk4VmZFcTYzclVlc2lBUjIxd04vRVFpalU0dytPYzhJdlE1SkFQZWlNakZKM0ErVS93QnBEL2drdjhEL0FJMWZIVWZ0U2ZEUDRoK01maE44U1pZakhxWGk3NGNhc0xPWFV3UUFQdFVaVXBNY0FESndTQmc1bzU1V3NCMXZ3djhBMkRkTjB1TzN2djJqZmpuNHgrTUdvV1RnNmZKNHp2VlMwdHNIaGhhVzRTRjM5WGRXUFlZb0E2ZjRML3NTZnMzL0FMUGZ4bzhiL0h6NFJlQUYwZnhIOFF6Ym54Uk5CZHlHRzRhSE94bGlMYkl6eVNTb0dhWUhxN0x1NjR4U1lIelQ4WXYrQ2Fmdzk4U2ZHNjQvYWovWjMrSkd2ZkNINGxYNmJkYjhRZUR5aHROYzlEcUZqSVBKdXprRDVtQWIxSnJXTmFhaHl5VndKclA5a2o5cXp4N2FqdzkrMFIrM1hxMnI2S1NWdTlQOEcrRjdmUXBMMk1qQmpsbmlaNUFwN2hNWkJJeldlZ0h2L2hQd2o0ZDhEZUc3THdqNFUwbUN4MDNUclpMZXl0TGVQYWtVYWpBQUg4ejFKSko2MEFlSGZ0TWY4RThmaDcrMDUrMDE4TFAyb2ZFM3hFOFI2WnF2d28xQVhtamFacGpRQzF1bkV3bC9lK1pHemNzcWc0UDNSZ1lQTkFIMEhnRWJUMHBPL1FEeXo5cVg5ai80Sy90ZWVFckx3djhBRmpRNWx1OUh2VnZ2RFBpWFNMazJ1cTZGZUw5MjVzN2xSdWhjWUdlcXNPR0JxNHpsRFlEa2RHK0NIN2VtZzZJUEJpL3RsNkpxVnBGR0liYnhGcVhnQ1A4QXRVUjR4dWZaS0laSlFQNDlvQlBKWGsxT3JBNmY5bW45anY0YmZzMlQ2MTRyMCsvMUh4RjR5OFV6ck40czhjZUlyano5UTFSMUdGVXQwaWhYbmJDbUVYUFFubWdEMWRrK1hBL0dnRHdmOW5iOWdMNGVmczUvdEgvRUw5cGp3ejQ5OFNhbHEveEhtYVhXTEhWcmlKcmEzZHB2T1l4Q09OU010MHlUZ0VqbnJRQjcyQmdZb0E4RDhjLzhFOC9oUDhRLzI1dkNYN2ZQaVR4bDRvZnhUNEwwZVRUdEYwV0xVSTEwdFluam1RczBYbGwyYjkvSTJkNEJiSEhISW0wZ1BlOW85QitWSkt5QThDL2F5LzRKMGZBajlxN3hOcGZ4UzFGOVQ4Si9FSFFXUnRDK0lYaEc2K3lhcGE3TTdFWndNVElDVGdOeU94R1RtbEtVVllEbHRQOEEyUy8rQ2kwMW0vaGp4SC93VTZrZlNXQWorMDZiOEs3Q0RVeENPTUM1TWpBU0VmOEFMVGFUbm5tbGNENkErRVh3bzhNZkJiNGZhZDhPUENMWGN0cHAwUkRYZXBYajNGMWVTc3hhUzRubGZtU1dSeXpNeDZsdU1BQUFBOE4rT243QXZ4RThZZnRHM0g3VC93Q3poKzJKNHQrRlhpSFZkTnQ3THhKcHVuNmRCcW1rNnNJTndpbWtzcmsrV0pnamJONEJPRlh2a2sxQUQvd1RsUHhhOFE2WDRrL2JjL2FFOFEvR0JkRHUwdXRLOE0zK24yK2xhQ3N5ZmRsbTArMUd5NmNIa2VjV1VmM2FybWRyQWZTdHJieFdrQ1cwRVNKSEdvV05JMUNxcWdZQUFIUUQwcVFKS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BUnZ1MG5zQitYUC9CMlg0ajFUU3Y4QWduRG9laTJVd1NEVWZpWHA0dWdNNWNScE15anIwM1lQNEN2dS9EMUwrM2xQcWwrcHhaaC91clA1eXdvVGdlOWYwM1RpcFVsSjdud05mK0lSVERDcU01NjlmcldFdmlNaHFkUHhyT1c0Q0VBVERqdFVrL2FINEhwUVVSbnFhMFd4VDJIT0FTQjYxbXR6UDdSKyszL0JucjRlMG0zL0FHYVBpMzRzaXRRTDY2OGUybHJOTG5yRkhaaGtINEdSaitOZnozNGpWSnp6WlJiMFNmNW4zV1RxMkhSK3hZKzhhL09uc2V3TFRBS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BUmpoU2ZRVUFmQS93UDFDNTFQOEE0TFJmRUN5dUh4SFlhZGRUd3FuR1dOcFp4OCtvd2ZibWdENzRUcGlnQmFBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBRUo1QTlhQUZvQUtBQ2dBcVpiQUZTQVZVUUNxQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0FvQUtBQ2dBb0FLQUNnQW9BS0FDZ0QvL1oiIGhlaWdodD0iMjYwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ii8+PC9nPjwvc3ZnPg==",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -11712,
+        -3376
+      ],
+      "id": "c2366aae-667d-404f-9765-2c3cea64245e",
+      "name": "logo empresa"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pdfrest.com/word",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Api-Key",
+              "value": "78eb049c-1717-48fa-ae1c-ad57e3d40236"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -10032,
+        -3376
+      ],
+      "id": "d03ea5f1-cb28-439a-bb1d-ec308597cb6f",
+      "name": "PDF to WORD"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.outputUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -9824,
+        -3376
+      ],
+      "id": "65f93674-e9fe-4739-93b5-16caa983c2b3",
+      "name": "Descargar Word"
     }
   ],
   "pinData": {},
@@ -585,6 +937,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-26T05:28:43.000Z",
-  "versionId": "02639ba7-559b-410a-8952-0f3adbe3c805"
+  "updatedAt": "2025-09-30T23:02:54.000Z",
+  "versionId": "195ef350-c35a-4a16-b91e-2d7634446cbb"
 }
