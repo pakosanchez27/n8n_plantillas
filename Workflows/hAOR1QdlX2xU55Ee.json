@@ -1,0 +1,30 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-09-30T01:54:04.929Z",
+  "id": "hAOR1QdlX2xU55Ee",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "TokenCost-Tracker-Automatico",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-30T01:54:04.931Z",
+      "updatedAt": "2025-09-30T01:54:04.931Z",
+      "role": "workflow:owner",
+      "workflowId": "hAOR1QdlX2xU55Ee",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-30T22:56:38.000Z",
+  "versionId": "bedacc0b-7904-46ef-a1bf-4d3553e98378"
+}
