@@ -1,11 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
         [
           {
-            "node": "Metadatos",
+            "node": "Information Extractor",
             "type": "main",
             "index": 0
           }
@@ -82,6 +82,28 @@
           }
         ]
       ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Metadatos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-25T04:27:00.094Z",
@@ -96,10 +118,7 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "9ad2110b-2461-4ccc-95b8-e78556194b69",
-        "responseMode": "responseNode",
-        "options": {
-          "allowedOrigins": "*"
-        }
+        "options": {}
       },
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
@@ -176,7 +195,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        448,
+        864,
         -80
       ],
       "id": "d32f27b3-5cc7-40f7-8d7c-2e542d0a7d98",
@@ -199,7 +218,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        672,
+        1088,
         -80
       ],
       "id": "30bdc58a-9283-4ef7-880a-78acbef9ac28",
@@ -225,7 +244,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        896,
+        1312,
         -80
       ],
       "id": "95fb2418-1a6e-407c-ba60-f0c6e9d40fc4",
@@ -238,7 +257,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        1360,
+        1776,
         -80
       ],
       "id": "de2ff01a-1544-4202-9c37-c73dea337dad",
@@ -271,7 +290,7 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        1120,
+        1536,
         -80
       ],
       "id": "607fee5d-f34f-49a5-85b5-abba9b937db0",
@@ -309,7 +328,7 @@
             {
               "id": "86884632-59d9-4451-b0e7-46d106550e66",
               "name": "fecha_emision",
-              "value": "={{ $json.body.metadatos.fecha_emision }}",
+              "value": "={{ $json.body.metadatos[\"fecha de emision\"] }}",
               "type": "string"
             },
             {
@@ -367,11 +386,46 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        224,
+        640,
         -80
       ],
       "id": "49e2ac78-03f8-496d-ac5a-63b6a5f7d275",
       "name": "Metadatos"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.body.toJsonString() }}",
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"state\": { \"type\": \"string\" },\n    \"mensaje\": { \"type\": \"string\" },\n    \"to\": { \"type\": \"string\" },\n    \"metadatos\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"fecha de emision\": { \"type\": \"string\" },\n        \"elaboro\": { \"type\": \"string\" },\n        \"elaboro_area\": { \"type\": \"string\" },\n        \"reviso\": { \"type\": \"string\" },\n        \"autorizo\": { \"type\": \"string\" },\n        \"tipo_documento\": { \"type\": \"string\" },\n        \"area\": { \"type\": \"string\" },\n        \"codigo\": { \"type\": \"string\" },\n        \"revision\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"fecha de emision\",\n        \"elaboro\",\n        \"reviso\",\n        \"autorizo\",\n        \"tipo_documento\",\n        \"area\",\n        \"codigo\",\n        \"revision\"\n      ]\n    },\n    \"contenido\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"titulo\": { \"type\": \"string\" },\n        \"objetivo\": { \"type\": \"string\" },\n        \"alcance\": { \"type\": \"string\" },\n        \"referencias\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n          \"referencias_normativas\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n        \"definiciones\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"termino\": { \"type\": \"string\" },\n              \"definicion\": { \"type\": \"string\" }\n            },\n            \"required\": [\"termino\", \"definicion\"]\n          }\n        },\n        \"formatos\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"codigo\": { \"type\": \"string\" },\n              \"nombre\": { \"type\": \"string\" }\n            },\n            \"required\": [\"codigo\", \"nombre\"]\n          }\n        },\n        \"desarrollo\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"no\": { \"type\": \"integer\" },\n              \"responsable\": { \"type\": \"string\" },\n              \"actividad\": { \"type\": \"string\" }\n            },\n            \"required\": [\"no\", \"responsable\", \"actividad\"]\n          }\n        },\n        \"politicas\": {\n          \"type\": \"array\",\n          \"items\": { \"type\": \"string\" }\n        },\n        \"indicadores\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"nombre\": { \"type\": \"string\" },\n              \"meta\": { \"type\": \"string\" },\n              \"frecuencia\": { \"type\": \"string\" },\n              \"dueno_dato\": { \"type\": \"string\" }\n            },\n            \"required\": [\"nombre\", \"meta\", \"frecuencia\", \"dueno_dato\"]\n          }\n        },\n        \"mermaidCode\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"titulo\",\n        \"objetivo\",\n        \"alcance\",\n        \"referencias\",\n        \"referencias_normativas\",\n        \"definiciones\",\n        \"formatos\",\n        \"desarrollo\",\n        \"politicas\",\n        \"indicadores\",\n        \"mermaidCode\"\n      ]\n    }\n  },\n  \"required\": [\"state\", \"mensaje\", \"metadatos\", \"contenido\"]\n}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        -80
+      ],
+      "id": "71e3b654-ec14-483d-942b-4bcbc2d47258",
+      "name": "Information Extractor"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        144,
+        128
+      ],
+      "id": "7f482377-6a52-4118-94bc-68689ae86e70",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -397,6 +451,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-26T04:03:24.000Z",
-  "versionId": "0ca3009e-ff59-4133-bd8d-2538417bc4fb"
+  "updatedAt": "2025-09-27T02:03:57.000Z",
+  "versionId": "e491d228-d52b-4de5-b9fe-67daaee23be8"
 }
