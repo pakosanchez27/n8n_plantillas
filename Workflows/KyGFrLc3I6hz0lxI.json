@@ -1,33 +1,11 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
-    "Schedule Trigger": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Code in JavaScript": {
       "main": [
         [
           {
             "node": "Append row in sheet",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request": {
-      "main": [
-        [
-          {
-            "node": "Code in JavaScript",
             "type": "main",
             "index": 0
           }
@@ -44,6 +22,33 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2025-09-22T23:28:41.943Z",
@@ -56,56 +61,16 @@
   "nodes": [
     {
       "parameters": {
-        "rule": {
-          "interval": [
-            {}
-          ]
-        }
-      },
-      "name": "Schedule Trigger",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1,
-      "position": [
-        -496,
-        -160
-      ],
-      "id": "adc2872b-6e95-4cba-ad82-8518dd7bb381"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Tomar los items del nodo HTTP Request\nlet itemsHttp = items;\n\n// Obtener fecha y hora local de México\nconst ahora = new Date();\nconst opcionesHora = { \n  timeZone: \"America/Mexico_City\", \n  hour: \"2-digit\", \n  minute: \"2-digit\", \n  second: \"2-digit\", \n  hour12: false\n};\nconst opcionesFecha = { \n  timeZone: \"America/Mexico_City\", \n  year: \"numeric\", \n  month: \"2-digit\", \n  day: \"2-digit\" \n};\n\nconst fechaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesFecha).format(ahora);\nconst horaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesHora).format(ahora);\nconst [dia, mes, año] = fechaLocal.split(\"/\");\nconst fechaFinal = `${año}-${mes}-${dia}`;\n\n// Generar JSON para cada workflow\nlet resultado = [];\n\nitemsHttp.forEach(item => {\n    // Asegurarse de que data exista y tenga workflows\n    if (item.json.data && item.json.data.length > 0) {\n        item.json.data.forEach(workflow => {\n            const nombreWorkflow = workflow.name || \"\";\n            const tokens = nombreWorkflow.length * 50;\n            const costo = tokens * 0.000045;\n            const estado = workflow.active ? \"Activo\" : \"Inactivo\";\n\n            resultado.push({\n                json: {\n                    Fecha: fechaFinal,\n                    Hora: horaLocal,\n                    Workflow: nombreWorkflow,\n                    Tokens: String(tokens),\n                    Costo: String(costo.toFixed(5)),\n                    Estado: estado\n                }\n            });\n        });\n    }\n});\n\nreturn resultado;\n"
+        "jsCode": "// Tomar los items del nodo HTTP Request\nlet itemsHttp = items;\n\n// Tipo de cambio USD → MXN\nconst tipoCambio = 18.5; // Cambia este valor si quieres otro tipo de cambio\n\n// Obtener fecha y hora local de México\nconst ahora = new Date();\nconst opcionesHora = { \n  timeZone: \"America/Mexico_City\", \n  hour: \"2-digit\", \n  minute: \"2-digit\", \n  second: \"2-digit\", \n  hour12: false\n};\nconst opcionesFecha = { \n  timeZone: \"America/Mexico_City\", \n  year: \"numeric\", \n  month: \"2-digit\", \n  day: \"2-digit\" \n};\n\nconst fechaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesFecha).format(ahora);\nconst horaLocal = new Intl.DateTimeFormat(\"es-MX\", opcionesHora).format(ahora);\nconst [dia, mes, año] = fechaLocal.split(\"/\");\nconst fechaFinal = `${año}-${mes}-${dia}`;\n\n// Generar JSON para cada workflow\nlet resultado = [];\n\nitemsHttp.forEach(item => {\n    // Asegurarse de que data exista y tenga workflows\n    if (item.json.data && item.json.data.length > 0) {\n        item.json.data.forEach(workflow => {\n            const nombreWorkflow = workflow.name || \"\";\n            const tokens = nombreWorkflow.length * 50;\n            const costoUSD = tokens * 0.000045;\n            const costoMXN = costoUSD * tipoCambio; // convertir a pesos\n            const estado = workflow.active ? \"Activo\" : \"Inactivo\";\n\n            resultado.push({\n                json: {\n                    Fecha: fechaFinal,\n                    Hora: horaLocal,\n                    Workflow: nombreWorkflow,\n                    Tokens: String(tokens),\n                    Costo: String(costoMXN.toFixed(2)), // redondeado a 2 decimales\n                    Estado: estado\n                }\n            });\n        });\n    }\n});\n\nreturn resultado;\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        96,
-        -160
+        -128,
+        48
       ],
       "id": "e7c3e4d4-afaa-4a2b-8a96-72b9c1c8fdcc",
       "name": "Code in JavaScript"
-    },
-    {
-      "parameters": {
-        "url": "https://n8n.srv914565.hstgr.cloud/api/v1/workflows",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "X-N8N-API-KEY",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTI5MDU2Zi0yMTJiLTQ5YjEtYWI1Ni00M2M2YjQyM2FiY2QiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU4NTg5MjQwLCJleHAiOjE3NjExMDU2MDB9.c3_F4xZ-PyIT-dKc_sE1DpE8wFAxw9cU57GKiib0WAc"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -384,
-        48
-      ],
-      "id": "e1e60be4-623d-469b-9ada-d14d937dfa9c",
-      "name": "HTTP Request"
     },
     {
       "parameters": {
@@ -114,8 +79,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        608,
-        144
+        384,
+        48
       ],
       "id": "adb24eb6-c4ee-4383-b2da-eba84ecbcdb6",
       "name": "Code in JavaScript1"
@@ -213,8 +178,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        320,
-        144
+        112,
+        48
       ],
       "id": "03147573-6fa4-4431-acf8-07675d50369b",
       "name": "Append row in sheet",
@@ -224,6 +189,48 @@
           "name": "ApiGoogleEquipo"
         }
       }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -640,
+        48
+      ],
+      "id": "ee323627-c6d0-4c5b-841d-6ca5e2b9f0e9",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://n8n.srv914565.hstgr.cloud/api/v1/workflows",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-N8N-API-KEY",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTI5MDU2Zi0yMTJiLTQ5YjEtYWI1Ni00M2M2YjQyM2FiY2QiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU4NTg5MjQwLCJleHAiOjE3NjExMDU2MDB9.c3_F4xZ-PyIT-dKc_sE1DpE8wFAxw9cU57GKiib0WAc"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        80
+      ],
+      "id": "282c8131-58e8-41fc-8526-107d36f274ab",
+      "name": "HTTP Request1"
     }
   ],
   "pinData": {},
@@ -246,6 +253,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-25T01:00:37.000Z",
-  "versionId": "8cd3916d-bc81-4aac-a54e-009eedfb0cf7"
+  "updatedAt": "2025-10-01T06:19:25.000Z",
+  "versionId": "34b36992-c173-4600-b1d4-4100c9702b19"
 }
