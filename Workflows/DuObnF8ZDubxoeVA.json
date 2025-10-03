@@ -1,0 +1,113 @@
+{
+  "active": false,
+  "connections": {
+    "Stripe Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get a customer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a customer": {
+      "main": [
+        [
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-30T05:20:15.965Z",
+  "id": "DuObnF8ZDubxoeVA",
+  "isArchived": false,
+  "meta": null,
+  "name": "Recordatorios Stripe",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "invoice.upcoming"
+        ]
+      },
+      "type": "n8n-nodes-base.stripeTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0f79aa13-30dd-40ba-a5ad-846f7d35f63d",
+      "name": "Stripe Trigger",
+      "webhookId": "761b5a36-cde3-4645-b268-0c863ee37f2f"
+    },
+    {
+      "parameters": {
+        "resource": "customer"
+      },
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "80f20557-0d64-4153-89c4-c0e97db696e6",
+      "name": "Get a customer"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        432,
+        -112
+      ],
+      "id": "34ede7b1-fef7-4f62-b67c-7778c448a6bf",
+      "name": "Send email",
+      "webhookId": "b380ff16-78ca-4313-8afb-7c77a9283d0d"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        432,
+        112
+      ],
+      "id": "417cab8b-4bf6-4e64-bde4-970eccad603c",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-09-30T05:20:15.968Z",
+      "updatedAt": "2025-09-30T05:20:15.968Z",
+      "role": "workflow:owner",
+      "workflowId": "DuObnF8ZDubxoeVA",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-01T20:09:35.000Z",
+  "versionId": "44b2aff3-df9d-4566-a25e-411ac48bdc56"
+}
