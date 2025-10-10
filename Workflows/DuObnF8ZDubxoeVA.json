@@ -16,12 +16,12 @@
       "main": [
         [
           {
-            "node": "Send email",
+            "node": "Send a message",
             "type": "main",
             "index": 0
           },
           {
-            "node": "HTTP Request",
+            "node": "Enviar texto",
             "type": "main",
             "index": 0
           }
@@ -32,14 +32,17 @@
   "createdAt": "2025-09-30T05:20:15.965Z",
   "id": "DuObnF8ZDubxoeVA",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Recordatorios Stripe",
   "nodes": [
     {
       "parameters": {
         "events": [
-          "invoice.upcoming"
-        ]
+          "invoice.payment_failed"
+        ],
+        "apiVersion": " 2025-09-30.clover"
       },
       "type": "n8n-nodes-base.stripeTrigger",
       "typeVersion": 1,
@@ -49,11 +52,18 @@
       ],
       "id": "0f79aa13-30dd-40ba-a5ad-846f7d35f63d",
       "name": "Stripe Trigger",
-      "webhookId": "761b5a36-cde3-4645-b268-0c863ee37f2f"
+      "webhookId": "761b5a36-cde3-4645-b268-0c863ee37f2f",
+      "credentials": {
+        "stripeApi": {
+          "id": "hhtnDIdvI10lu5r3",
+          "name": "Stripe account"
+        }
+      }
     },
     {
       "parameters": {
-        "resource": "customer"
+        "resource": "customer",
+        "customerId": "={{ $json.data.object.customer }}"
       },
       "type": "n8n-nodes-base.stripe",
       "typeVersion": 1,
@@ -61,35 +71,62 @@
         208,
         0
       ],
-      "id": "80f20557-0d64-4153-89c4-c0e97db696e6",
-      "name": "Get a customer"
+      "id": "8d193bb9-273d-4323-99ba-f4001af6429d",
+      "name": "Get a customer",
+      "credentials": {
+        "stripeApi": {
+          "id": "hhtnDIdvI10lu5r3",
+          "name": "Stripe account"
+        }
+      }
     },
     {
       "parameters": {
-        "options": {}
+        "sendTo": "={{$node[\"Get a customer\"].json[\"email\"]}}",
+        "subject": "Recordatorio de tu próximo cargo",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #1DB954;\">Recordatorio de Renovación</h2>\n  \n  <p>Hola {{$node[\"Get a customer\"].json[\"name\"]}},</p>\n  \n  <p>Este es un recordatorio amigable para informarte que tu pago de <strong>${{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }} MXN</strong>, correspondiente a tu suscripción, se procesará pronto.</p>\n  \n  <p>Queremos asegurarnos de que no haya ninguna interrupción en tu servicio. Por favor, verifica que tu método de pago esté actualizado.</p>\n  \n  <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>\n  \n  <p>Saludos cordiales,<br>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque tienes una suscripción activa.\n  </p>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
       },
-      "type": "n8n-nodes-base.emailSend",
+      "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        432,
+        416,
         -112
       ],
-      "id": "34ede7b1-fef7-4f62-b67c-7778c448a6bf",
-      "name": "Send email",
-      "webhookId": "b380ff16-78ca-4313-8afb-7c77a9283d0d"
+      "id": "a08ca6cd-e438-4165-9ef9-d2e2503e2a37",
+      "name": "Send a message",
+      "webhookId": "78f574c2-0c79-4201-a7b1-598b01b611d8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
-        "options": {}
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{$node[\"Get a customer\"].json[\"phone\"].replace('+', '')}}",
+        "messageText": "=*Recordatorio de Renovación*\n\nHola {{$node[\"Get a customer\"].json[\"name\"]}},\n\nEste es un recordatorio amigable para informarte que tu pago de *${{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }}  MXN*, correspondiente a tu suscripción, se procesará pronto.\n\nQueremos asegurarnos de que no haya ninguna interrupción en tu servicio. Por favor, verifica que tu método de pago esté actualizado.\n\nSaludos cordiales.",
+        "options_message": {}
       },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
       "position": [
-        432,
-        112
+        416,
+        64
       ],
-      "id": "417cab8b-4bf6-4e64-bde4-970eccad603c",
-      "name": "HTTP Request"
+      "id": "b187bba5-18a5-4290-8c89-b8fa1ea1e36a",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -108,6 +145,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-01T20:09:35.000Z",
-  "versionId": "44b2aff3-df9d-4566-a25e-411ac48bdc56"
+  "updatedAt": "2025-10-09T18:00:21.000Z",
+  "versionId": "2ae49222-3b2f-47c3-a006-604b607e68e5"
 }
