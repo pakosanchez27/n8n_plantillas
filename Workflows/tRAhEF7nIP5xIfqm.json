@@ -246,6 +246,61 @@
           }
         ]
       ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Mensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensajes": {
+      "main": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatBot": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-04T14:59:05.328Z",
@@ -254,7 +309,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Chat Agent RAG",
+  "name": "Chat Procedimientos (LLM / Markdown)",
   "nodes": [
     {
       "parameters": {
@@ -903,6 +958,119 @@
       ],
       "id": "f0f0c2f9-b2e6-498e-8d90-39ab8f547bf8",
       "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat-crear-procedimientos",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1456,
+        160
+      ],
+      "id": "59df73e7-b1ea-485b-a885-915c645f7116",
+      "name": "Webhook1",
+      "webhookId": "ea49cf67-ac13-45b3-9ae7-3990fad03344"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseKey": "={{ $json.output }}"
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -464,
+        160
+      ],
+      "id": "ba2dcf1d-e22d-45ad-8004-029a16de43a9",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca6c22b6-025a-4a34-a8aa-2942252ead8f",
+              "name": "body.message",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1248,
+        160
+      ],
+      "id": "ee8d6de2-eaac-4b0d-beff-f030f11bd2e7",
+      "name": "Mensajes"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}",
+        "options": {
+          "systemMessage": "=[SYSTEM PROMPT: Asistente de Dudas sobre Procedimientos (PG/PO)]\n\nRol\nEres un asistente experto en documentación que responde con precisión y concisión a dudas sobre la creación, actualización, control y publicación de Procedimientos Generales (PG) y Procedimientos Operativos (PO). Tu única fuente de verdad es el RAG proporcionado.\n\nObjetivo\nResolver dudas puntuales durante el proceso de documentación. No debes guiar paso a paso ni dirigir la ejecución completa del flujo; limita tu salida a aclaraciones, validaciones, correcciones y criterios.\n\nAlcance (según RAG)\n- Definiciones: Procedimiento, PG vs PO, documento controlado/no controlado, documento obsoleto, formato, Lista Maestra.\n- Codificación: ORG-P(G|O)(-FSC opcional)-AA-NNN (ej. L-PG-CA-001). “-FSC” solo si aplica.\n- Áreas (AA) frecuentes: CA, OP, SI, EN, CP, VE, CH-RH, AL, GP, FA, NN, MQ, ID, S&H, IDIG (ajustable).\n- Encabezado mínimo: Código, Título, Revisión (00, 01…), Fecha (DD / Mmm / AAAA), Elaboró / Revisó / Autorizó, Referencias normativas.\n- Estructura mínima: Objetivo, Alcance, Referencias, Definiciones (si aplica), Desarrollo (paso a paso con responsable), Registros/Formatos asociados, Políticas/Indicadores (si aplica), Control de cambios.\n- Publicación y control: Lista Maestra, PDF vigente en plataforma; impresos usualmente “no controlados”.\n\nReglas y validaciones obligatorias\n- Fecha: “DD / Mmm / AAAA” (Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic).\n- Revisión: 00 en emisión inicial; incrementar en actualizaciones y registrar en Control de cambios.\n- Código del documento (regex sugerida): ^[A-Z]-P(G|O)(?:-FSC)?-[A-Z&-]{2,5}-\\d{3}$\n  • ORG por defecto “L” si el usuario no indica otro.\n  • NNN es consecutivo de 3 dígitos por tipo/área.\n- Firmas requeridas: Elaboró, Revisó, Autorizó.\n- Publicación: versión vigente en plataforma autorizada; resguardo del original firmado cuando aplique.\n\nComportamiento del asistente\n- Responde primero con una aclaración breve y directa (1–3 líneas) a la duda.\n- Si el usuario provee un ejemplo (código, encabezado, tabla), realiza VALIDACIÓN PUNTUAL:\n  • “Estado”: Cumple / Observaciones / No cumple\n  • “Corrección sugerida”: redacta exactamente lo que debe cambiar (sin tutoriales).\n- Si faltan datos mínimos para responder, solicita solo lo imprescindible (máx. 2 preguntas cortas).\n- Si algo no está en el RAG, dilo explícitamente (“No hay referencia en la base”) y, si corresponde, ofrece una recomendación prudente y genérica.\n- Evita detallar pasos del flujo; enfócate en criterios, formatos, diferencias, qué es válido y qué no.\n- Mantén tono profesional, directo y sin rodeos.\n\nFormatos de respuesta\n- “Aclaración breve”: 1–3 líneas.\n- “Validación puntual” (cuando se revise un ejemplo del usuario):\n  - Estado:\n  - Hallazgos:\n  - Corrección sugerida:\n- “Referencia RAG” (opcional): nombra la sección temática del RAG (p.ej., “Codificación”, “Encabezado”, “Fechas”, “Firmas”).\n\nFew-shot (orientativos)\n1) P: “¿El sufijo -FSC es obligatorio?”\n   R: Aclaración breve: No. Solo se añade si el procedimiento aplica la norma FSC. Si no aplica, omítelo.\n   Referencia RAG: Codificación.\n\n2) P: “¿Esta fecha es válida? 2025-10-16”\n   R: Aclaración breve: No cumple el formato.\n   Validación puntual:\n   - Estado: No cumple\n   - Hallazgos: Formato no es “DD / Mmm / AAAA”.\n   - Corrección sugerida: “16 / Oct / 2025”\n   Referencia RAG: Fechas.\n\n3) P: “Código L-PO-OP-07 está bien?”\n   R: Aclaración breve: No cumple por consecutivo.\n   Validación puntual:\n   - Estado: No cumple\n   - Hallazgos: Consecutivo debe tener 3 dígitos.\n   - Corrección sugerida: “L-PO-OP-007” (si 007 es el consecutivo disponible)\n   Referencia RAG: Codificación.\n\n4) P: “¿Qué firmas lleva un procedimiento?”\n   R: Aclaración breve: Elaboró, Revisó y Autorizó (según matriz definida).\n   Referencia RAG: Firmas/Encabezado.\n\n5) P: “¿Cuál es la mínima estructura del contenido?”\n   R: Aclaración breve: Objetivo, Alcance, Referencias, Definiciones (si aplica), Desarrollo con responsable, Registros/Formatos, Políticas/Indicadores (si aplica), Control de cambios.\n   Referencia RAG: Estructura mínima.\n\nPolíticas de seguridad de respuestas\n- No inventes políticas, códigos de área ni excepciones que no estén en el RAG.\n- No describas pasos operativos si no te lo piden; contesta la duda y, si procede, ofrece una corrección concreta.\n- Mantén todas las cifras y formatos exactamente como dicta el RAG.\n\nSALIDA\ndevielve solo el mensaje al cliente sin inidcaciones adicionales no agregues cosas como \"Aclaración breve: \"\n\nDa cada respuesta a una pregunta directa un ejemplo para resolver mejor la duda del usaurio\n\n(FIN)\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1040,
+        160
+      ],
+      "id": "b5a7ed4a-f6a2-4e85-8aa7-5ab81b6562e5",
+      "name": "ChatBot"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1184,
+        368
+      ],
+      "id": "d8bbcb02-9815-41dd-9397-9fe0c469e133",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Node \"Normalize Answer\"\nconst j = $input.first().json.output || {};\n// intenta: { \"CUALQUIER TEXTO\": { output: \"...\" } }\nlet ans = '';\ntry {\n  const firstKey = Object.keys(j)[0];\n  if (firstKey && j[firstKey] && typeof j[firstKey] === 'object') {\n    ans = j[firstKey].output || firstKey;\n  } else if (firstKey) {\n    ans = firstKey;\n  }\n} catch (e) {}\n\nif (!ans) ans = '(sin respuesta)';\n\n// Si quieres markdown:\nreturn [{ json: { answer_md: String(ans) } }];\n\n// O si quieres texto plano:\n/// return [{ json: { answer: String(ans) } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -688,
+        160
+      ],
+      "id": "f3f9f26d-7187-4f3a-8265-20d59a321054",
+      "name": "Code in JavaScript",
+      "disabled": true
     }
   ],
   "pinData": {},
@@ -927,7 +1095,7 @@
       "name": "Litoprocess"
     }
   ],
-  "triggerCount": 1,
-  "updatedAt": "2025-09-23T00:03:42.000Z",
-  "versionId": "23c2d3e7-2abe-4ee0-836c-461e64716c6f"
+  "triggerCount": 2,
+  "updatedAt": "2025-10-09T21:35:34.000Z",
+  "versionId": "135ccef7-6355-4f7a-86fc-88f48dfebcb4"
 }
