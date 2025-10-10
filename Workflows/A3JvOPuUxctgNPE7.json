@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Google Drive Trigger": {
       "main": [
@@ -1419,8 +1419,8 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        16,
-        1648
+        -96,
+        1136
       ],
       "id": "2cc8e808-452c-498a-8a12-0c212c4eb065",
       "name": "Telegram Trigger",
@@ -1461,8 +1461,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        240,
-        1648
+        128,
+        1136
       ],
       "id": "4be4c097-08e1-410b-95b3-a4584ab1adce",
       "name": "Edit Fields2"
@@ -1528,8 +1528,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        464,
-        1648
+        352,
+        1136
       ],
       "id": "26080c0d-8e81-41d2-b58d-89787cb4ac39",
       "name": "Switch2"
@@ -1543,8 +1543,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1584,
-        1840
+        1472,
+        1328
       ],
       "id": "566e928e-a25d-4802-8064-da3177f9b051",
       "name": "Transcribe a recording",
@@ -1562,8 +1562,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        912,
-        1552
+        800,
+        1040
       ],
       "id": "9b8bfdbb-ecbd-4414-8548-b4b9f11967fe",
       "name": "Wait2",
@@ -1597,8 +1597,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1360,
-        1552
+        1248,
+        1040
       ],
       "id": "e2f15b14-7b5c-40b8-b531-09d59bfcd4ca",
       "name": "If1"
@@ -1613,8 +1613,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        688,
-        1552
+        576,
+        1040
       ],
       "id": "adf99194-aad1-4984-be9b-fcfcb6618a03",
       "name": "Redis-push sms",
@@ -1635,8 +1635,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1136,
-        1552
+        1024,
+        1040
       ],
       "id": "8ba13ad2-26b2-4d1f-b9f6-4192ecedfb2a",
       "name": "Redis-get sms",
@@ -1652,8 +1652,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1584,
-        1648
+        1472,
+        1136
       ],
       "id": "d6b1ab72-8c16-467c-8654-b6dd704f7324",
       "name": "No Operation, do nothing2"
@@ -1681,8 +1681,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1584,
-        1456
+        1472,
+        944
       ],
       "id": "e6c669f5-b2f1-473f-964a-6bbcb8f41b92",
       "name": "unir mensaje"
@@ -1695,8 +1695,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1808,
-        1456
+        1696,
+        944
       ],
       "id": "1a2c4078-6357-4f4d-8675-2e41216d9215",
       "name": "Redis",
@@ -1716,8 +1716,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1216,
-        1744
+        1104,
+        1232
       ],
       "typeVersion": 1,
       "id": "c27fbe51-000a-45f3-987f-4de074d6057e",
@@ -1746,8 +1746,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1808,
-        1840
+        1696,
+        1328
       ],
       "id": "ae21442b-b363-4b12-92e4-4dbb0f4e76e8",
       "name": "Edit Fields3"
@@ -1769,8 +1769,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2032,
-        1648
+        1920,
+        1136
       ],
       "id": "2edb7e3e-697d-4941-8545-34fec1ded383",
       "name": "Aggregate"
@@ -1784,8 +1784,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1360,
-        1840
+        1248,
+        1328
       ],
       "id": "56a98b81-33fa-4bc3-b33c-f7cb4361d7b0",
       "name": "Get a file",
@@ -1821,7 +1821,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1845,7 +1846,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1869,7 +1871,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1893,7 +1896,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1917,7 +1921,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1941,7 +1946,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1965,7 +1971,8 @@
           "id": "ysXYnPoghR9xwiuT",
           "name": "Gmail Pako"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1997,7 +2004,8 @@
           "id": "pdB77gCjQoMxFDV3",
           "name": "Pako Gemini"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2038,7 +2046,8 @@
         336
       ],
       "id": "7714cde1-21c9-438b-ad63-5e9ab8114971",
-      "name": "Edit Fields1"
+      "name": "Edit Fields1",
+      "disabled": true
     },
     {
       "parameters": {
@@ -2206,7 +2215,8 @@
         272
       ],
       "id": "c2969874-cb30-427e-87c0-ed6e1ae40e5d",
-      "name": "Switch1"
+      "name": "Switch1",
+      "disabled": true
     }
   ],
   "pinData": {},
@@ -2224,17 +2234,17 @@
   ],
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2025-09-22T16:14:37Z"
+      "lastTimeChecked": "2025-10-07T13:59:14Z"
     },
     "node:Schedule Trigger": {
       "recurrenceRules": []
     },
     "node:Gmail": {
       "Gmail": {
-        "lastTimeChecked": 1758557643,
+        "lastTimeChecked": 1759765235,
         "possibleDuplicates": [
-          "19972349313c15cc",
-          "199723325b966a4a"
+          "199ba2e930d45914",
+          "199ba28e811132c6"
         ]
       }
     }
@@ -2247,7 +2257,7 @@
       "name": "Experimentos"
     }
   ],
-  "triggerCount": 4,
-  "updatedAt": "2025-09-22T16:23:52.000Z",
-  "versionId": "ba7d7e24-c1cf-4f79-a428-38cebd750ead"
+  "triggerCount": 3,
+  "updatedAt": "2025-10-06T15:41:14.000Z",
+  "versionId": "82dea0d6-6545-47d2-9ff3-8ec1e4b9f5df"
 }
