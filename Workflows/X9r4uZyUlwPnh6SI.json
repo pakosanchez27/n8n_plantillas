@@ -1,0 +1,574 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-13T19:35:45.356Z",
+  "id": "X9r4uZyUlwPnh6SI",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Cancelacion Stripe",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dcb4aee0-3128-47cc-8060-48007bd48141",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a775fc6b-4167-4e74-8027-8531abfff86b",
+      "name": "Webhook",
+      "webhookId": "dcb4aee0-3128-47cc-8060-48007bd48141"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "telefono",
+              "lookupValue": "={{ $json.body.data.key.remoteJid.replace('@s.whatsapp.net', '').replace('521', '52') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "7182e9aa-13bf-46c0-a761-6e915195583e",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c29b6b87-27f6-4774-9ff0-c21b6d935744",
+              "name": "decision_key",
+              "value": "={{ $('Webhook').item.json.body.data.message.conversation.toLowerCase() }}_{{$node[\"Get row(s) in sheet\"].json.estado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "80069ecf-f8a8-4f61-a593-a501c34b115a",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.body.data.message.conversation.toLowerCase() }}",
+                    "rightValue": "cancelar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "94832776-367d-4045-8da4-3feddc007f07"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b95ef1a6-366d-432d-b4df-78f48b38e48d",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.message.conversation.toLowerCase() }}",
+                    "rightValue": "confirmar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        624,
+        0
+      ],
+      "id": "88c31e63-c4f5-473c-bc37-119912c3e84b",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{$node[\"Webhook\"].json[\"body\"][\"data\"][\"key\"][\"remoteJid\"]}}",
+        "messageText": "Entendido. \nLamentamos que consideres irte.  \nAntes de procesar tu cancelación, nos gustaría saber si hay algo en lo que podamos ayudarte o si tienes alguna sugerencia para mejorar nuestro servicio. Tu opinión es muy importante para nosotros.  \nSi no hay nada más y deseas continuar con la baja definitiva, por favor responde a este mensaje con la palabra \"Confirmar\".",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1168,
+        -176
+      ],
+      "id": "24dd0e06-1251-4da7-9523-c9904cf4a905",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telefono": "={{ $('Get row(s) in sheet').item.json.telefono }}",
+            "estado": "retencion_enviada"
+          },
+          "matchingColumns": [
+            "telefono"
+          ],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1376,
+        -176
+      ],
+      "id": "80d83f41-ebd1-415c-8eee-875ad9ef356d",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://api.stripe.com/v1/subscriptions/{{ $('Get row(s) in sheet').item.json.subscriptionId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1152,
+        96
+      ],
+      "id": "ebb0de52-9758-4b7d-8169-bccd94896bbf",
+      "name": "HTTP Request",
+      "credentials": {
+        "stripeApi": {
+          "id": "hhtnDIdvI10lu5r3",
+          "name": "Stripe account"
+        },
+        "httpHeaderAuth": {
+          "id": "FOxvsRQ52X7TDxsP",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1805190857,
+          "mode": "list",
+          "cachedResultName": "Cancelados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=1805190857"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "customerId": "={{$node[\"Get row(s) in sheet\"].json[\"customerId\"]}}"
+          },
+          "matchingColumns": [
+            "customerId"
+          ],
+          "schema": [
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1328,
+        96
+      ],
+      "id": "4ec74229-03f6-47cc-82fe-9a55aa8155bb",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{$node[\"Webhook\"].json[\"body\"][\"data\"][\"key\"][\"remoteJid\"]}}",
+        "messageText": "Tu suscripción ha sido cancelada exitosamente. Ha sido un placer tenerte como cliente. \nSi cambias de opinión en el futuro, ¡nuestras puertas siempre estarán abiertas!",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        96
+      ],
+      "id": "e05ebbd5-1843-4b6d-b061-5c73182f29be",
+      "name": "Enviar texto1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0e5cfa06-9737-4362-b6ef-9b2dda2ed049",
+              "leftValue": "={{$node[\"Get row(s) in sheet\"].json[\"estado\"]}}",
+              "rightValue": "retencion_enviada",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        832,
+        -96
+      ],
+      "id": "3529ac25-1a7e-4a10-8bc1-ff5756c2e346",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "23c708e7-1075-42a4-a28b-90619ec00e98",
+              "leftValue": "={{$node[\"Get row(s) in sheet\"].json[\"estado\"]}}",
+              "rightValue": "retencion_enviada",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        832,
+        96
+      ],
+      "id": "26d1e61d-ba63-44b7-9ea2-83a739d3dc2b",
+      "name": "If1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-13T19:35:45.359Z",
+      "updatedAt": "2025-10-13T19:35:45.359Z",
+      "role": "workflow:owner",
+      "workflowId": "X9r4uZyUlwPnh6SI",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T23:05:09.000Z",
+  "versionId": "0e37bf23-5281-4624-9caf-dc54c8e04da1"
+}
