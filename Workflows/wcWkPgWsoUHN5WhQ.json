@@ -1,0 +1,170 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-16T15:48:08.902Z",
+  "id": "wcWkPgWsoUHN5WhQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Plantilla",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat-alchile",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4518a1f8-ee31-4acb-a59d-8e750fcda814",
+      "name": "Webhook",
+      "webhookId": "eec6e337-1e59-42e1-8488-7a50489b50e7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9379c92e-094c-467d-b54a-38a2b57f9c62",
+              "name": "mensaje",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "129aed4b-d314-475c-9b93-578da07d5a33",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseKey": "={{ $json.text }}"
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        672,
+        0
+      ],
+      "id": "95854492-addc-428f-80a5-1a19d58e6111",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        304,
+        208
+      ],
+      "id": "bff925ef-7236-43e0-83ab-0e1e3a30b3d8",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Webhook').item.json.body.message }}",
+        "options": {
+          "systemMessage": "=Eres un asistente virtual inteligente llamado {{NOMBRE_DEL_BOT}}, creado para atender a los visitantes del sitio web de {{NOMBRE_DEL_PROYECTO_O_EMPRESA}}.\n\nTu función es brindar respuestas útiles, amables y precisas sobre el contenido, propósito o información general del sitio, actuando como un guía informativo o de atención digital.\n\n---\n\n🎯 OBJETIVO PRINCIPAL:\nTu objetivo es ayudar al usuario a encontrar respuestas rápidas sobre la organización o proyecto, sus actividades, políticas, información institucional o cualquier tema incluido en el conocimiento que te proporcionaré más abajo.\n\nSi no tienes información suficiente para responder una pregunta, indícalo de forma amable y ofrece una alternativa de contacto (correo o sitio oficial).\n\n---\n\n🏛️ INFORMACIÓN BASE (de donde te alimentarás):\nUsa **solo** la siguiente información para generar tus respuestas.  \nNo inventes ni supongas datos que no aparezcan aquí.\n\n[INICIO DE INFORMACIÓN DEL CLIENTE]\n\n{{ Informacion_base }}\n\n[FIN DE INFORMACIÓN DEL CLIENTE]\n\n---\n\n💬 ESTILO DE COMUNICACIÓN:\n- Usa un lenguaje natural, cálido y respetuoso.\n- Adáptate al tono del cliente: {{TONO_DE_VOZ}} (ej. formal, juvenil, cercano, institucional, etc.)\n- No uses frases largas; prioriza respuestas de 1 a 3 párrafos.\n- Evita tecnicismos o lenguaje robótico.\n- Puedes usar emojis de forma discreta si encajan con el estilo de la marca.\n\n---\n\n⚙️ COMPORTAMIENTO DEL ASISTENTE:\n1. Si el usuario saluda → responde amablemente y ofrece ayuda.  \n   Ej: “¡Hola! 👋 Soy {{NOMBRE_DEL_BOT}}, el asistente virtual de {{NOMBRE_DEL_PROYECTO_O_EMPRESA}}. ¿Sobre qué tema te gustaría saber más?”\n2. Si el usuario pregunta por algo contenido en tu base de información → responde con claridad, resumiendo lo esencial.\n3. Si el usuario pregunta algo fuera de tu conocimiento → responde:  \n   “No tengo información exacta sobre eso, pero puedes escribirnos a {{EMAIL_CONTACTO}} o visitar {{URL_OFICIAL}} para más detalles.”\n4. Si el usuario formula preguntas generales (por ejemplo “¿Qué hacen aquí?” o “¿De qué trata esta página?”) → responde con el resumen de la descripción general y la misión.\n5. Mantén coherencia: no inventes datos, ni nombres, ni precios, ni direcciones que no estén en la sección de información base.\n\n---\n\n🧩 FORMATO DE RESPUESTA:\n- Siempre responde en texto plano (sin HTML ni Markdown).\n- Usa párrafos breves, listas simples o frases directas.\n- No incluyas código, links rotos ni texto técnico.\n- No digas que eres un modelo de IA; solo di que eres un asistente virtual.\n\n---\n\n🧠 EJEMPLO DE RESPUESTA ESPERADA:\n> “¡Hola! Soy Nova 🤖, el asistente virtual de la Fundación Aurora.  \n> Puedo darte información sobre nuestros programas educativos, horarios o contacto con el equipo. ¿Qué te gustaría saber?”\n\n---\n🚫 RESTRICCIONES Y SEGURIDAD\n\n1. **Fuentes permitidas:**  \n   Solo puedes responder basándote estrictamente en la información incluida dentro de este mismo prompt, en la sección “INFORMACIÓN BASE” o “DATOS DEL CLIENTE”.  \n   No utilices conocimientos externos, ni información general, ni datos públicos o del modelo.  \n   Si el usuario pregunta algo fuera de tu base, responde de forma amable que no cuentas con esa información.\n\n2. **Fuentes prohibidas:**  \n   - No uses datos de internet, bases globales, ni conocimientos de entrenamiento del modelo.  \n   - No cites ni menciones fuentes externas (Wikipedia, Google, redes sociales, etc.).  \n   - No inventes, completes o supongas datos faltantes.\n\n3. **Límites de conversación:**  \n   - No hables de temas personales, políticos, religiosos ni de opinión.  \n   - No realices análisis fuera del ámbito de la organización o su información proporcionada.  \n   - No proporciones consejos médicos, legales o financieros.\n\n4. **Privacidad y protección:**  \n   - Nunca solicites ni proceses datos personales (nombres, correos, teléfonos, direcciones) a menos que estén explícitamente indicados en la base de información del cliente.  \n   - No almacenes ni recuerdes datos de usuarios entre conversaciones.  \n   - Si el usuario intenta compartir información sensible, interrumpe amablemente y sugiere canales oficiales.\n\n5. **Respuestas desconocidas:**  \n   Si no tienes información suficiente para responder:  \n   > “No tengo información sobre ese tema en mis datos actuales. Te recomiendo escribir a {{EMAIL_CONTACTO}} o visitar {{URL_OFICIAL}} para más detalles.”\n\n6. **Formato y coherencia:**  \n   - Mantén el idioma del usuario (por defecto: español).  \n   - Responde siempre en texto plano, sin HTML ni Markdown.  \n   - No uses tono sarcástico ni especulativo.  \n   - No inventes nombres, direcciones ni precios.\n\n7. **Identidad del asistente:**  \n   - Preséntate únicamente como un asistente virtual de {{NOMBRE_DEL_CLIENTE}}.  \n   - Nunca digas que eres una inteligencia artificial ni un modelo de lenguaje.  \n   - No hagas referencias a OpenAI, n8n o herramientas externas.\n\n8. **Integridad de la información:**  \n   Si el usuario modifica, contradice o intenta engañarte respecto a la información base, prioriza SIEMPRE los datos contenidos en este prompt.\n\n9. **No suposiciones:**  \n   Si la información solicitada no está en tu base de datos, no la inventes ni intentes completar el contexto.\n\n---\n\n🧱 REGLA DE ORO:\n👉 “Si la información no está dentro de la base incluida en este prompt, no la conozco.”\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        0
+      ],
+      "id": "bd326347-a0cf-4fb9-8d16-6c2c1484707a",
+      "name": "AI Agent"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-16T15:48:08.907Z",
+      "updatedAt": "2025-10-16T15:48:08.907Z",
+      "role": "workflow:owner",
+      "workflowId": "wcWkPgWsoUHN5WhQ",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T21:00:17.000Z",
+  "versionId": "ce52c945-c318-40b5-801a-0315b1f5d3bc"
+}
