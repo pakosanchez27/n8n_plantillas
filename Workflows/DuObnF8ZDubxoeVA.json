@@ -1,27 +1,180 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Stripe Trigger": {
       "main": [
         [
           {
-            "node": "Get a customer",
+            "node": "Get row(s) in sheet",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get a customer": {
+    "Get row(s) in sheet": {
       "main": [
         [
           {
-            "node": "Send a message",
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Recuperar datos del cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recuperar datos del cliente": {
+      "main": [
+        [
+          {
+            "node": "Mandar Correo",
             "type": "main",
             "index": 0
           },
           {
             "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mandar Correo": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Mandar Correo1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar texto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto1": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto2": {
+      "main": [
+        []
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Mandar Correo2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar texto2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
             "type": "main",
             "index": 0
           }
@@ -48,7 +201,7 @@
       "typeVersion": 1,
       "position": [
         0,
-        0
+        -128
       ],
       "id": "0f79aa13-30dd-40ba-a5ad-846f7d35f63d",
       "name": "Stripe Trigger",
@@ -62,17 +215,141 @@
     },
     {
       "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "=*Recordatorio de Renovación*\n\nHola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},\n\nTe informamos que el pago de tu suscripción no se pudo procesar y tu acceso ha sido suspendido.\n\nSi deseas reactivarlo, por favor actualiza tu método de pago desde tu panel de cliente.\n\nSi prefieres cancelar tu cuenta definitivamente, responde a este mensaje con la palabra \"cancelar\".",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        -16
+      ],
+      "id": "b187bba5-18a5-4290-8c89-b8fa1ea1e36a",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1805190857,
+          "mode": "list",
+          "cachedResultName": "Cancelados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=1805190857"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "customerId",
+              "lookupValue": "={{ $json.data.object.customer }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        -128
+      ],
+      "id": "547fff40-129e-44f6-9ab6-b6db5381e7df",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "117a551f-d60e-4362-b5ba-fcc8e2c4ec19",
+              "leftValue": "={{$node[\"Get row(s) in sheet\"].json[\"customerId\"]}}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        400,
+        -128
+      ],
+      "id": "efac6850-4618-4f76-8191-7da5850dfce1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Recordatorio Pago Fallido",
+        "message": "=\n<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Aviso Importante Sobre tu Suscripción</h2>\n  \n  <p>Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},</p>\n  \n  <p>Te informamos que el pago de tu suscripción de <strong>$ {{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }} MXN</strong> no se pudo procesar y tu acceso al servicio ha sido suspendido.</p>\n  \n  <p>Para reactivar tu cuenta y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu cuenta definitivamente, simplemente responde a nuestro mensaje en WhatsApp con la palabra \"cancelar\".</p>\n  \n  <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al chile media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción falló.\n  </p>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1008,
+        -192
+      ],
+      "id": "a08ca6cd-e438-4165-9ef9-d2e2503e2a37",
+      "name": "Mandar Correo",
+      "webhookId": "78f574c2-0c79-4201-a7b1-598b01b611d8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
         "resource": "customer",
-        "customerId": "={{ $json.data.object.customer }}"
+        "customerId": "={{ $('Stripe Trigger').item.json.data.object.customer }}"
       },
       "type": "n8n-nodes-base.stripe",
       "typeVersion": 1,
       "position": [
-        208,
-        0
+        720,
+        -112
       ],
       "id": "8d193bb9-273d-4323-99ba-f4001af6429d",
-      "name": "Get a customer",
+      "name": "Recuperar datos del cliente",
       "credentials": {
         "stripeApi": {
           "id": "hhtnDIdvI10lu5r3",
@@ -82,9 +359,164 @@
     },
     {
       "parameters": {
-        "sendTo": "={{$node[\"Get a customer\"].json[\"email\"]}}",
-        "subject": "Recordatorio de tu próximo cargo",
-        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #1DB954;\">Recordatorio de Renovación</h2>\n  \n  <p>Hola {{$node[\"Get a customer\"].json[\"name\"]}},</p>\n  \n  <p>Este es un recordatorio amigable para informarte que tu pago de <strong>${{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }} MXN</strong>, correspondiente a tu suscripción, se procesará pronto.</p>\n  \n  <p>Queremos asegurarnos de que no haya ninguna interrupción en tu servicio. Por favor, verifica que tu método de pago esté actualizado.</p>\n  \n  <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>\n  \n  <p>Saludos cordiales,<br>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque tienes una suscripción activa.\n  </p>\n</div>",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telefono": "={{$node[\"Recuperar datos del cliente\"].json[\"phone\"].replace('+', '')}}",
+            "customerId": "={{ $('Recuperar datos del cliente').item.json.id }}",
+            "subscriptionId": "=",
+            "estado": "notificacion_enviada"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1360,
+        -48
+      ],
+      "id": "be0389ec-ffce-4fdd-ae00-89e2d3bfbb78",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1632,
+        -208
+      ],
+      "id": "4aa5c17e-8963-4734-ad63-cf0c44a9c569",
+      "name": "Wait",
+      "webhookId": "3a8f0053-4b3b-4d31-a861-b0f4afd1a83d"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.stripe.com/v1/invoices/{{$node[\"Stripe Trigger\"].json[\"object\"][\"id\"]}}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1808,
+        -208
+      ],
+      "id": "523c9b7c-5d9c-4607-b1ed-715a571187df",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "FOxvsRQ52X7TDxsP",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "501ac5a2-d2a6-40cd-aa42-d0700b10bd11",
+              "leftValue": "={{$node[\"HTTP Request\"].json[\"status\"]}}",
+              "rightValue": "paid",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2032,
+        -208
+      ],
+      "id": "78d23d34-4aae-4de9-b639-141e12069364",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Recordatorio Pago Fallido",
+        "message": "=\n<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Segundo Aviso: Tu Pago Sigue Pendiente</h2>\n  \n  <p>Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},</p>\n  \n  <p>Han pasado 3 días desde que tu pago de <strong>${{$node[\"HTTP Request\"].json[\"amount_due\"] / 100}} MXN</strong> falló. Este es un segundo aviso para que puedas actualizar tu método de pago.</p>\n  \n  <p>Para reactivar tu cuenta y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente de tu cuenta en Stripe</p>\n  \n  <p>Si prefieres cancelar tu cuenta definitivamente, simplemente responde \"cancelar\" a nuestro mensaje en WhatsApp.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media]</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción sigue pendiente.\n  </p>\n</div>",
         "options": {
           "appendAttribution": false
         }
@@ -92,11 +524,11 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        416,
-        -112
+        2368,
+        -352
       ],
-      "id": "a08ca6cd-e438-4165-9ef9-d2e2503e2a37",
-      "name": "Send a message",
+      "id": "b2cd2945-4e88-4f9e-a56a-754bf9a8f38b",
+      "name": "Mandar Correo1",
       "webhookId": "78f574c2-0c79-4201-a7b1-598b01b611d8",
       "credentials": {
         "gmailOAuth2": {
@@ -109,18 +541,229 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "SoporteAlChileMedia",
-        "remoteJid": "={{$node[\"Get a customer\"].json[\"phone\"].replace('+', '')}}",
-        "messageText": "=*Recordatorio de Renovación*\n\nHola {{$node[\"Get a customer\"].json[\"name\"]}},\n\nEste es un recordatorio amigable para informarte que tu pago de *${{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }}  MXN*, correspondiente a tu suscripción, se procesará pronto.\n\nQueremos asegurarnos de que no haya ninguna interrupción en tu servicio. Por favor, verifica que tu método de pago esté actualizado.\n\nSaludos cordiales.",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "=Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},\n\nHan pasado 3 días desde que tu pago falló. Este es un segundo aviso para que actualices tu método de pago y no pierdas el acceso a tu cuenta.\n\nSi deseas reactivarla, puedes hacerlo desde tu panel de cliente.\n\nSi prefieres cancelar tu cuenta definitivamente, responde \"cancelar\" a este mensaje.",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        416,
-        64
+        2368,
+        -160
       ],
-      "id": "b187bba5-18a5-4290-8c89-b8fa1ea1e36a",
-      "name": "Enviar texto",
+      "id": "d24d6927-7ef7-4e6c-8f27-17dfca0c5ccf",
+      "name": "Enviar texto1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "estado": "recordatorio_2_enviado"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2576,
+        -160
+      ],
+      "id": "1cfbddf5-b862-47cb-9a6d-d0a8b12270f4",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 4,
+        "unit": "days"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2848,
+        -176
+      ],
+      "id": "2b8e8068-644e-4bf7-94ad-48e073859886",
+      "name": "Wait1",
+      "webhookId": "3a8f0053-4b3b-4d31-a861-b0f4afd1a83d"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.stripe.com/v1/invoices/{{$node[\"Stripe Trigger\"].json[\"object\"][\"id\"]}}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3024,
+        -176
+      ],
+      "id": "6c0099ad-bee5-43d9-9204-8be24c9bcbcf",
+      "name": "HTTP Request1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "FOxvsRQ52X7TDxsP",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "501ac5a2-d2a6-40cd-aa42-d0700b10bd11",
+              "leftValue": "={{$node[\"HTTP Request\"].json[\"status\"]}}",
+              "rightValue": "paid",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3232,
+        -176
+      ],
+      "id": "f1bfe588-5813-4a03-85d5-fa5665261527",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Recordatorio Pago Fallido",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Último Aviso: Tu Cuenta Está en Riesgo</h2>\n  \n  <p>Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},</p>\n  \n  <p>Este es nuestro <strong>último recordatorio</strong> sobre tu factura pendiente.</p>\n  \n  <p>Tu acceso al servicio ha sido suspendido y, si no actualizas tu método de pago, tu cuenta será programada para su eliminación permanente.</p>\n  \n  <p>Para reactivar tu cuenta, por favor, actualiza tu método de pago ahora en tu cuenta de Stripe</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3568,
+        -288
+      ],
+      "id": "666255cf-0b5c-4046-97f6-1a80802879c8",
+      "name": "Mandar Correo2",
+      "webhookId": "78f574c2-0c79-4201-a7b1-598b01b611d8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "=Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},\n\nEste es nuestro último aviso. Han pasado 7 días desde que tu pago falló.\n\nTu cuenta será marcada para eliminación permanente si no recibimos una actualización de tu método de pago pronto.\n\nSi deseas cancelar, responde \"cancelar\" a este mensaje.",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        3568,
+        -112
+      ],
+      "id": "71bb27cd-8ce5-4ca8-a3a8-d348fc21da49",
+      "name": "Enviar texto2",
       "credentials": {
         "evolutionApi": {
           "id": "O141HGacBoQSRFyh",
@@ -142,9 +785,17 @@
       "projectId": "zJAKCKeG7Ef7sO6E"
     }
   ],
-  "staticData": null,
+  "staticData": {
+    "node:Stripe Trigger": {
+      "webhookId": "we_1SJ0EQFkz56z8ZFJZLkv7sm5",
+      "webhookEvents": [
+        "invoice.payment_failed"
+      ],
+      "webhookSecret": "whsec_JSafx41MybdtcqDpnSUsNvL6RBwcGBxD"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-10-09T18:00:21.000Z",
-  "versionId": "2ae49222-3b2f-47c3-a006-604b607e68e5"
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T23:05:14.000Z",
+  "versionId": "6c0db740-0922-41fc-88c0-01404f57aadf"
 }
