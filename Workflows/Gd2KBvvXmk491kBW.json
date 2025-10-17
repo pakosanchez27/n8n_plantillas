@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Date & Time1": {
       "main": [
@@ -163,6 +163,13 @@
         [
           {
             "node": "Mensaje 11 - gpo nvo - Quedan 2 horas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mensaje 12 grupo nuevo",
             "type": "main",
             "index": 0
           }
@@ -679,6 +686,17 @@
           }
         ]
       ]
+    },
+    "Mensaje 12 grupo nuevo": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-06T19:27:39.738Z",
@@ -697,7 +715,7 @@
       "typeVersion": 2,
       "position": [
         448,
-        4496
+        4896
       ],
       "id": "0304d2fd-6b09-478d-bb57-13b8b93b6d6a",
       "name": "Date & Time1"
@@ -735,8 +753,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        896,
-        4496
+        880,
+        4896
       ],
       "id": "169a6d86-bcb4-4bc1-88ad-4d5d29b53fae",
       "name": "Obtener Mensajes del día1",
@@ -755,7 +773,7 @@
       "typeVersion": 3,
       "position": [
         1120,
-        4496
+        4896
       ],
       "id": "aa06f427-e978-460f-8d2a-18cb106b027e",
       "name": "Loop Over Items1"
@@ -767,8 +785,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4784,
-        2672
+        2688,
+        2768
       ],
       "id": "014e0271-6b86-46c7-a48e-6e98093ebac1",
       "name": "Extraer Código de invitación"
@@ -783,8 +801,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        4992,
-        2656
+        2912,
+        2768
       ],
       "id": "efb9ada5-ed09-4533-9582-6e603ebdbe20",
       "name": "Buscar grupos2",
@@ -1233,6 +1251,31 @@
                 },
                 "conditions": [
                   {
+                    "id": "991f4c6e-8a02-4598-8203-855e4a6bbc18",
+                    "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
+                    "rightValue": "Mensaje 12 grupo nuevo ",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mensaje 12 grupo nuevo "
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
                     "id": "094c61ff-6c2e-472a-97dc-3530529baff6",
                     "leftValue": "={{ $('Obtener Mensajes del día1').item.json.Mensaje }}",
                     "rightValue": "Encuesta",
@@ -1255,8 +1298,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        2000,
-        2192
+        2016,
+        2496
       ],
       "id": "59aa237a-f62f-41bd-b573-dddc8b2e8b8a",
       "name": "filtrar por Plantilla"
@@ -1274,8 +1317,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6656,
-        4592
+        4384,
+        4656
       ],
       "id": "a862ac52-5170-4fa6-b32a-f453f5ec8551",
       "name": "Enviar texto2",
@@ -1293,8 +1336,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1552,
-        2448
+        1568,
+        2768
       ],
       "id": "3112c5b4-19f2-4efc-8559-2385e161e872",
       "name": "Wait1",
@@ -1460,8 +1503,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        6240,
-        2592
+        4160,
+        2704
       ],
       "id": "3c5b4b34-60d9-46a5-b596-e9388bf26264",
       "name": "Switch1"
@@ -1501,8 +1544,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5968,
-        4256
+        3712,
+        4304
       ],
       "id": "f22c7c58-64d2-4783-8468-cd7fe36bfd00",
       "name": "Edit Fields"
@@ -1521,8 +1564,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4544,
-        2656
+        2464,
+        2768
       ],
       "id": "c631c55b-9b0d-4329-a9b7-1e471c4c404b",
       "name": "Aggregate"
@@ -1553,8 +1596,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        6016,
-        2656
+        3936,
+        2768
       ],
       "id": "39170b6c-995f-4c91-99f7-1d6dc926a325",
       "name": "Aggregate1"
@@ -1563,7 +1606,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-image",
-        "instanceName": "FelizBot",
+        "instanceName": "FelizConMiCarrera",
         "remoteJid": "={{ $json.id_grupo[0] }}",
         "media": "={{ $json.url_descargable[0] }}",
         "caption": "={{ $json.Mensaje[0] }}",
@@ -1572,8 +1615,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6464,
-        3168
+        4384,
+        3280
       ],
       "id": "c7e238fb-3347-4f8d-aa7f-36e2987c0f39",
       "name": "Enviar imagem1",
@@ -1599,8 +1642,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6464,
-        2960
+        4384,
+        3088
       ],
       "id": "5ff17f1f-22e4-4c73-a4ea-a91d720d26f3",
       "name": "Enviar documento1",
@@ -1624,8 +1667,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6464,
-        2272
+        4384,
+        2384
       ],
       "id": "f0dd6586-188e-4ac3-be4e-14d426d68cd2",
       "name": "Enviar Video",
@@ -1639,7 +1682,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api.aeo-ai.com/message/sendPoll/FelizBot",
+        "url": "https://evolution-api.aeo-ai.com/message/sendPoll/FelizConMiCarrera",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1651,14 +1694,14 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"number\": \"{{ $json.data.key.remoteJid }}\",\n  \"name\": \"Selecciona todas las que apliquen.\",\n  \"selectableCount\": 10,\n  \"values\": [\n    \"Que elija una carrera y se quiera cambiar ya estudiándola\",\n    \"No lo veo motivado ni emocionado con el tema de elección de carrera.\",\n    \"Quiero que elija algo que le guste, pero que también tenga buen campo laboral.\",\n    \"¿Cómo conocer sus habilidades y saber en qué podría ser exitoso?\",\n    \"El apoyo de Orientación de la escuela no está siendo suficiente.\",\n    \"Cambia mucho de opinión de qué le gustaría estudiar\",\n    \"Que termine en un campo de trabajo que no le guste mucho, y no sea feliz en el futuro.\",\n    \"Temo que elija por razones incorrectas (amigos, moda, prisa...).\",\n    \"El impacto futuro que vaya a tener la Inteligencia Artificial en la carrera que elija.\",\n    \"Está entre algunas carreras, pero si le pregunto, no las conoce a la profundidad necesaria.\"\n  ]\n}\n",
+        "jsonBody": "={\n  \"number\": \"{{ $json.data.key.remoteJid }}\",\n  \"name\": \"Selecciona todas las que apliquen.\",\n  \"selectableCount\": 10,\n  \"values\": [\n    \"Que elija una carrera y se quiera cambiar ya estudiándola\",\n    \"No lo veo motivado ni emocionado con el tema de elección de carrera.\",\n    \"Quiero que elija algo que le guste, pero que también tenga buen campo laboral.\",\n    \"¿Cómo conocer sus habilidades y saber en qué podría ser exitoso?\",\n    \"El apoyo de Orientación de la escuela no está siendo suficiente.\",\n    \"Cambia mucho de opinión de qué le gustaría estudiar\",\n    \"Que termine en un campo de trabajo que no le guste mucho, y donde no sea feliz\",\n    \"Temo que elija por razones incorrectas (amigos, moda, prisa...).\",\n    \"El impacto futuro que vaya a tener la Inteligencia Artificial en la carrera que elija.\",\n    \"No creo que haya investigado todas las carreras que debería, siento que sabe muy poco.\"\n  ]\n}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        7088,
-        5072
+        4832,
+        4848
       ],
       "id": "89886129-0928-4e44-b74d-d2d57483e28e",
       "name": "HTTP Request"
@@ -1687,7 +1730,7 @@
       "typeVersion": 3.4,
       "position": [
         672,
-        4496
+        4896
       ],
       "id": "fa538541-22a2-485a-83ab-bf9dcdd08642",
       "name": "Extrarer Fecha y Hora"
@@ -1707,7 +1750,7 @@
       "typeVersion": 1.2,
       "position": [
         224,
-        4496
+        4896
       ],
       "id": "4eec5e0d-5c1a-4e63-a420-9a1f9ecfc1dc",
       "name": "Schedule Trigger"
@@ -1733,8 +1776,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1776,
-        2448
+        1792,
+        2768
       ],
       "id": "abd030f6-2031-45ea-9005-7f3317c9490c",
       "name": "VARIABLES",
@@ -1781,8 +1824,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5216,
-        2656
+        3136,
+        2768
       ],
       "id": "9c4aa481-09df-4f9d-a4f9-bd35c0297bc9",
       "name": "If1"
@@ -1794,8 +1837,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        5584,
-        2768
+        3504,
+        2880
       ],
       "id": "9b307e5c-2361-413b-b487-214fe37f30f0",
       "name": "Structured Output Parser"
@@ -1812,8 +1855,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        5456,
-        2768
+        3376,
+        2880
       ],
       "id": "09f0fb77-9e98-48fb-b846-20ff34caeb3e",
       "name": "OpenAI Chat Model",
@@ -1859,8 +1902,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5792,
-        2544
+        3712,
+        2656
       ],
       "id": "67e3ee69-0ca9-4e8d-a849-19b7f1d197ff",
       "name": "Edit Fields2"
@@ -1870,8 +1913,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6864,
-        4816
+        4608,
+        4848
       ],
       "id": "b0c7292a-e282-426c-85b7-b48083d478ef",
       "name": "Wait",
@@ -1894,8 +1937,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1328,
-        3808
+        1344,
+        2768
       ],
       "id": "09dc1cdc-6120-48db-993a-cc668def4ded",
       "name": "Link Grupo"
@@ -1917,7 +1960,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         1040
       ],
       "id": "39855a51-0fe2-4f9b-b9ec-8b152cf9d8d9",
@@ -1930,7 +1973,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=📣 ¡Atención, papás y mamás!\nEl {{ $json.FechaMasterClass }} daré de nuevo Masterclass gratuita: \"Elige bien tu carrera. Cambia tu vida\"\n\n{{ $json.introEleccionCarrera }}\n\n👉 Para asistir a esta nueva sesión, regístrate aquí:\n{{ $json.LigaNuevoGrupo }}",
+              "value": "=📣 ¡Atención, papás y mamás!\nEl {{ $json.FechaMasterClass }} daré de nuevo Masterclass gratuita: \"Elige bien tu carrera. Cambia tu vida\"\n\n{{ $json.introEleccionCarrera }}\n\n👉 Para asistir a esta nueva sesión, regístrate aquí:\n\nhttps://www.felizconmicarrera.com/1mc-registro/",
               "type": "string"
             }
           ]
@@ -1940,7 +1983,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         1232
       ],
       "id": "2f6aba3a-9849-4ca2-a660-db35f28ba10e",
@@ -1963,7 +2006,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         1424
       ],
       "id": "41826ef9-094b-4d98-b758-09e2f1dffe95",
@@ -1992,7 +2035,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         1616
       ],
       "id": "bedfb825-581d-4c44-b41a-68a56dc22976",
@@ -2021,7 +2064,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         1808
       ],
       "id": "90610e92-9be0-4ddf-87ca-452a9eaf94bc",
@@ -2034,7 +2077,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=😟 Muchos papás nos buscan después de escuchar a su hijo decir: \"_La carrera no era lo que esperaba…ya no quiero seguir ahí._\"\n\nEse momento duele. Y lo puedes prevenir.\n\nEn la Masterclass conocerás:\n✅ Los *3 elementos clave a considerar* para una buena elección de carrera.\n✅ Cómo lo podemos ayudar a elegir sintiéndose emocionado, seguro y confiado con su decisión. *Garantizado*.\n{{ $json.linkEncuestaMasterclass }}\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos.\nEl contenido de la Masterclass lo voy a ajustar según lo que más preocupe a ustedes. \nSi no respondes, se corre el riesgo de que no hable de lo que justo más te importa.\n",
+              "value": "=Muchos papás nos buscan después de escuchar a su hijo decir: \"La carrera no era lo que esperaba…ya no quiero seguir ahí.\"\n\nEse momento duele. Y lo puedes prevenir.\n\nEn la Masterclass conocerás:\n✅ Los *3 elementos clave a considerar*\npara una buena elección de carrera.\n✅ Cómo lo podemos ayudar a elegir sintiéndose emocionado, seguro y confiado con su decisión. *Garantizado*.\n{{ $json.linkEncuestaMasterclass }}\n👉 Hoy quiero *conocerte más* para poder *ayudarte mejor*.\n\nResponde esta encuesta de solo 3 minutos.\nEl contenido de la Masterclass lo voy a ajustar según lo que más preocupe a ustedes. \nSi no respondes, se corre el riesgo de que no hable de lo que justo más te importa.\n",
               "type": "string"
             },
             {
@@ -2050,7 +2093,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         2000
       ],
       "id": "98fb3719-024e-48ce-8aaa-bb6d0a22a92a",
@@ -2063,7 +2106,7 @@
             {
               "id": "75d7a848-540f-418a-ac34-e644c10b8247",
               "name": "Mensaje",
-              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que te unas al nuevo grupo de WhatsApp, ya que solo ahí enviaremos la liga de acceso a la sesión.\n\nSolo da clic aquí ⬇️\n{{ $json['link registro '] }}\n",
+              "value": "=🚨 Vamos a cerrar este grupo.\n\n✅ Si te perdiste la Masterclass anterior y quieres un lugar en la siguiente del {{ $json.FechaMasterClass }}, únete al nuevo grupo de Whatsapp.\n\n⚠️ Es importante que te unas al nuevo grupo de WhatsApp, ya que solo ahí enviaremos la liga de acceso a la sesión.\n\nSolo da clic aquí ⬇️\n\nhttps://www.felizconmicarrera.com/1mc-registro/\n",
               "type": "string"
             },
             {
@@ -2079,7 +2122,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         2192
       ],
       "id": "d3e33986-5764-4ae6-a3f2-990e73c5e0ac",
@@ -2108,7 +2151,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         2384
       ],
       "id": "ccc2e462-2610-4d9f-a039-dbe7ed9c88f8",
@@ -2131,7 +2174,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         2576
       ],
       "id": "2da7cc80-b123-4f7d-ae5e-280c9a69b454",
@@ -2154,8 +2197,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
-        2784
+        2240,
+        2768
       ],
       "id": "c53c5ea6-61f5-4ce6-89e9-f2788d89da79",
       "name": "Mensaje 5 - gpo nvo - Hoy es la MC y encuesta"
@@ -2177,8 +2220,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
-        2976
+        2240,
+        2960
       ],
       "id": "16de5a39-efa6-4c5c-94ab-215007cc1103",
       "name": "Mensaje 6 - gpo nvo - Falta 1 hora MC y zoom"
@@ -2200,7 +2243,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         3152
       ],
       "id": "3b04c7af-3aeb-4ceb-90f5-706c8e8726b6",
@@ -2223,7 +2266,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         3344
       ],
       "id": "74bceb17-2f79-447d-be54-982e2323037e",
@@ -2246,7 +2289,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         3536
       ],
       "id": "0b4e46ab-cfb6-4e5f-8bf1-9c7baa6c1d9f",
@@ -2269,7 +2312,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         3728
       ],
       "id": "01cb7634-8b58-4361-9638-25ed5cbb00fa",
@@ -2292,7 +2335,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         3920
       ],
       "id": "bc748f3b-af9b-4e98-9fc2-89574b90f6c5",
@@ -2315,7 +2358,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
+        2240,
         4112
       ],
       "id": "78ca6e5c-2fe3-493b-ac31-803692e1e2f5",
@@ -2338,8 +2381,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3104,
-        4304
+        2240,
+        4496
       ],
       "id": "b3faf946-cf2e-475a-b86b-ad62db5e0c45",
       "name": "Encuesta"
@@ -2361,8 +2404,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        5440,
-        2544
+        3360,
+        2656
       ],
       "id": "7137cf39-819e-4827-a280-2ab2c651b683",
       "name": "Obtener url descargable"
@@ -2374,8 +2417,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6640,
-        5072
+        5056,
+        4848
       ],
       "id": "2c853390-530d-4561-a8dd-55a3b5b9c72c",
       "name": "Wait2",
@@ -2385,7 +2428,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "FelizConMiCarrera",
-        "remoteJid": "={{ $json.id_grupo[0] }}",
+        "remoteJid": "={{ $json.key.remoteJid }}",
         "messageText": "=Claro que si tu hijo se equivoca en su elección puede cambiarse de carrera...\n\nPero, *si hubiera algo que hacer para evitar que eso suceda, ¿por qué no hacerlo?*\nComo padres debemos reducir al máximo la probabilidad del desgaste emocional y el impacto económico que trae consigo una mala elección.\n\n✨ Mañana puede ser el punto de inflexión para que tu hijo elija bien. Con seguridad y confianza.\nNos vemos en la Masterclass.",
         "options_message": {
           "delay": 1200
@@ -2394,8 +2437,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6864,
-        4976
+        5280,
+        5120
       ],
       "id": "a68be425-4576-4fb3-8cc2-96709c45b26e",
       "name": "Mensaje Después de Encuesta",
@@ -2419,8 +2462,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        6640,
-        4816
+        4384,
+        4848
       ],
       "id": "546fce5c-6841-4796-bcd2-afd0c9f6ba14",
       "name": "Mensaje antes de Encuesta",
@@ -2430,6 +2473,29 @@
           "name": "EnriqueAPI"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "75d7a848-540f-418a-ac34-e644c10b8247",
+              "name": "Mensaje",
+              "value": "=Tú elegiste carrera hace décadas.\n\n¿Cómo respondes cuando te preguntan cómo la elegiste?\n🙏🏼 ¿Responde algo que te llene de orgullo o agradecimiento?\n⚠️ ¿O fue una decisión sin mucha profundización, casi al azar?\n\nY… *¿cómo te gustaría que respondiera tu hijo cuando le hagan esa pregunta en el futuro?*\n\n⭐ Hoy tienes la oportunidad de regalarle esa respuesta.\n\nHazlo aquí:\nhttps://www.felizconmicarrera.com/method-precio-especial/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        4304
+      ],
+      "id": "cf16880f-f031-45a9-8005-9417e7bc8dc6",
+      "name": "Mensaje 12 grupo nuevo"
     }
   ],
   "pinData": {},
@@ -2461,6 +2527,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-09-18T23:50:24.000Z",
-  "versionId": "7ccf4ae9-da01-4918-884c-451b43c915df"
+  "updatedAt": "2025-10-14T16:08:06.000Z",
+  "versionId": "f7a118d5-09ae-459c-9932-84b2d36357a6"
 }
