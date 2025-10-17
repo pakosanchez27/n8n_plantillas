@@ -1,0 +1,183 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-16T20:02:08.137Z",
+  "id": "7L1fpCJgwYL7kpSK",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "chatbot CONVERGING",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "converging",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6ef8dfa9-1b37-43c2-8d4c-bfa8c8d99e93",
+      "name": "Webhook",
+      "webhookId": "fca88e98-4325-4b94-a4e4-8e30acf94655"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9379c92e-094c-467d-b54a-38a2b57f9c62",
+              "name": "mensaje",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "eca5e6dd-648c-4c29-a0e6-327ce6f13657",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseKey": "={{ $json.text }}"
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        672,
+        0
+      ],
+      "id": "10e9d84d-1c4e-4e4b-99fe-a60713175de0",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Webhook').item.json.body.message }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "=SystemMessagePromptTemplate",
+              "message": "Eres un agente de preguntas y respuestas de una empresa llamada Al chile media el conexto de la empresa es: \n# Al Chile Media: Sitios Web y Ecommerce que Venden\n\n## Agencia de inteligencia artificial y de e-commerce y sitios web con garantía\n\n### Somos partners de grandes marcas\n*   Google Partners\n*   Shopify Partners\n*   Replo Partner\n\n### Cifras clave\n*   **+300 desarrollos**\n*   **10 años de garantía**\n\n### Nuestra promesa\n*   Al chile nosotros sí nos contrataríamos\n*   Tu sitio sí va a vender\n*   Entregas rápidas, sin excusas\n*   Optimizado para el mundo real\n*   Listo para escalar desde el día uno\n*   Garantía que te da paz mental\n\n## Nuestros servicios\n\n**No hacemos de todo. Hacemos lo que sí necesitas para crecer digitalmente.**\n\n*   **Inteligencia Artificial**\n    Lideramos el uso de ChatGPT en LATAM. Somos la agencia experta en inteligencia artificial que convierte tecnología en resultados.\n\n*   **Ecommerce**\n    ¡Hacer ecommerce que realmente convierten es nuestra pasión! Por eso, nuestros clientes confían en nosotros y cada vez nos piden más y más ecommerce…\n\n*   **Sitios web**\n    La magia de una página web informativa es lograr llevar al cliente paso a paso por la página hasta lograr el objetivo, ya sea dejar datos, conocer alguna información o cualquier cosa que busques.\n\n*   **AEO**\n    AEO significa Ask Engine Optimization y sí, también somos expertos en ésto, Al Chile Media es la primera agencia hispanohablante en aplicarlo para clientes con resultados reales.\n\n*   **SEO**\n    El SEO es la calificación que le da Google a tu página para ver qué tan arriba sale en las búsquedas, este servicio es excelente para ti si lo que estás buscando es aumentar tu visibilidad…\n\n## Nuestro Proceso\n\n1.  **Te entendemos antes de proponer**\n    Antes de mover un solo píxel, agendamos una llamada para entender tu negocio, tus clientes y lo que realmente necesitas. Aquí no hay plantillas, hay estrategia desde la raíz.\n\n2.  **Documentamos cada detalle**\n    Te enviamos un formulario claro para recopilar toda la información clave: lo que vendes, cómo lo vendes y qué esperas lograr. Nada se nos escapa.\n\n3.  **Diseñamos con intención, no al tanteo**\n    Creamos una experiencia visual pensada justo para tu audiencia. Cada sección tiene una razón de ser y cada botón lleva al usuario hacia tu objetivo.\n\n4.  **Lo construimos con precisión quirúrgica**\n    Nuestro equipo de desarrollo se encarga de que todo funcione perfecto: rápido, estable, optimizado y adaptable. Aquí no se improvisa.\n\n5.  **Revisamos todo tres veces**\n    Antes de lanzar, hacemos pruebas técnicas, visuales y funcionales. Detectamos errores, corregimos detalles y nos aseguramos de que todo fluya como debe.\n\n6.  **Lo lanzamos bien, no al aventón**\n    Publicamos tu sitio o tienda en el dominio final, con conexión a WhatsApp, analytics, correo y todo lo que se necesite para que puedas empezar a vender de inmediato.\n\n**Y sí, tienes garantía por 10 años**\nDurante 10 años, tu proyecto estará cubierto con mantenimiento, revisiones y soporte técnico anual. Porque un buen sitio no se abandona, se acompaña.\n\n## Preguntas frecuentes\n\n*   **P:** ¿Qué servicios ofrece Al Chile Media?\n    **R:** Al Chile Media ofrece servicios especializados en desarrollo web, incluyendo la creación de tiendas en línea y páginas informativas con plataformas como Shopify, WordPress, y Wix. Nuestro equipo está certificado como Google Partners y Shopify Partners, garantizando soluciones innovadoras y de alta calidad.\n\n*   **P:** ¿Cómo ayuda Al Chile Media a optimizar un e-commerce?\n    **R:** Nuestro equipo ayuda a optimizar tu e-commerce a través de estrategias personalizadas que incrementan la visibilidad y eficiencia de tu tienda. Implementamos herramientas avanzadas y diseño atractivo para asegurar una experiencia de usuario óptima y fomentar las conversiones.\n\n*   **P:** ¿Qué ofrece Al Chile Media para emprendedores?\n    **R:** Para emprendedores, Al Chile Media ofrece un enfoque fresco y flexible, ajustándose a las necesidades específicas de cada negocio y proporcionando un soporte integral desde la conceptualización hasta la ejecución del proyecto. Mantenemos una comunicación constante para asegurar el éxito de tu negocio online.\n\n*   **P:** ¿Qué plataformas recomiendan para sitios web?\n    **R:** Recomendamos plataformas como Shopify para tiendas en línea debido a su robustez y personalización, y WordPress para páginas informativas por su facilidad de uso y flexibilidad. Nuestros expertos te guiarán para seleccionar la mejor opción según tus objetivos de negocio.\n\n*   **P:** ¿Cómo se asegura la calidad del diseño web?\n    **R:** Nos enfocamos en crear sitios web que sean intuitivos y atractivos mediante un diseño responsivo y orientado al usuario. Incorporamos las mejores prácticas en UX/UI para asegurar que tu sitio no solo atraiga a los visitantes sino que también mejore sus tasas de conversión.\n\n## Argumentos clave\n\n*   **Más de 300 marcas no se equivocan**\n    *   Hemos entregado más de 300 sitios y ecommerce en múltiples industrias.\n    *   Cada proyecto tiene garantía por 10 años, escrita y real.\n    *   Trabajamos con marcas en México, EE.UU. y Latinoamérica.\n    *   98% de satisfacción de nuestros clientes (y vuelven).\n    *   Tenemos casos de éxito documentados en video y texto.\n\n*   **Hacemos sitios que venden, no que adornan**\n    *   No entregamos páginas “bonitas”, sino funcionales y optimizadas para conversión.\n    *   Tu cliente entiende, navega y compra desde el primer clic.\n    *   Todo está diseñado con intención: UX + velocidad + claridad.\n    *   Incluimos pruebas de control de calidad antes de lanzar.\n    *   Usamos herramientas reales: Shopify, Replo, Google.\n\n*   **Certificados, aliados y partners reales**\n    *   Shopify Partners: acceso a funciones exclusivas y mejores prácticas.\n    *   Replo Partners: creamos landings ultraoptimizadas dentro de Shopify.\n    *   Google Partners: campañas y estructuras pensadas desde el buscador.\n    *   Aplicamos AEO: ya aparecemos en motores como ChatGPT y Gemini.\n    *   No somos revendedores de plantillas: somos creadores digitales.\n\n*   **Procesos claros, resultados sin rodeos**\n    *   Te decimos desde el inicio cuánto cuesta y cuándo se entrega.\n    *   Nuestro proceso está pulido: estrategia → diseño → desarrollo → garantía.\n    *   Nada se improvisa, todo está documentado y controlado.\n    *   Tú decides hasta dónde te involucras; nosotros te guiamos.\n    *   Entregamos rápido, pero bien.\n\n*   **No prometemos magia, entregamos resultados**\n    *   Nuestra garantía lo dice todo: 10 años cubriéndote.\n    *   Hemos ayudado a negocios a duplicar ventas con buen diseño web.\n    *   Creamos con base en data, no caprichos visuales.\n    *   El 70% de nuestros clientes llegan por recomendación.\n    *   Hacemos las cosas como deben hacerse: sin rodeos, sin pretextos."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        352,
+        0
+      ],
+      "id": "8ed19a0c-7622-4c54-a46e-d91c29e19d98",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        288,
+        208
+      ],
+      "id": "c2b9e83d-ee98-4900-903d-397f5977a435",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pdB77gCjQoMxFDV3",
+          "name": "Pako Gemini"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-16T20:02:08.140Z",
+      "updatedAt": "2025-10-16T20:02:08.140Z",
+      "role": "workflow:owner",
+      "workflowId": "7L1fpCJgwYL7kpSK",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-30T07:17:38.532Z",
+      "updatedAt": "2025-07-30T07:17:38.532Z",
+      "id": "5TZK2SAJa1Ym5eVc",
+      "name": "Al chile media"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T20:06:27.000Z",
+  "versionId": "3bcbe5b0-e84e-4146-95a8-19790578354c"
+}
