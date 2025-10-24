@@ -1,0 +1,74 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many bases",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-19T07:42:48.870Z",
+  "id": "FxZqH4Wez09IPKV4",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2fc2f888-d150-4201-ab4c-ea3eb6ae0a9d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "base",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "3fe9874e-9946-4306-be4e-4bf4347fa045",
+      "name": "Get many bases",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "mAA59Je4dy4GWPok",
+          "name": "Pako"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-19T07:42:48.876Z",
+      "updatedAt": "2025-10-19T07:42:48.876Z",
+      "role": "workflow:owner",
+      "workflowId": "FxZqH4Wez09IPKV4",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-19T07:42:48.870Z",
+  "versionId": "e2042151-e477-47c3-b963-afc59c8aa119"
+}
