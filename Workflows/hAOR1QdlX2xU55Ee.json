@@ -3,7 +3,7 @@
   "connections": {},
   "createdAt": "2025-09-30T01:54:04.929Z",
   "id": "hAOR1QdlX2xU55Ee",
-  "isArchived": true,
+  "isArchived": false,
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -25,6 +25,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-30T22:56:38.000Z",
-  "versionId": "bedacc0b-7904-46ef-a1bf-4d3553e98378"
+  "updatedAt": "2025-10-19T07:28:44.000Z",
+  "versionId": "2c8603dd-ea78-4368-9026-7e250a0e9490"
 }
