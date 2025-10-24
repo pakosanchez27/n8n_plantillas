@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Webhook": {
       "main": [
@@ -46,6 +46,13 @@
         [
           {
             "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -102,6 +109,28 @@
         [
           {
             "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto2",
             "type": "main",
             "index": 0
           }
@@ -245,6 +274,29 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "25914a7d-498e-40ca-860b-2f412dff97c4",
+                    "leftValue": "={{ $json.decision_key }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -257,7 +309,8 @@
         0
       ],
       "id": "88c31e63-c4f5-473c-bc37-119912c3e84b",
-      "name": "Switch"
+      "name": "Switch",
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -546,11 +599,76 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        832,
-        96
+        864,
+        80
       ],
       "id": "26d1e61d-ba63-44b7-9ea2-83a739d3dc2b",
       "name": "If1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+        "options": {
+          "systemMessage": "Eres un asistente de soporte amigable y servicial para Converging Works. Ayudas a clientes cuyo pago de suscripción ha fallado. Tu objetivo principal es ayudarles a actualizar su método de pago o entender por qué quieren cancelar. NO ofrezcas descuentos no autorizados. Si no puedes ayudar o el cliente se frustra, dirígelo a soporte humano en equipo@converging.work. Recuerda siempre al cliente que puede escribir 'CONFIRMAR' para cancelar su suscripción.\n\n**Si el cliente pregunta CÓMO actualizar su método de pago o pide los pasos, explícale lo siguiente:**\n\n\"¡Claro! Actualizar tu método de pago es sencillo. Sigue estos pasos:\n1.  Visita tu página de cuenta aquí: https://stripe.com/es.\n2.  Inicia sesión si es necesario.\n3.  Busca la sección 'Métodos de Pago' o 'Facturación'.\n4.  Haz clic en 'Agregar Método de Pago' e introduce los datos de tu nueva tarjeta.\n5.  (Opcional, si aplica) Asegúrate de marcar la nueva tarjeta como método de pago predeterminado.\nUna vez actualizado, intentaremos cobrar de nuevo automáticamente en las próximas horas.\"\n\nSi el cliente solo pregunta DÓNDE actualizar, simplemente dale el enlace: \"Puedes actualizar tu método de pago visitando tu página de cuenta aquí: Stripe.com/es.\"\n\nSi parece querer cancelar pero no usó la palabra clave, o si expresa alguna queja, intenta entender su problema amablemente. Si pregunta algo que no sabes, dirígelo a soporte humano.\n\nEn todas tus respuestas, recuerda añadir al final: \"Si deseas cancelar tu suscripción, solo responde con la palabra Cancelar.\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        832,
+        304
+      ],
+      "id": "1a6ac78d-02e4-4060-a27e-d86dbdae74e9",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        832,
+        512
+      ],
+      "id": "6e6ccaad-52d0-42cc-93ac-f6de6da8403d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{$node[\"Webhook\"].json[\"body\"][\"data\"][\"key\"][\"remoteJid\"]}}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1168,
+        320
+      ],
+      "id": "40a84d39-a7bf-456d-b043-972b36ef856f",
+      "name": "Enviar texto2",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -569,6 +687,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-16T23:05:09.000Z",
-  "versionId": "0e37bf23-5281-4624-9caf-dc54c8e04da1"
+  "updatedAt": "2025-10-20T23:25:16.000Z",
+  "versionId": "4c163070-efa6-4ac1-855b-6d521c0deba5"
 }
