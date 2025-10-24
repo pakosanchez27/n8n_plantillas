@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-10-23T19:39:24.610Z",
+  "id": "8lTPlOweoMUjcvb3",
+  "isArchived": false,
+  "meta": null,
+  "name": "Proyecto redes",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-23T19:39:24.616Z",
+      "updatedAt": "2025-10-23T19:39:24.616Z",
+      "role": "workflow:owner",
+      "workflowId": "8lTPlOweoMUjcvb3",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-23T19:39:24.610Z",
+  "versionId": "011acb2b-d537-4429-8922-b3ce11a9f94f"
+}
