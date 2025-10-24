@@ -1,0 +1,820 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar texto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto1": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-20T19:45:51.312Z",
+  "id": "W14h45vepzTzLYjr",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Vereficador Stripe",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        -112
+      ],
+      "id": "46bb8f12-3699-4b6d-8841-0d3df5d00ec9",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "addToDate",
+        "magnitude": "={{ $now }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        64,
+        -112
+      ],
+      "id": "60563448-9436-413b-b35a-a4d94a88b139",
+      "name": "Date & Time"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "estado",
+              "lookupValue": "notificacion_enviada"
+            },
+            {
+              "lookupColumn": "estado",
+              "lookupValue": "recordatorio_2_enviado"
+            }
+          ]
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        288,
+        -112
+      ],
+      "id": "be14a7e2-2d07-400b-a32f-f8e742bb578c",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        512,
+        -112
+      ],
+      "id": "314c4003-d3f2-47b5-bfc0-283bf999ae5b",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2272fe73-4a4c-4548-bdfb-8dd1077772fb",
+              "leftValue": "={{ $('Date & Time').item.json.newDate }}",
+              "rightValue": "={{ new Date($json.fechaRecordatorio2) }}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "afterOrEquals"
+              }
+            },
+            {
+              "id": "d76c0b1c-2f4b-470a-af96-9cd032b9b0df",
+              "leftValue": "={{ $json.estado }}",
+              "rightValue": "notificacion_enviada",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        736,
+        -112
+      ],
+      "id": "d70bfe20-3129-4a19-af2e-e92bd9e53264",
+      "name": "If",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "837c62a9-2449-4039-b817-f0354f072b6d",
+                    "leftValue": "={{ new Date($node[\"Date & Time\"].json.newDate).getTime() >= new Date($json.fechaRecordatorio3).getTime() && $json.estado == 'recordatorio_2_enviado' }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        1168,
+        80
+      ],
+      "id": "bac1e3e1-ec1c-4fcc-888a-986c96125c62",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2845c9b8-066b-45ec-a93a-06a844a8e724",
+              "leftValue": "={{$node[\"HTTP Request\"].json[\"status\"]}}",
+              "rightValue": "paid",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1824,
+        80
+      ],
+      "id": "fc0a36d2-21e6-47ae-a2a1-5768a6a066b2",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.customer_email }}",
+        "subject": "Último Aviso: Acción Requerida en tu Cuenta",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Último Aviso: Tu Cuenta Está en Riesgo</h2>\n\n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Este es nuestro <strong>último recordatorio</strong> sobre tu factura pendiente de <strong>${{$node[\"HTTP Request\"].json[\"amount_due\"] / 100}} MXN</strong>.</p>\n  \n  <p>Tu acceso al servicio ha sido suspendido y, si no actualizas tu método de pago de inmediato, tu cuenta será programada para su <strong>eliminación permanente</strong>.</p>\n  \n  <p>Para reactivar tu cuenta y evitar la pérdida de datos, por favor, actualiza tu método de pago ahora:</p>\n  <p style=\"text-align: center;\"><a href=\"[Enlace a tu página de cliente]\" style=\"background-color: #D9534F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">Actualizar Pago Ahora</a></p>\n  \n  <p>Si tienes alguna pregunta, contacta a soporte en equipo@converging.works.</p>\n\n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2048,
+        -16
+      ],
+      "id": "bb73ea6c-be58-4918-bfe9-485e7c633324",
+      "name": "Send a message",
+      "webhookId": "3a0cfc2a-0724-435d-900c-d5a173b65c09",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{ $json.customer_phone }}",
+        "messageText": "Hola,\n\nEste es nuestro *último aviso*. Han pasado 10 días desde que tu pago falló.\n\nTu cuenta será marcada para eliminación permanente pronto si no actualizas tu método de pago.\n\nSi deseas reactivar tu cuenta, actualiza tu método de pago ahora. Si prefieres cancelar definitivamente, responde \"cancelar\" a este mensaje.",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2048,
+        176
+      ],
+      "id": "08bd87dd-f394-4553-b36c-e1409b26dc31",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "estado": "recordatorio_3_enviado",
+            "customerId": "={{ $('HTTP Request').item.json.customer }}"
+          },
+          "matchingColumns": [
+            "customerId"
+          ],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fechaRecordatorio2",
+              "displayName": "fechaRecordatorio2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fechaRecordatorio3",
+              "displayName": "fechaRecordatorio3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "invoiceId",
+              "displayName": "invoiceId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2272,
+        176
+      ],
+      "id": "f3c615c7-d45a-47c6-9515-5168771aa36d",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.stripe.com/v1/invoices/{{$json.invoiceId}}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1168,
+        -304
+      ],
+      "id": "bd35facd-2475-4bba-ab3b-d074941a81f2",
+      "name": "HTTP Request1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "FOxvsRQ52X7TDxsP",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2845c9b8-066b-45ec-a93a-06a844a8e724",
+              "leftValue": "={{$node[\"HTTP Request1\"].json[\"status\"]}}",
+              "rightValue": "paid",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        -304
+      ],
+      "id": "3b8fea3f-2947-4611-8979-dd6a4148ec45",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.customer_email }}",
+        "subject": "Segundo Recordatorio \"Pago fallido\"",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #F0AD4E;\">Segundo Aviso: Tu Pago Sigue Pendiente</h2> \n  \n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Han pasado 3 días desde que tu pago falló. Este es un segundo aviso para que puedas actualizar tu método de pago.</p>\n  \n  <p>Para reactivar tu cuenta y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu cuenta definitivamente, simplemente responde \"cancelar\" a nuestro mensaje en WhatsApp.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción sigue pendiente.\n  </p>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1616,
+        -400
+      ],
+      "id": "2649f31c-0f24-4b36-80eb-d29d827d1cce",
+      "name": "Send a message1",
+      "webhookId": "3a0cfc2a-0724-435d-900c-d5a173b65c09",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SoporteAlChileMedia",
+        "remoteJid": "={{ $json.customer_phone }}",
+        "messageText": "=Hola {{ $json.customer_name }},\n\nHan pasado 3 días desde que tu pago falló. Este es un segundo aviso para que actualices tu método de pago y no pierdas el acceso a tu cuenta.\n\nSi deseas reactivarla, puedes hacerlo desde tu panel de cliente.\n\nSi prefieres cancelar tu cuenta definitivamente, responde \"cancelar\" a este mensaje.",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1616,
+        -208
+      ],
+      "id": "e4f23750-b7d5-4285-a082-399b5b424182",
+      "name": "Enviar texto1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "O141HGacBoQSRFyh",
+          "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "estado": "recordatorio_2_enviado",
+            "customerId": "={{ $('HTTP Request1').item.json.customer }}"
+          },
+          "matchingColumns": [
+            "customerId"
+          ],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fechaRecordatorio2",
+              "displayName": "fechaRecordatorio2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fechaRecordatorio3",
+              "displayName": "fechaRecordatorio3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "invoiceId",
+              "displayName": "invoiceId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1840,
+        -208
+      ],
+      "id": "83758a41-db1e-4bd0-9bd8-4b5d89073701",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.stripe.com/v1/invoices/{{$json.invoiceId}}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1376,
+        80
+      ],
+      "id": "4bb86aa8-c2d3-4058-bdb8-d9cf371194f6",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "FOxvsRQ52X7TDxsP",
+          "name": "Header Auth account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-20T19:45:51.315Z",
+      "updatedAt": "2025-10-20T19:45:51.315Z",
+      "role": "workflow:owner",
+      "workflowId": "W14h45vepzTzLYjr",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-23T22:08:04.000Z",
+  "versionId": "3c4ba8b4-6c31-4e3c-9f3b-9c73fc162d0a"
+}
