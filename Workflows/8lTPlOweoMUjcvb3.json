@@ -1,12 +1,65 @@
 {
   "active": false,
-  "connections": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create a card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-10-23T19:39:24.610Z",
   "id": "8lTPlOweoMUjcvb3",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Proyecto redes",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "formulario-prueba",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5769ba03-e063-4eed-87fb-f0b7fc2792f0",
+      "name": "Webhook",
+      "webhookId": "49678359-e6dd-481f-89b4-fc4cc70fb75a"
+    },
+    {
+      "parameters": {
+        "listId": "66574d5b611ad1b30c2dbcac",
+        "name": "=Nombre: {{ $json.body.nombre }}{{ $json.body.email }}",
+        "description": "=Mensaje: {{ $json.body.mensaje }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.trello",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "fbbe73a9-600d-40b3-9477-0f4cfd244d5c",
+      "name": "Create a card",
+      "credentials": {
+        "trelloApi": {
+          "id": "IDjtNtDIVW9ndLEc",
+          "name": "Trello account 2"
+        }
+      }
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -23,6 +76,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-23T19:39:24.610Z",
-  "versionId": "011acb2b-d537-4429-8922-b3ce11a9f94f"
+  "updatedAt": "2025-10-26T03:29:20.000Z",
+  "versionId": "0ca32b3b-25fe-4a81-9cfb-156934a21d6a"
 }
