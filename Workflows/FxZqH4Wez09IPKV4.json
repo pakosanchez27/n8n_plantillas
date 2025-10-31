@@ -5,7 +5,74 @@
       "main": [
         [
           {
-            "node": "Get many bases",
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gloria": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
             "type": "main",
             "index": 0
           }
@@ -34,20 +101,328 @@
     },
     {
       "parameters": {
-        "resource": "base",
+        "documentId": {
+          "__rl": true,
+          "value": "1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0",
+          "mode": "list",
+          "cachedResultName": "Fiesta ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 276662014,
+          "mode": "list",
+          "cachedResultName": "Invitados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit#gid=276662014"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Pendiente"
+            }
+          ]
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
       "position": [
         208,
         0
       ],
-      "id": "3fe9874e-9946-4306-be4e-4bf4347fa045",
-      "name": "Get many bases",
+      "id": "a3903558-f7b9-4ac6-aed9-4d3b6b4146ff",
+      "name": "Get row(s) in sheet",
       "credentials": {
-        "airtableTokenApi": {
-          "id": "mAA59Je4dy4GWPok",
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "7c8a567d-6649-4671-b35a-10954c603dbc",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "182aa55b-5351-4a04-b1d7-a642c38a7182",
+              "name": "row_number",
+              "value": "={{ $json.row_number }}",
+              "type": "string"
+            },
+            {
+              "id": "4ec57046-8245-458e-ad17-2487974aee38",
+              "name": "Mensaje",
+              "value": "={{ $json.Mensaje }}",
+              "type": "string"
+            },
+            {
+              "id": "4ad00aae-5acc-44f4-be68-03b7ade6b767",
+              "name": "Nombre/Familia",
+              "value": "={{ $json['Nombre/Familia'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9e449f65-9b7f-495d-b04b-6fa8b9908afe",
+              "name": "Tipo",
+              "value": "={{ $json.Tipo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        48
+      ],
+      "id": "0b1e7af1-297a-4416-8f75-3ce13ae8fb3c",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Tipo: {{ $json.Tipo }}\nNombre/fam: {{ $json['Nombre/Familia'] }}\nMensaje: {{ $json.Mensaje }}"
+            },
+            {
+              "content": "=Utilizando \nTipo: Que indica si es una invitacion para una familia o individual \nNonbre/familia: que es el nombre de la familia o persona a invitar \nMensaje: que es el borrador del msj a enviar \n\nQuiero que redactes un mejor mensaje sin perder el objetivo del borrador pero de manera formal \n\nDevuelve solamente el mensaje mejorado y nada mas\n\nImportante\n- No pongas Atentamente ni espacios para rellenar  \n- Evita poner estas generalidades \"Estimado/a [Nombre/Familia]\" ya que no es una plantilla sino el mensaje final \n- No agregues confirmacion de asistencia en ningun caso \n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        816,
+        48
+      ],
+      "id": "f22adba5-a0ea-4c32-b0ef-b504e0659232",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "pR30gkzotkExDJsd",
+          "name": "Pako OpenIA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0",
+          "mode": "list",
+          "cachedResultName": "Fiesta ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 276662014,
+          "mode": "list",
+          "cachedResultName": "Invitados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit#gid=276662014"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Edit Fields').item.json.row_number }}",
+            "Mensaje": "={{ $json.message.content }}",
+            "Status": "Redactado"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Nombre/Familia",
+              "displayName": "Nombre/Familia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Mensaje",
+              "displayName": "Mensaje",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "From",
+              "displayName": "From",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1136,
+        32
+      ],
+      "id": "6918995d-b954-4253-a415-53d285d85516",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Pako_V",
+        "remoteJid": "5215534073167",
+        "messageText": "Hola",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        944,
+        -304
+      ],
+      "id": "033b14c2-fde5-456a-a0b5-7c83eda206d2",
+      "name": "Vanesa",
+      "credentials": {
+        "evolutionApi": {
+          "id": "cpbrt527UkP3NiAt",
+          "name": "Pako_V"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Pako_M",
+        "remoteJid": "5215636749768",
+        "messageText": "Hola",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        944,
+        -144
+      ],
+      "id": "5bad6141-dc60-4d27-9ef1-c8967a9ac45a",
+      "name": "Gloria",
+      "credentials": {
+        "evolutionApi": {
+          "id": "4rDyY9msldDpwtza",
+          "name": "Pako_M"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "bot_pako",
+        "remoteJid": "5215532443094",
+        "messageText": "Hola",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1152,
+        -240
+      ],
+      "id": "5af018ef-f68a-4b59-9e11-b2977ba5e8d5",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "7p8efes3okPFVAE5",
           "name": "Pako"
         }
       }
@@ -69,6 +444,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-19T07:42:48.870Z",
-  "versionId": "e2042151-e477-47c3-b963-afc59c8aa119"
+  "updatedAt": "2025-10-29T15:49:43.000Z",
+  "versionId": "86eb6299-196e-4afd-8d95-855831ac6a81"
 }
