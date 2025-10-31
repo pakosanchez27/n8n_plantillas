@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "Get row(s) in sheet": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Edit Fields": {
       "main": [
         [
@@ -52,7 +41,7 @@
         ],
         [
           {
-            "node": "AI Agent",
+            "node": "Update row in sheet2",
             "type": "main",
             "index": 0
           }
@@ -136,6 +125,28 @@
           }
         ]
       ]
+    },
+    "Update row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-10-13T19:35:45.356Z",
@@ -161,47 +172,6 @@
       "id": "a775fc6b-4167-4e74-8027-8531abfff86b",
       "name": "Webhook",
       "webhookId": "dcb4aee0-3128-47cc-8060-48007bd48141"
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
-          "mode": "list",
-          "cachedResultName": "Pagos Stripe ",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Conversaciones",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
-        },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "telefono",
-              "lookupValue": "={{ $json.body.data.key.remoteJid.replace('@s.whatsapp.net', '').replace('521', '52') }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.7,
-      "position": [
-        208,
-        0
-      ],
-      "id": "7182e9aa-13bf-46c0-a761-6e915195583e",
-      "name": "Get row(s) in sheet",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "UUAnITIItWHLyMP6",
-          "name": "ApiGoogleEquipo"
-        }
-      }
     },
     {
       "parameters": {
@@ -400,6 +370,36 @@
               "canBeUsedToMatch": true
             },
             {
+              "id": "fechaRecordatorio2",
+              "displayName": "fechaRecordatorio2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "fechaRecordatorio3",
+              "displayName": "fechaRecordatorio3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "invoiceId",
+              "displayName": "invoiceId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
               "id": "row_number",
               "displayName": "row_number",
               "required": false,
@@ -487,6 +487,16 @@
             {
               "id": "customerId",
               "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "feedback",
+              "displayName": "feedback",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -616,8 +626,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        832,
-        304
+        1120,
+        288
       ],
       "id": "1a6ac78d-02e4-4060-a27e-d86dbdae74e9",
       "name": "AI Agent"
@@ -635,8 +645,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        832,
-        512
+        1104,
+        528
       ],
       "id": "6e6ccaad-52d0-42cc-93ac-f6de6da8403d",
       "name": "OpenAI Chat Model",
@@ -658,8 +668,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1168,
-        320
+        1488,
+        288
       ],
       "id": "40a84d39-a7bf-456d-b043-972b36ef856f",
       "name": "Enviar texto2",
@@ -667,6 +677,144 @@
         "evolutionApi": {
           "id": "O141HGacBoQSRFyh",
           "name": "SoporteAlchile"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1805190857,
+          "mode": "list",
+          "cachedResultName": "Cancelados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=1805190857"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "feedback": "={{ $('Webhook').item.json.body.data.message.conversation }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "feedback",
+              "displayName": "feedback",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        832,
+        288
+      ],
+      "id": "d3e6a188-2fbc-41f9-90f2-4d7bac2da22c",
+      "name": "Update row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "jorge.serrano.coba30@gmail.com",
+        "subject": "=Nuevo Feedback de Cancelación - Cliente: {{$node[\"Get row(s) in sheet\"].json.customerId}}",
+        "message": "=<p>Hola equipo,</p>\n<p>Un cliente ha respondido a nuestro mensaje de retención con su opinión, justo antes de confirmar su cancelación. Por favor, revisen si es posible contactarlo.</p>\n\n<hr>\n\n<h3>Feedback del Cliente:</h3>\n<blockquote style=\"border-left: 4px solid #ccc; padding-left: 10px; font-style: italic;\">\n  {{$node[\"Webhook\"].json.body.data.body}}\n</blockquote>\n\n<hr>\n\n<h3>Datos del Cliente:</h3>\n<ul>\n  <li><strong>Teléfono:</strong> {{$node[\"Get row(s) in sheet\"].json.telefono}}</li>\n  <li><strong>ID Cliente:</strong> {{$node[\"Get row(s) in sheet\"].json.customerId}}</li>\n  <li><strong>ID Suscripción:</strong> {{$node[\"Get row(s) in sheet\"].json.subscriptionId}}</li>\n</ul>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1488,
+        464
+      ],
+      "id": "2042666a-0fb3-4888-bf8c-36514717b90b",
+      "name": "Send a message",
+      "webhookId": "c00426ec-81ea-46f8-9c68-820b69dfb856",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9IRXZsbPaUfz1vu6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
+          "mode": "list",
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "telefono",
+              "lookupValue": "={{ $json.body.data.key.remoteJid.replace('@s.whatsapp.net', '').replace('521', '52') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "7182e9aa-13bf-46c0-a761-6e915195583e",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
         }
       }
     }
@@ -687,6 +835,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-20T23:25:16.000Z",
-  "versionId": "4c163070-efa6-4ac1-855b-6d521c0deba5"
+  "updatedAt": "2025-10-30T21:12:52.000Z",
+  "versionId": "416ae9c6-467f-4428-a9ff-ed7123d97290"
 }
