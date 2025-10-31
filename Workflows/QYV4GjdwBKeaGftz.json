@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-10-30T19:05:29.664Z",
+  "id": "QYV4GjdwBKeaGftz",
+  "isArchived": false,
+  "meta": null,
+  "name": "Prueba de Automatizaciones Instagram",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-10-30T19:05:29.668Z",
+      "updatedAt": "2025-10-30T19:05:29.668Z",
+      "role": "workflow:owner",
+      "workflowId": "QYV4GjdwBKeaGftz",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-30T19:05:29.664Z",
+  "versionId": "1a988580-91c8-4049-a31d-69e6fd7a5845"
+}
