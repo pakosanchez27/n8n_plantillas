@@ -379,7 +379,7 @@
       "parameters": {
         "sendTo": "={{ $json.customer_email }}",
         "subject": "Último Aviso: Acción Requerida en tu Cuenta",
-        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Último Aviso: Tu Cuenta Está en Riesgo</h2>\n\n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Este es nuestro <strong>último recordatorio</strong> sobre tu factura pendiente de <strong>${{$node[\"HTTP Request\"].json[\"amount_due\"] / 100}} MXN</strong> de tu suscripción \"{{ $json.lines.data[0].description }}\".</p>\n  \n  <p>Tu acceso al servicio ha sido suspendido y, si no actualizas tu método de pago de inmediato, tu cuenta será programada para su <strong>eliminación permanente</strong>.</p>\n  \n  <p>Para reactivar tu cuenta y evitar la pérdida de datos, por favor, actualiza tu método de pago ahora:</p>\n  <p style=\"text-align: center;\"><a href=\"https://stripe.com/es\" style=\"background-color: #D9534F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">Actualizar Pago Ahora</a></p>\n  \n  <p>Si tienes alguna pregunta, contacta a soporte en equipo@converging.works.</p>\n\n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n</div>",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Último Aviso: Tu Cuenta Está en Riesgo</h2>\n\n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Este es nuestro <strong>último recordatorio</strong> sobre tu factura pendiente de <strong>${{$node[\"HTTP Request\"].json[\"amount_due\"] / 100}} MXN</strong> de tu suscripción \"{{ $json.lines.data[0].description }}\".</p>\n  \n  <p>Tu acceso al servicio ha sido suspendido y, si no actualizas tu método de pago de inmediato, tu suscripción será programada para su <strong>eliminación permanente</strong>.</p>\n  \n  <p>Para volver a dar de alta tu suscripción y evitar la pérdida de datos, por favor, actualiza tu método de pago ahora:</p>\n  <p style=\"text-align: center;\"><a href=\"https://stripe.com/es\" style=\"background-color: #D9534F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">Actualizar Pago Ahora</a></p>\n  \n  <p>Si tienes alguna pregunta, contacta a soporte en equipo@converging.works.</p>\n\n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n</div>",
         "options": {
           "appendAttribution": false
         }
@@ -405,7 +405,7 @@
         "resource": "messages-api",
         "instanceName": "SoporteAlChileMedia",
         "remoteJid": "={{ $json.customer_phone }}",
-        "messageText": "=Hola {{ $json.customer_name }},\n\nEste es nuestro *último aviso*. Han pasado 10 días desde que tu pago falló de la suscripción \"{{ $json.lines.data[0].description }}\".\n\nTu cuenta será marcada para eliminación permanente pronto si no actualizas tu método de pago.\n\nSi deseas reactivar tu cuenta, actualiza tu método de pago ahora. Si prefieres cancelar definitivamente, responde \"cancelar\" a este mensaje. ",
+        "messageText": "=Hola {{ $json.customer_name }},\n\nEste es nuestro *último aviso*. Han pasado 10 días desde que tu pago del la suscripción \"{{ $json.lines.data[0].description }}\" fallo.\n\nTu suscripción será marcada para eliminación permanente pronto si no actualizas tu método de pago.\n\nSi deseas volver a da dar de alta tu suscripción, actualiza tu método de pago ahora. Si prefieres cancelar definitivamente, responde \"cancelar\" a este mensaje. ",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
@@ -607,7 +607,7 @@
       "parameters": {
         "sendTo": "={{ $json.customer_email }}",
         "subject": "Segundo Recordatorio \"Pago fallido\"",
-        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #F0AD4E;\">Segundo Aviso: Tu Pago Sigue Pendiente</h2> \n  \n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Han pasado 3 días desde que tu pago falló de tu suscripción \"{{ $json.lines.data[0].description }}\". Este es un segundo aviso para que puedas actualizar tu método de pago.</p>\n  \n  <p>Para reactivar tu cuenta y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu cuenta definitivamente, simplemente responde \"cancelar\" a nuestro mensaje en WhatsApp.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción sigue pendiente.\n  </p>\n</div>",
+        "message": "=<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #F0AD4E;\">Segundo Aviso: Tu Pago Sigue Pendiente</h2> \n  \n  <p>Hola {{ $json.customer_name }},</p> \n  \n  <p>Han pasado 3 días desde que tu el pago de tu suscripción fallo \"{{ $json.lines.data[0].description }}\". Este es un segundo aviso para que puedas actualizar tu método de pago.</p>\n  \n  <p>Para volver a dar de alta tu suscripción y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu suscripción definitivamente, simplemente responde \"cancelar\" a nuestro mensaje en WhatsApp.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al Chile Media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción sigue pendiente.\n  </p>\n</div>",
         "options": {
           "appendAttribution": false
         }
@@ -633,7 +633,7 @@
         "resource": "messages-api",
         "instanceName": "SoporteAlChileMedia",
         "remoteJid": "={{ $json.customer_phone }}",
-        "messageText": "=Hola {{ $json.customer_name }},\n\nHan pasado 3 días desde que tu pago falló de la suscripción \"{{ $json.lines.data[0].description }}\". Este es un segundo aviso para que actualices tu método de pago y no pierdas el acceso a tu cuenta.\n\nSi deseas reactivarla, puedes hacerlo desde tu panel de cliente.\n\nSi prefieres cancelar tu cuenta definitivamente, responde \"cancelar\" a este mensaje.",
+        "messageText": "=Hola {{ $json.customer_name }},\n\nHan pasado 3 días desde que el pago de tu suscripción \"{{ $json.lines.data[0].description }}\" fallo. Este es un segundo aviso para que actualices tu método de pago y no pierdas el acceso a tu suscripción.\n\nSi deseas volver a darla de alta, puedes hacerlo desde tu panel de cliente.\n\nSi prefieres cancelar tu suscripción definitivamente, responde \"cancelar\" a este mensaje.",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
@@ -815,6 +815,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-27T20:05:08.000Z",
-  "versionId": "8b56f714-5d1b-4800-87f4-39dd4b835826"
+  "updatedAt": "2025-11-03T01:50:56.000Z",
+  "versionId": "2653e299-1c19-4c32-b42e-8a0d75b1437e"
 }
