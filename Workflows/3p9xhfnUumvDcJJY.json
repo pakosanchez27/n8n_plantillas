@@ -1,0 +1,3954 @@
+{
+  "active": true,
+  "connections": {
+    "Estructura": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Estructura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Convert PDF into PNG",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        []
+      ]
+    },
+    "Agente Principal": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        []
+      ]
+    },
+    "Registro": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultar": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Principal",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert PDF into PNG": {
+      "main": [
+        [
+          {
+            "node": "Analyze image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze image": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "INE",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "DOMICILIO",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "INGRESOS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "BANCARIOS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RFC",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CONSTITUTIVA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "INE LEGAL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RFC EMPRESA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FINANCIERO",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "DOMICILIO MORAL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "INE": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cliente": {
+      "main": [
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DOMICILIO": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "INGRESOS": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BANCARIOS": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RFC": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONSTITUTIVA": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "INE LEGAL": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RFC EMPRESA": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FINANCIERO": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DOMICILIO MORAL": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-03T08:12:08.099Z",
+  "id": "3p9xhfnUumvDcJJY",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Ejemplo de Maxcapital",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "52eedfd6-a451-4414-82ae-b0d0f74ee715",
+              "name": "sessionId",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ef701af0-1f3e-45ff-9ee4-62e0d83faee6",
+              "name": "chatInput",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            },
+            {
+              "id": "cf75aefb-92e3-4a2f-bbec-f2e39b02ef5e",
+              "name": "doc",
+              "value": "={{ $json.message.document }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        388
+      ],
+      "id": "aac123e8-cc7f-4344-834f-567d41e2a4f1",
+      "name": "Estructura"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        688,
+        204
+      ],
+      "id": "681e4585-3278-48f6-a89a-64273b9611e6",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        16,
+        388
+      ],
+      "id": "a0a80829-e65e-4d76-ac40-846e78bbeea1",
+      "name": "Telegram Trigger",
+      "webhookId": "66544e7a-99d1-4b9d-8faa-5a64d3b22997",
+      "credentials": {
+        "telegramApi": {
+          "id": "cmFr5dqNNOOJhD7k",
+          "name": "crediBanco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.chatInput }}",
+                    "rightValue": "={{ $json.chatInput }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    },
+                    "id": "c7d3493e-f7fd-40ef-8747-e3ac61f9c130"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "40f3e0e1-59e8-4daf-bc26-41822100fdbf",
+                    "leftValue": "={{ $json.doc }}",
+                    "rightValue": "={{ $json.doc }}",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Documento"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        464,
+        388
+      ],
+      "id": "125ddcbc-b6a4-4e7e-bf98-e4a937bf5b0a",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $('Switch').item.json.doc.file_id }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1696,
+        588
+      ],
+      "id": "f7719bc6-9d50-490d-a41d-cdf697605b5d",
+      "name": "Get a file",
+      "webhookId": "04c14cba-418e-4f59-8621-87cbe03aeeb2",
+      "credentials": {
+        "telegramApi": {
+          "id": "cmFr5dqNNOOJhD7k",
+          "name": "crediBanco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1328,
+        -1536
+      ],
+      "id": "1575b273-f255-4468-b0ca-595a4d46cbd9",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Mensaje del cliente : {{ $json.chatInput }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=## ROL \nEres un Agente Para un Banco encargado de registrar informacion de solicitantes, no puedes contestar nada que no tenga que ver con tu rol, y ademas no des informacion de otros clientes \n\n## Personalida \n- Mexicano, neutro \n- estilo casual, amigable \n- esa emojis \n\n## OBJTIVO  \nRecibiras un mensaje de Whatsapp de personas interesadas en los sigueintes creditos \n\nSi el cliente saluda debes responder un saludo por ejemplo \n\n\"Gracias por contactar a AlchileCreditos, ¿Deseas realizar una solicitud de credito?\"\n\n### Creditos:\n* Credito Simple Fisica \n* Credito Simple Moral \n\nPrimero recabaras la siguiente informacion en el mismo orden: \n* Nombre\n* Apellidos \n* Numero de whatsapp \n* Tipo de Credito (Simple Fisica / Simple Moral)\n\nCada pregunta debe ser en un mensaje a la vez y debes ir recolectando la informacion  en un json \n\n{\n  \"nombre\": \"nombre del cliente\",\n  \"apellidos\": \"apellidos del cliente\",\n  \"whatsapp\": \"numero a 10 digitos\",\n  \"tipo_credito\": \"Simple Fisica / Simple Moral\",\n  \"mensaje_cliente\" : \"Mensaje para el cliente\"\n}\n\nDespues de recabar estos datos debes registrar los datos en un google sheet con la tool \"Registro\" \nUsando esta informacion: \n\nid -> {{ $json.sessionId }}\nNombre -> nombre\nApellidos -> apellidos\nWhatsapp -> numero a 10 digitos\nFIsica/Moral -> tipo\n\n\nSi el id ya existe no debes hacer un registro nuevo \n## Validaciones de datos  \n- Nombres : debe ser un nombre real \n- Apellidos: deben ser apellidos validos \n- Whatsapp : numero a 10 digitos \n\n\nDespues de registrarlo debes solicitar los documentos segun el tipo de credito que escogio, lo haras usando la tool \"Consultar\" La cual te dara el valor de las columnas: \n'INE'\t'DOMICILIO'\t'INGRESOS'\t'BANCARIOS'\t'RFC'\t'CONSTITUTIVA'\t'INE LEGAL'\t'RFC EMPRESA'\t'FINANCIEROS'\t'DOMICILIO EMPRESA'\n\nSi el campo es igual a \"Pendiente\", siginifica que falta ese documento y si aparece como \"Completado significa que ya esta\" \n\nPero debes validar solo los que correspondan segun el tipo de credito \n\nSimple Fisica: \nINE\t-> Identificación Oficial \nDOMICILIO -> Comprobante de domicilio  \nINGRESOS -> Comprobante de ingresos \nBANCARIOS -> Estados de cuenta \nRFC -> Constancia de situacion fiscal \n\nSimple Moral: \nCONSTITUTIVA -> Acta constitutiva / Poder notarial\nINE LEGAL -> Identificación del representante legal\nRFC EMPRESA\t-> Constancia de situación fiscal (empresa)\nFINANCIEROS\t-> Estados financieros\nDOMICILIO EMPRESA -> Comprobante de domicilio fiscal \n\nCada que solicites un documento debes usar la tool \"Consultar\" para ver si ya nos lo dio \n\nPara usar la tool \"Consultar\" debes usar el id : {{ $json.sessionId }} como parametro de busqueda \n\n\nIMPORTANTE \n\n- NO crees registro nuevos si ya existe el id \n- El mensaje muestralo en forma de lista para mejorar la experiencia de usuario \n\nUna vez que ya se completo todo debes enviar un mensaje final como este:\n\n\"✅ Gracias, todo está completo. Enviaremos tu expediente a revisión y te contactaremos en máximo 3 días hábiles por WhatsApp. ¿Necesitas algo más?\"\n\n- Si el cliente quiere cambiar algun dato general por equivocacion o incorrecto usa la tool \"Update\" usando el id :{{ $json.sessionId }} para evitar crear otro registro, recuerda los ids no deben repetirse\n\n✅ Gracias, todo está completo. Enviaremos tu expediente a revisión y te contactaremos en máximo 3 días hábiles por WhatsApp. ¿Necesitas algo más?\n\n- No puedes indicar que todo esta completo si algun docuemnto sigue pendiente o falta alguna informacion \n\n- La tool \"Registro\"  solo debes usarla si el  id :{{ $json.sessionId }} No existe en la base de datos usan la tool \"Consultar\" para validarlo \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        936,
+        -20
+      ],
+      "id": "34cb7c5e-f49d-4bc5-9d80-f33343160c47",
+      "name": "Agente Principal",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Estructura').item.json.sessionId }}",
+        "text": "={{ $json.output.mensaje_cliente }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1696,
+        188
+      ],
+      "id": "369a504d-717f-4c3a-ab65-8c2919934e5f",
+      "name": "Send a text message",
+      "webhookId": "4a8186b4-bbb6-4de7-8b52-911c16f380b0",
+      "credentials": {
+        "telegramApi": {
+          "id": "cmFr5dqNNOOJhD7k",
+          "name": "crediBanco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Eres un clasificador de documentos bancarios/fiscales. Recibirás el TEXTO (OCR) de un archivo en español (derivado de Base64).\nDebes clasificar en una ÚNICA categoría válida o devolver “No válido”. Usa reglas de ANCLAS OBLIGATORIAS, CONTEOS, PATRONES y REGLAS NEGATIVAS.\n\n## CATEGORÍAS VÁLIDAS\nPF: \n1) Identificación oficial (INE) \n2) Pasaporte \n3) Comprobante de domicilio \n4) Comprobante de ingresos \n5) Estado de cuenta bancario \n6) Constancia de situación fiscal\n\nPM:\n7) Acta constitutiva / Poder notarial\n8) Identificación representante legal\n9) Constancia de situación fiscal (empresa)\n10) Estados financieros\n11) Comprobante de domicilio fiscal\n\nOTRAS (gobierno/recibos):\n12) Formato/Línea de captura de pago gubernamental (ej. “Formato de Pago Universal”, “línea de captura”, “Tesorería”, “Derechos”, “Concepto de pago”)\n\n## PREPROCESO (interno)\n- Convierte a MAYÚSCULAS, normaliza acentos y espacios.\n- Define:\n  containsAny(tokens[], k) → #tokens encontrados ≥ k\n  count(tokens[]) → número de tokens encontrados\n  hasRegex(pattern) → true/false\n- Guarda hasta 10 “evidences”: pares {token/patrón, fragmento}.\n\n## REGLAS POR CATEGORÍA (anclas obligatorias + conteo + patrones + negativas)\n\n### (5) ESTADO DE CUENTA BANCARIO\nANCLAS OBLIGATORIAS (cumplir TODAS):\n- containsAny([\"ESTADO DE CUENTA\",\"ESTADO DE CUENTA BANCARIO\"], 1)\n- containsAny([NOMBRES_DE_BANCOS], 1)  ; NOMBRES_DE_BANCOS = [\"BBVA\",\"SANTANDER\",\"BANORTE\",\"HSBC\",\"SCOTIABANK\",\"INBURSA\",\"BANCO DEL BAJÍO\",\"BANBAJÍO\",\"AZTECA\",\"CITIBANAMEX\",\"AFIRME\",\"MIFEL\",\"SABADELL\",\"BINANCE\",\"STP\",\"SOFOM\"], entre otros.\nY ADEMAS (cumplir ≥2):\n- containsAny([\"DEPÓSITOS\",\"RETIROS\",\"SALDO\",\"SALDO PROMEDIO\",\"COMISIONES\",\"GAT\",\"SPEI\",\"CLABE\",\"FECHA DE CORTE\",\"PERIODO\"], 2)\nPATRONES (cumplir ≥1):\n- hasRegex(\"\\\\bCLABE\\\\b\\\\D*(\\\\d{18})\")\n- hasRegex(\"\\\\b(CTA|CUENTA|NÚM\\\\. DE CUENTA|N° CUENTA)\\\\b.*\\\\b\\\\d{10,14}\\\\b\")\n- hasRegex(\"\\\\bPERIODO\\\\b.*\\\\b\\\\d{1,2}[\\\\/\\\\-][A-ZÁÉÍÓÚa-z0-9]+[\\\\/\\\\-]\\\\d{2,4}.*\\\\b(AL|A)\\\\b.*\\\\d{1,2}[\\\\/\\\\-][A-ZÁÉÍÓÚa-z0-9]+[\\\\/\\\\-]\\\\d{2,4}\")\nNEGATIVAS (si se cumplen, RESTAR 2 puntos por cada una):\n- containsAny([\"FORMATO DE PAGO UNIVERSAL\",\"LÍNEA DE CAPTURA\",\"TESORERÍA\",\"DERECHOS\",\"CONCEPTO DE PAGO\"], 1)\n- containsAny([\"CONSTANCIA DE SITUACIÓN FISCAL\",\"RÉGIMEN FISCAL\",\"SAT\"], 1)\n\n### (1) INE\nANCLAS OBLIGATORIAS (≥1):\n- containsAny([\"INSTITUTO NACIONAL ELECTORAL\",\"INE\"], 1)\nY ADEMAS (≥2):\n- containsAny([\"CLAVE DE ELECTOR\",\"CURP\",\"SECCIÓN\",\"VIGENCIA\",\"DOMICILIO\"], 2)\n\n### (2) PASAPORTE\nANCLAS OBLIGATORIAS (≥1):\n- containsAny([\"PASAPORTE\",\"SECRETARÍA DE RELACIONES EXTERIORES\"], 1)\nPATRONES (≥1):\n- hasRegex(\"^P<\")  (MRZ en primeras líneas)\n- hasRegex(\"\\\\bN°\\\\s*PASAPORTE\\\\b|\\\\bPASSPORT NO\\\\.?\\\\b\")\n\n### (3)/(11) COMPROBANTE DE DOMICILIO (PF/PM)\nANCLAS (≥1):\n- containsAny([\"CFE\",\"TELMEX\",\"PREDIAL\",\"AGUA\",\"RECIBO\",\"ESTADO DE CUENTA TELÉFONO\",\"SUMINISTRO\"], 1)\nY ADEMAS (≥2):\n- containsAny([\"CUENTA DE CONTRATO\",\"SERVICIO\",\"PERIODO\",\"LECTURA\",\"TARIFA\"], 2)\nPATRÓN FECHA RECIENTE (≥1):\n- hasRegex(\"\\\\b\\\\d{1,2}[\\\\/-]\\\\d{1,2}[\\\\/-]\\\\d{2,4}\\\\b\") dentro de los últimos 120 días (si se proporciona “hoy”).\n\n### (6)/(9) CONSTANCIA SITUACIÓN FISCAL (PF/PM)\nANCLAS OBLIGATORIAS:\n- containsAny([\"CONSTANCIA DE SITUACIÓN FISCAL\",\"SERVICIO DE ADMINISTRACIÓN TRIBUTARIA\",\"SAT\"], 1)\nY ADEMAS (≥2):\n- containsAny([\"RFC\",\"RÉGIMEN FISCAL\",\"CÓDIGO POSTAL\",\"DOMICILIO FISCAL\",\"FECHA DE EMISIÓN\"], 2)\n\n### (7) ACTA CONSTITUTIVA / PODER\nANCLAS (≥1):\n- containsAny([\"ACTA CONSTITUTIVA\",\"ESCRITURA\",\"NOTARIO PÚBLICO\",\"FEDATARIO\",\"FOLIO MERCANTIL\",\"OTORGA PODER\"], 1)\n\n### (8) ID REP. LEGAL\n= Reglas de INE/Pasaporte pero el nombre debe coincidir con el del poder/acta (si está disponible).\n\n### (10) ESTADOS FINANCIEROS\nANCLAS (≥1):\n- containsAny([\"BALANCE GENERAL\",\"ESTADO DE RESULTADOS\",\"FLUJOS DE EFECTIVO\",\"NOTAS A LOS ESTADOS FINANCIEROS\",\"ACTIVOS\",\"PASIVOS\",\"CAPITAL CONTABLE\"], 1)\n\n### (12) FORMATO/LÍNEA DE CAPTURA (PAGO GUBERNAMENTAL)\nANCLAS OBLIGATORIAS (≥1):\n- containsAny([\"FORMATO DE PAGO UNIVERSAL\",\"LÍNEA DE CAPTURA\",\"TESORERÍA\",\"CONCEPTO DE PAGO\",\"DEPENDENCIA\",\"REFERENCIA BANCARIA\",\"BANCO RECAUDADOR\"], 1)\nNEGATIVA (RESTAR si parece estado de cuenta):\n- containsAny([\"ESTADO DE CUENTA\",\"DEPÓSITOS\",\"RETIROS\",\"GAT\",\"CLABE\"], 1)\n\n## ESCORING\n- Empieza score=0 por categoría. \n- Suma: +3 por cumplir ANCLAS OBLIGATORIAS; +1 por cada palabra clave extra; +1 por cada PATRÓN cumplido (hasta +3).\n- Resta: −2 por cada REGLA NEGATIVA activada.\n- Resultado = categoría con MAYOR score. Si 2 categorías empatan o score<3 → “No válido” con reason “Ambiguo o sin anclas suficientes”.\n\n## SALIDA JSON OBLIGATORIA (sin texto adicional)\n{\n  \"document_type\": \"<categoría o 'No válido'>\",\n  \"confidence\": <0-100>,\n  \"reason\": \"explica anclas/patrones que activaron (o negativas que invalidaron)\",\n  \"detected_keywords\": [\"lista breve de tokens/patrones activados\"],\n  \"evidence\": [{\"match\":\"<token|regex>\",\"snippet\":\"<fragmento>\"}]\n}\n\n## DESEMPATE / PRIORIDAD (si hay conflicto):\n1) INE/Pasaporte tienen prioridad SOLO si activan sus anclas y NO hay ancla de banco + tabla de movimientos.\n2) Si hay “ESTADO DE CUENTA” + banco + CLABE/SPEI y NO hay “FORMATO DE PAGO UNIVERSAL”, clasifica como Estado de cuenta.\n3) Si aparece “FORMATO DE PAGO UNIVERSAL” o “LÍNEA DE CAPTURA”, preferir categoría 12 aunque exista un banco (es común que el banco sea recaudador).\n4) Si hay “CONSTANCIA DE SITUACIÓN FISCAL/SAT”, preferir constancia sobre otras a menos que falten sus campos básicos (RFC, régimen, emisión).\n\nAhora procesa el TEXTO y devuelve solo el JSON.\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        592,
+        -1440
+      ],
+      "id": "42d46661-8fff-41fd-aff0-f520ce476efc",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"document_type\": \"Constancia de situación fiscal\",\n  \"confidence\": 94,\n  \"reason\": \"Se detectaron las frases 'Servicio de Administración Tributaria', 'RFC', y 'Régimen Fiscal'.\",\n  \"detected_keywords\": [\"SAT\", \"RFC\", \"Régimen Fiscal\", \"Constancia de Situación Fiscal\"]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        688,
+        -1264
+      ],
+      "id": "c16b71a7-1f1e-402f-8c8c-e6c6a7ecdf90",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        496,
+        -1248
+      ],
+      "id": "38f69a31-d07a-4d23-a47f-954d6b0f8371",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "66390a54-bbd5-4fd6-83d7-31eba9dde07b",
+              "leftValue": "={{ $json.output.document_type }}",
+              "rightValue": "No válido",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2032,
+        -1360
+      ],
+      "id": "d301a3d2-7967-4ec5-83f0-71c778300cf9",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Nombre ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_', ``, 'string') }}",
+            "Apellidos": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Apellidos', ``, 'string') }}",
+            "Whatsapp": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Whatsapp', ``, 'string') }}",
+            "FIsica/Moral": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('FIsica_Moral', ``, 'string') }}",
+            "INE": "=Pendiente",
+            "id": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('id', ``, 'string') }}",
+            "DOMICILIO": "=Pendiente",
+            "INGRESOS": "Pendiente",
+            "BANCARIOS": "Pendiente",
+            "RFC": "Pendiente",
+            "CONSTITUTIVA": "Pendiente",
+            "INE LEGAL": "Pendiente",
+            "RFC EMPRESA": "Pendiente",
+            "FINANCIEROS": "Pendiente",
+            "DOMICILIO EMPRESA": "Pendiente"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        944,
+        204
+      ],
+      "id": "be827778-3d55-45f3-b2f8-0c4fe6cc10b6",
+      "name": "Registro",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "1137122626"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2032,
+        -1584
+      ],
+      "id": "046a5148-0f7b-4a5e-aba9-f4da2a83b040",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Estructura').item.json.sessionId }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        816,
+        204
+      ],
+      "id": "cf0d8484-1d5d-4b22-9872-e342643e1844",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "GC8lC1b9Ld0ShV50",
+          "name": "MaxCapitalBase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1408,
+        412
+      ],
+      "id": "86e5df33-374f-4b75-afdd-7a4a1de62292",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Usa esta  herrmamienta para validar datos faltates en el registro del usaurio ",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('values0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1072,
+        204
+      ],
+      "id": "20f45867-d967-4347-9c2e-76a1c0bc34c0",
+      "name": "Consultar",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"nombre\": \"nombre del cliente\",\n  \"apellidos\": \"apellidos del cliente\",\n  \"whatsapp\": \"numero a 10 digitos\",\n  \"tipo_credito\": \"Simple Fisica / Simple Moral\",\n  \"mensaje_cliente\" : \"Mensaje para el cliente\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1328,
+        204
+      ],
+      "id": "48292393-1b7c-48d7-8557-8c8fc8814a55",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "utilizala para actualizar algun dato del cliente  ",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('id__using_to_match_', ``, 'string') }}",
+            "Nombre ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nombre_', ``, 'string') }}",
+            "Apellidos": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Apellidos', ``, 'string') }}",
+            "Whatsapp": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Whatsapp', ``, 'string') }}",
+            "FIsica/Moral": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('FIsica_Moral', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1200,
+        204
+      ],
+      "id": "2ae86c65-5f9d-401a-813f-7b774a42125b",
+      "name": "Update",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@custom-js/n8n-nodes-pdf-toolkit.PdfToPng",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        492
+      ],
+      "id": "b700da0e-0c0e-48c9-9a40-6990d4aa494f",
+      "name": "Convert PDF into PNG",
+      "credentials": {
+        "customJsApi": {
+          "id": "lCllIeZx5fba9opf",
+          "name": "CustomJS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "=Ídentifica si este documento es alguno de esta lista o sirve para alguno de esos : \n\nPF: \n1) Identificación oficial (INE) \n2) Pasaporte \n3) Comprobante de domicilio \n4) Comprobante de ingresos \n5) Estado de cuenta bancario \n6) Constancia de situación fiscal\n\nPM:\n7) Acta constitutiva / Poder notarial\n8) Identificación representante legal\n9) Constancia de situación fiscal (empresa)\n10) Estados financieros\n11) Comprobante de domicilio fiscal\n\nComo aparece en el google sheet \n\nSimple Fisica: \nINE\t-> Identificación Oficial \nDOMICILIO -> Comprobante de domicilio  \nINGRESOS -> Comprobante de ingresos \nBANCARIOS -> Estados de cuenta \nRFC -> Constancia de situacion fiscal \n\nSimple Moral: \nCONSTITUTIVA -> Acta constitutiva / Poder notarial\nINE LEGAL -> Identificación del representante legal\nRFC EMPRESA\t-> Constancia de situación fiscal (empresa)\nFINANCIEROS\t-> Estados financieros\nDOMICILIO EMPRESA -> Comprobante de domicilio fiscal \n\nQuiero que contestes en un json \n\n{\n  \"valido\": \"si || no\",\n  \"razon\": \"razon de si es o no es\",\n  \"documento: \"nombre del documento como aparce en el google sheet\",\n  \"id\" : \"{{ $('Estructura').item.json.sessionId }}\"\n}\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2144,
+        492
+      ],
+      "id": "1250f599-8015-495f-9f48-df64ae339c52",
+      "name": "Analyze image",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const string = $input.first().json.content; \n\n// Extraer solo el contenido JSON entre los marcadores\nconst jsonMatch = string.match(/```json\\n([\\s\\S]*?)\\n```/);\nif (jsonMatch) {\n    const jsonString = jsonMatch[1].replace(/\\\\n/g, '').trim();\n    return JSON.parse(jsonString);\n} else {\n    // Si no encuentra los marcadores, intentar limpiar y parsear directamente\n    const cleanedString = string.replace(/```json|```|\\\\n/g, '').trim();\n    return JSON.parse(cleanedString);\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2368,
+        492
+      ],
+      "id": "dffa4594-3388-4c5a-9451-d4d0e592d1f6",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=valido:  {{ $json.valido }}\nrazon: {{ $json.razon }}",
+        "options": {
+          "systemMessage": "Eres un validador de documentos, reciviras dos variables \"valido\" = \"si el documento es el que se le pidio o no\" , razon= \"la razon por la que si o no aplica\" , valida el historial de la conversacion para indicar si  o no aplica el documento. \n\nSI es valido indicale se registro el documento correctamente y que te proporcione el sigueinte, verifica el historial de la conversacion para saber cual es  "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2592,
+        240
+      ],
+      "id": "7d5f36bb-17ed-499e-8e62-016a39bb2f3e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2664,
+        464
+      ],
+      "id": "c495be17-5b17-411a-9851-02acfc820490",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Estructura').item.json.sessionId }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2944,
+        344
+      ],
+      "id": "0a740118-33d5-4c8a-800f-6de13f2c4fc5",
+      "name": "Send a text message1",
+      "webhookId": "6c077261-721f-46db-9b05-f1831faeb1ac",
+      "credentials": {
+        "telegramApi": {
+          "id": "cmFr5dqNNOOJhD7k",
+          "name": "crediBanco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1ac9b2fe-1282-4499-86ea-13f6e23c7ea6",
+              "leftValue": "={{ $json.valido }}",
+              "rightValue": "si",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2656,
+        640
+      ],
+      "id": "269b8427-bb90-4b4a-9c3a-92867dd06790",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "inputText": "=Segun los campos sigueintes: \n\nSimple Fisica: \nINE\t-> Identificación Oficial \nDOMICILIO -> Comprobante de domicilio  \nINGRESOS -> Comprobante de ingresos \nBANCARIOS -> Estados de cuenta \nRFC -> Constancia de situacion fiscal \n\nSimple Moral: \nCONSTITUTIVA -> Acta constitutiva / Poder notarial\nINE LEGAL -> Identificación del representante legal\nRFC EMPRESA\t-> Constancia de situación fiscal (empresa)\nFINANCIEROS\t-> Estados financieros\nDOMICILIO EMPRESA -> Comprobante de domicilio fiscal \n\n\ndetermina cual aplica para este documento : {{ $json.documento }}\n",
+        "categories": {
+          "categories": [
+            {
+              "category": "INE",
+              "description": "INE\t-> Identificación Oficial "
+            },
+            {
+              "category": "DOMICILIO ",
+              "description": "DOMICILIO -> Comprobante de domicilio  "
+            },
+            {
+              "category": "INGRESOS ",
+              "description": "INGRESOS -> Comprobante de ingresos"
+            },
+            {
+              "category": "BANCARIOS ",
+              "description": "BANCARIOS -> Estados de cuenta "
+            },
+            {
+              "category": "RFC ",
+              "description": "RFC -> Constancia de situacion fiscal "
+            },
+            {
+              "category": "CONSTITUTIVA ",
+              "description": "CONSTITUTIVA -> Acta constitutiva / Poder notarial"
+            },
+            {
+              "category": "INE LEGAL",
+              "description": "INE LEGAL -> Identificación del representante legal"
+            },
+            {
+              "category": "RFC EMPRESA",
+              "description": "RFC EMPRESA\t-> Constancia de situación fiscal (empresa)"
+            },
+            {
+              "category": "FINANCIEROS\t",
+              "description": "FINANCIEROS\t-> Estados financieros"
+            },
+            {
+              "category": "DOMICILIO EMPRESA",
+              "description": "DOMICILIO EMPRESA -> Comprobante de domicilio fiscal "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        3168,
+        736
+      ],
+      "id": "cf002c54-9bb2-4e7f-a718-de7e7daca089",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3240,
+        1216
+      ],
+      "id": "7751175e-ae19-49d5-88f4-353d7ed8a22f",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "a6T9FSulj0yWIirx",
+          "name": "Converging"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "INE": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        -128
+      ],
+      "id": "7621cd57-d6f7-4bc8-820f-4f5ac088c705",
+      "name": "INE",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "DOMICILIO": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        64
+      ],
+      "id": "5bd72653-57ec-4f30-99a9-2d6fde7b41c6",
+      "name": "DOMICILIO",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "INGRESOS": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        256
+      ],
+      "id": "0c01a264-7dc1-423c-b172-627d6ac476a4",
+      "name": "INGRESOS",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "BANCARIOS": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        448
+      ],
+      "id": "5ea7577d-c305-418c-98a3-859acc0634d6",
+      "name": "BANCARIOS",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "RFC": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        640
+      ],
+      "id": "29075a8e-ecad-421b-89ee-37c117d1d438",
+      "name": "RFC",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "CONSTITUTIVA": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "valido",
+              "displayName": "valido",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "razon",
+              "displayName": "razon",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "documento",
+              "displayName": "documento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        832
+      ],
+      "id": "0ac29d99-fd99-4cae-ad06-ea777b6e4c4a",
+      "name": "CONSTITUTIVA",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "INE LEGAL": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        1024
+      ],
+      "id": "da9caad5-47b6-4134-bef0-c6cdd28ffd66",
+      "name": "INE LEGAL",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "FINANCIEROS": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        1408
+      ],
+      "id": "fc6f8c7a-2839-47d5-b941-95821de53e0e",
+      "name": "FINANCIERO",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "DOMICILIO EMPRESA": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        1600
+      ],
+      "id": "248e2467-3689-4e30-876c-52de3a64523d",
+      "name": "DOMICILIO MORAL",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "RFC EMPRESA": "Completado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre ",
+              "displayName": "Nombre ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Apellidos",
+              "displayName": "Apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FIsica/Moral",
+              "displayName": "FIsica/Moral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE",
+              "displayName": "INE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO",
+              "displayName": "DOMICILIO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INGRESOS",
+              "displayName": "INGRESOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BANCARIOS",
+              "displayName": "BANCARIOS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC",
+              "displayName": "RFC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CONSTITUTIVA",
+              "displayName": "CONSTITUTIVA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "INE LEGAL",
+              "displayName": "INE LEGAL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "RFC EMPRESA",
+              "displayName": "RFC EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FINANCIEROS",
+              "displayName": "FINANCIEROS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMICILIO EMPRESA",
+              "displayName": "DOMICILIO EMPRESA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        1216
+      ],
+      "id": "a98a78b3-a302-4f6d-82a4-f74320f40fc6",
+      "name": "RFC EMPRESA",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA",
+          "mode": "list",
+          "cachedResultName": "Base de creditos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1n6PZxcnKNrGuMkpMhrLlVUQPspHVqGTBvksWSqpsyrA/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id",
+              "lookupValue": "={{ $json.sessionId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1080,
+        588
+      ],
+      "id": "35ca19eb-b3ce-4dd1-ad42-cf41b2b23074",
+      "name": "Cliente",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        832
+      ],
+      "id": "41e19900-b20e-4456-92a1-266ebd9affe4",
+      "name": "Extract from File1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "05b02b9a-e72a-468f-87c1-f27b2cf8e8aa",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2656,
+        832
+      ],
+      "id": "eaac84b1-52cc-4f82-bed7-84de2c3b1f52",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a82d0328-448e-4acf-b9e9-ac2abbdecca3",
+              "name": "data",
+              "value": "={{$node[\"Edit Fields1\"].json.data}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3744,
+        1084
+      ],
+      "id": "34c1d43f-aa55-4d11-9374-9e5f77acca9d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3968,
+        1084
+      ],
+      "id": "3c66b14a-8893-4f92-8b27-589f0520a7db",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "name": "={{ $('Switch').item.json.doc.file_name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1ruuOskeP2MnRjTsSY2wR5TnlWTLkfHkI",
+          "mode": "list",
+          "cachedResultName": "Maxcapital Pruebas",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1ruuOskeP2MnRjTsSY2wR5TnlWTLkfHkI"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4192,
+        1084
+      ],
+      "id": "f1003e14-70bc-4f2e-935d-ec030c2a5df9",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GbbZFAymho4JGE2k",
+          "name": "ApiEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2944,
+        736
+      ],
+      "id": "bab1ee44-299c-49cf-9452-b762d238613a",
+      "name": "Merge"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-11-03T08:12:08.104Z",
+      "updatedAt": "2025-11-03T08:12:08.104Z",
+      "role": "workflow:owner",
+      "workflowId": "3p9xhfnUumvDcJJY",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-30T07:16:47.434Z",
+      "updatedAt": "2025-07-30T07:16:47.434Z",
+      "id": "mSpHjLUfWIhOQqzc",
+      "name": "Experimentos"
+    },
+    {
+      "createdAt": "2025-11-03T08:12:14.681Z",
+      "updatedAt": "2025-11-03T08:12:14.681Z",
+      "id": "rVwjwPMllClCEeF4",
+      "name": "MaxCapital"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-07T02:21:51.000Z",
+  "versionId": "55023c32-4599-41b0-896e-f07a92546980"
+}
