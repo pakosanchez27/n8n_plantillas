@@ -6,7 +6,24 @@
   "isArchived": false,
   "meta": null,
   "name": "Prueba de Automatizaciones Instagram",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "327df901-da88-41c0-ab34-41f178413928",
+      "name": "Webhook",
+      "webhookId": "ba54abc9-28d9-4d84-ac4d-1e28a590780f"
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -22,7 +39,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-10-30T19:05:29.664Z",
-  "versionId": "1a988580-91c8-4049-a31d-69e6fd7a5845"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-06T05:47:11.000Z",
+  "versionId": "eb5a7196-96db-446f-86e0-85423dafee24"
 }
