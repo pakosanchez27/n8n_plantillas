@@ -755,7 +755,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        -976,
+        -972,
         -576
       ],
       "id": "9389d433-3c0c-4451-9801-702e3f4114e9",
@@ -773,8 +773,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        -1488,
-        -224
+        -1252,
+        -352
       ],
       "id": "dc0c74f3-4a4a-47ed-8818-6975e5f19533",
       "name": "Agente_calendario"
@@ -796,8 +796,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -1488,
-        -16
+        -1248,
+        -144
       ],
       "id": "e194f43d-5334-4df6-ab38-c61a65b4ee69",
       "name": "Ver_disponibilidad",
@@ -829,8 +829,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -1360,
-        -16
+        -1120,
+        -144
       ],
       "id": "8a1e7aff-4f90-4991-8406-769e236093a9",
       "name": "Agendar_cita",
@@ -859,8 +859,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -1232,
-        -16
+        -992,
+        -144
       ],
       "id": "25e08ffc-8162-4a26-96e6-6827a16a46f9",
       "name": "Reagendar_cita",
@@ -886,8 +886,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -1104,
-        -16
+        -864,
+        -144
       ],
       "id": "5aa4a3cd-3029-44ba-866b-2c851207b7d5",
       "name": "Cancelar_cita",
@@ -915,8 +915,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -976,
-        -16
+        -736,
+        -144
       ],
       "id": "5206dbae-3cc4-4107-9806-fe6b8f48018b",
       "name": "Obtener_citas",
@@ -942,8 +942,8 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -848,
-        -16
+        -608,
+        -144
       ],
       "id": "9ee384f0-f042-402f-acc4-21252e9d7732",
       "name": "Obtener_cita",
@@ -966,8 +966,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -1616,
-        -16
+        -1376,
+        -144
       ],
       "id": "878da4b0-5a91-4ccf-83fa-7166284a97aa",
       "name": "cerebro",
@@ -991,8 +991,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -1936,
-        -272
+        -1664,
+        -352
       ],
       "id": "3a60d80c-5210-4a27-9f83-84d461d5cdd6",
       "name": "cerebro1",
@@ -1012,8 +1012,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        -1744,
-        -16
+        -1504,
+        -144
       ],
       "id": "61a7e4b5-d887-4488-aa5a-9bb9365aca4e",
       "name": "Memoria",
@@ -1179,8 +1179,8 @@
       "type": "n8n-nodes-base.airtableTool",
       "typeVersion": 2.1,
       "position": [
-        -848,
-        -336
+        -368,
+        -352
       ],
       "id": "c00d3dd2-c7e6-43dd-beb6-0751bdfd2c5f",
       "name": "Registrar_Pacientes",
@@ -1354,8 +1354,8 @@
       "type": "n8n-nodes-base.airtableTool",
       "typeVersion": 2.1,
       "position": [
-        -720,
-        -336
+        -240,
+        -352
       ],
       "id": "60626a66-d4f9-4f87-af9f-2b08a8461185",
       "name": "Actualizar_Paciente",
@@ -1379,8 +1379,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -448,
-        208
+        -192,
+        -144
       ],
       "id": "f5477d11-1f95-4ce0-b555-34bf8ddcfe9b",
       "name": "Cerebro",
@@ -1403,8 +1403,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        -336,
-        0
+        -68,
+        -352
       ],
       "id": "629175df-c607-4364-bc95-c3e97f595e1f",
       "name": "DUDAS"
@@ -1416,8 +1416,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -352,
-        624
+        -88,
+        272
       ],
       "id": "c71b6142-44df-4575-b345-e1c2486ce0a2",
       "name": "Embeddings OpenAI1",
@@ -1436,8 +1436,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "typeVersion": 1,
       "position": [
-        -320,
-        192
+        -64,
+        -144
       ],
       "id": "5fcbe7d4-678f-4a22-b61f-2dd6bd56ba66",
       "name": "Vector store tool"
@@ -1454,8 +1454,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -96,
-        416
+        160,
+        64
       ],
       "id": "50f37c0e-5889-47c6-8c40-87abe4da62ab",
       "name": "OpenAI Chat Model10",
@@ -1479,8 +1479,8 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1.3,
       "position": [
-        -432,
-        416
+        -168,
+        64
       ],
       "id": "5bbfa7ad-1381-4932-97ae-5dcc9a6053a2",
       "name": "Supabase Vector Store",
@@ -1547,8 +1547,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -256,
-        -400
+        1240,
+        -352
       ],
       "id": "f755ab46-0f11-4001-b849-40a6cfe5a01e",
       "name": "Structured Output Parser4"
@@ -1565,8 +1565,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -176,
-        -192
+        1320,
+        -144
       ],
       "id": "1eadd56f-253b-4596-a4ca-69bb7fb98715",
       "name": "OpenAI Chat Model9",
@@ -1639,8 +1639,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.7,
       "position": [
-        -32,
-        208
+        224,
+        -144
       ],
       "id": "2b06fcde-6c67-4527-adb2-aca35cfb94d5",
       "name": "Preguntas1",
@@ -1659,8 +1659,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -2064,
-        64
+        -480,
+        -144
       ],
       "id": "f3dc6270-a632-4b2c-bfba-2cbf596606c6",
       "name": "Structured Output Parser5"
@@ -1677,8 +1677,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -1984,
-        272
+        -400,
+        64
       ],
       "id": "84037661-4f77-46d9-b245-095cbaa9a02b",
       "name": "OpenAI Chat Model11",
@@ -1697,8 +1697,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        96,
-        208
+        352,
+        -144
       ],
       "id": "87f94178-d5f9-4a76-a0b4-431b0d992935",
       "name": "Structured Output Parser6"
@@ -1715,8 +1715,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        176,
-        416
+        432,
+        64
       ],
       "id": "8e70bb2e-ea0b-4e92-ab9f-ee0a64033a88",
       "name": "OpenAI Chat Model12",
@@ -1738,8 +1738,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        848,
-        32
+        732,
+        -352
       ],
       "id": "c6fa75ac-0489-4d45-8d1c-ae658b3dcbd1",
       "name": "Facturacion"
@@ -1752,8 +1752,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1152,
-        240
+        1032,
+        -144
       ],
       "id": "91eb23b0-30a7-41e9-8e66-1b0b05a0923e",
       "name": "Structured Output Parser7"
@@ -1770,8 +1770,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1232,
-        448
+        1112,
+        64
       ],
       "id": "95e6c891-f7ff-4fe8-916d-753ce0b72045",
       "name": "OpenAI Chat Model13",
@@ -1795,8 +1795,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        752,
-        240
+        640,
+        -144
       ],
       "id": "fd79bb34-625d-4fe1-bdcc-a50e8def01f8",
       "name": "cerebro2",
@@ -2011,8 +2011,8 @@
       "type": "n8n-nodes-base.airtableTool",
       "typeVersion": 2.1,
       "position": [
-        896,
-        240
+        776,
+        -144
       ],
       "id": "3123eecd-6781-4063-9488-2af2f4b1e0bc",
       "name": "Guardar_Factura",
@@ -2039,8 +2039,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        672,
-        -560
+        1608,
+        -576
       ],
       "id": "0dc44b75-a296-4250-a043-20f3e6536dc4",
       "name": "Basic LLM Chain"
@@ -2052,8 +2052,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1024,
-        -560
+        1960,
+        -576
       ],
       "id": "13104766-34df-4910-a755-e239f275c43c",
       "name": "Code1"
@@ -2065,8 +2065,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1248,
-        -560
+        2184,
+        -576
       ],
       "id": "02cb00bf-8e6d-4a13-9c89-3ace10839212",
       "name": "Loop Over Items1"
@@ -2078,8 +2078,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1472,
-        -640
+        2408,
+        -648
       ],
       "id": "de00d942-1bb6-45da-90af-26d4849457c6",
       "name": "Wait",
@@ -2097,8 +2097,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        752,
-        -336
+        1680,
+        -352
       ],
       "id": "1990e385-29e8-460b-93bb-d682ba9ca04c",
       "name": "OpenAI Chat Model14",
@@ -2140,8 +2140,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1696,
-        -560
+        2632,
+        -576
       ],
       "id": "6c25f315-d621-4b8e-8aa9-cffa64509c4a",
       "name": "Respuesta5"
@@ -2168,8 +2168,8 @@
       "type": "n8n-nodes-base.airtableTool",
       "typeVersion": 2.1,
       "position": [
-        1024,
-        240
+        904,
+        -144
       ],
       "id": "3f0cf7b5-7f98-4a09-9c92-8de21c91c90b",
       "name": "Registros",
@@ -2426,7 +2426,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -3696,
+        -3702,
         -544
       ],
       "typeVersion": 1,
@@ -2442,7 +2442,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4368,
+        -4372,
         -912
       ],
       "typeVersion": 1,
@@ -2837,8 +2837,8 @@
       "type": "n8n-nodes-base.airtableTool",
       "typeVersion": 2.1,
       "position": [
-        -576,
-        -336
+        1112,
+        -352
       ],
       "id": "bdabfeb4-9e3c-4b22-ac5a-00400ad8a009",
       "name": "Cancelar_Cita",
@@ -2864,8 +2864,8 @@
       "type": "n8n-nodes-base.googleCalendar",
       "typeVersion": 1.3,
       "position": [
-        -1536,
-        368
+        -5024,
+        64
       ],
       "id": "a605120a-d780-4446-b125-ea24f09e6dcb",
       "name": "Get many events",
@@ -2906,6 +2906,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-10-14T22:50:12.000Z",
-  "versionId": "4fc28e5d-1d80-4fab-ba58-a97655c8132c"
+  "updatedAt": "2025-11-04T22:09:01.000Z",
+  "versionId": "c45876f1-2e69-48b0-9b5f-d37e32721429"
 }
