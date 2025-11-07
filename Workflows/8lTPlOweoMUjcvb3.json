@@ -1,11 +1,44 @@
 {
   "active": false,
   "connections": {
-    "Webhook": {
+    "Schedule Trigger": {
       "main": [
         [
           {
             "node": "Create a card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a card": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Update a card",
             "type": "main",
             "index": 0
           }
@@ -23,35 +56,97 @@
   "nodes": [
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "formulario-prueba",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "5769ba03-e063-4eed-87fb-f0b7fc2792f0",
-      "name": "Webhook",
-      "webhookId": "49678359-e6dd-481f-89b4-fc4cc70fb75a"
-    },
-    {
-      "parameters": {
-        "listId": "66574d5b611ad1b30c2dbcac",
-        "name": "=Nombre: {{ $json.body.nombre }}{{ $json.body.email }}",
-        "description": "=Mensaje: {{ $json.body.mensaje }}",
-        "additionalFields": {}
+        "listId": "690bbcb0d28c56c62a31850f",
+        "name": "=Creación de Feed - {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
+        "description": "=Comenzar creacion del feed: {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
+        "additionalFields": {
+          "idMembers": "6656c043bb5b2b1cadad830b"
+        }
       },
       "type": "n8n-nodes-base.trello",
       "typeVersion": 1,
       "position": [
-        208,
+        -16,
         0
       ],
       "id": "fbbe73a9-600d-40b3-9477-0f4cfd244d5c",
       "name": "Create a card",
+      "credentials": {
+        "trelloApi": {
+          "id": "IDjtNtDIVW9ndLEc",
+          "name": "Trello account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtDayOfMonth": 5,
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "0a594602-48c3-4b14-8963-5fb0bc48b3e5",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// El input JSON del nodo anterior (Trello - Crear Tarjeta)\nconst inputItem = items[0].json; \n\n// *****************************************************************\n// 1. Extracción de variables (Soluciona errores [undefined])\n// *****************************************************************\n\n// La fecha de vencimiento original (el día 5 del mes siguiente).\n// Se necesita para mostrarla en la notificación final.\nconst originalDueDate = inputItem.due; \n\n// ID y Nombre de la tarjeta creada (Soluciona el error [undefined] del nombre).\nconst trelloCardId = inputItem.id;\nconst trelloCardName = inputItem.name;\n\n// 2. Obtiene la fecha de vencimiento como un objeto Date para el cálculo.\nconst dueDate = new Date(originalDueDate); \n\n\n// *****************************************************************\n// 3. Función de Cálculo de Días Hábiles\n// *****************************************************************\n\nfunction subtractBusinessDays(date, days) {\n    let result = new Date(date);\n    let counter = 0;\n    \n    // Iteramos hasta que hayamos restado la cantidad de días hábiles requeridos\n    while (counter < days) {\n        result.setDate(result.getDate() - 1); // Retrocede un día\n        const dayOfWeek = result.getDay();\n        \n        // 0 = Domingo, 6 = Sábado\n        if (dayOfWeek !== 0 && dayOfWeek !== 6) { \n            counter++; // Solo cuenta si es Lunes a Viernes\n        }\n    }\n    return result;\n}\n\n// Retrocede 3 días hábiles\nconst reminderDate = subtractBusinessDays(dueDate, 3);\n\n\n// *****************************************************************\n// 4. Devolución de los Datos Corregidos\n// *****************************************************************\n\n// Devuelve las variables necesarias para los nodos siguientes (Wait y Trello de Notificación)\nreturn [{\n    json: {\n        // Usa la fecha dinámica calculada (resuelve el uso de fecha estática)\n        reminderDate: reminderDate.toISOString(), \n        \n        // Se pasan las IDs y nombres para la notificación final\n        trelloCardId: trelloCardId,\n        trelloCardName: trelloCardName,\n        originalDueDate: originalDueDate // ¡La fecha de vencimiento original!\n    }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ],
+      "id": "ac4e1fca-6674-4656-9d64-69760fe0097a",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "resume": "specificTime",
+        "dateTime": "={{ $json.reminderDate }}"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        0
+      ],
+      "id": "3e3c4c45-a24e-40bc-885c-c7fa2019dcaf",
+      "name": "Wait",
+      "webhookId": "ce7dcd92-b59f-413a-ad17-120f067ba4b4"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "id": {
+          "__rl": true,
+          "value": "={{ $json.trelloCardId }}",
+          "mode": "id"
+        },
+        "updateFields": {
+          "desc": "=¡RECORDATORIO! El feed '{{ $json.trelloCardName }}' debe ser finalizado. \n"
+        }
+      },
+      "type": "n8n-nodes-base.trello",
+      "typeVersion": 1,
+      "position": [
+        784,
+        0
+      ],
+      "id": "d1611285-930a-4f85-aaa4-cc179e441162",
+      "name": "Update a card",
       "credentials": {
         "trelloApi": {
           "id": "IDjtNtDIVW9ndLEc",
@@ -73,9 +168,13 @@
       "projectId": "zJAKCKeG7Ef7sO6E"
     }
   ],
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-10-26T03:29:20.000Z",
-  "versionId": "0ca32b3b-25fe-4a81-9cfb-156934a21d6a"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-06T00:44:41.000Z",
+  "versionId": "9cbaad89-3f50-4507-8da2-49047d506fc3"
 }
