@@ -130,7 +130,7 @@
         "resource": "messages-api",
         "instanceName": "SoporteAlChileMedia",
         "remoteJid": "={{ $json.phone }}",
-        "messageText": "=*Recordatorio de Renovación*\n\nHola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},\n\nTe informamos que el pago de tu suscripción \"{{ $('Stripe Trigger').item.json.data.object.lines.data[0].description }}\" no se pudo procesar y tu acceso ha sido suspendido.\n\nSi deseas reactivarlo, por favor actualiza tu método de pago desde tu panel de cliente.\n\nSi prefieres cancelar tu cuenta definitivamente, responde a este mensaje con la palabra \"cancelar\".",
+        "messageText": "=*Recordatorio de Renovación*\n\nHola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},\n\nTe informamos que el pago de tu suscripción \"{{ $('Stripe Trigger').item.json.data.object.lines.data[0].description }}\" no se pudo procesar y tu acceso ha sido suspendido.\n\nSi deseas volver a darla de alta, por favor actualiza tu método de pago desde tu panel de cliente.\n\nSi prefieres cancelar tu suscripción definitivamente, responde a este mensaje con la palabra \"cancelar\".",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
@@ -228,7 +228,7 @@
       "parameters": {
         "sendTo": "={{ $json.email }}",
         "subject": "Recordatorio Pago Fallido",
-        "message": "=\n<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Aviso Importante Sobre tu Suscripción</h2>\n  \n  <p>Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},</p>\n  \n  <p>Te informamos que el pago de tu suscripción de <strong>$ {{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }} MXN</strong> de la suscripcion: {{ $('Stripe Trigger').item.json.data.object.lines.data[0].description }}, no se pudo procesar y tu acceso al servicio ha sido suspendido.</p>\n  \n  <p>Para reactivar tu cuenta y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu cuenta definitivamente, simplemente responde a nuestro mensaje en WhatsApp con la palabra \"cancelar\".</p>\n  \n  <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al chile media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción falló.\n  </p>\n</div>",
+        "message": "=\n<div style=\"font-family: sans-serif; color: #333;\">\n  <h2 style=\"text-align: center; color: #D9534F;\">Aviso Importante Sobre tu Suscripción</h2>\n  \n  <p>Hola {{$node[\"Recuperar datos del cliente\"].json[\"name\"]}},</p>\n  \n  <p>Te informamos que el pago de tu suscripción de <strong>$ {{ $('Stripe Trigger').item.json.data.object.amount_due / 100 }} MXN</strong> de la suscripcion: {{ $('Stripe Trigger').item.json.data.object.lines.data[0].description }}, no se pudo procesar y tu acceso al servicio ha sido suspendido.</p>\n  \n  <p>Para volver a dar de alta tu  suscripción y no perder tus datos, por favor, actualiza tu método de pago desde tu panel de cliente.</p>\n  \n  <p>Si prefieres cancelar tu  suscripción definitivamente, simplemente responde a nuestro mensaje en WhatsApp con la palabra \"cancelar\".</p>\n  \n  <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>\n  \n  <p>Saludos cordiales,<br>\n  <strong>Al chile media</strong></p>\n  \n  <hr>\n  <p style=\"font-size: 12px; color: #777;\">\n    Recibes este correo electrónico porque el pago de tu suscripción falló.\n  </p>\n</div>",
         "options": {
           "appendAttribution": false
         }
@@ -439,6 +439,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-27T19:57:38.000Z",
-  "versionId": "fe8227d8-1feb-4baf-91f4-ef76990e9c83"
+  "updatedAt": "2025-11-03T01:48:09.000Z",
+  "versionId": "8909c594-2f94-4baa-a34c-2323abcd893b"
 }
