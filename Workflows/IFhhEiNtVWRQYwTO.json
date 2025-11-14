@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Recibir MSJ1": {
       "main": [
@@ -198,7 +198,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "main",
             "index": 0
           }
@@ -209,7 +209,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -220,19 +220,8 @@
       "ai_memory": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        [
-          {
-            "node": "Enviar texto",
-            "type": "main",
             "index": 0
           }
         ]
@@ -330,7 +319,7 @@
       "ai_tool": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_tool",
             "index": 0
           }
@@ -440,7 +429,7 @@
       "ai_tool": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_tool",
             "index": 0
           }
@@ -451,7 +440,7 @@
       "ai_outputParser": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_outputParser",
             "index": 0
           }
@@ -473,8 +462,19 @@
       "ai_tool": [
         [
           {
-            "node": "AI Agent",
+            "node": "Agente Principal",
             "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente Principal": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
             "index": 0
           }
         ]
@@ -1016,24 +1016,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.mensaje }}",
-        "hasOutputParser": true,
-        "options": {
-          "systemMessage": "=Eres un asistente para una clinica dental \n\nrecuerda que la fecha actual es : {{ $now }}\n\nTu  objetivo es detectar la intencion del usaurio mediante mensajes que te envie y mandarlo al sub agente adecueado, pero siempre analiza la conversacion para evirtar salirte de un flujo antes de que termine \nDeberas empezar con un saludo antes de pedirle datos o ofrecer algo. \n\nEjemplo de mensaje inicial : \n\n\"¡Hola! Bienvenido a nuestra clínica dental. ¿Es esta tu primera consulta con nosotros o ya eres paciente?\"\n\nDebes detecar si es la primera consulta y preguntar si es Paciente. \n\nSi la respuesta es si : \nDeberas pedir el correo con el que se registro y validar usando la herramienta Pacientes si existe su registro \n\nSi existe ofrece los siguientes servicios  usando el nombre del paciente para personalizar los mensajes: \n\n- Servicios \n- Agendar Cita\n- Reagendar Cita\n- Cancelar Cita \n- Facturar \n- Hablar con un Humano \n\nSi no es paciente o no se encuentra registro ofrece el siguiente menu \n \n- Servicios \n- Agendar Cita\n- Reagendar Cita\n- Cancelar Cita \n\n\nNo pidas datos a menos que quiera agendar una cita\n\n\nSub-agentes: \n\n* Dudas: Usala para cuando el cliente quiero saber, costos, servicios, dudas etc. \n* Agente_Calendario: usalo para consultar, agendar, cancelar, reagendar citas o consultar horarios disponibles. \n\n\n\n\n\n\nProcesos: \n\n- Agendar: para agendar una cita primero debes preguntar que día desea agendar despues debes consultar la disponibilidad de ese dia, si no hay disponibilidad indicar otra fecha si la hay preguntar la hora deseada, si hay disponibilidad agendar si no sugerir otro horario, si hay disponibilidad no des las horas disponibles mejor pregunta por la hora que desea el usaurio y consulta la disponibilidad \n\nCuando consultaste que si alla disponibilidad solicita los sigueintes datos : \n- Nombre completo\n- Email (valido) \n- Servicio  \n\nFORMATO DE SALIDA\n\nHaz una pregunta por mensaje y almacenlas temporalmente en este json \n{\n  \"id\": \"{{ $json.sessionId }}\"\n  \"whatsapp\" :  \"{{ $('Edit Fields').item.json.whatsapp }}\",\n  \"email\" : \"el email proporcionado por el usaurio\", \n  \"nombre\" : \"Nombre completo\",\n  \"fecha\": \"fecha elegida por el usuario\",\n  \"hora\": \"Hora de la consulta  elegida por el usuario\",\n  \"servicio\": \"Servicio elegido\",\n  \"paciente\": \"Si es paciente o cliente nuevo solo pon si o no\",\n  \"menaje\": \"mensaje para enviar al cliente\"\n\n}\n\nYa que tienes todos los datos procede a agendar la cita con el sub agente Agente_Calendario y registrala con la herramienta registro_cita\n"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2.2,
-      "position": [
-        2176,
-        576
-      ],
-      "id": "c75bcb3f-45c8-4768-acd3-ea2147c18b11",
-      "name": "AI Agent"
-    },
-    {
-      "parameters": {
         "model": {
           "__rl": true,
           "mode": "list",
@@ -1088,8 +1070,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        2528,
-        576
+        3088,
+        352
       ],
       "id": "0a5954f4-acf2-49f0-aec1-8c34409a1467",
       "name": "Enviar texto",
@@ -1113,8 +1095,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1264,
-        1264
+        1344,
+        1136
       ],
       "id": "d37b390e-367b-4703-9949-ad24f3d9edfa",
       "name": "Cerebro",
@@ -1137,8 +1119,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        1440,
-        1056
+        1520,
+        928
       ],
       "id": "6751fa62-bd8c-4a21-8ea3-097ca5323621",
       "name": "DUDAS"
@@ -1150,8 +1132,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1648,
-        1920
+        1728,
+        1792
       ],
       "id": "d0188a7d-65c0-4b15-b21e-49f3bdaca079",
       "name": "Embeddings OpenAI1",
@@ -1170,8 +1152,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "typeVersion": 1,
       "position": [
-        1392,
-        1264
+        1472,
+        1136
       ],
       "id": "dba7ffcb-5bdf-4a8a-b514-224771f7d5e5",
       "name": "Vector store tool"
@@ -1188,8 +1170,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1616,
-        1472
+        1696,
+        1344
       ],
       "id": "03166e5d-ca25-4818-ac77-347f898352ef",
       "name": "OpenAI Chat Model10",
@@ -1213,8 +1195,8 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1.3,
       "position": [
-        1280,
-        1472
+        1360,
+        1344
       ],
       "id": "bc045913-6df9-4653-a235-80c04dbbd996",
       "name": "Supabase Vector Store",
@@ -1287,8 +1269,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.7,
       "position": [
-        1680,
-        1264
+        1760,
+        1136
       ],
       "id": "b47730ca-5b1f-43e1-8485-c04c846bf161",
       "name": "Preguntas1",
@@ -1307,8 +1289,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1808,
-        1264
+        1888,
+        1136
       ],
       "id": "d381c9b8-17f0-455a-a0b7-7e8125434068",
       "name": "Structured Output Parser6"
@@ -1325,8 +1307,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1888,
-        1472
+        1968,
+        1344
       ],
       "id": "8f4cbc03-2e87-40cc-95e1-05769984e2c3",
       "name": "OpenAI Chat Model12",
@@ -1761,6 +1743,24 @@
           "name": "ClinicaSheet"
         }
       }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.mensaje }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Eres un asistente para una clinica dental \n\nrecuerda que la fecha actual es : {{ $now }}\n\nTu  objetivo es detectar la intencion del usaurio mediante mensajes que te envie y mandarlo al sub agente adecueado, pero siempre analiza la conversacion para evirtar salirte de un flujo antes de que termine \nDeberas empezar con un saludo antes de pedirle datos o ofrecer algo. \n\nEjemplo de mensaje inicial : \n\n\"¡Hola! Bienvenido a nuestra clínica dental. ¿Es esta tu primera consulta con nosotros o ya eres paciente?\"\n\nDebes detecar si es la primera consulta y preguntar si es Paciente. \n\nSi la respuesta es si : \nDeberas pedir el correo con el que se registro y validar usando la herramienta Pacientes si existe su registro \n\nSi existe ofrece los siguientes servicios  usando el nombre del paciente para personalizar los mensajes: \n\n- Servicios \n- Agendar Cita\n- Reagendar Cita\n- Cancelar Cita \n- Facturar \n- Hablar con un Humano \n\nSi no es paciente o no se encuentra registro ofrece el siguiente menu \n \n- Servicios \n- Agendar Cita\n- Reagendar Cita\n- Cancelar Cita \n\n\nNo pidas datos a menos que quiera agendar una cita\n\n\nSub-agentes: \n\n* Dudas: Usala para cuando el cliente quiero saber, costos, servicios, dudas etc. \n* Agente_Calendario: usalo para consultar, agendar, cancelar, reagendar citas o consultar horarios disponibles. \n\n\n\n\n\n\nProcesos: \n\n- Agendar: para agendar una cita primero debes preguntar que día desea agendar despues debes consultar la disponibilidad de ese dia, si no hay disponibilidad indicar otra fecha si la hay preguntar la hora deseada, si hay disponibilidad agendar si no sugerir otro horario, si hay disponibilidad no des las horas disponibles mejor pregunta por la hora que desea el usaurio y consulta la disponibilidad \n\nCuando consultaste que si alla disponibilidad solicita los sigueintes datos : \n- Nombre completo\n- Email (valido) \n- Servicio  \n\nFORMATO DE SALIDA\n\nHaz una pregunta por mensaje y almacenlas temporalmente en este json \n{\n  \"id\": \"{{ $json.sessionId }}\"\n  \"whatsapp\" :  \"{{ $('Edit Fields').item.json.whatsapp }}\",\n  \"email\" : \"el email proporcionado por el usaurio\", \n  \"nombre\" : \"Nombre completo\",\n  \"fecha\": \"fecha elegida por el usuario\",\n  \"hora\": \"Hora de la consulta  elegida por el usuario\",\n  \"servicio\": \"Servicio elegido\",\n  \"paciente\": \"Si es paciente o cliente nuevo solo pon si o no\",\n  \"menaje\": \"mensaje para enviar al cliente\"\n\n}\n\nYa que tienes todos los datos procede a agendar la cita con el sub agente Agente_Calendario usando su herramienta de agendar_cita y registrala con la herramienta registro_cita\n\n\n- Reagendar: Para reagendar deberas buscar las cita o citas agendadas del usaurio usando su correo, si es paciente ya tienes el correo por que lo preguntaste desde el principio pero si no es paciente deberas pedirlo y hacer la busqueda usando el sub agente agente_calendario, confirma la cita o citas agendadas con el usaurio para saber cual quiere cambiar, busca la disponibilidad de la nueva fecha, si hay disponibilidad borra la cita actual y crea una nueva.  \n\n\nSiempre muestra citas que aun no pasan. omite las que ya pasaron\n\nAsegurate que si se cancele y se cree la nueva cita \n\nusa la herramienta agendar_cita del sub agente agente_calendario para crea la nueva cita\n\n\n- REGLAS ESTRICTAS \n* jamas inventes datos.\n* Siempre consulta el historial de la conversacion \n* si te falta algun dato pidela al usaurio  \n* En agendar y reagendar siempre valida que se alla usado la herramienta agender_cita "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2336,
+        480
+      ],
+      "id": "c75bcb3f-45c8-4768-acd3-ea2147c18b11",
+      "name": "Agente Principal"
     }
   ],
   "pinData": {},
@@ -1769,8 +1769,8 @@
   },
   "shared": [
     {
-      "createdAt": "2025-11-04T22:10:19.960Z",
       "updatedAt": "2025-11-04T22:10:19.960Z",
+      "createdAt": "2025-11-04T22:10:19.960Z",
       "role": "workflow:owner",
       "workflowId": "IFhhEiNtVWRQYwTO",
       "projectId": "zJAKCKeG7Ef7sO6E"
@@ -1778,7 +1778,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-11-07T04:16:05.000Z",
-  "versionId": "158167f2-27c2-437b-91e6-d70741348866"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-08T02:55:11.000Z",
+  "versionId": "cebd77d2-b0cf-4509-bd7f-7086aff803d4"
 }
