@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Actualizador de documentos": {
       "main": [
@@ -1550,16 +1550,23 @@
   },
   "shared": [
     {
-      "createdAt": "2025-11-05T04:25:48.958Z",
       "updatedAt": "2025-11-05T04:25:48.958Z",
+      "createdAt": "2025-11-05T04:25:48.958Z",
       "role": "workflow:owner",
       "workflowId": "Zppxn4i8Gp6kG6Zg",
       "projectId": "zJAKCKeG7Ef7sO6E"
     }
   ],
-  "staticData": null,
+  "staticData": {
+    "node:Actualizador de documentos": {
+      "lastTimeChecked": "2025-11-08T10:23:12Z"
+    },
+    "node:Creacion de documentos": {
+      "lastTimeChecked": "2025-11-08T10:23:12Z"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-11-05T19:24:26.000Z",
+  "triggerCount": 2,
+  "updatedAt": "2025-11-07T23:46:52.000Z",
   "versionId": "ded142e7-7e94-46b5-a500-05679aae6dc3"
 }
