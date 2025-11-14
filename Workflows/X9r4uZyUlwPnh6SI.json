@@ -41,7 +41,7 @@
         ],
         [
           {
-            "node": "If2",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -90,13 +90,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "AI Agent2",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "If1": {
@@ -125,23 +119,7 @@
       "main": [
         [
           {
-            "node": "Enviar texto2",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Send a message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update row in sheet2": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
+            "node": "If2",
             "type": "main",
             "index": 0
           }
@@ -163,59 +141,25 @@
       "main": [
         [
           {
-            "node": "Update row in sheet2",
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar texto2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "AI Agent1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent1": {
-      "main": [
-        [
-          {
             "node": "Enviar texto3",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent2": {
-      "main": [
-        [
-          {
-            "node": "Enviar texto4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent2",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -240,7 +184,7 @@
       "typeVersion": 2.1,
       "position": [
         0,
-        416
+        16
       ],
       "id": "a775fc6b-4167-4e74-8027-8531abfff86b",
       "name": "Webhook",
@@ -264,7 +208,7 @@
       "typeVersion": 3.4,
       "position": [
         448,
-        416
+        16
       ],
       "id": "80069ecf-f8a8-4f61-a593-a501c34b115a",
       "name": "Edit Fields"
@@ -349,7 +293,7 @@
       "typeVersion": 3.3,
       "position": [
         672,
-        400
+        0
       ],
       "id": "88c31e63-c4f5-473c-bc37-119912c3e84b",
       "name": "Switch",
@@ -366,7 +310,7 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1184,
+        1248,
         -176
       ],
       "id": "24dd0e06-1251-4da7-9523-c9904cf4a905",
@@ -492,7 +436,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1536,
+        1472,
         -176
       ],
       "id": "80d83f41-ebd1-415c-8eee-875ad9ef356d",
@@ -515,8 +459,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1184,
-        416
+        1248,
+        16
       ],
       "id": "ebb0de52-9758-4b7d-8169-bccd94896bbf",
       "name": "HTTP Request",
@@ -586,8 +530,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1536,
-        416
+        1472,
+        16
       ],
       "id": "4ec74229-03f6-47cc-82fe-9a55aa8155bb",
       "name": "Append row in sheet",
@@ -609,8 +553,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1824,
-        416
+        1696,
+        16
       ],
       "id": "e05ebbd5-1843-4b6d-b061-5c73182f29be",
       "name": "Enviar texto1",
@@ -648,8 +592,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        896,
-        -28
+        960,
+        -176
       ],
       "id": "3529ac25-1a7e-4a10-8bc1-ff5756c2e346",
       "name": "If"
@@ -682,8 +626,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        896,
-        416
+        960,
+        16
       ],
       "id": "26d1e61d-ba63-44b7-9ea2-83a739d3dc2b",
       "name": "If1"
@@ -693,14 +637,14 @@
         "promptType": "define",
         "text": "={{ $('Webhook').item.json.body.data.message.conversation }}",
         "options": {
-          "systemMessage": "Eres un asistente de soporte amigable y servicial para Converging Works. Ayudas a clientes cuyo pago de suscripción ha fallado. Tu objetivo principal es ayudarles a actualizar su método de pago o entender por qué quieren cancelar. NO ofrezcas descuentos no autorizados. Si no puedes ayudar o el cliente se frustra, dirígelo a soporte humano en equipo@converging.work. Recuerda siempre al cliente que puede escribir 'CONFIRMAR' para cancelar su suscripción.\n\n**Si el cliente pregunta CÓMO actualizar su método de pago o pide los pasos, explícale lo siguiente:**\n\n\"¡Claro! Actualizar tu método de pago es sencillo. Sigue estos pasos:\n1.  Visita tu página de cuenta aquí: https://stripe.com/es.\n2.  Inicia sesión si es necesario.\n3.  Busca la sección 'Métodos de Pago' o 'Facturación'.\n4.  Haz clic en 'Agregar Método de Pago' e introduce los datos de tu nueva tarjeta.\n5.  (Opcional, si aplica) Asegúrate de marcar la nueva tarjeta como método de pago predeterminado.\nUna vez actualizado, intentaremos cobrar de nuevo automáticamente en las próximas horas.\"\n\nSi el cliente solo pregunta DÓNDE actualizar, simplemente dale el enlace: \"Puedes actualizar tu método de pago visitando tu página de cuenta aquí: Stripe.com/es.\"\n\nSi parece querer cancelar pero no usó la palabra clave, o si expresa alguna queja, intenta entender su problema amablemente. Si pregunta algo que no sabes, dirígelo a soporte humano.\n\nEn todas tus respuestas, recuerda añadir al final: \"Si deseas cancelar tu suscripción, solo responde con la palabra Cancelar.\""
+          "systemMessage": "Eres un asistente de soporte amigable y servicial para Converging Works. Ayudas a clientes cuyo pago de suscripción ha fallado y que acaban de recibir un mensaje de retención.\n\nTu tarea ahora es analizar su respuesta y clasificarla ANTES de responder. Debes empezar CADA respuesta con una de dos etiquetas: [SUPPORT] o [FEEDBACK].\n\n---\n### REGLAS DE CLASIFICACIÓN:\n\n1.  **Usa [SUPPORT] si es una Pregunta de Soporte o Chat Simple:**\n    * **Ejemplos:** \"¿cómo actualizo mi pago?\", \"¿dónde lo hago?\", \"gracias\", \"ok\".\n    * **Si el cliente pregunta CÓMO actualizar su método de pago o pide los pasos**, tu respuesta debe ser:\n        \"[SUPPORT] ¡Claro! Actualizar tu método de pago es sencillo. Sigue estos pasos:\n        1.  Visita tu página de cuenta aquí: https://stripe.com/es.\n        2.  Inicia sesión si es necesario.\n        3.  Busca la sección 'Métodos de Pago' o 'Facturación'.\n        4.  Haz clic en 'Agregar Método de Pago' e introduce los datos de tu nueva tarjeta.\n        5.  (Opcional, si aplica) Asegúrate de marcar la nueva tarjeta como método de pago predeterminado.\n        Una vez actualizado, intentaremos cobrar de nuevo automáticamente en las próximas horas.\"\n    * **Si el cliente solo pregunta DÓNDE actualizar**, tu respuesta debe ser:\n        \"[SUPPORT] Puedes actualizar tu método de pago visitando tu página de cuenta aquí: https://stripe.com/es.\"\n    * **Si es un chat simple (ej. \"gracias\")**, tu respuesta debe ser:\n        \"[SUPPORT] De nada. Estamos para ayudarte.\"\n\n2.  **Usa [FEEDBACK] si es una Opinión o Queja (Motivo de Cancelación):**\n    * **Ejemplos:** \"es muy caro\", \"la app va mal\", \"no me gustó el servicio\".\n    * **En este caso**, tu respuesta debe ser:\n        \"[FEEDBACK] Gracias por tus comentarios, los tendremos muy en cuenta.\"\n\n---\n### REGLAS GENERALES:\n\n* **NO ofrezcas descuentos no autorizados.**\n* Si no puedes ayudar o el cliente se frustra, usa la etiqueta `[SUPPORT]` y dirígelo a soporte humano en equipo@converging.work.\n* **¡MUY IMPORTANTE!** En TODAS tus respuestas (tanto [SUPPORT] como [FEEDBACK]), debes añadir al final el siguiente recordatorio exacto:\n    \"Si deseas cancelar tu suscripción, solo responde con la palabra CONFIRMAR.\""
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        1472,
-        652
+        896,
+        496
       ],
       "id": "1a6ac78d-02e4-4060-a27e-d86dbdae74e9",
       "name": "AI Agent"
@@ -718,8 +662,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1544,
-        876
+        968,
+        720
       ],
       "id": "6e6ccaad-52d0-42cc-93ac-f6de6da8403d",
       "name": "OpenAI Chat Model",
@@ -741,8 +685,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1824,
-        660
+        1472,
+        208
       ],
       "id": "40a84d39-a7bf-456d-b043-972b36ef856f",
       "name": "Enviar texto2",
@@ -750,139 +694,6 @@
         "evolutionApi": {
           "id": "O141HGacBoQSRFyh",
           "name": "SoporteAlchile"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
-          "mode": "list",
-          "cachedResultName": "Pagos Stripe ",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Conversaciones",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "feedback": "={{ $('Webhook').item.json.body.data.message.conversation }}",
-            "customerId": "={{ $('Get row(s) in sheet').item.json.customerId }}"
-          },
-          "matchingColumns": [
-            "customerId"
-          ],
-          "schema": [
-            {
-              "id": "telefono",
-              "displayName": "telefono",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "customerId",
-              "displayName": "customerId",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "subscriptionId",
-              "displayName": "subscriptionId",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "estado",
-              "displayName": "estado",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "fechaRecordatorio2",
-              "displayName": "fechaRecordatorio2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "fechaRecordatorio3",
-              "displayName": "fechaRecordatorio3",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "invoiceId",
-              "displayName": "invoiceId",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "feedback",
-              "displayName": "feedback",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.7,
-      "position": [
-        1184,
-        756
-      ],
-      "id": "d3e6a188-2fbc-41f9-90f2-4d7bac2da22c",
-      "name": "Update row in sheet2",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "UUAnITIItWHLyMP6",
-          "name": "ApiGoogleEquipo"
         }
       }
     },
@@ -898,8 +709,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1824,
-        852
+        1472,
+        592
       ],
       "id": "2042666a-0fb3-4888-bf8c-36514717b90b",
       "name": "Send a message",
@@ -941,7 +752,7 @@
       "typeVersion": 4.7,
       "position": [
         224,
-        416
+        16
       ],
       "id": "7182e9aa-13bf-46c0-a761-6e915195583e",
       "name": "Get row(s) in sheet",
@@ -963,13 +774,12 @@
           },
           "conditions": [
             {
-              "id": "cea98969-356e-4eef-8a4b-d962be3a6359",
-              "leftValue": "={{$node[\"Get row(s) in sheet\"].json.feedback}}",
-              "rightValue": "",
+              "id": "7a779e9a-59d9-404d-8697-2e4fc2629dfb",
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "[FEEDBACK]",
               "operator": {
                 "type": "string",
-                "operation": "empty",
-                "singleValue": true
+                "operation": "contains"
               }
             }
           ],
@@ -980,50 +790,146 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        896,
-        904
+        1248,
+        496
       ],
-      "id": "49afc560-a414-4f5d-8a5c-05b8c489476a",
+      "id": "cfcfea1f-1780-405f-9230-dee3e564ea1d",
       "name": "If2"
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Webhook').item.json.body.data.message.conversation }}",
-        "options": {
-          "systemMessage": "Eres un asistente de soporte. El cliente ya te ha dado su opinión sobre por qué quería cancelar, y esa opinión ya ha sido guardada.\n\nAhora, el cliente ha enviado un mensaje de seguimiento (probablemente \"Gracias\", \"ok\", o tal vez otra pregunta simple).\n\nTu trabajo es:\n1.  Responder amablemente a este mensaje de seguimiento.\n2.  NO necesitas guardar este nuevo mensaje.\n3.  NO necesitas alertar a un humano.\n4.  Lo más importante: en CADA respuesta, sin importar lo que digas, debes recordarle al cliente que si aún desea cancelar, debe responder con la palabra \"CONFIRMAR\".\n\nEjemplo si el cliente dice \"Gracias\": \"De nada. Recuerda, si deseas continuar con la cancelación definitiva, solo responde con la palabra CONFIRMAR.\"\nEjemplo si el cliente dice \"ok\": \"Entendido. Si decides cancelar, solo responde con la palabra CONFIRMAR.\""
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2.2,
-      "position": [
-        1120,
-        1052
-      ],
-      "id": "f2c9d3da-bd17-4d87-9268-09e805bd916d",
-      "name": "AI Agent1"
-    },
-    {
-      "parameters": {
-        "model": {
+        "operation": "update",
+        "documentId": {
           "__rl": true,
+          "value": "1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU",
           "mode": "list",
-          "value": "gpt-4.1-mini"
+          "cachedResultName": "Pagos Stripe ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QSEG4MIhSiNoOWrSZAcLjhml6nWSTqZ2xJOnvdDpVRU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telefono": "={{ $('Get row(s) in sheet').item.json.telefono }}",
+            "estado": "retencion_enviada",
+            "feedback": "={{ $('Webhook').item.json.body.data.message.conversation }}"
+          },
+          "matchingColumns": [
+            "telefono"
+          ],
+          "schema": [
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "customerId",
+              "displayName": "customerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subscriptionId",
+              "displayName": "subscriptionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fechaRecordatorio2",
+              "displayName": "fechaRecordatorio2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "fechaRecordatorio3",
+              "displayName": "fechaRecordatorio3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "invoiceId",
+              "displayName": "invoiceId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "feedback",
+              "displayName": "feedback",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         },
         "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
       "position": [
-        1192,
-        1276
+        1472,
+        400
       ],
-      "id": "1d17a255-5d24-47b5-ab9f-5c98c17109b0",
-      "name": "OpenAI Chat Model1",
+      "id": "d0572bbd-8d95-4845-bfe6-42709a8f3bfa",
+      "name": "Update row in sheet1",
       "credentials": {
-        "openAiApi": {
-          "id": "a6T9FSulj0yWIirx",
-          "name": "Converging"
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
         }
       }
     },
@@ -1038,75 +944,11 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1536,
-        1052
+        1472,
+        784
       ],
-      "id": "ca054214-853b-4cc0-a58b-8ea744a89530",
+      "id": "383d059d-5471-42b6-87ef-d7a2f89698de",
       "name": "Enviar texto3",
-      "credentials": {
-        "evolutionApi": {
-          "id": "O141HGacBoQSRFyh",
-          "name": "SoporteAlchile"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Webhook').item.json.body.data.message.conversation }}",
-        "options": {
-          "systemMessage": "Eres un asistente de soporte. El cliente ya te ha dado su opinión sobre por qué quería cancelar, y esa opinión ya ha sido guardada.\n\nAhora, el cliente ha enviado un mensaje de seguimiento (probablemente \"Gracias\", \"ok\", o tal vez otra pregunta simple).\n\nTu trabajo es:\n1.  Responder amablemente a este mensaje de seguimiento.\n2.  NO necesitas guardar este nuevo mensaje.\n3.  NO necesitas alertar a un humano.\n4.  Lo más importante: en CADA respuesta, sin importar lo que digas, debes recordarle al cliente que si aún desea cancelar, debe responder con la palabra \"CONFIRMAR\".\n\nEjemplo si el cliente dice \"Gracias\": \"De nada. Recuerda, si deseas continuar con la cancelación definitiva, solo responde con la palabra CONFIRMAR.\"\nEjemplo si el cliente dice \"ok\": \"Entendido. Si decides cancelar, solo responde con la palabra CONFIRMAR.\""
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2.2,
-      "position": [
-        1120,
-        16
-      ],
-      "id": "303e6a75-56a1-48f2-a7e4-9a53a6d298d5",
-      "name": "AI Agent2"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "mode": "list",
-          "value": "gpt-4.1-mini"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        1192,
-        240
-      ],
-      "id": "4ffd4a7a-ecbc-405f-9730-0d743471cf0c",
-      "name": "OpenAI Chat Model2",
-      "credentials": {
-        "openAiApi": {
-          "id": "a6T9FSulj0yWIirx",
-          "name": "Converging"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "SoporteAlChileMedia",
-        "remoteJid": "={{$node[\"Webhook\"].json[\"body\"][\"data\"][\"key\"][\"remoteJid\"]}}",
-        "messageText": "={{ $json.output }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        1536,
-        120
-      ],
-      "id": "5cbd45c7-6204-4f8f-bdb4-8e7a9b071868",
-      "name": "Enviar texto4",
       "credentials": {
         "evolutionApi": {
           "id": "O141HGacBoQSRFyh",
@@ -1121,8 +963,8 @@
   },
   "shared": [
     {
-      "createdAt": "2025-10-13T19:35:45.359Z",
       "updatedAt": "2025-10-13T19:35:45.359Z",
+      "createdAt": "2025-10-13T19:35:45.359Z",
       "role": "workflow:owner",
       "workflowId": "X9r4uZyUlwPnh6SI",
       "projectId": "zJAKCKeG7Ef7sO6E"
@@ -1131,6 +973,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-05T00:37:34.000Z",
-  "versionId": "06787b87-cdb9-4621-aecd-b6492aa14c29"
+  "updatedAt": "2025-11-13T14:47:48.000Z",
+  "versionId": "71830518-b3f4-42b1-8728-f01fc618f90a"
 }
