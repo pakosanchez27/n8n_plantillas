@@ -105,7 +105,7 @@
         ],
         [
           {
-            "node": "Message a model",
+            "node": "Code in JavaScript1",
             "type": "main",
             "index": 0
           }
@@ -114,13 +114,7 @@
     },
     "Message a model": {
       "main": [
-        [
-          {
-            "node": "Code in JavaScript1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Code in JavaScript1": {
@@ -195,7 +189,7 @@
       "parameters": {
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=Eres un asistente que responde preguntas de clientes. Tu principal función es utilizar la herramienta \"Supabase Vector Store\" para buscar información y responder consultas.\nNo  debe pasar los 800 caracteres por mensaje  \n"
+          "systemMessage": "=Eres un asistente que responde preguntas de clientes. Tu principal función es utilizar la herramienta \"Supabase Vector Store\" para buscar información y responder consultas.\nNo  debe pasar los 800 caracteres por mensaje  \n\n\nTu base de conocimientos esta en indima ingles, sin embargo tu deber es traducir y dar una respuesta en el  idiomo en el que te habla el usuario"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -243,7 +237,7 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1.3,
       "position": [
-        640,
+        512,
         368
       ],
       "id": "ab02f4a9-c517-4bf6-b9a0-5ca5363be911",
@@ -262,8 +256,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        464,
-        512
+        432,
+        544
       ],
       "id": "68539a13-c60c-45be-89ab-07a6d88c7fb4",
       "name": "Embeddings OpenAI",
@@ -433,7 +427,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Vas a recibir un texto = {{ $json.msj }}  El cual lo vas a reescribir con etiquetas de Elevenlabs para darle setimientos a la voz te dejo un ejemplo \n\n[hushed, solemnly] Excelentísimo doctor Alejandro Gonzales Acosta: [pause 600ms]\n\n[respectfully, measured pace] Con el respeto y la admiración que se tributan a los varones ilustres de nuestra patria, [lower voice] me permito expresarle [emphatic] la más alta consideración [neutral] por su ejemplar trayectoria [slightly slower] y por las obras que dignamente ha legado en el ámbito de la Universidad Nacional Autónoma de México. [pause 400ms] [warmly] Ha hecho usted de la erudición y del elevado magisterio [emphatic] un ejemplo luminoso [measured] para las generaciones presentes y venideras. [pause 500ms]\n\n[proudly, steady] Celebro su generosa dedicación al grupo de dilectos amigos en este chat, [gentle] a quienes asiste con agudeza y fraternidad; [pause 250ms] [thoughtful] de igual suerte, reconozco las valiosas luces que brinda en las juntas de los Pergaminos, [firmly] donde su palabra esclarece y ennoblece el debate, [lighter tone] así como su maestría en entretener y congregar a la concurrencia. [pause 500ms]\n\n[measured, appreciative] No pasan desapercibidos los frutos de su pluma, [emphatic] pues sus numerosos libros y ensayos [slow] constituyen un acervo de saber y virtud para nuestra nación. [pause 600ms]\n\n[solemnly, lower voice] Reciba, pues, mi gratitud sincera [pause 200ms] y la seguridad de mi adhesión respetuosa a su ilustre persona. [pause 500ms]\n\n[formal, warm] Dios guarde a usted.\n\n\n## Reglas \n\n- No pongas mucho tiempo de pause \n- La pasonalidad debe ser mas energica y emocional \n- debe ser orientada a ayudar siempre \n- No cambies el texto solo tienes que agregar etiquetas ",
+              "content": "=### 🎙️ Prompt — Etiquetador emocional ElevenLabs\n\nVas a recibir un texto en la variable:\n> **texto = {{ $json.msj }}**\n\nTu tarea es **reescribir el mismo texto sin cambiarlo**, solo **agregando etiquetas de emociones y control de voz compatibles con ElevenLabs**, siguiendo el estilo de ejemplo.\n\n---\n\n### 🎧 Contexto de la voz\n- Voz **energética, expresiva y empática**, tono medio-agudo (~1450 Hz)\n- Ritmo **ligeramente rápido y natural**\n- Debe sonar **cálida, cercana, profesional y motivadora**\n- Dirigida a **ayudar, orientar o inspirar confianza**\n\n---\n\n### 🎭 Estilo y emociones principales que debes usar:\n- `[friendly]` para saludos, frases cálidas o cercanas.  \n- `[encouraging]` cuando motive, refuerce o anime.  \n- `[warmly]` cuando exprese empatía o gratitud.  \n- `[confident]` cuando explique algo o dé instrucciones.  \n- `[emphatic]` para remarcar una idea importante.  \n- `[thoughtful]` para reflexiones o aclaraciones.  \n- `[pause 200ms–400ms]` entre ideas principales (no más largas).  \n- `[slightly faster]` para frases de acción o entusiasmo.  \n- `[measured pace]` al cerrar una idea.  \n\n---\n\n### 🔧 Reglas generales:\n1. **No cambies el texto**, solo agrega etiquetas antes de cada frase o bloque de sentido.  \n2. **No uses pausas mayores a 400ms**.  \n3. La **personalidad debe ser más energética y emocional**, sin perder naturalidad.  \n4. Evita exceso de etiquetas: 1 o 2 por oración máximo.  \n5. Mantén coherencia emocional: la voz debe sonar **positiva, empática y útil**.  \n\n---\n\n### 🎤 Ejemplo de salida esperada:\nEntrada:\n> “Gracias por contactarnos. En breve te ayudaremos con tu solicitud.”\n\nSalida:\n> [friendly, warm] Gracias por contactarnos. [pause 200ms] [confident, encouraging] En breve te ayudaremos con tu solicitud.\n\n---\n\n### 🚀 Instrucción final:\nReescribe el texto **{{ $json.msj }}** aplicando las etiquetas anteriores según el tono emocional más adecuado en cada frase.  \nEl resultado debe estar listo para ser usado directamente en **ElevenLabs**.\n",
               "role": "system"
             }
           ]
@@ -443,8 +437,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1136,
-        256
+        912,
+        512
       ],
       "id": "d0aa4b7a-7717-4341-a52d-41996c9bd697",
       "name": "Message a model",
@@ -457,7 +451,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const texto =  $input.first().json.message.content || '';\nconst secciones = [];\nconst maxCaracteres = 250;\n\nfor (let i = 0; i < texto.length; i += maxCaracteres) {\n  let fin = i + maxCaracteres;\n  \n  // Buscar punto de corte natural si no estamos al final\n  if (fin < texto.length) {\n    let ultimoEspacio = texto.lastIndexOf(' ', fin);\n    let ultimoPunto = texto.lastIndexOf('.', fin);\n    \n    // Preferir cortar después de un punto o espacio\n    if (ultimoPunto > i && ultimoPunto > fin - 20) {\n      fin = ultimoPunto + 1;\n    } else if (ultimoEspacio > i && ultimoEspacio > fin - 10) {\n      fin = ultimoEspacio + 1;\n    }\n  }\n  \n  const seccion = texto.substring(i, fin).trim();\n  if (seccion) {\n    secciones.push({\n      mensaje: seccion,\n      tipo: \"audio\",\n      seccion: secciones.length + 1,\n      total_secciones: Math.ceil(texto.length / maxCaracteres)\n    });\n  }\n  \n  i = fin - maxCaracteres; // Ajustar el contador\n}\n\nreturn secciones;"
+        "jsCode": "const texto =  $input.first().json.msj || '';\nconst secciones = [];\nconst maxCaracteres = 250;\n\nfor (let i = 0; i < texto.length; i += maxCaracteres) {\n  let fin = i + maxCaracteres;\n  \n  // Buscar punto de corte natural si no estamos al final\n  if (fin < texto.length) {\n    let ultimoEspacio = texto.lastIndexOf(' ', fin);\n    let ultimoPunto = texto.lastIndexOf('.', fin);\n    \n    // Preferir cortar después de un punto o espacio\n    if (ultimoPunto > i && ultimoPunto > fin - 20) {\n      fin = ultimoPunto + 1;\n    } else if (ultimoEspacio > i && ultimoEspacio > fin - 10) {\n      fin = ultimoEspacio + 1;\n    }\n  }\n  \n  const seccion = texto.substring(i, fin).trim();\n  if (seccion) {\n    secciones.push({\n      mensaje: seccion,\n      tipo: \"audio\",\n      seccion: secciones.length + 1,\n      total_secciones: Math.ceil(texto.length / maxCaracteres)\n    });\n  }\n  \n  i = fin - maxCaracteres; // Ajustar el contador\n}\n\nreturn secciones;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -486,19 +480,19 @@
         "resource": "speech",
         "voice": {
           "__rl": true,
-          "value": "AZnzlk1XvdvUeBnXmlld",
+          "value": "kHKM6KvgOJeRvWEs8X2a",
           "mode": "list",
-          "cachedResultName": "Domi"
+          "cachedResultName": "Margot Duek"
         },
         "text": "={{ $json.mensaje }}",
         "additionalOptions": {
           "model": {
             "__rl": true,
-            "value": "eleven_v3",
+            "value": "eleven_multilingual_v2",
             "mode": "list",
-            "cachedResultName": "Eleven v3 (alpha)"
+            "cachedResultName": "Eleven Multilingual v2"
           },
-          "languageCode": "es"
+          "voiceSettings": "{\n  \"stability\": 0.5,\n  \"similarity_boost\": 0.85,\n  \"style\": 0.25,\n  \"use_speaker_boost\": true,\n  \"speed\": 1\n}\n"
         },
         "requestOptions": {}
       },
@@ -547,8 +541,8 @@
   },
   "shared": [
     {
-      "createdAt": "2025-11-05T23:57:45.738Z",
       "updatedAt": "2025-11-05T23:57:45.738Z",
+      "createdAt": "2025-11-05T23:57:45.738Z",
       "role": "workflow:owner",
       "workflowId": "2Rb7ELoyxmaO0ucP",
       "projectId": "zJAKCKeG7Ef7sO6E"
@@ -557,6 +551,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-11-06T03:07:40.000Z",
-  "versionId": "a2737ea3-45fb-461a-8c15-3e51798a5dc6"
+  "updatedAt": "2025-11-08T02:58:03.000Z",
+  "versionId": "4086b3b1-810d-493a-a411-0a42b6b4e214"
 }
