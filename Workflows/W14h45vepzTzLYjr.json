@@ -412,7 +412,7 @@
       "typeVersion": 1,
       "position": [
         2048,
-        176
+        208
       ],
       "id": "08bd87dd-f394-4553-b36c-e1409b26dc31",
       "name": "Enviar texto",
@@ -537,7 +537,7 @@
       "typeVersion": 4.7,
       "position": [
         2272,
-        176
+        208
       ],
       "id": "f3c615c7-d45a-47c6-9515-5168771aa36d",
       "name": "Update row in sheet",
@@ -805,8 +805,8 @@
   },
   "shared": [
     {
-      "createdAt": "2025-10-20T19:45:51.315Z",
       "updatedAt": "2025-10-20T19:45:51.315Z",
+      "createdAt": "2025-10-20T19:45:51.315Z",
       "role": "workflow:owner",
       "workflowId": "W14h45vepzTzLYjr",
       "projectId": "zJAKCKeG7Ef7sO6E"
@@ -815,6 +815,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-11-03T01:50:56.000Z",
-  "versionId": "2653e299-1c19-4c32-b42e-8a0d75b1437e"
+  "updatedAt": "2025-11-13T15:13:34.000Z",
+  "versionId": "88b35656-58a4-45b8-a839-048cba13a95d"
 }
