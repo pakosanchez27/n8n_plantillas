@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Get row(s) in sheet",
+            "node": "Traer los destinatarios",
             "type": "main",
             "index": 0
           }
@@ -78,6 +78,167 @@
           }
         ]
       ]
+    },
+    "Traer los destinatarios": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Enviar imagem",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar imagem1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar imagem2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar imagem": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar imagem1": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar imagem2": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2025-10-19T07:42:48.870Z",
@@ -93,8 +254,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        -192,
+        192
       ],
       "id": "2fc2f888-d150-4201-ab4c-ea3eb6ae0a9d",
       "name": "When clicking ‘Execute workflow’"
@@ -426,24 +587,531 @@
           "name": "Pako"
         }
       }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0",
+          "mode": "list",
+          "cachedResultName": "Fiesta ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 276662014,
+          "mode": "list",
+          "cachedResultName": "Invitados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit#gid=276662014"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Redactado"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        464
+      ],
+      "id": "3ff9aa1a-0220-47fe-9e87-7a84d4460361",
+      "name": "Traer los destinatarios",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        432,
+        464
+      ],
+      "id": "d1b20c0f-b9b9-4c9a-aecf-b62c67af8638",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5f07f3d-a996-4c12-a2c5-49cb2da2d8e4",
+              "name": "to",
+              "value": "={{ $json['Nombre/Familia'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8e93763e-d623-4ddc-adb6-d798b3d41ec0",
+              "name": "mensaje",
+              "value": "={{ $json.Mensaje }}",
+              "type": "string"
+            },
+            {
+              "id": "7e3a9593-19d4-450a-80f0-3f8ff34aa840",
+              "name": "whatsapp",
+              "value": "={{ $json.Whatsapp }}",
+              "type": "string"
+            },
+            {
+              "id": "576409d6-4f5d-4c53-9464-e0265d8b43da",
+              "name": "from",
+              "value": "={{ $json.From }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        560
+      ],
+      "id": "a518148a-c00b-431f-b6af-928241d86029",
+      "name": "Variables"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e34d8610-9668-43d9-b58b-029ccfa08635",
+              "name": "mensaje_final",
+              "value": "={{ $json.to }}\n\n{{ $json.mensaje }}\n\nMisa de Acción de Gracias\n⛪ Parroquia de Nuestra señora de san juan de los lagos.\n📅 Fecha: 06 de diciembre del 2025\n⏰ Hora: 18:00 hrs\n📍 Lugar: calle correos #313 col. Evolucion, Nezahualcoyotl. \n\nhttps://maps.app.goo.gl/pprBEh3qYLMCkBkm8\n\nFiesta\n🎉 Celebración: calle Pichirilo 327, col. Benito juarez, Nezahualcoyotl. \n🕢 Hora: 19:00 hrs\n\nhttps://maps.app.goo.gl/5PXxsPxR3FBHSgNVA",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        848,
+        560
+      ],
+      "id": "be9254af-c8aa-4da6-9ff8-4401ed7196a1",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Variables').item.json.from }}",
+                    "rightValue": "pako",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b68cbb72-a691-4104-8548-5d72e1c2db90"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pako"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "63cf0d75-1a38-4552-a50c-cecca63cd89e",
+                    "leftValue": "={{ $('Variables').item.json.from }}",
+                    "rightValue": "mamá",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mamá"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a15ce7f9-ddfa-48f2-8dd4-3c01ae89800a",
+                    "leftValue": "={{ $('Variables').item.json.from }}",
+                    "rightValue": "vanesa",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Vanesa"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        1472,
+        560
+      ],
+      "id": "f117a200-662d-4e33-96e8-93af5c023a00",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "Pako_V",
+        "remoteJid": "=52{{ $('Traer los destinatarios').item.json.Whatsapp }}",
+        "media": "={{ $json.data }}",
+        "caption": "={{ $('Edit Fields1').item.json.mensaje_final }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1808,
+        736
+      ],
+      "id": "0d393555-f0ab-43f5-a5c9-b43076bf03e8",
+      "name": "Enviar imagem2",
+      "credentials": {
+        "evolutionApi": {
+          "id": "cpbrt527UkP3NiAt",
+          "name": "Pako_V"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "bot_pako",
+        "remoteJid": "=+52{{ $('Variables').item.json.whatsapp }}",
+        "media": "={{ $json.data }}",
+        "caption": "={{ $('Edit Fields1').item.json.mensaje_final }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1808,
+        384
+      ],
+      "id": "27e53ee7-3184-47e5-81fc-70be3e1fe46c",
+      "name": "Enviar imagem",
+      "credentials": {
+        "evolutionApi": {
+          "id": "7p8efes3okPFVAE5",
+          "name": "Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "Pako_M",
+        "remoteJid": "=52{{ $('Variables').item.json.whatsapp }}",
+        "media": "={{ $json.data }}",
+        "caption": "={{ $('Edit Fields1').item.json.mensaje_final }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1808,
+        560
+      ],
+      "id": "785cabce-e968-4b50-8ef1-878201ef0c5c",
+      "name": "Enviar imagem1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "4rDyY9msldDpwtza",
+          "name": "Pako_M"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1ncve9e06rA_SFLVyNoVuBn_5VNpfeQee",
+          "mode": "list",
+          "cachedResultName": "Invitacion_vanesa_page-0001.jpg",
+          "cachedResultUrl": "https://drive.google.com/file/d/1ncve9e06rA_SFLVyNoVuBn_5VNpfeQee/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1056,
+        560
+      ],
+      "id": "0ada04c9-b9f4-40d6-ab42-6c6b6989b1ee",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "nbtBBf1dnJ1Yok6v",
+          "name": "Drive Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        560
+      ],
+      "id": "75d19e6c-03a3-44cd-9c6a-26a1b9a4c1c5",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0",
+          "mode": "list",
+          "cachedResultName": "Fiesta ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 276662014,
+          "mode": "list",
+          "cachedResultName": "Invitados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dYJhfw6jk1bcGmGflpcXm05cHYAFGU2jqMd7zr7plK0/edit#gid=276662014"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "=Enviado",
+            "row_number": "={{ $('Loop Over Items1').item.json.row_number }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Nombre/Familia",
+              "displayName": "Nombre/Familia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Mensaje",
+              "displayName": "Mensaje",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "From",
+              "displayName": "From",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2160,
+        672
+      ],
+      "id": "f5a41595-957f-4b49-a584-b32ba5de0124",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5mleh0eyxZZcpMp2",
+          "name": "Sheets Pako"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        464
+      ],
+      "id": "4b835ddd-ac0b-4605-bb13-a9f4c5d45748",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "bot_pako",
+        "remoteJid": "=+525534073167",
+        "messageText": "Se enviaron todos las invitaciones ",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        704,
+        336
+      ],
+      "id": "d5444fa4-5969-4d22-8cb1-74d5ae263a61",
+      "name": "Enviar texto1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "7p8efes3okPFVAE5",
+          "name": "Pako"
+        }
+      }
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "shared": [
     {
-      "createdAt": "2025-10-19T07:42:48.876Z",
       "updatedAt": "2025-10-19T07:42:48.876Z",
+      "createdAt": "2025-10-19T07:42:48.876Z",
       "role": "workflow:owner",
       "workflowId": "FxZqH4Wez09IPKV4",
       "projectId": "zJAKCKeG7Ef7sO6E"
     }
   ],
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-10-29T15:49:43.000Z",
-  "versionId": "86eb6299-196e-4afd-8d95-855831ac6a81"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-09T15:20:23.000Z",
+  "versionId": "feb5eb4d-740f-4048-9bd8-30c620a997be"
 }
