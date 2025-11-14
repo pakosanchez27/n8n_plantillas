@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Recibir MSJ1": {
       "main": [
@@ -2883,8 +2883,8 @@
   },
   "shared": [
     {
-      "createdAt": "2025-08-30T09:43:28.017Z",
       "updatedAt": "2025-08-30T09:43:28.017Z",
+      "createdAt": "2025-08-30T09:43:28.017Z",
       "role": "workflow:owner",
       "workflowId": "c1emqYRM3PW8GB7k",
       "projectId": "zJAKCKeG7Ef7sO6E"
@@ -2893,19 +2893,19 @@
   "staticData": null,
   "tags": [
     {
-      "createdAt": "2025-09-10T12:30:41.176Z",
       "updatedAt": "2025-09-10T12:30:41.176Z",
+      "createdAt": "2025-09-10T12:30:41.176Z",
       "id": "1fO6UBLaDtbxeh3V",
       "name": "CLINICA"
     },
     {
-      "createdAt": "2025-07-30T07:16:47.434Z",
       "updatedAt": "2025-07-30T07:16:47.434Z",
+      "createdAt": "2025-07-30T07:16:47.434Z",
       "id": "mSpHjLUfWIhOQqzc",
       "name": "Experimentos"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-11-04T22:09:01.000Z",
+  "updatedAt": "2025-11-08T02:55:06.000Z",
   "versionId": "c45876f1-2e69-48b0-9b5f-d37e32721429"
 }
