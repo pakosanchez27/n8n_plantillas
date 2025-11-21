@@ -1,0 +1,98 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-20T23:03:07.644Z",
+  "id": "WZuqcqMKqzFJ7HGl",
+  "isArchived": false,
+  "meta": null,
+  "name": "Formulario clinica",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "registro-paciente",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -432,
+        -80
+      ],
+      "id": "fae5147d-9446-44ad-8509-2b271d54ab1e",
+      "name": "Webhook",
+      "webhookId": "a1efc422-8e64-44e1-9503-bfdcb8e897c5"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Formulario Expediente Dental</title>\n  <style>\n    body { font-family: \"Poppins\", sans-serif; background:#f2f6fc; padding:40px; }\n    .form-container { background:#fff; max-width:1100px; margin:auto; padding:35px; border-radius:18px; box-shadow:0 8px 25px rgba(0,0,0,0.08); }\n    h2 { text-align:center; color:#1f3c88; }\n    .section-title { margin-top:35px; font-size:20px; color:#1f3c88; border-left:5px solid #1f3c88; padding-left:10px; }\n    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; margin-bottom:25px; }\n    label { font-weight:600; }\n    input, select, textarea { width:90%; padding:14px; border-radius:12px; border:1px solid #cdd6e6; background:#f9fbfd; margin-top:5px; margin-bottom:10px; }\n    .btn-submit { width:100%; padding:15px; background:#1f3c88; color:#fff; border:none; border-radius:12px; font-size:17px; margin-top:25px; cursor:pointer; }\n    .success-msg { display:none; text-align:center; background:#e0f7e9; padding:15px; border-radius:10px; margin-top:20px; color:#2a7a42; }\n  </style>\n</head>\n<body>\n  <div class=\"form-container\">\n    <h2>Expediente Dental Completo</h2>\n\n    <!-- DATOS PERSONALES -->\n    <h3 class=\"section-title\">Datos personales</h3>\n    <div class=\"grid\">\n      <div><label>Nombre</label><input id=\"nombre\"></div>\n      <div><label>Apellido paterno</label><input id=\"apellido_paterno\"></div>\n      <div><label>Apellido materno</label><input id=\"apellido_materno\"></div>\n      <div><label>Fecha nacimiento</label><input type=\"date\" id=\"fecha_nacimiento\"></div>\n      <div><label>Edad</label><input id=\"edad\" type=\"number\"></div>\n      <div><label>Sexo</label>\n        <select id=\"sexo\">\n          <option value=\"\">Selecciona</option>\n          <option>Masculino</option>\n          <option>Femenino</option>\n          <option>Otro</option>\n        </select>\n      </div>\n      <div><label>CURP</label><input id=\"curp\"></div>\n      <div><label>Ocupación</label><input id=\"ocupacion\"></div>\n      <div><label>Estado civil</label><input id=\"estado_civil\"></div>\n      <div><label>Calle</label><input id=\"direccion_calle\"></div>\n      <div><label>Número</label><input id=\"direccion_numero\"></div>\n      <div><label>Colonia</label><input id=\"colonia\"></div>\n      <div><label>Municipio</label><input id=\"municipio\"></div>\n      <div><label>Estado</label><input id=\"estado\"></div>\n      <div><label>Código postal</label><input id=\"codigo_postal\"></div>\n      <div><label>Teléfono</label><input id=\"telefono\"></div>\n      <div><label>Teléfono alterno</label><input id=\"telefono_alterno\"></div>\n      <div><label>Email</label><input id=\"email\" type=\"email\"></div>\n    </div>\n\n    <!-- CONTACTO EMERGENCIA -->\n    <h3 class=\"section-title\">Contacto de emergencia</h3>\n    <div class=\"grid\">\n      <div><label>Nombre</label><input id=\"contacto_emergencia_nombre\"></div>\n      <div><label>Relación</label><input id=\"contacto_emergencia_relacion\"></div>\n      <div><label>Teléfono</label><input id=\"contacto_emergencia_telefono\"></div>\n    </div>\n\n    <!-- ANTECEDENTES MÉDICOS -->\n    <h3 class=\"section-title\">Antecedentes médicos</h3>\n    <div class=\"grid\">\n      <div><label>Alergias</label><input id=\"alergias\"></div>\n      <div><label>Enfermedades crónicas</label><input id=\"enfermedades_cronicas\"></div>\n      <div><label>Cirugías previas</label><input id=\"cirugias_previas\"></div>\n      <div><label>Medicamentos actuales</label><input id=\"medicamentos_actuales\"></div>\n      <div><label>Embarazo</label>\n        <select id=\"embarazo\">\n          <option value=\"\">Selecciona</option>\n          <option>No</option>\n          <option>Sí</option>\n        </select>\n      </div>\n      <div><label>Tabaquismo</label>\n        <select id=\"tabaquismo\">\n          <option value=\"\">Selecciona</option>\n          <option>No</option>\n          <option>Sí</option>\n        </select>\n      </div>\n      <div><label>Alcohol</label>\n        <select id=\"alcohol\">\n          <option value=\"\">Selecciona</option>\n          <option>No</option>\n          <option>Sí</option>\n        </select>\n      </div>\n      <div><label>Última visita al dentista</label><input type=\"date\" id=\"ultima_visita_dentista\"></div>\n    </div>\n\n    <!-- MOTIVO DE CONSULTA -->\n    <h3 class=\"section-title\">Motivo de consulta</h3>\n    <textarea id=\"motivo_consulta\"></textarea>\n\n    <!-- ADMIN -->\n    <h3 class=\"section-title\">Administrativo</h3>\n    <div class=\"grid\">\n      <div><label>Número expediente</label><input id=\"numero_expediente\"></div>\n      <div><label>Fecha alta</label><input type=\"date\" id=\"fecha_alta\"></div>\n      <div><label>Médico responsable</label><input id=\"medico_responsable\"></div>\n      <div><label>Sucursal</label><input id=\"sucursal\"></div>\n      <div><label>¿Requiere factura?</label>\n        <select id=\"requiere_factura\">\n          <option value=\"\">Selecciona</option>\n          <option>No</option>\n          <option>Sí</option>\n        </select>\n      </div>\n      <div><label>RFC</label><input id=\"rfc\"></div>\n    </div>\n\n    <button type=\"button\" class=\"btn-submit\" onclick=\"guardar()\">Enviar datos</button>\n    <div id=\"successMsg\" class=\"success-msg\">Guardado correctamente</div>\n  </div>\n\n<script>\nfunction recogerDatos(){\n  const campos = document.querySelectorAll('input[id], select[id], textarea[id]');\n  let data = {};\n  campos.forEach(campo => { data[campo.id] = campo.value || \"\"; });\n  return data;\n}\n\nfunction validarCampos(){\n  const campos = document.querySelectorAll('input[id], select[id], textarea[id]');\n  let valido = true;\n\n  campos.forEach(campo => {\n    if (!campo.value || campo.value.trim() === '') {\n      campo.style.border = '2px solid #d9534f';\n      valido = false;\n    } else {\n      campo.style.border = '1px solid #cdd6e6';\n    }\n  });\n\n  return valido;\n}\n\nfunction resetearFormulario(){\n  const campos = document.querySelectorAll('input[id], select[id], textarea[id]');\n  campos.forEach(campo => {\n    campo.value = \"\";\n    campo.style.border = \"1px solid #cdd6e6\";\n  });\n}\n\nfunction mostrarMensajeFinal(){\n  document.querySelector(\".form-container\").style.display = \"none\";\n\n  const div = document.createElement(\"div\");\n  div.id = \"mensajeFinal\";\n  div.style.textAlign = \"center\";\n  div.style.background = \"#e0f7e9\";\n  div.style.padding = \"40px\";\n  div.style.borderRadius = \"16px\";\n  div.style.maxWidth = \"600px\";\n  div.style.margin = \"50px auto\";\n  div.style.boxShadow = \"0 8px 25px rgba(0,0,0,0.08)\";\n\n  div.innerHTML = `\n    <h2 style=\"color:#2a7a42;\">✔ Registro completado</h2>\n    <p style=\"font-size:18px;\">El expediente se guardó correctamente.</p>\n    <button onclick=\"nuevoPaciente()\" \n      style=\"margin-top:25px; padding:15px 25px; font-size:17px;\n      background:#1f3c88; color:white; border:none; border-radius:12px; cursor:pointer;\">\n      Crear nuevo paciente\n    </button>\n  `;\n\n  document.body.appendChild(div);\n}\n\nfunction nuevoPaciente(){\n  document.getElementById(\"mensajeFinal\").remove();\n  document.querySelector(\".form-container\").style.display = \"block\";\n  resetearFormulario();\n}\n\nfunction guardar(){\n  if (!validarCampos()) {\n    alert(\"⚠️ Debes completar todos los campos antes de enviar.\");\n    return;\n  }\n\n  const data = recogerDatos();\n\n  fetch('https://n8n.srv914565.hstgr.cloud/webhook/22835961-684b-464c-a93d-7f7e080e4dc4', {\n    method:'POST',\n    headers:{'Content-Type':'application/json'},\n    body:JSON.stringify(data)\n  })\n  .then(async r => {\n\n    if (r.status === 200) {\n      // ✔ ÉXITO TOTAL\n      resetearFormulario();\n      mostrarMensajeFinal();\n    } else {\n      alert(\"El servidor respondió pero no con código 200.\");\n    }\n\n    return r.text();\n  })\n  .catch(err=>{\n    alert(\"❌ Error al enviar los datos.\");\n    console.error(err);\n  });\n}\n</script>\n\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -224,
+        -80
+      ],
+      "id": "a3ae740d-6471-41f5-bdc3-555de4baf7db",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        -80
+      ],
+      "id": "315d0e6a-eb5f-4d11-a82c-26786a5cd893",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-20T23:03:07.647Z",
+      "createdAt": "2025-11-20T23:03:07.647Z",
+      "role": "workflow:owner",
+      "workflowId": "WZuqcqMKqzFJ7HGl",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-21T00:01:26.000Z",
+  "versionId": "72ced0f5-8aff-437c-ab61-ed2a04fd6f97"
+}
