@@ -419,7 +419,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "MargotBot",
+  "name": "MargotBot RAG",
   "nodes": [
     {
       "parameters": {
@@ -445,7 +445,7 @@
       "typeVersion": 1,
       "position": [
         16,
-        920
+        928
       ],
       "id": "9fa3f471-aed6-41b2-b842-fba7f2e969d0",
       "name": "Actualizador de documentos",
@@ -474,7 +474,9 @@
           "cachedResultUrl": "https://drive.google.com/drive/folders/1em79z4n9vml_5BmlUzmWsZeNrmGBz1WQ"
         },
         "event": "fileCreated",
-        "options": {}
+        "options": {
+          "fileType": "all"
+        }
       },
       "type": "n8n-nodes-base.googleDriveTrigger",
       "typeVersion": 1,
@@ -844,7 +846,7 @@
       "typeVersion": 3,
       "position": [
         1360,
-        296
+        304
       ],
       "id": "a09e0c62-9724-459a-a623-ce594c88ceee",
       "name": "Download file",
@@ -1030,7 +1032,7 @@
       "typeVersion": 3.4,
       "position": [
         240,
-        920
+        928
       ],
       "id": "d1d24b51-66c7-46f6-9763-83e9a5d19148",
       "name": "Filtrar Datos1"
@@ -1196,7 +1198,7 @@
       "typeVersion": 3.3,
       "position": [
         912,
-        856
+        864
       ],
       "id": "d1dc9ab1-3c59-4be2-a87c-75207f20196a",
       "name": "Switch1"
@@ -1221,7 +1223,7 @@
       "typeVersion": 3,
       "position": [
         688,
-        920
+        928
       ],
       "id": "45ff1f7f-935c-4bb6-8cce-8cfbab8d35a4",
       "name": "Descargar archivo1",
@@ -1241,7 +1243,7 @@
       "typeVersion": 1,
       "position": [
         1584,
-        536
+        544
       ],
       "id": "7df2b58d-c0f7-4fde-ac1f-a3a70b257d41",
       "name": "Extract PDF text1"
@@ -1255,7 +1257,7 @@
       "typeVersion": 1,
       "position": [
         1584,
-        728
+        736
       ],
       "id": "86ed5053-d4fa-4f6b-9ac2-fc982aac128f",
       "name": "Extract from Text File1"
@@ -1269,7 +1271,7 @@
       "typeVersion": 1,
       "position": [
         1136,
-        920
+        928
       ],
       "id": "068b937d-4399-42a2-aeeb-96e6ecd3447e",
       "name": "Extract Excel1"
@@ -1288,7 +1290,7 @@
       "typeVersion": 3,
       "position": [
         1360,
-        1112
+        1120
       ],
       "id": "d318bea2-d0af-449a-93d3-239410986b7d",
       "name": "Delete a file1",
@@ -1324,7 +1326,7 @@
       "typeVersion": 4.2,
       "position": [
         1136,
-        1112
+        1120
       ],
       "id": "6d070a7d-e465-440a-a844-6feca839a4d8",
       "name": "Convertir a Doc1",
@@ -1379,7 +1381,7 @@
       "typeVersion": 1,
       "position": [
         1360,
-        920
+        928
       ],
       "id": "61757514-4faf-450e-a35a-d61aaa6ea048",
       "name": "Aggregate1"
@@ -1400,7 +1402,7 @@
       "typeVersion": 1.1,
       "position": [
         1584,
-        920
+        928
       ],
       "id": "31ecced7-0fef-47a9-b505-05c88417ed3f",
       "name": "Summarize1"
@@ -1422,7 +1424,7 @@
       "typeVersion": 1.3,
       "position": [
         1840,
-        728
+        736
       ],
       "id": "a52768b4-82b0-4417-ae5d-b10bb36d32ce",
       "name": "Supabase Vector Store1",
@@ -1441,7 +1443,7 @@
       "typeVersion": 1.2,
       "position": [
         1808,
-        952
+        960
       ],
       "id": "26f71c37-6df4-41ec-9faf-fb3ed0b23e6a",
       "name": "Embeddings OpenAI1",
@@ -1500,7 +1502,7 @@
       "typeVersion": 1.1,
       "position": [
         1936,
-        952
+        960
       ],
       "id": "4d7f50f1-74ec-43d5-bdb8-983dba0ecc9c",
       "name": "Default Data Loader1"
@@ -1516,7 +1518,7 @@
       "typeVersion": 1,
       "position": [
         2016,
-        1160
+        1168
       ],
       "id": "23148de8-528a-400b-bd3f-ee7ff8c5dc72",
       "name": "Recursive Character Text Splitter1"
@@ -1532,7 +1534,7 @@
       "typeVersion": 1,
       "position": [
         464,
-        920
+        928
       ],
       "id": "9a33256f-6af3-46e2-ad10-bd1af7587fb5",
       "name": "Delete a row",
@@ -1559,14 +1561,14 @@
   ],
   "staticData": {
     "node:Actualizador de documentos": {
-      "lastTimeChecked": "2025-11-08T10:23:12Z"
+      "lastTimeChecked": "2025-11-18T23:11:04Z"
     },
     "node:Creacion de documentos": {
-      "lastTimeChecked": "2025-11-08T10:23:12Z"
+      "lastTimeChecked": "2025-11-18T23:11:04Z"
     }
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-11-07T23:46:52.000Z",
-  "versionId": "ded142e7-7e94-46b5-a500-05679aae6dc3"
+  "updatedAt": "2025-11-18T02:39:46.000Z",
+  "versionId": "0dec7ff8-22be-4032-af52-9ab52fc44e0a"
 }
