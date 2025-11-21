@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-11-14T19:56:22.405Z",
+  "id": "AIy4ElWvAwyITUpM",
+  "isArchived": true,
+  "meta": null,
+  "name": "Recordatorios Redes",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-14T19:56:22.409Z",
+      "createdAt": "2025-11-14T19:56:22.409Z",
+      "role": "workflow:owner",
+      "workflowId": "AIy4ElWvAwyITUpM",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-14T20:35:23.000Z",
+  "versionId": "184b83ba-a437-49bd-8081-247bea9f10ae"
+}
