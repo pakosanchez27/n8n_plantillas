@@ -56,11 +56,11 @@
   "nodes": [
     {
       "parameters": {
-        "listId": "690bbcb0d28c56c62a31850f",
+        "listId": "6914036fa14380fe1718f8d3",
         "name": "=Creación de Feed - {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
         "description": "=Comenzar creacion del feed: {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
         "additionalFields": {
-          "idMembers": "6656c043bb5b2b1cadad830b"
+          "idMembers": "64ff7e992679ca4a8fc55a43"
         }
       },
       "type": "n8n-nodes-base.trello",
@@ -175,6 +175,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-06T00:44:41.000Z",
-  "versionId": "9cbaad89-3f50-4507-8da2-49047d506fc3"
+  "updatedAt": "2025-11-15T00:15:30.000Z",
+  "versionId": "19ffb93f-1287-42af-beb9-1a7b01ab2f29"
 }
