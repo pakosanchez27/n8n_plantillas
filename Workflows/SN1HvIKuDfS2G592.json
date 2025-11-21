@@ -1,0 +1,752 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-20T23:04:39.606Z",
+  "id": "SN1HvIKuDfS2G592",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Registro de paciente",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "22835961-684b-464c-a93d-7f7e080e4dc4",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c3fc850b-801e-4e90-85fd-43af6f0b549b",
+      "name": "Webhook",
+      "webhookId": "22835961-684b-464c-a93d-7f7e080e4dc4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d56a0217-208f-4aa3-b077-16977b7acbc1",
+              "name": "body.nombre",
+              "value": "={{ $json.body.nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "08a96d05-dd0c-4c36-beea-2608d5e934b7",
+              "name": "body.apellido_paterno",
+              "value": "={{ $json.body.apellido_paterno }}",
+              "type": "string"
+            },
+            {
+              "id": "a5649615-199a-4c9c-9cae-d32f698c8a0f",
+              "name": "body.apellido_materno",
+              "value": "={{ $json.body.apellido_materno }}",
+              "type": "string"
+            },
+            {
+              "id": "5e5755bf-cb2e-4fe0-bcc5-876df5341a73",
+              "name": "body.fecha_nacimiento",
+              "value": "={{ $json.body.fecha_nacimiento }}",
+              "type": "string"
+            },
+            {
+              "id": "cb764a1f-3683-4bd5-8b8a-59562b0f09c6",
+              "name": "body.edad",
+              "value": "={{ $json.body.edad }}",
+              "type": "string"
+            },
+            {
+              "id": "b6536026-6d43-48a5-b35e-ab9f01849e48",
+              "name": "body.curp",
+              "value": "={{ $json.body.curp }}",
+              "type": "string"
+            },
+            {
+              "id": "2c724999-02cd-4d64-888d-54bef2c4414d",
+              "name": "body.sexo",
+              "value": "={{ $json.body.sexo }}",
+              "type": "string"
+            },
+            {
+              "id": "890e1bc9-ebf2-4f9f-bdaa-91359c686d50",
+              "name": "body.ocupacion",
+              "value": "={{ $json.body.ocupacion }}",
+              "type": "string"
+            },
+            {
+              "id": "69b7193a-003e-421a-96a4-37e25458837d",
+              "name": "body.estado_civil",
+              "value": "={{ $json.body.estado_civil }}",
+              "type": "string"
+            },
+            {
+              "id": "213ea7a1-2e00-442b-a529-02edd8b012f6",
+              "name": "body.direccion_calle",
+              "value": "={{ $json.body.direccion_calle }}",
+              "type": "string"
+            },
+            {
+              "id": "e13ed048-c33b-4efc-ab3f-a61507e6cce1",
+              "name": "body.direccion_numero",
+              "value": "={{ $json.body.direccion_numero }}",
+              "type": "string"
+            },
+            {
+              "id": "21c03d6d-cf25-40fa-a660-98557d73d08b",
+              "name": "body.colonia",
+              "value": "={{ $json.body.colonia }}",
+              "type": "string"
+            },
+            {
+              "id": "e8ff1b89-b7c3-43d1-9276-9588b5d2e458",
+              "name": "body.estado",
+              "value": "={{ $json.body.estado }}",
+              "type": "string"
+            },
+            {
+              "id": "3f85fc49-c1f6-4c62-a70b-0974c7e09511",
+              "name": "body.codigo_postal",
+              "value": "={{ $json.body.codigo_postal }}",
+              "type": "string"
+            },
+            {
+              "id": "5fce3d3d-2035-4712-9e93-06c7fd9dcb1e",
+              "name": "body.telefono",
+              "value": "={{ $json.body.telefono }}",
+              "type": "string"
+            },
+            {
+              "id": "bcb07a2b-c10b-4a87-9cd1-3bea0c613976",
+              "name": "body.telefono_alterno",
+              "value": "={{ $json.body.telefono_alterno }}",
+              "type": "string"
+            },
+            {
+              "id": "9103086a-1a45-451e-87e6-0da1af782f71",
+              "name": "body.email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "207a8817-9754-45ec-a72f-95d3ed8826a5",
+              "name": "body.contacto_emergencia_nombre",
+              "value": "={{ $json.body.contacto_emergencia_nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "7ccd5a94-42e4-4e94-bf62-31e7a2f5cfce",
+              "name": "body.contacto_emergencia_relacion",
+              "value": "={{ $json.body.contacto_emergencia_relacion }}",
+              "type": "string"
+            },
+            {
+              "id": "b7bca1e6-8f14-4223-b217-5b898edabb9f",
+              "name": "body.contacto_emergencia_telefono",
+              "value": "={{ $json.body.contacto_emergencia_telefono }}",
+              "type": "string"
+            },
+            {
+              "id": "4aa7556b-db74-403f-a32e-b75075289f0e",
+              "name": "body.alergias",
+              "value": "={{ $json.body.alergias }}",
+              "type": "string"
+            },
+            {
+              "id": "5bc4af3c-3bd1-414e-bf8b-79ed644c0321",
+              "name": "body.enfermedades_cronicas",
+              "value": "={{ $json.body.enfermedades_cronicas }}",
+              "type": "string"
+            },
+            {
+              "id": "b2c27858-2772-4ee1-8acf-9acc057b1b9e",
+              "name": "body.cirugias_previas",
+              "value": "={{ $json.body.cirugias_previas }}",
+              "type": "string"
+            },
+            {
+              "id": "f171e633-9cf8-4565-8721-e422574d800f",
+              "name": "body.medicamentos_actuales",
+              "value": "={{ $json.body.medicamentos_actuales }}",
+              "type": "string"
+            },
+            {
+              "id": "4ab8bf03-639f-4b6c-bcf1-93a00add5d64",
+              "name": "body.embarazo",
+              "value": "={{ $json.body.embarazo }}",
+              "type": "string"
+            },
+            {
+              "id": "4f676c41-1389-4fe9-a7b4-fea720c64f64",
+              "name": "body.tabaquismo",
+              "value": "={{ $json.body.tabaquismo }}",
+              "type": "string"
+            },
+            {
+              "id": "f6fac639-1037-429a-9d28-72849e70df1a",
+              "name": "body.alcohol",
+              "value": "={{ $json.body.alcohol }}",
+              "type": "string"
+            },
+            {
+              "id": "44ba4730-3f9c-41c2-acab-8bc5ae968132",
+              "name": "body.ultima_visita_dentista",
+              "value": "={{ $json.body.ultima_visita_dentista }}",
+              "type": "string"
+            },
+            {
+              "id": "b44f359c-777b-49e4-85c1-4796960fe98b",
+              "name": "body.motivo_consulta",
+              "value": "={{ $json.body.motivo_consulta }}",
+              "type": "string"
+            },
+            {
+              "id": "851c9e3b-d135-4adb-9db6-40b87a2274ae",
+              "name": "body.ultima_visita_dentista",
+              "value": "={{ $json.body.ultima_visita_dentista }}",
+              "type": "string"
+            },
+            {
+              "id": "9f1bf5e5-70a2-4733-a0de-80423153b30a",
+              "name": "body.motivo_consulta",
+              "value": "={{ $json.body.motivo_consulta }}",
+              "type": "string"
+            },
+            {
+              "id": "e052fcc7-d419-406d-a238-a4e5f14869f5",
+              "name": "body.numero_expediente",
+              "value": "={{ $json.body.numero_expediente }}",
+              "type": "string"
+            },
+            {
+              "id": "d069936c-abe3-4464-a5a3-6157bfbe7d8f",
+              "name": "body.numero_expediente",
+              "value": "={{ $json.body.numero_expediente }}",
+              "type": "string"
+            },
+            {
+              "id": "db153b2f-73a6-47e2-8045-0893bb146a92",
+              "name": "body.fecha_alta",
+              "value": "={{ $json.body.fecha_alta }}",
+              "type": "string"
+            },
+            {
+              "id": "ae7af1ba-2b89-4492-8aa4-67760fedf52f",
+              "name": "body.medico_responsable",
+              "value": "={{ $json.body.medico_responsable }}",
+              "type": "string"
+            },
+            {
+              "id": "7cccb5f2-761a-4786-b582-fe8bc2a555ec",
+              "name": "body.sucursal",
+              "value": "={{ $json.body.sucursal }}",
+              "type": "string"
+            },
+            {
+              "id": "1f3ef380-9f8f-40c1-8770-289e07c1ac3f",
+              "name": "body.requiere_factura",
+              "value": "={{ $json.body.requiere_factura }}",
+              "type": "string"
+            },
+            {
+              "id": "dedf9337-a233-443f-8b57-0c2d160f68ab",
+              "name": "body.rfc",
+              "value": "={{ $json.body.rfc }}",
+              "type": "string"
+            },
+            {
+              "id": "9a053737-bda2-47dd-b6da-1783fbed8957",
+              "name": "body.municipio",
+              "value": "={{ $json.body.municipio }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5815f9c1-8211-4830-b086-3134a30e6fe0",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1En0MmZKmQvzlN5Br1PYMxZX0uj6mZwhOcMJrtOqGWyY",
+          "mode": "list",
+          "cachedResultName": "Admin Clinica",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1En0MmZKmQvzlN5Br1PYMxZX0uj6mZwhOcMJrtOqGWyY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Pacientes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1En0MmZKmQvzlN5Br1PYMxZX0uj6mZwhOcMJrtOqGWyY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "nombre": "={{ $json.body.nombre }}",
+            "apellido_paterno": "={{ $json.body.apellido_paterno }}",
+            "apellido_materno": "={{ $json.body.apellido_materno }}",
+            "fecha_nacimiento": "={{ $json.body.fecha_nacimiento }}",
+            "edad": "={{ $json.body.edad }}",
+            "sexo": "={{ $json.body.sexo }}",
+            "curp": "={{ $json.body.curp }}",
+            "ocupacion": "={{ $json.body.ocupacion }}",
+            "estado_civil": "={{ $json.body.estado_civil }}",
+            "direccion_calle": "={{ $json.body.direccion_calle }}",
+            "direccion_numero": "={{ $json.body.direccion_numero }}",
+            "colonia": "={{ $json.body.colonia }}",
+            "municipio": "={{ $json.body.municipio }}",
+            "estado": "={{ $json.body.estado }}",
+            "codigo_postal": "={{ $json.body.codigo_postal }}",
+            "telefono": "={{ $json.body.telefono }}",
+            "telefono_alterno": "={{ $json.body.telefono_alterno }}",
+            "email": "={{ $json.body.email }}",
+            "contacto_emergencia_nombre": "={{ $json.body.contacto_emergencia_nombre }}",
+            "contacto_emergencia_relacion": "={{ $json.body.contacto_emergencia_relacion }}",
+            "contacto_emergencia_telefono": "={{ $json.body.contacto_emergencia_telefono }}",
+            "alergias": "={{ $json.body.alergias }}",
+            "enfermedades_cronicas": "={{ $json.body.enfermedades_cronicas }}",
+            "cirugias_previas": "={{ $json.body.cirugias_previas }}",
+            "medicamentos_actuales": "={{ $json.body.medicamentos_actuales }}",
+            "embarazo": "={{ $json.body.embarazo }}",
+            "tabaquismo": "={{ $json.body.tabaquismo }}",
+            "alcohol": "={{ $json.body.alcohol }}",
+            "ultima_visita_dentista": "={{ $json.body.ultima_visita_dentista }}",
+            "motivo_consulta": "={{ $json.body.motivo_consulta }}",
+            "numero_expediente": "={{ $json.body.numero_expediente }}",
+            "fecha_alta": "={{ $json.body.fecha_alta }}",
+            "medico_responsable": "={{ $json.body.medico_responsable }}",
+            "sucursal": "={{ $json.body.municipio }}",
+            "requiere_factura": "={{ $json.body.requiere_factura }}",
+            "rfc": "={{ $json.body.rfc }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "apellido_paterno",
+              "displayName": "apellido_paterno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "apellido_materno",
+              "displayName": "apellido_materno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fecha_nacimiento",
+              "displayName": "fecha_nacimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "edad",
+              "displayName": "edad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sexo",
+              "displayName": "sexo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "curp",
+              "displayName": "curp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ocupacion",
+              "displayName": "ocupacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado_civil",
+              "displayName": "estado_civil",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "direccion_calle",
+              "displayName": "direccion_calle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "direccion_numero",
+              "displayName": "direccion_numero",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "colonia",
+              "displayName": "colonia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "municipio",
+              "displayName": "municipio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "codigo_postal",
+              "displayName": "codigo_postal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "telefono_alterno",
+              "displayName": "telefono_alterno",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contacto_emergencia_nombre",
+              "displayName": "contacto_emergencia_nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contacto_emergencia_relacion",
+              "displayName": "contacto_emergencia_relacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contacto_emergencia_telefono",
+              "displayName": "contacto_emergencia_telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "alergias",
+              "displayName": "alergias",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "enfermedades_cronicas",
+              "displayName": "enfermedades_cronicas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cirugias_previas",
+              "displayName": "cirugias_previas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "medicamentos_actuales",
+              "displayName": "medicamentos_actuales",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "embarazo",
+              "displayName": "embarazo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "tabaquismo",
+              "displayName": "tabaquismo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "alcohol",
+              "displayName": "alcohol",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ultima_visita_dentista",
+              "displayName": "ultima_visita_dentista",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "motivo_consulta",
+              "displayName": "motivo_consulta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "numero_expediente",
+              "displayName": "numero_expediente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fecha_alta",
+              "displayName": "fecha_alta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "medico_responsable",
+              "displayName": "medico_responsable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sucursal",
+              "displayName": "sucursal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "requiere_factura",
+              "displayName": "requiere_factura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rfc",
+              "displayName": "rfc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        416,
+        0
+      ],
+      "id": "f5ce2a6c-c209-4928-85ed-c349ec20da52",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SCiOfsNob9TLdXTF",
+          "name": "ClinicaSheet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        624,
+        0
+      ],
+      "id": "7815dbb6-ac1f-4aa8-bb96-9bfe4467e85a",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-20T23:04:39.608Z",
+      "createdAt": "2025-11-20T23:04:39.608Z",
+      "role": "workflow:owner",
+      "workflowId": "SN1HvIKuDfS2G592",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-21T00:01:00.000Z",
+  "versionId": "25237872-d616-485f-b02b-33b4a73dda6b"
+}
