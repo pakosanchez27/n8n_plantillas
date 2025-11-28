@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -336,8 +336,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        1168,
-        80
+        896,
+        144
       ],
       "id": "bac1e3e1-ec1c-4fcc-888a-986c96125c62",
       "name": "Switch"
@@ -369,8 +369,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1824,
-        80
+        1392,
+        144
       ],
       "id": "fc0a36d2-21e6-47ae-a2a1-5768a6a066b2",
       "name": "If1"
@@ -387,8 +387,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2048,
-        -16
+        1616,
+        48
       ],
       "id": "bb73ea6c-be58-4918-bfe9-485e7c633324",
       "name": "Send a message",
@@ -411,8 +411,8 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        2048,
-        208
+        1616,
+        272
       ],
       "id": "08bd87dd-f394-4553-b36c-e1409b26dc31",
       "name": "Enviar texto",
@@ -536,8 +536,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        2272,
-        208
+        1840,
+        272
       ],
       "id": "f3c615c7-d45a-47c6-9515-5168771aa36d",
       "name": "Update row in sheet",
@@ -558,7 +558,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1168,
+        976,
         -304
       ],
       "id": "bd35facd-2475-4bba-ab3b-d074941a81f2",
@@ -597,7 +597,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1392,
+        1200,
         -304
       ],
       "id": "3b8fea3f-2947-4611-8979-dd6a4148ec45",
@@ -615,7 +615,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1616,
+        1424,
         -400
       ],
       "id": "2649f31c-0f24-4b36-80eb-d29d827d1cce",
@@ -639,7 +639,7 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1616,
+        1424,
         -208
       ],
       "id": "e4f23750-b7d5-4285-a082-399b5b424182",
@@ -764,7 +764,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1840,
+        1648,
         -208
       ],
       "id": "83758a41-db1e-4bd0-9bd8-4b5d89073701",
@@ -786,8 +786,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1376,
-        80
+        1104,
+        144
       ],
       "id": "4bb86aa8-c2d3-4058-bdb8-d9cf371194f6",
       "name": "HTTP Request",
@@ -812,9 +812,13 @@
       "projectId": "zJAKCKeG7Ef7sO6E"
     }
   ],
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-11-13T15:13:34.000Z",
-  "versionId": "88b35656-58a4-45b8-a839-048cba13a95d"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-26T22:32:51.000Z",
+  "versionId": "7a442837-59ad-476a-8e12-0e3be8698242"
 }
