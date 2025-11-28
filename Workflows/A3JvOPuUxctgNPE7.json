@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Google Drive Trigger": {
       "main": [
@@ -2258,6 +2258,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2025-10-06T15:41:14.000Z",
+  "updatedAt": "2025-11-24T22:20:44.000Z",
   "versionId": "82dea0d6-6545-47d2-9ff3-8ec1e4b9f5df"
 }
