@@ -1,22 +1,22 @@
 {
   "active": true,
   "connections": {
-    "Webhook": {
+    "Crear URL": {
       "main": [
         [
           {
-            "node": "HTML",
+            "node": "Formulario",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML": {
+    "Formulario": {
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Servir el formulario",
             "type": "main",
             "index": 0
           }
@@ -45,7 +45,7 @@
         -80
       ],
       "id": "fae5147d-9446-44ad-8509-2b271d54ab1e",
-      "name": "Webhook",
+      "name": "Crear URL",
       "webhookId": "a1efc422-8e64-44e1-9503-bfdcb8e897c5"
     },
     {
@@ -59,7 +59,7 @@
         -80
       ],
       "id": "a3ae740d-6471-41f5-bdc3-555de4baf7db",
-      "name": "HTML"
+      "name": "Formulario"
     },
     {
       "parameters": {
@@ -74,7 +74,7 @@
         -80
       ],
       "id": "315d0e6a-eb5f-4d11-a82c-26786a5cd893",
-      "name": "Respond to Webhook"
+      "name": "Servir el formulario"
     }
   ],
   "pinData": {},
@@ -93,6 +93,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-21T00:01:26.000Z",
-  "versionId": "72ced0f5-8aff-437c-ab61-ed2a04fd6f97"
+  "updatedAt": "2025-11-24T20:57:23.000Z",
+  "versionId": "463c9c19-81a2-4b64-949d-4c7e12a2b355"
 }
