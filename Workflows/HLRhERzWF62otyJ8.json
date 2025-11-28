@@ -508,7 +508,7 @@
   },
   "createdAt": "2025-07-18T17:30:25.060Z",
   "id": "HLRhERzWF62otyJ8",
-  "isArchived": false,
+  "isArchived": true,
   "meta": null,
   "name": "Agente Ventas",
   "nodes": [
@@ -1952,6 +1952,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-08-22T04:11:26.000Z",
-  "versionId": "23d702ac-7ed7-4df7-91ee-f6865fca78ec"
+  "updatedAt": "2025-11-24T22:22:54.000Z",
+  "versionId": "9400f6c7-c8dc-4270-bab8-aa3f112a30ad"
 }
