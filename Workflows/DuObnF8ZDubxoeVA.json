@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Stripe Trigger": {
       "main": [
@@ -136,7 +136,7 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        896,
+        912,
         -64
       ],
       "id": "b187bba5-18a5-4290-8c89-b8fa1ea1e36a",
@@ -168,7 +168,7 @@
           "values": [
             {
               "lookupColumn": "customerId",
-              "lookupValue": "={{ $json.data.object.customer }}"
+              "lookupValue": "={{ $('Stripe Trigger').item.json.data.object.customer }}"
             }
           ]
         },
@@ -177,7 +177,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
+        240,
         -64
       ],
       "id": "547fff40-129e-44f6-9ab6-b6db5381e7df",
@@ -218,7 +218,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        448,
+        464,
         -64
       ],
       "id": "efac6850-4618-4f76-8191-7da5850dfce1",
@@ -236,7 +236,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        896,
+        912,
         -256
       ],
       "id": "a08ca6cd-e438-4165-9ef9-d2e2503e2a37",
@@ -257,7 +257,7 @@
       "type": "n8n-nodes-base.stripe",
       "typeVersion": 1,
       "position": [
-        672,
+        688,
         -64
       ],
       "id": "8d193bb9-273d-4323-99ba-f4001af6429d",
@@ -374,7 +374,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1344,
+        1360,
         128
       ],
       "id": "be0389ec-ffce-4fdd-ae00-89e2d3bfbb78",
@@ -397,7 +397,7 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        896,
+        912,
         128
       ],
       "id": "f9d34b32-3121-468d-97a5-b945e995b51c",
@@ -414,7 +414,7 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        1120,
+        1136,
         128
       ],
       "id": "6b66e106-2f4b-45dc-840d-fb62a603f4c7",
@@ -435,10 +435,16 @@
     }
   ],
   "staticData": {
-    "node:Stripe Trigger": {}
+    "node:Stripe Trigger": {
+      "webhookId": "we_1SXrGsFkz56z8ZFJH8NyGcrq",
+      "webhookEvents": [
+        "invoice.payment_failed"
+      ],
+      "webhookSecret": "whsec_MQwaFZAivM9RXtfVyuVy3ZWZ49HKWq3b"
+    }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-13T14:59:19.000Z",
-  "versionId": "aafc1091-8e11-4b6d-bd09-224332dec657"
+  "updatedAt": "2025-11-26T22:33:10.000Z",
+  "versionId": "0ee5d107-b244-4e52-bd0e-332f462b1b45"
 }
