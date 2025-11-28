@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Estructura": {
       "main": [
@@ -3949,6 +3949,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-11-07T02:21:51.000Z",
+  "updatedAt": "2025-11-24T22:19:48.000Z",
   "versionId": "55023c32-4599-41b0-896e-f07a92546980"
 }
