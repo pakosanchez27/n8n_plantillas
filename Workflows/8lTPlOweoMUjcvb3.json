@@ -60,7 +60,7 @@
         "name": "=Creación de Feed - {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
         "description": "=Comenzar creacion del feed: {{ $now.plus({ months: 1 }).format('yyyy-MM-dd') }}",
         "additionalFields": {
-          "idMembers": "64ff7e992679ca4a8fc55a43"
+          "idMembers": "6425a9cefe8d47f9797051e2"
         }
       },
       "type": "n8n-nodes-base.trello",
@@ -175,6 +175,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-15T00:15:30.000Z",
-  "versionId": "19ffb93f-1287-42af-beb9-1a7b01ab2f29"
+  "updatedAt": "2025-12-04T23:01:13.000Z",
+  "versionId": "aa6edd15-8138-429a-b244-470f6cbaf937"
 }
