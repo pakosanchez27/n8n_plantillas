@@ -1,0 +1,98 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-03T21:24:13.070Z",
+  "id": "9QmQ3CZjU3NwgP32",
+  "isArchived": false,
+  "meta": null,
+  "name": "Formulario Cupones",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "cupones-formulario",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "298628e2-edb4-42cb-b9e3-d6010740a587",
+      "name": "Webhook",
+      "webhookId": "c8dadb7c-68ce-46aa-931f-a4c136a8cb50"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Formulario Datos del Cliente</title>\n\n  <style>\n    :root {\n      /* 👇 Ajusta estos valores a los de felizconmicarrera.com */\n      --primary-color: #2b7a78;\n      --accent-color: #def2f1;\n      --text-color: #17252a;\n      --font-main: \"Poppins\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      --border-radius: 12px;\n    }\n\n    body {\n      margin: 0;\n      padding: 0;\n      min-height: 100vh;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      background: var(--accent-color);\n      font-family: var(--font-main);\n      color: var(--text-color);\n    }\n\n    .fmc-form-wrapper {\n      background: #ffffff;\n      padding: 2rem 2.2rem;\n      border-radius: var(--border-radius);\n      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);\n      max-width: 420px;\n      width: 100%;\n    }\n\n    .fmc-form-title {\n      font-size: 1.4rem;\n      margin: 0 0 1.5rem;\n      font-weight: 600;\n      text-align: center;\n      color: var(--primary-color);\n    }\n\n    .fmc-field {\n      margin-bottom: 1.1rem;\n    }\n\n    .fmc-label {\n      display: block;\n      margin-bottom: 0.35rem;\n      font-size: 0.9rem;\n      font-weight: 500;\n    }\n\n    .fmc-input {\n      width: 100%;\n      padding: 0.6rem 0.75rem;\n      border-radius: 8px;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      font-size: 0.95rem;\n      outline: none;\n      transition: border-color 0.2s ease, box-shadow 0.2s ease;\n      font-family: var(--font-main);\n    }\n\n    .fmc-input:focus {\n      border-color: var(--primary-color);\n      box-shadow: 0 0 0 2px rgba(43, 122, 120, 0.15);\n    }\n\n    .fmc-helper {\n      font-size: 0.75rem;\n      opacity: 0.7;\n      margin-top: 0.2rem;\n    }\n\n    .fmc-submit-btn,\n    .fmc-secondary-btn {\n      width: 100%;\n      margin-top: 0.5rem;\n      padding: 0.7rem 1rem;\n      border-radius: 999px;\n      border: none;\n      font-size: 0.95rem;\n      font-weight: 600;\n      cursor: pointer;\n      letter-spacing: 0.02em;\n      transition: transform 0.1s ease, box-shadow 0.2s ease, opacity 0.15s ease;\n      font-family: var(--font-main);\n    }\n\n    .fmc-submit-btn {\n      background: var(--primary-color);\n      color: #ffffff;\n    }\n\n    .fmc-submit-btn:hover {\n      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);\n      transform: translateY(-1px);\n    }\n\n    .fmc-submit-btn:active {\n      transform: translateY(0);\n      box-shadow: none;\n      opacity: 0.9;\n    }\n\n    .fmc-secondary-btn {\n      background: #ffffff;\n      color: var(--primary-color);\n      border: 1px solid var(--primary-color);\n    }\n\n    .fmc-secondary-btn:hover {\n      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);\n      transform: translateY(-1px);\n    }\n\n    .is-hidden {\n      display: none;\n    }\n\n    .fmc-success-box {\n      text-align: center;\n      padding: 1rem 0 0.3rem;\n    }\n\n    .fmc-success-title {\n      font-size: 1.2rem;\n      font-weight: 600;\n      color: var(--primary-color);\n      margin-bottom: 0.5rem;\n    }\n\n    .fmc-success-text {\n      font-size: 0.95rem;\n      margin-bottom: 1rem;\n    }\n\n    @media (max-width: 480px) {\n      .fmc-form-wrapper {\n        margin: 1rem;\n        padding: 1.5rem;\n      }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fmc-form-wrapper\">\n    <h1 class=\"fmc-form-title\">Datos del Cliente</h1>\n\n    <!-- Contenedor del formulario -->\n    <div id=\"formContainer\">\n      <form\n        id=\"cuponForm\"\n        action=\"https://n8n.srv914565.hstgr.cloud/webhook/registro-cupon\"\n        method=\"POST\"\n      >\n        <!-- Nombre del cliente -->\n        <div class=\"fmc-field\">\n          <label for=\"nombreCliente\" class=\"fmc-label\">Nombre del cliente</label>\n          <input\n            type=\"text\"\n            id=\"nombreCliente\"\n            name=\"nombreCliente\"\n            class=\"fmc-input\"\n            placeholder=\"Escribe el nombre completo\"\n            required\n          />\n        </div>\n\n        <!-- Número de WhatsApp -->\n        <div class=\"fmc-field\">\n          <label for=\"whatsapp\" class=\"fmc-label\">Número de WhatsApp</label>\n          <input\n            type=\"tel\"\n            id=\"whatsapp\"\n            name=\"whatsapp\"\n            class=\"fmc-input\"\n            placeholder=\"10 dígitos, solo números\"\n            pattern=\"[0-9]{10}\"\n            maxlength=\"10\"\n            required\n          />\n          <div class=\"fmc-helper\">Ejemplo: 5512345678</div>\n        </div>\n\n        <!-- Nombre de la orientadora -->\n        <div class=\"fmc-field\">\n          <label for=\"orientadora\" class=\"fmc-label\">Nombre de la orientadora</label>\n          <input\n            type=\"text\"\n            id=\"orientadora\"\n            name=\"orientadora\"\n            class=\"fmc-input\"\n            placeholder=\"Nombre de la orientadora\"\n            required\n          />\n        </div>\n\n        <!-- Botón de envío -->\n        <button type=\"submit\" class=\"fmc-submit-btn\" id=\"enviarBtn\">\n          Enviar cupón\n        </button>\n      </form>\n    </div>\n\n    <!-- Mensaje de éxito -->\n    <div id=\"mensajeCupon\" class=\"fmc-success-box is-hidden\">\n      <div class=\"fmc-success-title\">¡Cupón enviado!</div>\n      <div class=\"fmc-success-text\">\n        Los datos del cliente se han registrado correctamente.\n      </div>\n      <button type=\"button\" class=\"fmc-secondary-btn\" id=\"nuevoClienteBtn\">\n        Nuevo cliente\n      </button>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", () => {\n      const form = document.getElementById(\"cuponForm\");\n      const formContainer = document.getElementById(\"formContainer\");\n      const mensajeCupon = document.getElementById(\"mensajeCupon\");\n      const nuevoClienteBtn = document.getElementById(\"nuevoClienteBtn\");\n      const enviarBtn = document.getElementById(\"enviarBtn\");\n\n      form.addEventListener(\"submit\", async (event) => {\n        event.preventDefault();\n\n        // desactivar botón mientras se envía\n        enviarBtn.disabled = true;\n        const originalText = enviarBtn.textContent;\n        enviarBtn.textContent = \"Enviando...\";\n\n        const url = form.action;\n        const formData = new FormData(form);\n\n        try {\n          const response = await fetch(url, {\n            method: \"POST\",\n            body: formData,\n          });\n\n          if (response.ok) {\n            // ocultar formulario y mostrar mensaje de éxito\n            formContainer.classList.add(\"is-hidden\");\n            mensajeCupon.classList.remove(\"is-hidden\");\n          } else {\n            alert(\"Ocurrió un problema al enviar el cupón. Intenta de nuevo.\");\n          }\n        } catch (error) {\n          console.error(error);\n          alert(\"No se pudo conectar con el servidor. Verifica tu conexión.\");\n        } finally {\n          enviarBtn.disabled = false;\n          enviarBtn.textContent = originalText;\n        }\n      });\n\n      // Botón \"Nuevo cliente\"\n      nuevoClienteBtn.addEventListener(\"click\", () => {\n        form.reset();\n        mensajeCupon.classList.add(\"is-hidden\");\n        formContainer.classList.remove(\"is-hidden\");\n      });\n    });\n  </script>\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c146b455-eaca-47a6-994d-b3070e9e43f7",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "647938a1-ed38-436b-81b3-83d8a402cd35",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-03T21:24:13.073Z",
+      "createdAt": "2025-12-03T21:24:13.073Z",
+      "role": "workflow:owner",
+      "workflowId": "9QmQ3CZjU3NwgP32",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-03T22:58:28.000Z",
+  "versionId": "e93c0fb5-7c66-4bfb-a9ab-f7f85809cd92"
+}
