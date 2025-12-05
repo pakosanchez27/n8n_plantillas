@@ -1,0 +1,575 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Enviar imagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar imagem": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-03T22:10:03.285Z",
+  "id": "H6vjWukEi13eftSi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Registro de cupon",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "registro-cupon",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "02c6d3f7-58ec-4055-87ff-ebf11f47fe0a",
+      "name": "Webhook1",
+      "webhookId": "3a11a0da-2e55-4498-aee5-f97c799349ec"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ec801ffe-8a3a-4200-ac9d-a6fa7715d362",
+              "name": "Cliente",
+              "value": "={{ $json.body.nombreCliente }}",
+              "type": "string"
+            },
+            {
+              "id": "912c0925-4fe2-4ce7-9523-2e8d8fb8b26f",
+              "name": "Numero",
+              "value": "=521{{ $json.body.whatsapp }}",
+              "type": "string"
+            },
+            {
+              "id": "7e3dd86b-ec38-4af0-a8d3-b8965cfa143d",
+              "name": "Orientadora",
+              "value": "={{ $json.body.orientadora }}",
+              "type": "string"
+            },
+            {
+              "id": "83ddeb8a-e0f1-467a-a86a-ae9ee94a8174",
+              "name": "Mensaje 1",
+              "value": "🎉 ¡Felicidades por completar nuestro Programa de Capacitación Vocacional! 🎉  Como graduado/a, tienes un regalo especial para compartir: 🎁 Cupón de Referido Exclusivo  📢 Invita a tus amistades a transformar su futuro profesional y... ¡ambos se llevan beneficios!  👉 Comparte esta oportunidad y ayúdalos a dar el primer paso hacia su crecimiento vocacional.",
+              "type": "string"
+            },
+            {
+              "id": "e690b6b3-a412-49c7-a577-a2ef413f8dbe",
+              "name": "Mensaje 2",
+              "value": "¡Hola! 👋 Solo pasaba a recordarte que tienes un cupón de referido especial como graduado/a de nuestro Programa de Capacitación Vocacional. 🎓  🎁 No dejes que expire la oportunidad de compartir este beneficio con tus amistades. ¡Ellos te lo agradecerán! 🙌  👉 ¿Ya pensaste en quién podría necesitar este impulso profesional? ¡Compártelo hoy! 📲",
+              "type": "string"
+            },
+            {
+              "id": "239cdb00-41ee-4536-93be-698b968823db",
+              "name": "FechaEnvio",
+              "value": "={{ $now.format('yyyy-MM-dd')}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        0
+      ],
+      "id": "25f43da1-dcbf-454b-bba9-60c4272940c9",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1eShAuC0j_fqczvtphwMcSRyD47Ky6UPe",
+          "mode": "list",
+          "cachedResultName": "cuponenrique.png",
+          "cachedResultUrl": "https://drive.google.com/file/d/1eShAuC0j_fqczvtphwMcSRyD47Ky6UPe/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        336,
+        0
+      ],
+      "id": "d54167cd-b8a9-4de5-a2e8-4fe489e1eeac",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GbbZFAymho4JGE2k",
+          "name": "ApiEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        0
+      ],
+      "id": "89ece661-1aaf-46be-9680-b7970a7b6cac",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "FelizConMiCarrera",
+        "remoteJid": "=+{{ $('Edit Fields').item.json.Numero }}",
+        "media": "={{ $json.data }}",
+        "caption": "={{ $('Edit Fields').item.json['Mensaje 1'] }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        704,
+        0
+      ],
+      "id": "7affa9cd-c6ca-494b-9d15-1bcb93284597",
+      "name": "Enviar imagem",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1104,
+        0
+      ],
+      "id": "5be2227c-76f3-4049-bc6c-c78059a8b572",
+      "name": "Wait",
+      "webhookId": "2a824b6a-9fce-47ec-9016-daf6f41c511c"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo",
+          "mode": "list",
+          "cachedResultName": "Cuponera Enrique",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Numero ": "={{ $('Download file').item.json.Numero }}",
+            "Orintadora": "={{ $('Download file').item.json.Orientadora }}",
+            "Cliente": "={{ $('Download file').item.json.Cliente }}",
+            "Status": "Enviado",
+            "FechaEnvio": "={{ $('Edit Fields').item.json.FechaEnvio }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Numero ",
+              "displayName": "Numero ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FechaEnvio",
+              "displayName": "FechaEnvio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Recordatorio",
+              "displayName": "Recordatorio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Recordatorio",
+              "displayName": "Fecha Recordatorio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Orintadora",
+              "displayName": "Orintadora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        896,
+        0
+      ],
+      "id": "694499a3-ef69-4c7c-bb84-f9b61f0aafd5",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "FelizConMiCarrera",
+        "remoteJid": "=+{{ $json['Numero '] }}",
+        "messageText": "={{ $('Edit Fields').item.json['Mensaje 2'] }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1312,
+        0
+      ],
+      "id": "3e6840a5-dbb6-43c5-9afb-4938f539cc0d",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "PmLHlyqZKQXgGIBQ",
+          "name": "EnriqueAPI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo",
+          "mode": "list",
+          "cachedResultName": "Cuponera Enrique",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xc7ki57Poky_idUzyEZzRRIhDe4BKEJ-zGWeBzjWGLo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Numero ": "={{ $('Download file').item.json.Numero }}",
+            "row_number": 0,
+            "Fecha Recordatorio": "={{ $json.FechaRecordatorio }}",
+            "Recordatorio": "Enviado"
+          },
+          "matchingColumns": [
+            "Numero "
+          ],
+          "schema": [
+            {
+              "id": "Numero ",
+              "displayName": "Numero ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FechaEnvio",
+              "displayName": "FechaEnvio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Recordatorio",
+              "displayName": "Recordatorio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha Recordatorio",
+              "displayName": "Fecha Recordatorio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Orintadora",
+              "displayName": "Orintadora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1744,
+        0
+      ],
+      "id": "09b4290b-abb2-4929-9ac3-3d937d31e718",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "UUAnITIItWHLyMP6",
+          "name": "ApiGoogleEquipo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ced7902d-630d-411c-b049-32a7cb5e1710",
+              "name": "FechaRecordatorio",
+              "value": "={{ $now.format('yyyy-MM-dd') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        0
+      ],
+      "id": "ecb9e83a-ac3a-4527-8eb4-c2af18671c86",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-03T22:10:03.287Z",
+      "createdAt": "2025-12-03T22:10:03.287Z",
+      "role": "workflow:owner",
+      "workflowId": "H6vjWukEi13eftSi",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-03T22:58:33.000Z",
+  "versionId": "9f3efe67-278d-4679-9eea-dad4ee3519a7"
+}
