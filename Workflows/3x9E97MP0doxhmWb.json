@@ -1,0 +1,35 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-12-03T01:37:11.362Z",
+  "id": "3x9E97MP0doxhmWb",
+  "isArchived": false,
+  "meta": null,
+  "name": "Playground Margot",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-03T01:37:11.366Z",
+      "createdAt": "2025-12-03T01:37:11.366Z",
+      "role": "workflow:owner",
+      "workflowId": "3x9E97MP0doxhmWb",
+      "projectId": "zJAKCKeG7Ef7sO6E"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "updatedAt": "2025-07-30T07:16:47.434Z",
+      "createdAt": "2025-07-30T07:16:47.434Z",
+      "id": "mSpHjLUfWIhOQqzc",
+      "name": "Experimentos"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-03T01:37:15.000Z",
+  "versionId": "d2620690-284d-442e-ae0a-23d16bae6a90"
+}
